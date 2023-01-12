@@ -16,7 +16,7 @@ nav_order: 2
 > 5. API Gateway(nginx) : 2대의 채팅서버 및 1대의 인증서버를 묶어서 통합 RestApi entry point 제공
 > 6. STOMP : 웹소켓을 통한 채팅 실시간성 제공
 > * **아키텍처**
-> ![chattingBackendArchitecture](../../assets/images/final.png)
+> ![chattingBackendArchitecture](../../assets/images/architectures.png)
 
 
 
