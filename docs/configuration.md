@@ -11,13 +11,12 @@ nav_order: 2
 > * **사용기술**
 > 1. Elastic Search + Logstash + Kibana 를 통한 통계수집/시각화 [Image](https://ghkdqhrbals.github.io/assets/img/es/5.png)
 > 2. Kafka : 백본망(broker:3대)
-> 3. Debezium/JDBC-Sink-connector : 백업 DB uni-directional sync
-> 4. Docker : 모든 과정 도커라이징을 통한 CI(15개 컨테이너 동작)
-> 5. API Gateway(nginx) : 2대의 채팅서버 및 1대의 인증서버를 묶어서 통합 RestApi entry point 제공
+> 3. Debezium/JDBC-Sink-connector : Kafka를 통한 백업 DB uni-directional sync [Details](https://ghkdqhrbals.github.io/posts/chatting(9)/)
+> 4. Docker : 모든 과정 도커라이징을 통한 CI
+> 5. API Gateway(nginx) : 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공
 > 6. STOMP : 웹소켓을 통한 채팅 실시간성 제공
 > * **아키텍처**
-> ![chattingBackendArchitecture](../../assets/images/architectures.png)
-
+> ![chattingBackendArchitecture](../../assets/images/v3.1.0.png)
 
 
 ## **뱅킹 백엔드 서버** [Github](https://github.com/ghkdqhrbals/golang-backend-master){: .btn .btn-black .fs-3 .mb-4 .mb-md-0 }
@@ -33,7 +32,7 @@ nav_order: 2
 > 8. Gmock : mock test [Details](https://github.com/ghkdqhrbals/golang-backend-master/wiki/ghkdqhrbals:mockdb)
 > * **플로우**
 > ![golang-architecture](../../assets/images/api-multi-thread.jpeg)
->
+
 
 ## **다중 Geth 취약점을 이용한 블록체인 이클립스 공격 설계** [논문확인](https://scienceon.kisti.re.kr/srch/selectPORSrchArticleOrgnl.do?cn=DIKO0016457502){: .btn .btn-blue .fs-3 .mb-4 .mb-md-0 }
 > * **개요** : Golang으로 제작된 이더리움 클라이언트(~1.9.25v)를 마비시키는 공격설계 논문입니다
