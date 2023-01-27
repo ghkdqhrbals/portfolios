@@ -11,13 +11,17 @@ description: "About"
 
 * **장애발생시 대응방안**에 대해 고려하는 것을 좋아합니다.
   > 여러대의 Kafka broker로 메세지들의 replica를 생성함으로써 가상의 [메세지 손실을 고려한 경험](https://ghkdqhrbals.github.io/posts/chatting(1)/)이 있습니다.
-  > 또한 DB가 다운되는 장애를 고려하여 [백업 DB를 추가로 설정](https://ghkdqhrbals.github.io/posts/chatting(9)/)한 경험이 있습니다.
+  > 
+  > 또한 DB가 다운되는 장애를 고려하여 [백업 DB를 추가로 설정](https://ghkdqhrbals.github.io/posts/chatting(9)/#2-4-uni-directional-db-sink-결과)한 경험이 있습니다.
 
 * **자료 수집 및 통계 시각화**하는 것을 좋아합니다.
   > Logstash을 통해 Kafka로부터 자료를 수집하고, Elastic Search에 저장, Kibana로 통계를 [시각화](https://ghkdqhrbals.github.io/assets/img/es/5.png)한 경험이 있습니다.
 
 * **반복되는 과정을 자동화** 하는것을 좋아합니다.
-  > Docker 및 Git-workflow, 쉘 스크립트로 서버 시작에 필요한 과정을 자동화한 경험이 있습니다.
+  > 서버의 부하를 테스트 하기 위해 [10K개의 HTTP request를 전송하고 response 받는 과정을 자동화한 경험](https://ghkdqhrbals.github.io/posts/chatting(11)/)이 있습니다.
+  > 
+  > Docker 및 [Git-workflow](https://github.com/ghkdqhrbals/golang-backend-master/actions/workflows/deploy.yml) , [쉘 스크립트](https://ghkdqhrbals.github.io/posts/chatting(9)/#2-3-2-jdbc-connector-설치-및-삽입) 로 서버 시작에 필요한 과정을 자동화한 경험이 있습니다.
+   
 
 # Education
 

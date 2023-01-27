@@ -5,17 +5,16 @@ nav_order: 2
 description: "Projects"
 ---
 
-# Projects
-
----
-
-## **채팅 백엔드 서버** [개발과정](https://ghkdqhrbals.github.io/categories/%EC%B1%84%ED%8C%85%EC%84%9C%EB%B2%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/){: .btn .btn-primary .fs-3 .mb-4 .mb-md-0 .mr-2 } [Github](https://github.com/ghkdqhrbals/spring-chatting-server){: .btn .btn-black .fs-3 .mb-4 .mb-md-0 }
+# Main Projects
+## **채팅 백엔드 서버** [개발과정](https://ghkdqhrbals.github.io/categories/%EC%B1%84%ED%8C%85%EC%84%9C%EB%B2%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/){: .btn .btn-primary .fs-3 .mb-4 .mb-md-0 .mr-2 } [Github](https://github.com/ghkdqhrbals/spring-chatting-server){: .btn .btn-black .fs-3 .mb-4 .mb-md-0 } [설명 및 시연영상](https://www.youtube.com/watch?v=3VqwZ17XyEQ&t=625s){: .btn .btn-red .fs-3 .mb-4 .mb-md-0 }
 * **개요** : Spring-Java 기반 실시간 채팅 백엔드 서버입니다
+* **기간** : 2022.10 ~ 2023.01 (4개월)
+* **인원** : 1인
 
 | 사용기술                         | 내용                                                                                                          |
 |:-----------------------------|:------------------------------------------------------------------------------------------------------------|
 | ELK stack                    | Elastic Search + Logstash + Kibana 를 통한 통계수집/시각화 [Image](https://ghkdqhrbals.github.io/assets/img/es/5.png) |
-| Kafka                        | 3대의 Broker과 replica들을 통한 안전성 제공                                                                             |
+| Kafka                        | 3대의 Broker과 replica들을 통한 안전성 및 확장성 제공                                                                       |
 | Debezium/JDBC-Sink-connector | Kafka를 통한 백업 DB uni-directional sync [Details](https://ghkdqhrbals.github.io/posts/chatting(9)/)            |
 | Docker                       | 서버/DB/Kafka/Connector/ELK/Monitoring/etc. 실행 자동화                                                            |
 | Nginx                        | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                                    |
@@ -23,12 +22,12 @@ description: "Projects"
 | JPA                          | 영속성을 활용한 DB 관리                                                                                              |
 
 * **아키텍처**
-![chattingBackendArchitecture](../../assets/images/v3.1.0.png)
-
----
+  ![image](../../assets/images/v3.1.0.png)
 
 ## **뱅킹 백엔드 서버** [Github](https://github.com/ghkdqhrbals/golang-backend-master){: .btn .btn-black .fs-3 .mb-4 .mb-md-0 }
 * **개요** : Golang 으로 제작된 뱅킹 RestAPI 제공 백엔드 서버입니다
+* **기간** : 2022.06 ~ 2022.09 (4개월)
+* **인원** : 1인
 
 | 사용기술     | 내용                                                                                                                    |
 |:---------|:----------------------------------------------------------------------------------------------------------------------|
@@ -41,13 +40,11 @@ description: "Projects"
 | Viper | 외부 configuration 의존성 주입 [Details](https://github.com/ghkdqhrbals/golang-backend-master/wiki/ghkdqhrbals:viper)        |
 | Gmock | mock test [Details](https://github.com/ghkdqhrbals/golang-backend-master/wiki/ghkdqhrbals:mockdb)                     |
 
-* **플로우**
-![golang-architecture](../../assets/images/api-multi-thread.jpeg)
 
----
-
-## **다중 Geth 취약점을 이용한 블록체인 이클립스 공격 설계** [논문확인](https://scienceon.kisti.re.kr/srch/selectPORSrchArticleOrgnl.do?cn=DIKO0016457502){: .btn .btn-blue .fs-3 .mb-4 .mb-md-0 } [소개영상](https://www.youtube.com/watch?v=HbAPQwbNtfw){: .btn .btn-green .fs-3 .mb-4 .mb-md-0 }
+## **다중 Geth 취약점을 이용한 블록체인 이클립스 공격 설계** [논문확인](https://scienceon.kisti.re.kr/srch/selectPORSrchArticleOrgnl.do?cn=DIKO0016457502){: .btn .btn-blue .fs-3 .mb-4 .mb-md-0 } [소개영상](https://www.youtube.com/watch?v=HbAPQwbNtfw){: .btn .btn-red .fs-3 .mb-4 .mb-md-0 }
 * **개요** : Golang으로 제작된 이더리움 클라이언트(~1.9.25v)를 마비시키는 공격설계 논문입니다
+* **기간** : 2020.09 ~ 2022.08 (2년)
+* **인원** : 2인(팀장)
 
 | 사용기술                | 내용                                                                                                                                                      |
 |:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -59,24 +56,55 @@ description: "Projects"
 | Eclipse Attack      | 노드 고립 유도하여 블록 동기화 과정 진입 억제 [추가논문확인](https://ghkdqhrbals.github.io/assets/img/EthereumEclipseAttackAnalysis.pdf){: .btn .btn-blue .fs-2 .mb-4 .mb-md-0 } | 
 
 * **아키텍처**
-![attack](../../assets/images/attack.png)
+  ![image](../../assets/images/attack.png)
 
 ---
+
+# **Toy Projects**
+## **대량 HTTP request를 통한 서버 부하 테스트** [개발과정](https://ghkdqhrbals.github.io/posts/chatting(11)/){: .btn .btn-primary .fs-3 .mb-4 .mb-md-0 .mr-2 } [Github](https://github.com/ghkdqhrbals/multiple-restapi-request-test){: .btn .btn-black .fs-3 .mb-4 .mb-md-0 }
+* **개요** : Golang, net/http 기반 다량의 HTTP를 전송하여 서버를 테스트할 수 있는 시뮬레이터입니다.
+* **기간** : 2023.01
+* **인원** : 1인
+
+| 사용기술                         | 내용                                                                                                          |
+|:--------|:------------------------------------------------------------------------------------------------------------|
+| Docker                    | 환경설정 및 빌드&테스트 자동화 |
+| Viper                     | 외부 configuration 의존성 주입                                                                             |
+
+* **시뮬레이터 결과**
+
+```
+test-multiple-http-request  | Request url: http://127.0.0.1:8080/auth/user
+test-multiple-http-request  | The number of HTTP Requests: 10000
+test-multiple-http-request  | The number of threads: 100
+test-multiple-http-request  | Proceeding! Please wait until getting all the responses
+test-multiple-http-request  | Elapsed Time: 30.533003028
+test-multiple-http-request  | Response status code:  200 , How many?:  10000
+```
+
 
 ## **블록체인 기반 친환경 에너지 거래 플랫폼 프로토타입** [Github](https://github.com/ghkdqhrbals/blockchain-with-python){: .btn .btn-black .fs-3 .mb-4 .mb-md-0 }
 * **개요** : python으로 제작된 블록체인 기반 친환경 에너지 거래 플랫폼의 프로토타입입니다. 합의 알고리즘에 집중하였습니다.
-* **사용기술**
-1. 블록 생성자 결정 : Consensus-algorithm 의 PBFT 합의 알고리즘 기반 2-stage 합의 알고리즘 생성 `𝑀𝑖𝑛𝑒𝑟=𝑀𝑎𝑥_𝐴𝑑𝑑𝑟 (ℎ𝑎𝑠ℎ(𝑃𝑟𝑒𝑣𝐵𝑙𝑜𝑐𝑘𝐻𝑎𝑠ℎ,𝐴𝑑𝑑𝑟)`
-2. 블록 완결 : `∑(0<𝑖<𝑑)𝑅𝐸100_𝑖^𝑎𝑔𝑟𝑒𝑒 ≥2/3 𝑅𝐸100_𝑡𝑜𝑡𝑎𝑙`
+* **기간** : 2021.03 ~ 2021.06
+* **인원** : 2인(팀원)
 
----
+| 사용기술 | 내용 |
+|:----|:-----|
+| 블록 생성자 결정 | 동기화된 네트워크에서 랜덤한 생성자를 결정할 수 있는 알고리즘 제작 = `𝑀𝑖𝑛𝑒𝑟=𝑀𝑎𝑥_𝐴𝑑𝑑𝑟 (ℎ𝑎𝑠ℎ(𝑃𝑟𝑒𝑣𝐵𝑙𝑜𝑐𝑘𝐻𝑎𝑠ℎ,𝐴𝑑𝑑𝑟)` `𝑀𝑎𝑥_𝐴𝑑𝑑𝑟`값이 가장 큰 노드가 블록 생성자로 결정됩니다 |
+| 블록 완결 | 합의에 의한 Block confirmation `∑(0<𝑖<𝑑)𝑅𝐸100_𝑖^𝑎𝑔𝑟𝑒𝑒 ≥2/3 𝑅𝐸100_𝑡𝑜𝑡𝑎𝑙` (PBFT와 동일) |
+
 
 ## **빈도수 모델을 통한 악성 파워쉘 스크립트 탐지**
 * **개요** : python으로 제작된 Fileless Malware 중 파워쉘 스크립트 탐지 툴입니다.
-* **사용기술** 
-1. Pattern Analysis : Fileless Malware 의 특성인 메모리 상 동작하는 악성 스크립트의 패턴을 분석
-2. Powershell Malware Analysis : 악성 파워쉘 스크립트의 패턴을 분석 [논문 분석 자료](https://ghkdqhrbals.github.io/assets/img/golang/study-powershell-malware.pdf){: .btn .btn-red .fs-2 .mb-4 .mb-md-0 }
-3. 비난독화 : 난독화 된 악성 스크립트를 탐지를 위해 비난독화 진행(base64-encoding + etc.)
-4. TF-IDF : 빈도수 기반 모델 사용
+* **기간** : 2021.07 ~ 2021.12
+* **인원** : 2인(팀장)
+
+| 사용기술                         | 내용                                                                                                                                                   |
+|:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Pattern Analysis                    | Fileless Malware 의 특성인 메모리 상 동작하는 악성 스크립트의 패턴을 분석                                                                                                    |
+| Powershell Malware Analysis | 악성 파워쉘 스크립트의 패턴을 분석 [논문 분석 자료](https://ghkdqhrbals.github.io/assets/img/golang/study-powershell-malware.pdf){: .btn .btn-blue .fs-2 .mb-4 .mb-md-0 } |
+| 비난독화 | 난독화 된 악성 스크립트를 탐지를 위해 비난독화 진행(base64-encoding + etc.)                                                                                                |
+| TF-IDF | 빈도수 기반 모델 사용                                                                                                                                         |
+
 * **아키텍처**
 ![attackon](../../assets/images/powershell2.png)
