@@ -13,9 +13,11 @@ description: "About"
   > 여러대의 Kafka broker로 메세지들의 replica를 생성함으로써 가상의 [메세지 손실을 고려한 경험](https://ghkdqhrbals.github.io/posts/chatting(1)/)이 있습니다.
   > 
   > 또한 DB가 다운되는 장애를 고려하여 [백업 DB를 설정](https://ghkdqhrbals.github.io/posts/chatting(9)/#2-4-uni-directional-db-sink-결과)한 경험이 있습니다.
+  > 
+  > 높은 트래픽을 처리하기 위해 batch/서버수평확장/쿼리빈도 최적화 등을 적용하여 api 요청에 소요되는 시간을 [2.7배 감소시킨 경험](https://ghkdqhrbals.github.io/categories/성능문제-개선/)이 있습니다. 
 
 * **자료 수집 및 통계 시각화**하는 것을 좋아합니다.
-  > Logstash을 통해 Kafka로부터 자료를 수집하고, Elastic Search에 저장, Kibana로 통계를 [시각화](https://ghkdqhrbals.github.io/assets/img/es/5.png)한 경험이 있습니다.
+  > Logstash을 통해 Kafka로부터 자료를 수집하고, Elastic Search에 저장, Kibana로 통계를 [시각화](assets/images/a.png)한 경험이 있습니다.
 
 * **반복되는 과정을 자동화** 하는것을 좋아합니다.
   > 서버의 부하를 테스트 하기 위해 [10K개의 HTTP request를 전송하고 response 받는 과정을 자동화한 경험](https://ghkdqhrbals.github.io/posts/chatting(11)/)이 있습니다.
