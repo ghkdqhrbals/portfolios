@@ -116,6 +116,11 @@
   }
 }
 
+.count:before {
+  counter-increment: section;
+  content: counter(section);
+}
+
 .site-title {
   @include container;
 

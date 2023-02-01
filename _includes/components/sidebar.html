@@ -1,6 +1,6 @@
 <div class="side-bar">
   <div class="site-header">
-    <img src="{{ '/portfolio/assets/avatar/avatar.jpg' }}" class="avatar" onerror="this.style.display='none'">
+    <img src="{{ '/assets/avatar/avatar.jpg' | relative_url }}" class="avatar" onerror="this.style.display='none'">
     <a href="{{ '/' | relative_url }}" class="site-title lh-tight">
       Gyumin Hwangbo
     </a>
@@ -43,9 +43,14 @@
               <ul class="nav-list nav-category-list">
                 <li class="nav-list-item{% if page.collection == collection_key %} active{% endif %}">
                   {%- if collection.size > 0 -%}
-                  <a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a>
+
+                  <a href="#" class="nav-list-expander">
+                    <svg viewBox="0 0 24 24">
+                      <use xlink:href="#svg-arrow-right"></use>
+                    </svg>
+                  </a>
                   {%- endif -%}
-                  <div class="nav-category">{{ collection_value.name }}</div>
+                  <div class="nav-category">{{ collection_value.name }} </div>
                   {% include nav.html pages=collection key=collection_key %}
                 </li>
               </ul>
