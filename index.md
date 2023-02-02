@@ -26,11 +26,11 @@ permalink: /
 안녕하세요. 새로운 것을 배우길 좋아하는 신입 개발자 황보규민입니다. 저는,
 
 * **장애발생시 대응방안**에 대해 고려하는 것을 좋아합니다.
-  > 여러대의 Kafka broker로 메세지들의 replica를 생성함으로써 가상의 [메세지 손실을 고려한 경험](https://ghkdqhrbals.github.io/posts/chatting(1)/)이 있습니다.
+  > 여러대의 Kafka broker로 메세지들의 replica를 생성함으로써 가상의 [메세지 손실을 고려한 경험](https://ghkdqhrbals.github.io/portfolios/docs/project/2022-12-11-chatting(1)/)이 있습니다.
   > 
   > 또한 DB가 다운되는 장애를 고려하여 [백업 DB를 설정](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-04-chatting(9)/)한 경험이 있습니다.
   > 
-  > 높은 트래픽을 처리하기 위해 batch/서버수평확장/쿼리빈도 최적화 등을 적용하여 api 요청에 소요되는 시간을 [270% 개선시킨 경험](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-27-chatting(18)/)이 있습니다. 
+  > 높은 트래픽을 수용하기 위해 batch/서버수평확장/쿼리빈도 최적화 등을 적용하여 api 요청에 소요되는 시간을 [270% 개선시킨 경험](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-27-chatting(18)/)이 있습니다. 
 
 * **자료 수집 및 통계를 시각화**하는 것을 좋아합니다.
   > Logstash을 통해 Kafka로부터 자료를 수집하고, Elastic Search에 저장, Kibana로 통계를 **시각화**한 경험이 있습니다.
@@ -43,7 +43,7 @@ permalink: /
 * **반복되는 과정을 자동화** 하는것을 좋아합니다.
   > 서버의 부하를 테스트 하기 위해 [10K개의 HTTP request를 전송하고 response 받는 과정을 자동화한 경험](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-15-chatting(11)/)이 있습니다.
   > 
-  > Docker 및 [Git-workflow](https://github.com/ghkdqhrbals/golang-backend-master/actions/workflows/deploy.yml) , [쉘 스크립트](https://ghkdqhrbals.github.io/posts/chatting(9)/#2-3-2-jdbc-connector-설치-및-삽입) 로 서버 시작에 필요한 과정을 자동화한 경험이 있습니다.
+  > Docker 및 [Git-workflow](https://github.com/ghkdqhrbals/golang-backend-master/actions/workflows/deploy.yml) , [쉘 스크립트](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-04-chatting(9)/#2-3-2-jdbc-connector-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%BD%EC%9E%85) 로 서버 시작에 필요한 과정을 자동화한 경험이 있습니다.
 
 <div class="header-cv" markdown="1">
 
@@ -88,14 +88,14 @@ permalink: /
 
 
 [개발과정](https://ghkdqhrbals.github.io/portfolios/docs/project/){: .btn .btn-primary .fs-2 .mb-4 .mb-md-0 .ml-5 } [Github](https://github.com/ghkdqhrbals/spring-chatting-server){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 } [설명 및 시연영상](https://www.youtube.com/watch?v=3VqwZ17XyEQ&t=625s){: .btn .btn-red .fs-2 .mb-4 .mb-md-0 }
-* **실시간 채팅 서버 프로젝트** 
+* 📌 **실시간 채팅 서버 프로젝트** 
   * **개요** : Kafka와 ELK stack을 통해 실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버입니다.
     * #### 성능개선 
-      채팅저장, 유저저장 api 요청에 소요되는 시간을 각각 **270%, 470% 개선**하였습니다. 결과로 채팅저장, 유저저장 api 요청소요시간은 각각 **3ms**, **2.3ms**로 개선되었습니다. 
+      채팅저장, 유저저장 api 요청에 소요되는 시간을 각각 **270%, 470% 개선**하였습니다. 결과로 한번의 채팅저장, 유저저장 api 요청에 소요되는 시간은 각각 **3ms**, **2.3ms**로 개선되었습니다. 
     * #### 확장성 고려
       Docker, Kafka 를 통해 **서버를 확장하기 쉬운 아키텍처**를 구성하였습니다. 또한 백엔드의 통합 entry point를 api gateway로 설정하여 외부에서 쉽게 접근하도록 설계하였습니다.
     * #### 모니터링
-      ELK stack 을 통해 유저저장/채팅 트래픽을 **실시간으로 관찰**할 수 있도록 설정하였습니다. 또한 Kafka 내부정보 또한 모니터링 할 수 있도록 설정하였습니다.
+      ELK stack 을 통해 유저저장/채팅 **트래픽을 실시간으로 관찰**할 수 있도록 설정하였습니다. 또한 Kafka 내부정보 또한 모니터링 할 수 있도록 설정하였습니다.
     * #### 안정성 고려
       DB가 유실되는 상황을 고려하여 Debezium/JDBC-sink-connector와 Kafka를 연동하여 단반향 동기화된 **Backup DB를 구성**하였습니다.
   * **기간** : 2022년 10월 ~ 2023년 01월 (4개월)
@@ -115,7 +115,7 @@ permalink: /
     </div>
     </details>
   * <details><summary>아키텍처 펼치기</summary><div markdown="1">
-  
+    
     ![image](assets/images/v3.1.0.png)
     </div>
     </details>
@@ -123,8 +123,8 @@ permalink: /
 <div class="empty-line">
 </div>
 
-[Github](https://github.com/ghkdqhrbals/golang-backend-master){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 .ml-5}
-* **뱅킹 백엔드 서버** 
+[Github](https://github.com/ghkdqhrbals/golang-backend-master){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 .ml-5} 
+* 📌 **뱅킹 백엔드 서버** 
   * **개요** : Gin-Golang 기반 뱅킹 RestAPI 백엔드 서버입니다
     * #### 배포 자동화
       Git-workflow로 AWS에 자동적으로 배포가능하도록 설계하였습니다.
@@ -154,7 +154,7 @@ permalink: /
 </div>
 
 [논문확인](https://scienceon.kisti.re.kr/srch/selectPORSrchArticleOrgnl.do?cn=DIKO0016457502){: .btn .btn-blue .fs-2 .mb-4 .mb-md-0 .ml-5} [소개영상](https://www.youtube.com/watch?v=HbAPQwbNtfw){: .btn .btn-red .fs-2 .mb-4 .mb-md-0 }
-* **다중 Geth 취약점을 이용한 블록체인 이클립스 공격 설계** 
+* 📌 **다중 Geth 취약점을 이용한 블록체인 이클립스 공격 설계** 
   * **개요** : Golang으로 제작된 이더리움 클라이언트(~1.9.25v)를 마비시키는 공격설계 논문입니다
     * #### 모니터링
       공격받는 노드의 현재 리소스 소모 상태를 하트비트를 통해 확인할 수 있도록 설계하였습니다. 또한 이를 이용하여 공격 패킷의 개수를 최적화 하였습니다.
@@ -192,7 +192,7 @@ permalink: /
 
 
 [개발과정](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-15-chatting(11)/){: .btn .btn-primary .fs-2 .mb-4 .mb-md-0 .mr-2 .ml-5} [Github](https://github.com/ghkdqhrbals/multiple-restapi-request-test){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 }
-* **대량 HTTP request를 통한 서버 부하 테스트** 
+* 📌 **대량 HTTP request를 통한 서버 부하 테스트** 
   * **개요** : Golang, net/http 기반 다량의 HTTP를 전송하여 서버를 테스트할 수 있는 시뮬레이터입니다.
     * #### 자동화
       Docker-compose 와 Viper 를 통해 환경설정 및 실행을 자동화 하여 빠르게 테스트할 수 있도록 설계하였습니다.
@@ -227,7 +227,7 @@ permalink: /
 </div>
 
 [Github](https://github.com/ghkdqhrbals/blockchain-with-python){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 .ml-5}
-* **블록체인 기반 친환경 에너지 거래 플랫폼 프로토타입** 
+* 📌 **블록체인 기반 친환경 에너지 거래 플랫폼 프로토타입** 
   * **개요** : python으로 제작된 블록체인 기반 친환경 에너지 거래 플랫폼의 프로토타입입니다. 합의 알고리즘에 집중하였습니다.
     * #### 새로운 합의 알고리즘 설계
       REC의 쌍방계약 형태에 맞춰 블록체인 트랜잭션을 이중서명 구조로 새롭게 제안합니다.
@@ -246,7 +246,7 @@ permalink: /
 <div class="empty-line">
 </div>
 
-* **빈도수 모델을 통한 악성 파워쉘 스크립트 탐지**
+* 📌 **빈도수 모델을 통한 악성 파워쉘 스크립트 탐지**
   * **개요** : python으로 제작된 Fileless Malware 중 파워쉘 스크립트 탐지 툴입니다.
     * #### 탐지 유연성 개선
       LSTM 와 TF/IDF 의 앙상블을 통해 기존 스태틱 탐지에 유연성을 더하였습니다.
