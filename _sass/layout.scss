@@ -217,3 +217,23 @@ body {
   height: $sp-5;
   color: $link-color;
 }
+
+.header-cv {
+  background-color: rgb(255 208 0 / 71%);
+  padding-left: 10px;
+  padding-top: 0.1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-bottom: 0.1px;
+  box-shadow: 1px 1px 2.3px #858585;
+}
+
+.empty-line {
+  height: 7px;
+}
+
+.lines {
+  height: 5px;
+  background-color: rgb(37, 37, 37);
+  border-bottom-right-radius: 5px;
+}

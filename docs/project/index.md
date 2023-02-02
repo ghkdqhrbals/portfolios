@@ -5,11 +5,12 @@ nav_order: 3
 has_children: true
 ---
 
+실시간 채팅서버 프로젝트입니다.
 
-# **채팅 백엔드 서버** [개발과정](https://ghkdqhrbals.github.io/categories/%EC%B1%84%ED%8C%85%EC%84%9C%EB%B2%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/){: .btn .btn-primary .fs-3 .mb-4 .mb-md-0 .mr-2 } [Github](https://github.com/ghkdqhrbals/spring-chatting-server){: .btn .btn-black .fs-3 .mb-4 .mb-md-0 } [설명 및 시연영상](https://www.youtube.com/watch?v=3VqwZ17XyEQ&t=625s){: .btn .btn-red .fs-3 .mb-4 .mb-md-0 }
-* **개요** : Spring-Java 기반 실시간 채팅 백엔드 서버입니다
-* **기간** : 2022.10 ~ 2023.01 (4개월)
-* **인원** : 1인
+<details><summary>채팅 서버 내용</summary><div markdown="1">
+
+# **채팅 서버**
+### 사용기술
 
 | 사용기술                         | 내용                                                                                                          |
 |:-----------------------------|:------------------------------------------------------------------------------------------------------------|
@@ -21,5 +22,10 @@ has_children: true
 | Stomp                        | 채팅 실시간성 제공                                                                                                  |
 | JPA                          | 영속성을 활용한 DB 관리                                                                                              |
 
-* **아키텍처**
-  ![image](../../assets/images/v3.1.0.png)
+### 아키텍처
+![image](../../assets/images/v3.1.0.png)
+
+### 일정관리
+![img](../../assets/img/그림1.png)
+
+</div>
