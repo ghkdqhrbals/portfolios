@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Saga 패턴
+title: 📌 Saga 패턴
 parent: MSA
 nav_order: 2
 ---
@@ -35,11 +35,9 @@ SAGA 패턴은 MSA에서 트랜젝션의 ACID를 보장하기위해 만든 패�
   > 그렇지만 이벤트 토픽 별 기능 및 서비스들이 잘 문서화되어 있다면, **오히려 Orchestration형태가 Choreography에 비해 유지/보수 비용이 높을 수 있습니다**!
 
 * Orchestration 단점
-  * **타이트한 커플링** : Orchestration 형태에서는 모든 서비스들이 `composite` 서비스와 연결되어 있습니다.즉, `composite` 서비스를 업데이트할 때, 모든 서비스들이 영향을 받게 되어 에러발생의 원인이 됩니다. 또한 직접적으로 서로 통신하기에, 확장성에 있어 불리합니다. 
+  * **타이트한 커플링** : Orchestration 형태에서는 모든 서비스들이 `composite` 서비스와 연결되어 있습니다.즉, `composite` 서비스를 업데이트할 때, 모든 서비스들이 영향을 받게 되어 에러발생의 원인이 됩니다. 또한 직접적으로 서로 통신하기에, **확장성에 있어 불리합니다**. 
   > 이 부분은 Choreography의 장점으로 연결됩니다.
-
-
-지금 현재 진행중인 [실시간 채팅 프로젝트](https://ghkdqhrbals.github.io/portfolios/docs/project/)는 Orchestration 패턴으로 구성되어 있습니다. `Front Server`가 `composite` 서비스 역할을 수행함으로써 인증 서비스와 채팅 서비스의 트랜젝션 순서를 보장해주도록 설정했습니다. 
+  
 
 # References
 * [https://waspro.tistory.com/735](https://waspro.tistory.com/735)

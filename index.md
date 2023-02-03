@@ -89,13 +89,13 @@ permalink: /
 
 [개발과정](https://ghkdqhrbals.github.io/portfolios/docs/project/){: .btn .btn-primary .fs-2 .mb-4 .mb-md-0 .ml-5 } [Github](https://github.com/ghkdqhrbals/spring-chatting-server){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 } [설명 및 시연영상](https://www.youtube.com/watch?v=3VqwZ17XyEQ&t=625s){: .btn .btn-red .fs-2 .mb-4 .mb-md-0 }
 * 📌 **실시간 채팅 서버 프로젝트** 
-  * **개요** : Kafka와 ELK stack을 통해 실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버입니다.
+  * **개요** : Kafka와 ELK stack을 통해 실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다.
     * #### 성능개선 
       채팅저장, 유저저장 api 요청에 소요되는 시간을 각각 **270%, 470% 개선**하였습니다. 결과로 한번의 채팅저장, 유저저장 api 요청에 소요되는 시간은 각각 **3ms**, **2.3ms**로 개선되었습니다. 
     * #### 확장성 고려
       Docker, Kafka 를 통해 **서버를 확장하기 쉬운 아키텍처**를 구성하였습니다. 또한 백엔드의 통합 entry point를 api gateway로 설정하여 외부에서 쉽게 접근하도록 설계하였습니다.
     * #### 모니터링
-      ELK stack 을 통해 유저저장/채팅 **트래픽을 실시간으로 관찰**할 수 있도록 설정하였습니다. 또한 Kafka 내부정보 또한 모니터링 할 수 있도록 설정하였습니다.
+      ELK stack 을 통해 유저저장/채팅 **트래픽을 실시간으로 관찰**할 수 있도록 설정하였습니다. 또한 Kafka 내부 메세지를 쉽게 모니터링 할 수 있도록 설정하였습니다.
     * #### 안정성 고려
       DB가 유실되는 상황을 고려하여 Debezium/JDBC-sink-connector와 Kafka를 연동하여 단반향 동기화된 **Backup DB를 구성**하였습니다.
   * **기간** : 2022년 10월 ~ 2023년 01월 (4개월)
