@@ -246,6 +246,8 @@ permalink: /
 <div class="empty-line">
 </div>
 
+
+[Github](https://github.com/ghkdqhrbals/Malware_LSTM){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 .ml-5}
 * 📌 **빈도수 모델을 통한 악성 파워쉘 스크립트 탐지**
   * **개요** : python으로 제작된 Fileless Malware 중 파워쉘 스크립트 탐지 툴입니다.
     * #### 탐지 유연성 개선
