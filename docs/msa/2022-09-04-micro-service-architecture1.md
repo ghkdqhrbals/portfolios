@@ -39,6 +39,8 @@ SAGA 패턴은 MSA에서 트랜젝션의 ACID를 보장하기위해 만든 패�
   > 이 부분은 Choreography의 장점으로 연결됩니다.
   
 
+
+
 # References
 * [https://waspro.tistory.com/735](https://waspro.tistory.com/735)
 * [https://microservices.io/patterns/data/saga.html](https://microservices.io/patterns/data/saga.html)
