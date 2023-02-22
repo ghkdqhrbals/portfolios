@@ -83,6 +83,24 @@ public void sendToKafkaWithKey(String topic, Object req, String key) {
 저는 채팅서버 프로젝트에서 카프카에 메세지를 보내고 성공확인여부를 반환받을 때, 위와 같이 non-blocking으로 진행합니다.
 그리고 이 부분은 별도의 스레드로 실행되도록 설정하였으며, 결론적으로 Async-NonBlocking 방식의 통신을 하도록 설정하였습니다.
 
+{: .highlight }
+>추가적으로 `SendResult`는 Kafka가 지원하는 결과 전달 객체입니다.
+>
+>Kafka는 메세지큐에 정상적으로 삽입되면, ListenableFuture의 `onSuccess`에게 토픽, 키, 오프셋값, 삽입된 파티션 넘버 등의 메타정보들(SendResult)을 전달하게됩니다.
+
+
+```java
+/**
+* Result for a ListenableFuture after a send.
+*
+* @param <K> the key type.
+* @param <V> the value type.
+*
+* @author Gary Russell
+*
+*/
+public class SendResult<K, V> {...}
+```
 
 # Reference
 * [https://github.com/google/guava/wiki/ListenableFutureExplained](https://github.com/google/guava/wiki/ListenableFutureExplained)
