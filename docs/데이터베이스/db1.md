@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 쿼리 최적화 방법
+title: 📌 쿼리 최적화 방법
 parent: RDBMS
 nav_order: 1
 ---
@@ -79,7 +79,7 @@ nav_order: 1
 5. **SELECT DISTINCT * 로 검색하지 않기**
    * 이유 : `DISTINCT`는 주로 중복을 방지하기 위해서 사용합니다. 만약 `DISTINCT *`로 모든 row의 중복체크를 실행하게 된다면, 리소스 소모가 상당히 커집니다. 일반적으로 우리는 테이블에 UNIQUE, PK 와 같은 제약조건을 붙여 놓습니다. 즉 일반적으로는 유니크한 제약덕에 중복되는 값이 없다는 소리거든요. 따라서 불필요하게 `DISTINCT *`를 실행행하기 보다, `DISTINCT {Column}`으로 실질적인 칼럼명을 적는 것이 성능상에서 이점을 가져올 수 있습니다.
    
-   만약 또 다시 불필요한 DISTINCT를 사용하게 된다면 아래와 같이 **600% 성능감소가 발생**합니다!
+   만약 또 다시 불필요한 DISTINCT를 사용하게 된다면 아래와 같이 **600% 성능감소가 발생**합니다.
 
    ![img](../../../assets/img/db/db1.png)
    * Original: SELECT DISTINCT * FROM SH.Sales s INNER JOIN SH.Customer c ON s.cust_id = c.cust_id WHERE c.cust_marital_status = 'single';
