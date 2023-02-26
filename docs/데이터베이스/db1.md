@@ -15,12 +15,13 @@ nav_order: 1
 > * [https://developer-talk.tistory.com/420](https://developer-talk.tistory.com/420)
 > * Query Optimization Techniques - Tips For Writing Efficient And Faster SQL Queries
 > 
-> 본 글은 위의 글을 번역하고 정리한 글입니다.
+> 본 글은 위의 글을 번역하고 정리 및 추가한 글입니다.
 
 1. **SELECT * 자제**
    * 이유 : 필요없는 칼럼까지 조회한다면 네트워크패킷의 크기가 증가하며, 불필요하게 리소스를 소모하게 됩니다.
 
    간단한 방법이며, 성능을 약 **120% 향상**시킬 수 있습니다.
+
    ![img](../../../assets/img/db/db3.png)
 
 2. **LIKE 검색시 와일드카드(%)는 사용하지 않거나, 사용하더라도 끝에 작성**

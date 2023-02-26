@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Go언어
-nav_order: 7
+title: Go
+nav_order: 8
 has_children: true
 ---
 

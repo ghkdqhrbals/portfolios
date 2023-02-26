@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 서킷 브레이커
-parent: 게이트웨이
+parent: 기타
 nav_order: 1
 ---
 

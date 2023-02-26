@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Garbage Collection
-parent: 자바
+parent: Java
 nav_order: 2
 ---
 

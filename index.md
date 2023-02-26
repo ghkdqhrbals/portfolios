@@ -23,27 +23,40 @@ permalink: /
 <div class="lines">
 </div>
 
-안녕하세요. 새로운 것을 배우길 좋아하는 신입 개발자 황보규민입니다. 저는,
+안녕하세요. 신입 개발자 황보규민입니다. 저는 **장애발생에 미리 대응**하길 좋아하며, **확장성 있는 시스템을 구축**하는 것을 좋아하는 사람입니다.
 
-* **장애발생시 대응방안**에 대해 고려하는 것을 좋아합니다.
-  > 여러대의 Kafka broker로 메세지들의 replica를 생성함으로써 가상의 [메세지 손실을 고려한 경험](https://ghkdqhrbals.github.io/portfolios/docs/project/2022-12-11-chatting(1)/)이 있습니다.
-  > 
-  > 또한 DB가 다운되는 장애를 고려하여 [백업 DB를 설정](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-04-chatting(9)/)한 경험이 있습니다.
-  > 
-  > 높은 트래픽을 수용하기 위해 batch/서버수평확장/쿼리빈도 최적화 등을 적용하여 api 요청에 소요되는 시간을 [270% 개선시킨 경험](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-27-chatting(18)/)이 있습니다. 
+따라서 저는 다양한 기술들을 아래의 프로젝트들에 다음과 같이 적용하였습니다. 
 
-* **자료 수집 및 통계를 시각화**하는 것을 좋아합니다.
-  > Logstash을 통해 Kafka로부터 자료를 수집하고, Elastic Search에 저장, Kibana로 통계를 **시각화**한 경험이 있습니다.
-  > 
-  > <details><summary>시각화된 자료 펼치기</summary><div markdown="1">
-  >
-  >  ![시각화](assets/images/a.png)
-  > </div>
+* **실시간 채팅 서버 프로젝트**
+    > #### 확장성 있는 시스템 구축
+    > 1. MQ Kafka 를 통해 Consumer 별 오프셋을 제공함으로써 서버를 수평확장하기 쉬운 아키텍처를 구성하였습니다.
+    > 2. Docker 를 통해 약 **20개**의 컨테이너를 자동으로 관리하며, 이미지 재사용성을 높이고, 환경관리를 통합하였습니다.
+    > 3. API gateway 를 통해 백엔드의 통합 entry point를 제공하고, 로드밸런싱을 적용함으로써 외부에서 쉽게 접근하고 확장이 용이하도록 설계하였습니다.
+    >
+    > #### 장애대응
+    > 1. Kafka 를 multi-broker로 설정하고 메세지들의 replica를 설정함으로써, 메세지 유실장애에 대응하였습니다.
+    > 2. Debezium/JDBC-sink-connector을 통해 백업 DB를 설정함으로써, DB 유실장애에 대응하였습니다.
+    > 3. JPA-Batch, 쿼리빈도 최적화, 로드밸런싱을 통해, 대용량 트래픽 장애에 대응하였습니다.
+    > 4. async/Non-blocking MQ 메세지 송신을 통해, 성능 장애에 대응하였습니다.
+    > 5. ELK 스택, Kafdrop 을 통해 Kafka 내부 및 전체 서비스를 모니터링함으로써, 병목현상 원인을 파악하였습니다.
+    >
+    > <details><summary>시각화된 자료 펼치기</summary><div markdown="1">
+    >
+    >  ![시각화](assets/images/a.png)
+    > </div>
 
-* **반복되는 과정을 자동화** 하는것을 좋아합니다.
-  > 서버의 부하를 테스트 하기 위해 [10K개의 HTTP request를 전송하고 response 받는 과정을 자동화한 경험](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-15-chatting(11)/)이 있습니다.
-  > 
-  > Docker 및 [Git-workflow](https://github.com/ghkdqhrbals/golang-backend-master/actions/workflows/deploy.yml) , [쉘 스크립트](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-04-chatting(9)/#2-3-2-jdbc-connector-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%BD%EC%9E%85) 로 서버 시작에 필요한 과정을 자동화한 경험이 있습니다.
+* **뱅킹 백엔드 서버**
+    > #### 확장성 있는 시스템 구축
+    > * Docker/Kubernetes 를 통해 각각의 `Pod`들의 재시작/실행을 자동화하였으며, replica 설정을 통해 쉽게 확장용이하도록 설계하였습니다.
+    > 
+    > #### 장애대응
+    > 1. AWS의 secret 저장소를 활용하여, 키 보안장애에 대응하였습니다.
+    > 2. JWT 토큰과 PASETO 토큰을 인증에 사용함으로써, 서버의 세션 과부화에 대응하였습니다.
+    > 3. Bcrpyt 암호화를 사용자 패스워드에 적용함으로서, DB 탈취 시 사용자의 원본 패스워드 탈취에 대응하였습니다.
+    > 4. TLS 인증서를 Ingress에 적용함으로써, 패킷 탈취에 대응하였습니다.
+
+
+
 
 <div class="header-cv" markdown="1">
 

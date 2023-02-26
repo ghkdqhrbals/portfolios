@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Goroutine(Golang 경량 스레드)의 구조 및 동작과정  
-parent: Go언어
+parent: Go
 nav_order: 4
 ---
 Golang use goroutine which is similar with thread, but little bit different. Goroutine can make you easy to use thread with concurrency. Also goroutine makes your program faster and lighter than when using original OS thread.

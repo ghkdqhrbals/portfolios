@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Git 명령어 정리
-parent: Git
+parent: 기타
 nav_order: 1
 ---
 

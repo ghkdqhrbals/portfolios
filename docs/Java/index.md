@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 자바
-nav_order: 5
+title: Java
+nav_order: 8
 has_children: true
 ---
 

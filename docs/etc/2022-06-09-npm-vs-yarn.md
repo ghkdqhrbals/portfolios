@@ -1,8 +1,8 @@
 ---
 layout: default
 title: NPM vs YARN
-parent: 패키지 관리
-nav_order: 1
+parent: 기타
+nav_order: 2
 ---
 
 To make portfolio in Web service, I complete task as below.
