@@ -1,9 +1,8 @@
 ---
 layout: default
-title: Database(1)<br/>Transaction
-parent: 데이터베이스
-grand_parent: CS정리
-nav_order: 1
+title: RDB Transaction(EN)
+parent: RDBMS
+nav_order: 2
 ---
 # What is Database Transaction?
 * It refers to the unit of work performed by changing the state of the database.

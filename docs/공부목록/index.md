@@ -13,5 +13,6 @@ description: "스터디 계획"
 | 2023-02-18 | ~~Saga패턴의 Orchestration 와 Choreography 의 명확한 차이점~~ |
 | 2023-02-19 | ~~서킷 브레이커의 기본 개념~~                                 |
 | 2023-02-21 | ~~ListenableFuture 사용현황~~                          |
+| 2023-02-28 | 분산DB(Cassandra) 와 AP 시스템                           |
 
 
