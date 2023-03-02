@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 📌 Cassandra의 구조 및 동작과정, RDB와의 차이점
-parent: NO-SQL
+parent: 📌 NO-SQL
 nav_order: 6
 ---
 {: .highlight }
@@ -239,7 +239,7 @@ CREATE KEYSPACE my_keyspace WITH replication = {'class': 'NetworkTopologyStrateg
 * **SimpleStrategy**: 오직 하나의 데이터 센터와 하나의 랙, 노드를 사용하는 전략입니다. 즉, 같은 노드 내에서 복제본을 생성하는 것이죠. 이 전략을 통해 구성하는 복제본은 사실상 필요하지 않습니다. 노드 장애 시 복제본 또한 쓸모없어지기 때문이죠.
 * **NetworkTopologyStrategy**: 여러 데이터 센터와 랙, 노드를 운영할 때 사용하는 전략입니다. 즉, 여러 노드에 걸쳐 복제본을 생성하는 것이죠. Highly recommended!
 
-그리고 NetworkTopologyStrategy 전략을 사용하게 된다면, 데이터 센터 별 복제계수를 설정해야하는데요. 여기서 데이터 센터란 무엇일까요?
+그리고 NetworkTopologyStrategy 전략을 사용하게 된다면, **데이터 센터** 별 복제계수를 설정해야하는데요. 여기서 데이터 센터란 무엇일까요?
 
 ![img](../../../assets/img/db/카산드라6.png)
 
