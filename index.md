@@ -111,19 +111,19 @@ permalink: /
       ELK stack 을 통해 유저저장/채팅 **트래픽을 실시간으로 관찰**할 수 있도록 설정하였습니다. 또한 Kafka 내부 메세지를 쉽게 모니터링 할 수 있도록 설정하였습니다.
     * #### 안정성 고려
       DB가 유실되는 상황을 고려하여 Debezium/JDBC-sink-connector와 Kafka를 연동하여 단반향 동기화된 **Backup DB를 구성**하였습니다.
-  * **기간** : 2022년 10월 ~ 2023년 01월 (4개월)
+  * **기간** : 2022년 10월 ~ current (6개월)
   * **인원** : 1인
   * <details><summary>사용기술 펼치기</summary><div markdown="1">
 
     | 사용기술                         | 내용                                                                                                          |
-    |:-----------------------------|:------------------------------------------------------------------------------------------------------------|
+------------------------------|:-----------------------------|:------------------------------------------------------------------------------------------------------------|
     | ELK stack                    | Elastic Search + Logstash + Kibana 를 통한 통계수집/시각화 [Image](https://ghkdqhrbals.github.io/assets/img/es/5.png) |
     | Kafka                        | 3대의 Broker과 replica들을 통한 안전성 및 확장성 제공                                                                       |
     | Debezium/JDBC-Sink-connector | Kafka를 통한 백업 DB uni-directional sync [Details](https://ghkdqhrbals.github.io/posts/chatting(9)/)            |
     | Docker                       | 서버/DB/Kafka/Connector/ELK/Monitoring/etc. 실행 자동화                                                            |
     | Nginx                        | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                                    |
     | Stomp                        | 채팅 실시간성 제공                                                                                                  |
-    | JPA                          | 영속성을 활용한 DB 관리                                                                                              |
+    | JPA + JDBC                   | INSERT 문 JDBC 배치 프로세싱, 비동기 DB 관리                                                                                              |
 
     </div>
     </details>
@@ -205,33 +205,35 @@ permalink: /
 
 
 [개발과정](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-15-chatting(11)/){: .btn .btn-primary .fs-2 .mb-4 .mb-md-0 .mr-2 .ml-5} [Github](https://github.com/ghkdqhrbals/multiple-restapi-request-test){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 }
-* 📌 **대량 HTTP request를 통한 서버 부하 테스트** 
+* 📌 **HTTP Benchmark Tool 개발**
+  ![img](assets/img/rds/24.gif)
   * **개요** : Golang, net/http 기반 다량의 HTTP를 전송하여 서버를 테스트할 수 있는 시뮬레이터입니다.
     * #### 자동화
       Docker-compose 와 Viper 를 통해 환경설정 및 실행을 자동화 하여 빠르게 테스트할 수 있도록 설계하였습니다.
     * #### 동시성 고려
-      멀티 스레드 및 mutex lock 맵을 사용하여 동시처리가능하도록 설계하였습니다.
-  * **기간** : 2023.01
+      멀티 스레드 및 mutex lock 맵 및 채널을 사용하여 동시처리가능하도록 설계하였습니다.
+    * #### 편의성 고려
+      flag, uilive, graphing, fatih, dynamic-struct 를 사용하여 사용자 편의성을 증가시켰습니다.
+  * **기간** : 2023.01 ~ 2023.03
   * **인원** : 1인
+  
   * <details><summary>사용기술 펼치기</summary><div markdown="1">
 
-    | 사용기술                         | 내용                                                                                                          |
-    |:--------|:------------------------------------------------------------------------------------------------------------|
-    | Docker                    | 환경설정 및 빌드&테스트 자동화 |
-    | Viper                     | 외부 configuration 의존성 주입                                                                             |
+    | 사용기술              | 내용                                                                                                          |
+-------------------|:--------|:------------------------------------------------------------------------------------------------------------|
+    | Docker            | 환경설정 및 빌드&테스트 자동화 |
+    | Viper             | 외부 configuration 의존성 주입                                                                             |
+    | Dynamic structure | 오브젝트 필드 Dynamic 생성                                                                             |
+    | Multi-threading      | 경량 고루틴 스레드 생성 및 스레드간 채널생성을 통해 동시성 증가                                                                 |
+    | net/http      | 벤치마크 툴 클라이언트의 http 통신 설정                                                                 |
 
     </div>
     </details>
   * <details><summary>테스트 결과 펼치기</summary><div markdown="1">
-
-    ```
-    test-multiple-http-request  | Request url: http://127.0.0.1:8080/auth/user
-    test-multiple-http-request  | The number of HTTP Requests: 10000
-    test-multiple-http-request  | The number of threads: 100
-    test-multiple-http-request  | Proceeding! Please wait until getting all the responses
-    test-multiple-http-request  | Elapsed Time: 30.533003028
-    test-multiple-http-request  | Response status code:  200 , How many?:  10000
-    ```
+    
+    ![img](assets/img/rds/27.png)
+  
+    ![img](assets/img/rds/28.png)
 
     </div>
     </details>

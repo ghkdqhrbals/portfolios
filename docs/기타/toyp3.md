@@ -1,82 +1,99 @@
 ---
 layout: default
-title: 대량 RestAPI 테스트 프로젝트
+title: 📌 GOTYBENCH(HTTP Benchmark Tool) 설계
 parent: 토이 프로젝트
 nav_order: 1
 ---
-# Test your server with multiple http requests(대량 HTTP request를 통한 서버 부하 테스트)
+# **Introduction**
+![img](../../../assets/img/rds/24.gif)
+Fuzzing Test를 하고싶은가요? 아니면 서버의 부하를 테스트하고싶은가요?
 
-해당 프로젝트는 Golang으로 제작되었으며, `docker-compose up`를 통해 다량의 http 패킷을 전송할 수 있습니다
+이를 위한 HTTP Benchmark Tool인 gotybench를 설계했습니다! 
 
-(This program is written in Golang. **You can send multiple HTTP requests by simply running `docker-compose up`**)
+* **gotybench** 는 자동으로 json object를 랜덤하게 생성하여 HTTP.post 하는 HTTP Benchmark Tool입니다.
+> github link : [https://github.com/ghkdqhrbals/gotybench](https://github.com/ghkdqhrbals/gotybench)
 
+* **gotybench는 다음을 목표로 설계 및 제작하였습니다.**
 
-# Test Steps
-1. 전송url, http 전송개수, 실행 스레드 개수를 `app.env`에서 수정하세용(Edit `app.env` RequestUrl, reqeust frequency, the number of worker process)
+1. **테스트 동시성 보장** : goroutine 경량 멀티 스레드를 사용하였으며, 채널을 통해 통신하도록 설정하였습니다.
+2. **다이나믹 Structure 을 통한 Fuzzed Json 오브젝트 생성** : 사용자가 key와 value type들만 설정해주면 자동으로 랜덤한 json 오브젝트를 생성하도록 제작하였습니다.
+    * ex) "gotybench -j [userId,string,userAge,int]" : userId의 value를 랜덤한 string으로 설정합니다. 또한 userAge의 value를 랜덤한 int로 설정합니다.
+
+# **Options**
+
+| Option | Detail                                                                                                                                                                                                                                                                       |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -c     | 동시처리가능한 스레드 개수를 해당 옵션으로 설정할 수 있습니다.                                                                                                                                                                                                               |
+| -h     | 옵션들의 설명을 확인할 수 있습니다.                                                                                                                                                                                                                                          |
+| -j     | 핵심적인 Fuzzing 기능입니다. <br> json object를 해당 옵션으로 key/type을 설정하면, 랜덤한 value의 json obejct가 생성됩니다.<br>Fuzzing이 지원되는 type 은 4가지로 아래와 같습니다.<br>int, float, string, boolean<br>Usage Example<br>ex) `-j "[userId,string,userAge,int]"` |
+| -r     | HTTP POST request 개수를 해당 옵션으로 설정할 수 있습니다.                                                                                                                                                                                                                   |
+| -t     | 벤치마크 클라이언트의 network connection 의 timeout을 해당 옵션으로 설정할 수 있습니다.                                                                                                                                                                                      |
+| -u     | 요청하는 URL을 설정할 수 있습니다.                                                                                                                                                                                                                                           |
+
+**이중 특히 `-j` 옵션은 Dynamic Struct를 차용함으로써, 오브젝트의 private 필드는 사용자의 입력값에 따라 구조가 변경됩니다!**
+
+# **Before we started, we need to get ...**
+1. run `go get github.com/fatih/color` for coloring your terminal
+2. run `go get -v github.com/gosuri/uilive` for updating process
+3. run `go get -u github.com/go-echarts/go-echarts/v2/...` to see graph with responses in timeseries.
+4. run `go get github.com/ompluscator/dynamic-struct` to dynamically add field of json structs.
+
+# **Usage**
+1. run `go run main.go` in your terminal and see options
+
+   ```bash
+   Alloc = 0 MiB	TotalAlloc = 0 MiB	Sys = 8 MiB	NumGC = 0
+       Properties
+       - Max parallelism : 8
+   Usage of /var/folders/h0/_d_zrr0j57x8wmknjb1r6hfm0000gn/T/go-build3252492082/b001/exe/main:
+   -c int
+           스레드 개수 (default 100)
+   -j string
+           Json "[KEY1,TYPE1,KEY2,TYPE2,...]" 
+   -r int
+           요청 개수 (default 10000)
+   -t int
+           요청 타임아웃(second) (default 30)
+   -u string
+           URL
+   ```                                                    
+2. choose your options and run
+
+# **Example**
+
+```bash
+$ go run main.go -j "[userId,string,userPw,string,mail,string,userName,string]" -r 10000 -c 1000 -u http://127.0.0.1:8080/auth/user
+
+ [Properties]
+- Max parallelism : 8
+- Request url : http://127.0.0.1:8080/auth/user
+- The number of HTTP Requests : 10000
+- The number of threads : 100
+Listening server's response .. (10000/10000)
+
+ [Results]
+---------------------------------------------------------
+| Response Status 	| Count 	| Percent 	|
+| 200 			| 10000/10000 	| 100.0%	|
+---------------------------------------------------------
+- Average response time 	: 110.66 ms
+- Max response time     	: 770.32 ms
+- Min response time     	: 21.46 ms
+
+ [Memory Usage]
+- Heap size = 2 MB
+- Cumulative Heap size = 161 MB
+- All goroutine size = 22 MB
+- GC cycle 횟수 = 48
+
+Finished! ( Total Elapsed Time : 11.4659 seconds ) 
+Now you can see response time series graph in local machine => http://localhost:8022 
 
 ```
-RequestURL=http://127.0.0.1:8080/auth/user
-RequestNum=10000
-WorkerNum=100
-```
 
-1. `main.go`에서 전송하고자 하는 json struct와 랜덤값들을 설정해주시면 됩니다(Edit `main.go` with your own json body)
-```golang
-...
-// 보내고 싶은 json 구조에 맞게 수정하시면 됩니다(For your own json body, edit here!)
-type User struct {
-	UserId   string `json:"userId"`
-	UserName string `json:"userName"`
-	Email    string `json:"email"`
-	UserPw   string `json:"userPw"`
-}
-// ----------------------------------
-...
-func worker(contexts *sync.Map, wg *sync.WaitGroup, requestURL string, client *http.Client, transferRatePerSecond int, number_worker int) {
-	...
-	for i := 0; i < transferRatePerSecond; i++ {
-		// ---------- 랜덤값을 설정하는 부분입니다(For your own json body, edit here!) ---------
-		s := &User{
-			UserId:   RandStringEn(8),
-			UserName: RandStringKr(1) + RandStringKr(2),
-			Email:    RandStringEn(5) + "@gmail.com",
-			UserPw:   RandStringEn(10),
-		}
-        // ------------------------------------------------------------------------------
-		...
-	}
-    ...
-}
-```
-1. 루트 디렉토리에서 `docker-compose up`을 실행하시고 결과를 확인해보세요(Run `docker-compose up` in root directory and see what happen!)
+# **Results**
 
-# Test Results
+As you can see here, we send 10K http request to our server and get responses with status code 200 within 12 seconds.
 
-```
-test-multiple-http-request  | Request url: http://127.0.0.1:8080/auth/user
-test-multiple-http-request  | The number of HTTP Requests: 10000
-test-multiple-http-request  | The number of threads: 100
-test-multiple-http-request  | Proceeding! Please wait until getting all the responses
-test-multiple-http-request  | Elapsed Time: 30.533003028
-test-multiple-http-request  | Response status code:  200 , How many?:  10000
-```
-
-총 10K개의 rest api call 을 진행하였고, 100개의 go-routine으로 진행한 결과입니다. 약 30.5초가 소요되었으며, 전부 200 status code를 반환 받은 것을 확인할 수 있습니다
-
-(As you can see here, we send 10K http request to our server and get responses with status code 200 within 30 seconds.)
-
-* Flow of example test
-
-```
-configurate app.env
---(Viper)--> go build
---> build docker images
---> run docker container(network:host)
---> nginx
---> auth-server
-```
-
-# **Notice!**
-프록시 서버가 컨테이너로 실행되고, 호스트한테 프록시 포트가 expose되어있다면, 그대로 `docker-compose up`을 실행하시면 됩니다(When your server run in docker container and expose port through host, this docker setting will be fine.)
-
-하지만 내부 포트로 expose되어 있다면, 같은 네트워크로 묶어줘야합니다(However, when your server expose port inside the container, you should change compose setting by delete `network_mode: "host"` and set alias with your server.)
+![img](../../../assets/img/rds/27.png)
+![img](../../../assets/img/rds/28.png)
