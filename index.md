@@ -204,7 +204,7 @@ permalink: /
 </div>
 
 
-[개발과정](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-15-chatting(11)/){: .btn .btn-primary .fs-2 .mb-4 .mb-md-0 .mr-2 .ml-5} [Github](https://github.com/ghkdqhrbals/multiple-restapi-request-test){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 }
+[개발과정](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-15-chatting(11)/){: .btn .btn-primary .fs-2 .mb-4 .mb-md-0 .mr-2 .ml-5} [Github](https://github.com/ghkdqhrbals/gotybench){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 } [설명 및 시연영상](https://www.youtube.com/watch?v=cV3ILCrfsco){: .btn .btn-red .fs-2 .mb-4 .mb-md-0 }
 * 📌 **HTTP Benchmark Tool 개발**
   ![img](assets/img/rds/24.gif)
   * **개요** : Golang, net/http 기반 다량의 HTTP를 전송하여 서버를 테스트할 수 있는 시뮬레이터입니다.
