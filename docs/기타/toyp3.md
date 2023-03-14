@@ -7,18 +7,19 @@ nav_order: 1
 # **Introduction**
 ![img](../../../assets/img/rds/24.gif)
 
-Fuzzing Test를 하고싶은가요? 아니면 서버의 부하를 테스트하고싶은가요?
+Fuzzing Test를 하고싶은가요? 아니면 서버의 부하를 테스트하고싶은가요? 결과를 저장해서 한눈에 보고싶은가요?
 
-이를 위한 HTTP Benchmark Tool인 gotybench를 설계했습니다! 
+이를 위한 HTTP Benchmark Tool인 **gotybench**를 설계했습니다! 
 
 * **gotybench** 는 자동으로 json object를 랜덤하게 생성하여 HTTP.post 하는 HTTP Benchmark Tool입니다.
 > github link : [https://github.com/ghkdqhrbals/gotybench](https://github.com/ghkdqhrbals/gotybench)
 
 * **gotybench는 다음을 목표로 설계 및 제작하였습니다.**
 
-1. **테스트 동시성 보장** : goroutine 경량 멀티 스레드를 사용하였으며, 채널을 통해 통신하도록 설정하였습니다.
+1. **테스트 동시성 보장** : goroutine 경량 멀티 스레드를 사용하였으며, 채널을 통해 통신하도록 설정하였습니다. 기본 net/http 를 사용하기때문에 요청/응답은 Blocking 으로 진행되며 나머지 처리는 채널을 통해 비동기로 진행됩니다. 많은 수의 스레드를 돌리기에 Thread-safe 하게 설계해야합니다. 그래서 `HandleResponse`를 단일 스레드로 돌리고, 채널을 통해 다른 스레드로부터의 응답을 가져와서 스레드 stack 에서 처리할 수 있도록 설계하였습니다!
 2. **다이나믹 Structure 을 통한 Fuzzed Json 오브젝트 생성** : 사용자가 key와 value type들만 설정해주면 자동으로 랜덤한 json 오브젝트를 생성하도록 제작하였습니다.
-    * ex) "gotybench -j [userId,string,userAge,int]" : userId의 value를 랜덤한 string으로 설정합니다. 또한 userAge의 value를 랜덤한 int로 설정합니다.
+   * ex) "gotybench -j [userId,string,userAge,int]" : userId의 value를 랜덤한 string으로 설정합니다. 또한 userAge의 value를 랜덤한 int로 설정합니다.
+3. **벤치마크 로그 서버 개설** : 응답 RTT를 시간 시리즈로 확인할 수 있는 그래프 및 기타 정보들을 저장하는 로컬서버를 오픈했습니다. (Open Port :8022)
 
 # **Options**
 

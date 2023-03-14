@@ -27,7 +27,7 @@ permalink: /
 
 따라서 저는 다양한 기술들을 아래의 프로젝트들에 다음과 같이 적용하였습니다. 
 
-* **실시간 채팅 서버 프로젝트**
+* **실시간 채팅 서버 프로젝트** (Spring-boot/Java)
     > #### 확장성 있는 시스템 구축
     > 1. MQ Kafka 를 통해 Consumer 별 오프셋을 제공함으로써 서버를 수평확장하기 쉬운 아키텍처를 구성하였습니다.
     > 2. Docker 를 통해 약 **20개**의 컨테이너를 자동으로 관리하며, 이미지 재사용성을 높이고, 환경관리를 통합하였습니다.
@@ -35,17 +35,23 @@ permalink: /
     >
     > #### 장애대응
     > 1. Kafka 를 multi-broker로 설정하고 메세지들의 replica를 설정함으로써, 메세지 유실장애에 대응하였습니다.
-    > 2. Debezium/JDBC-sink-connector을 통해 백업 DB를 설정함으로써, DB 유실장애에 대응하였습니다.
-    > 3. JPA-Batch, 쿼리빈도 최적화, 로드밸런싱을 통해, 대용량 트래픽 장애에 대응하였습니다.
-    > 4. async/Non-blocking MQ 메세지 송신을 통해, 성능 장애에 대응하였습니다.
-    > 5. ELK 스택, Kafdrop 을 통해 Kafka 내부 및 전체 서비스를 모니터링함으로써, 병목현상 원인을 파악하였습니다.
+    > 2. Debezium/JDBC-sink-connector을 통해 백업 DB를 설정함으로써, DB 유실장애에 대응하였습니다(인증DB는 AWS-RDS 백업기능으로 대체하였습니다).
+    > 3. JDBC-Batch, 쿼리빈도 최적화, 로드밸런싱을 통해, 대용량 트래픽 장애에 대응하였습니다.
+    > 4. 멀티스레딩 및 퓨쳐객체를 통해 서비스, 데이터베이스 별 스레드 풀을 따로 설정하여 DB쿼리기능(blocking), MQ 메세지 송신기능(non-blocking), 서비스 알고리즘(non-blocking + blocking)을 구현함으로써, **성능 장애에 대응**하였습니다.
+    > 5. ELK 스택, Kafdrop 을 통해 Kafka 내부 및 서비스를 **모니터링**함으로써, 병목현상 원인을 파악하였습니다.
+    > 6. 직접 만든 [HTTP Benchmark Tool](https://github.com/ghkdqhrbals/gotybench)를 통해 서버 부하를 측정하였습니다.
+    > 
+    > ![img](assets/img/rds/result.png)
+    > 
+    > |               | Local                                 | Container                                | Nginx+Container                            |
+---------------|---------------|---------------------------------------|------------------------------------------|--------------------------------------------|
+    > | Request Thread : 10  | AVG:**34.28**ms, MAX:633.4ms, MIN:17.74ms | AVG:**47.33**ms, MAX:1094.04ms, MIN:23.65ms  | AVG:**47.41**ms, MAX:1110.89ms, MIN:23.23ms |
+    > | Request Thread : 100  | AVG:**106.15**ms, MAX:822.36ms, MIN:18.26ms      | AVG:190.93ms, MAX:756.37ms, MIN:30.14ms  | AVG:320.01ms, MAX:2357.13ms, MIN:32.69ms   |
+    > | Request Thread : 500  |AVG:**547.98**ms, MAX:2610.97ms, MIN:24.80ms| AVG:971.29ms, MAX:5768.36ms, MIN:28.29ms | AVG:982.68ms, MAX:4768.08ms, MIN:30.1ms    |
+    > | Request Thread : 1000 |AVG:**1184.84**ms, MAX:5455.63ms, MIN:27.25ms| AVG:1550.86ms, MAX:6895.59ms, MIN:37.54ms | AVG:1820.41ms, MAX:9866.15ms, MIN:39.19ms  |
     >
-    > <details><summary>시각화된 자료 펼치기</summary><div markdown="1">
-    >
-    >  ![시각화](assets/images/a.png)
-    > </div>
 
-* **뱅킹 백엔드 서버**
+* **뱅킹 백엔드 서버** (Gin/Golang)
     > #### 확장성 있는 시스템 구축
     > * Docker/Kubernetes 를 통해 각각의 `Pod`들의 재시작/실행을 자동화하였으며, replica 설정을 통해 쉽게 확장용이하도록 설계하였습니다.
     > 
@@ -124,6 +130,7 @@ permalink: /
     | Nginx                        | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                                    |
     | Stomp                        | 채팅 실시간성 제공                                                                                                  |
     | JPA + JDBC                   | INSERT 문 JDBC 배치 프로세싱, 비동기 DB 관리                                                                                              |
+    | AWS RDS                      | authDB에 적용되었으며, Postgresql 성능지표 시각화                                                                                             |
 
     </div>
     </details>
@@ -132,6 +139,12 @@ permalink: /
     ![image](assets/images/v3.1.0.png)
     </div>
     </details>
+      
+  * <details><summary>시각화된 자료 펼치기</summary><div markdown="1">
+    
+    ![시각화](assets/images/a.png)
+    
+    </div></details>
     
 <div class="empty-line">
 </div>
@@ -208,8 +221,6 @@ permalink: /
 * 📌 **HTTP Benchmark Tool 개발**
   ![img](assets/img/rds/24.gif)
   * **개요** : Golang, net/http 기반 다량의 HTTP를 전송하여 서버를 테스트할 수 있는 시뮬레이터입니다.
-    * #### 자동화
-      Docker-compose 와 Viper 를 통해 환경설정 및 실행을 자동화 하여 빠르게 테스트할 수 있도록 설계하였습니다.
     * #### 동시성 고려
       멀티 스레드 및 mutex lock 맵 및 채널을 사용하여 동시처리가능하도록 설계하였습니다.
     * #### 편의성 고려
