@@ -96,9 +96,5 @@ Now you can see response time series graph in local machine => http://localhost:
 ```
 
 # **Results**
-### **벤치마크 결과 확인**
-![img](../../../assets/img/rds/27.png)
-### **시간에 따른 응답 RTT 그래프**
-![img](../../../assets/img/rds/28.png)
-### **벤치마크 로깅**
-![img](../../../assets/img/rds/29.png)
+### **벤치마크 결과와 시간에 따른 응답 RTT 그래프 확인**
+![img](../../../assets/img/rds/33.png)

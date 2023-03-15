@@ -240,11 +240,10 @@ permalink: /
 
     </div>
     </details>
-  * <details><summary>테스트 결과 펼치기</summary><div markdown="1">
     
-    ![img](assets/img/rds/27.png)
-  
-    ![img](assets/img/rds/28.png)
+  * <details><summary>테스트 결과 펼치기</summary><div markdown="1">
+
+    ![img](assets/img/rds/33.png)
 
     </div>
     </details>
