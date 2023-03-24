@@ -11,8 +11,7 @@ Kafka와 ELK stack을 통해 실시간 트래픽 관찰 및 안전성과 확장�
 
 <details><summary>채팅 서버 내용</summary><div markdown="1">
 
-저는 채팅 서버 프로젝트에서 신규유저등록 기능만 SAGA의 Choreography 형태로 구현하였습니다.
-> 인증서버가 메세지 큐를 통해 채팅서버로 다음 기능수행을 일임합니다.
+
 
 ### 사용기술
 
