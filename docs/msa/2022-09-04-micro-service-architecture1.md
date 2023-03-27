@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 📌 Saga 패턴
+title: Saga 패턴
 parent: MSA
 nav_order: 2
 ---
