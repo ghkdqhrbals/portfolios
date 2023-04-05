@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Garbage Collection
-parent: Java
+parent: Java-Spring
 nav_order: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Java
+title: Java-Spring
 nav_order: 8
 has_children: true
 ---

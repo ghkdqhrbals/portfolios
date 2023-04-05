@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Java에서의 비동기 NonBlocking, 그리고 ListenableFuture 객체
-parent: Java
+parent: Java-Spring
 nav_order: 1
 ---
 
