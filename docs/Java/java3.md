@@ -6,13 +6,13 @@ nav_order: 3
 ---
 
 
-## thenAccept/thenRun/thenApply
+## 1. thenAccept/thenRun/thenApply
 
 `thenAccept` 는 이전에 전달받은 parameter 가 있을 때 사용되며, `thenRun` 은 없을 때 사용됩니다.
 
 예시로 함께 보겠습니다.
 
-### Code
+## 1-1. Code
 
 ```java
 CompletableFuture.supplyAsync(()->{ // thenAccept에서 사용할 수 있는 값을 return으로 넘겨줍니다.
@@ -34,7 +34,7 @@ CompletableFuture.supplyAsync(()->{ // thenAccept에서 사용할 수 있는 값
     });
 ```
 
-### Result
+## 1-2. Result
 
 ```
 [service-thread-4] c.c.domain.user.service.UserServiceImpl  : 서비스 thread-1
@@ -44,9 +44,9 @@ CompletableFuture.supplyAsync(()->{ // thenAccept에서 사용할 수 있는 값
 [service-thread-6] c.c.domain.user.service.UserServiceImpl  : 서비스 thread-5
 ```
 
-## thenCompose
+## 1-3. thenCompose
 
-### Code
+## 1-4. Code
 
 ```java
 @Slf4j
@@ -94,7 +94,7 @@ public class UserServiceImpl  {
 }
 ```
 
-### Result
+## 1-5. Result
 
 ```
 [service-thread-5] c.c.domain.user.service.UserServiceImpl  : 서비스 value:1
