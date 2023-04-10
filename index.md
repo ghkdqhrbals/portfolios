@@ -7,12 +7,12 @@ permalink: /
 ---
 
 #### INDEX
-1. [Introduction](#introduction)
-2. [Education](#education)
-3. [Skill](#skill)
-4. [Main Project](#main-projects)
-5. [Toy Project](#toy-projects)
-6. [Activity](#activity)
+- [Introduction](#introduction)
+- [Education](#education)
+- [Skill](#skill)
+- [Main Projects](#main-projects)
+- [Toy Projects](#toy-projects)
+- [Activity](#activity)
 
 <div class="header-cv" markdown="1">
 
@@ -37,18 +37,18 @@ permalink: /
     > 1. Kafka 를 multi-broker로 설정하고 메세지들의 replica를 설정함으로써, 메세지 유실장애에 대응하였습니다.
     > 2. Debezium/JDBC-sink-connector을 통해 백업 DB를 설정함으로써, DB 유실장애에 대응하였습니다(인증DB는 AWS-RDS 백업기능으로 대체하였습니다).
     > 3. JDBC-Batch, 쿼리빈도 최적화, 로드밸런싱을 통해, 대용량 트래픽 장애에 대응하였습니다.
-    > 4. 멀티스레딩 및 퓨쳐객체를 통해 서비스, 데이터베이스 별 스레드 풀을 따로 설정하여 DB쿼리기능(blocking), MQ 메세지 송신기능(non-blocking), 서비스 알고리즘(non-blocking + blocking)을 구현함으로써, **성능 장애에 대응**하였습니다.
+    > 4. 멀티스레딩 및 퓨쳐객체를 통해 DB쿼리기능(blocking), MQ 메세지 송신기능(non-blocking), 서비스 알고리즘(non-blocking + blocking)을 구현함으로써, **성능 장애에 대응**하였습니다.
     > 5. ELK 스택, Kafdrop 을 통해 Kafka 내부 및 서비스를 **모니터링**함으로써, 병목현상 원인을 파악하였습니다.
     > 6. 직접 만든 [HTTP Benchmark Tool](https://github.com/ghkdqhrbals/gotybench)를 통해 서버 부하를 측정하였습니다.
     > 
     > ![img](assets/img/rds/result.png)
     > 
-    > |               | Local                                 | Container                                | Nginx+Container                            |
----------------|---------------|---------------------------------------|------------------------------------------|--------------------------------------------|
-    > | Request Thread : 10  | AVG:**34.28**ms, MAX:633.4ms, MIN:17.74ms | AVG:**47.33**ms, MAX:1094.04ms, MIN:23.65ms  | AVG:**47.41**ms, MAX:1110.89ms, MIN:23.23ms |
-    > | Request Thread : 100  | AVG:**106.15**ms, MAX:822.36ms, MIN:18.26ms      | AVG:190.93ms, MAX:756.37ms, MIN:30.14ms  | AVG:320.01ms, MAX:2357.13ms, MIN:32.69ms   |
-    > | Request Thread : 500  |AVG:**547.98**ms, MAX:2610.97ms, MIN:24.80ms| AVG:971.29ms, MAX:5768.36ms, MIN:28.29ms | AVG:982.68ms, MAX:4768.08ms, MIN:30.1ms    |
-    > | Request Thread : 1000 |AVG:**1184.84**ms, MAX:5455.63ms, MIN:27.25ms| AVG:1550.86ms, MAX:6895.59ms, MIN:37.54ms | AVG:1820.41ms, MAX:9866.15ms, MIN:39.19ms  |
+    | >   |                       | Local                                         | Container                                   | Nginx+Container                             |
+    | --- | --------------------- | --------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+    | >   | Request Thread : 10   | AVG:**34.28**ms, MAX:633.4ms, MIN:17.74ms     | AVG:**47.33**ms, MAX:1094.04ms, MIN:23.65ms | AVG:**47.41**ms, MAX:1110.89ms, MIN:23.23ms |
+    | >   | Request Thread : 100  | AVG:**106.15**ms, MAX:822.36ms, MIN:18.26ms   | AVG:190.93ms, MAX:756.37ms, MIN:30.14ms     | AVG:320.01ms, MAX:2357.13ms, MIN:32.69ms    |
+    | >   | Request Thread : 500  | AVG:**547.98**ms, MAX:2610.97ms, MIN:24.80ms  | AVG:971.29ms, MAX:5768.36ms, MIN:28.29ms    | AVG:982.68ms, MAX:4768.08ms, MIN:30.1ms     |
+    | >   | Request Thread : 1000 | AVG:**1184.84**ms, MAX:5455.63ms, MIN:27.25ms | AVG:1550.86ms, MAX:6895.59ms, MIN:37.54ms   | AVG:1820.41ms, MAX:9866.15ms, MIN:39.19ms   |
     >
 
 * **뱅킹 백엔드 서버** (Gin/Golang)
@@ -121,16 +121,16 @@ permalink: /
   * **인원** : 1인
   * <details><summary>사용기술 펼치기</summary><div markdown="1">
 
-    | 사용기술                         | 내용                                                                                                          |
-------------------------------|:-----------------------------|:------------------------------------------------------------------------------------------------------------|
+    | 사용기술 | 내용 |
+    | -------- | :--- ||
     | ELK stack                    | Elastic Search + Logstash + Kibana 를 통한 통계수집/시각화 [Image](https://ghkdqhrbals.github.io/assets/img/es/5.png) |
-    | Kafka                        | 3대의 Broker과 replica들을 통한 안전성 및 확장성 제공                                                                       |
-    | Debezium/JDBC-Sink-connector | Kafka를 통한 백업 DB uni-directional sync [Details](https://ghkdqhrbals.github.io/posts/chatting(9)/)            |
-    | Docker                       | 서버/DB/Kafka/Connector/ELK/Monitoring/etc. 실행 자동화                                                            |
-    | Nginx                        | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                                    |
-    | Stomp                        | 채팅 실시간성 제공                                                                                                  |
-    | JPA + JDBC                   | INSERT 문 JDBC 배치 프로세싱, 비동기 DB 관리                                                                                              |
-    | AWS RDS                      | authDB에 적용되었으며, Postgresql 성능지표 시각화                                                                                             |
+    | Kafka                        | 3대의 Broker과 replica들을 통한 안전성 및 확장성 제공                                                                 |
+    | Debezium/JDBC-Sink-connector | Kafka를 통한 백업 DB uni-directional sync [Details](https://ghkdqhrbals.github.io/posts/chatting(9)/)                 |
+    | Docker                       | 서버/DB/Kafka/Connector/ELK/Monitoring/etc. 실행 자동화                                                               |
+    | Nginx                        | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                           |
+    | Stomp                        | 채팅 실시간성 제공                                                                                                    |
+    | JPA + JDBC                   | INSERT 문 JDBC 배치 프로세싱, 비동기 DB 관리                                                                          |
+    | AWS RDS                      | authDB에 적용되었으며, Postgresql 성능지표 시각화                                                                     |
 
     </div>
     </details>
@@ -162,16 +162,16 @@ permalink: /
   * **인원** : 1인
   * <details><summary>사용기술 펼치기</summary><div markdown="1">
 
-    | 사용기술     | 내용                                                                                                                                              |
-    |:------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
-    | AWS      | Git-workflow와 ECR/EKS/Route-53/IAM/secret-manager/RDS를 연동하여 CI/CD 파이프라인 구축 [Image](https://ghkdqhrbals.github.io/assets/img/golang/deploy.jpeg) |
-    | JWT | 인증토큰으로 세션유지 리소스 최적화                                                                                                                             |
-    | Bcrypt | HASH(password + salt) 로 안전한 DB 저장 [Image](https://ghkdqhrbals.github.io/assets/img/golang/safe-password-storing.jpeg)                           
-    | Sqlc | sql문 인터페이스화                                                                                                                                     |
-    | Docker/K8S | 서버+DB CI                                                                                                                                        |
-    | Gin | RestApi 구현 [Details](https://github.com/ghkdqhrbals/golang-backend-master/wiki/ghkdqhrbals:gin)                                                 |
-    | Viper | 외부 configuration 의존성 주입 [Details](https://github.com/ghkdqhrbals/golang-backend-master/wiki/ghkdqhrbals:viper)                                  |
-    | Gmock | mock test [Details](https://github.com/ghkdqhrbals/golang-backend-master/wiki/ghkdqhrbals:mockdb)                                               |
+    | 사용기술   | 내용                                                                                                                                                         |
+    | :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | AWS        | Git-workflow와 ECR/EKS/Route-53/IAM/secret-manager/RDS를 연동하여 CI/CD 파이프라인 구축 [Image](https://ghkdqhrbals.github.io/assets/img/golang/deploy.jpeg) |
+    | JWT        | 인증토큰으로 세션유지 리소스 최적화                                                                                                                          |
+    | Bcrypt     | HASH(password + salt) 로 안전한 DB 저장 [Image](https://ghkdqhrbals.github.io/assets/img/golang/safe-password-storing.jpeg)                                  |
+    | Sqlc       | sql문 인터페이스화                                                                                                                                           |
+    | Docker/K8S | 서버+DB CI                                                                                                                                                   |
+    | Gin        | RestApi 구현 [Details](https://github.com/ghkdqhrbals/golang-backend-master/wiki/ghkdqhrbals:gin)                                                            |
+    | Viper      | 외부 configuration 의존성 주입 [Details](https://github.com/ghkdqhrbals/golang-backend-master/wiki/ghkdqhrbals:viper)                                        |
+    | Gmock      | mock test [Details](https://github.com/ghkdqhrbals/golang-backend-master/wiki/ghkdqhrbals:mockdb)                                                            |
 
     </div>
     </details>
@@ -192,14 +192,14 @@ permalink: /
   * **인원** : 3인(1저자)
   * <details><summary>사용기술 펼치기</summary><div markdown="1">
 
-    | 사용기술                | 내용                                                                                                                                                      |
-    |:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | DDoS                | UDP-based 분산 DoS 공격을 통한 노드의 연산 자원을 강제로 소모되도록 유도                                                                                                         |
-    | Ethereum-analysis   | 이더리움 Geth 클라이언트의 라우팅 테이블 + 패킷 분석을 통한 내부구조 확인                                                                                                            |
-    | IP 변환               | UDP-based DoS공격 + IP 변환을 통해 희생자 노드의 공격방어율 하락 유도                                                                                                         |
-    | HeartBeat           | 희생자 노드의 HeartBeat 관측을 통해 공격 패킷개수 최적화                                                                                                                    |
-    | Kademlia DHT        | 해당 테이블은 P2P상에서 연결하고자 하는 노드들을 저장하는 라우팅 테이블. 본 공격은 이를 드롭                                                                                                  |
-    | Eclipse Attack      | 노드 고립 유도하여 블록 동기화 과정 진입 억제 [추가논문확인](https://ghkdqhrbals.github.io/assets/img/EthereumEclipseAttackAnalysis.pdf){: .btn .btn-blue .fs-2 .mb-4 .mb-md-0 } | 
+    | 사용기술          | 내용                                                                                                                                                                             |
+    | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | DDoS              | UDP-based 분산 DoS 공격을 통한 노드의 연산 자원을 강제로 소모되도록 유도                                                                                                         |
+    | Ethereum-analysis | 이더리움 Geth 클라이언트의 라우팅 테이블 + 패킷 분석을 통한 내부구조 확인                                                                                                        |
+    | IP 변환           | UDP-based DoS공격 + IP 변환을 통해 희생자 노드의 공격방어율 하락 유도                                                                                                            |
+    | HeartBeat         | 희생자 노드의 HeartBeat 관측을 통해 공격 패킷개수 최적화                                                                                                                         |
+    | Kademlia DHT      | 해당 테이블은 P2P상에서 연결하고자 하는 노드들을 저장하는 라우팅 테이블. 본 공격은 이를 드롭                                                                                     |
+    | Eclipse Attack    | 노드 고립 유도하여 블록 동기화 과정 진입 억제 [추가논문확인](https://ghkdqhrbals.github.io/assets/img/EthereumEclipseAttackAnalysis.pdf){: .btn .btn-blue .fs-2 .mb-4 .mb-md-0 } |
 
     </div>
     </details>
@@ -230,13 +230,13 @@ permalink: /
   
   * <details><summary>사용기술 펼치기</summary><div markdown="1">
 
-    | 사용기술              | 내용                                                                                                          |
--------------------|:--------|:------------------------------------------------------------------------------------------------------------|
-    | Docker            | 환경설정 및 빌드&테스트 자동화 |
-    | Viper             | 외부 configuration 의존성 주입                                                                             |
-    | Dynamic structure | 오브젝트 필드 Dynamic 생성                                                                             |
-    | Multi-threading      | 경량 고루틴 스레드 생성 및 스레드간 채널생성을 통해 동시성 증가                                                                 |
-    | net/http      | 벤치마크 툴 클라이언트의 http 통신 설정                                                                 |
+    | 사용기술 | 내용 |
+    | -------- | :--- ||
+    | Docker            | 환경설정 및 빌드&테스트 자동화                                  |
+    | Viper             | 외부 configuration 의존성 주입                                  |
+    | Dynamic structure | 오브젝트 필드 Dynamic 생성                                      |
+    | Multi-threading   | 경량 고루틴 스레드 생성 및 스레드간 채널생성을 통해 동시성 증가 |
+    | net/http          | 벤치마크 툴 클라이언트의 http 통신 설정                         |
 
     </div>
     </details>
@@ -260,10 +260,10 @@ permalink: /
   * **인원** : 2인(팀원)
   * <details><summary>사용기술 펼치기</summary><div markdown="1">
 
-    | 사용기술 | 내용 |
-    |:----|:-----|
+    | 사용기술         | 내용                                                                                                                                                                   |
+    | :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
     | 블록 생성자 결정 | 동기화된 네트워크에서 랜덤한 생성자를 결정할 수 있는 알고리즘 제작 = `𝑀𝑖𝑛𝑒𝑟=𝑀𝑎𝑥_𝐴𝑑𝑑𝑟 (ℎ𝑎𝑠ℎ(𝑃𝑟𝑒𝑣𝐵𝑙𝑜𝑐𝑘𝐻𝑎𝑠ℎ,𝐴𝑑𝑑𝑟)` `𝑀𝑎𝑥_𝐴𝑑𝑑𝑟`값이 가장 큰 노드가 블록 생성자로 결정됩니다 |
-    | 블록 완결 | 합의에 의한 Block confirmation `∑(0<𝑖<𝑑)𝑅𝐸100_𝑖^𝑎𝑔𝑟𝑒𝑒 ≥2/3 𝑅𝐸100_𝑡𝑜𝑡𝑎𝑙` (PBFT와 동일) |
+    | 블록 완결        | 합의에 의한 Block confirmation `∑(0<𝑖<𝑑)𝑅𝐸100_𝑖^𝑎𝑔𝑟𝑒𝑒 ≥2/3 𝑅𝐸100_𝑡𝑜𝑡𝑎𝑙` (PBFT와 동일)                                                                                  |
 
     </div>
     </details>
@@ -283,12 +283,12 @@ permalink: /
   * **인원** : 3인(팀장)
   * <details><summary>사용기술 펼치기</summary><div markdown="1">
 
-    | 사용기술                         | 내용                                                                                                                                                   |
-    |:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Pattern Analysis                    | Fileless Malware 의 특성인 메모리 상 동작하는 악성 스크립트의 패턴을 분석                                                                                                    |
+    | 사용기술                    | 내용                                                                                                                                                                      |
+    | :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+    | Pattern Analysis            | Fileless Malware 의 특성인 메모리 상 동작하는 악성 스크립트의 패턴을 분석                                                                                                 |
     | Powershell Malware Analysis | 악성 파워쉘 스크립트의 패턴을 분석 [논문 분석 자료](https://ghkdqhrbals.github.io/assets/img/golang/study-powershell-malware.pdf){: .btn .btn-blue .fs-2 .mb-4 .mb-md-0 } |
-    | 비난독화 | 난독화 된 악성 스크립트를 탐지를 위해 비난독화 진행(base64-encoding + etc.)                                                                                                |
-    | TF-IDF | 빈도수 기반 모델 사용                                                                                                                                         |
+    | 비난독화                    | 난독화 된 악성 스크립트를 탐지를 위해 비난독화 진행(base64-encoding + etc.)                                                                                               |
+    | TF-IDF                      | 빈도수 기반 모델 사용                                                                                                                                                     |
 
     </div>
     </details>
@@ -305,14 +305,14 @@ permalink: /
 <div class="lines">
 </div>
 
-| 날짜                         | 분류       | 내용                                                                                                                                                                                                         |
-|----------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2022년 01월 ~<br/>2022년 12월  | 특허 출원    | 블록체인 클라이언트 취약점 탐지 방법 및 취약점 탐지 장치                                                                                                                                                                           |
-| 2021년 09월 ~ <br/>2021년 11월 | SW 등록    | RE100(알이100) 실현을 위한 블록체인 기반 REC(신재생에너지공급인증서) 거래 플랫폼 프로토타입 [C-2021-044149](https://www.ntis.go.kr/outcomes/popup/srchTotlSpwr.do?cmd=view&rstId=SNW-2021-00312106034&returnURI=null&pageCode=RI_SW_RST_DTL) |
-| 2021년 09월 ~ <br/>2021년 11월 | 대회참여     | Convergence Security Graduate School Hackathon Competition                                                                                                                                                 |
-| 2021년 09월 ~ <br/>2021년 12월 | 대회참여(4등) | 2021 Cybersecurity AI/big data challenge, Korea Internet & Security Agency(KISA) - 파일리스 악성코드탐지 부문                                                                                                          |
-| 2020년 09월 ~ <br/>2020년 12월 | 대회참여(3등) | 2020 K-cyber security challenge, Korea Internet & Security Agency(KISA) - 개인정보보호 부문                                                                                                                        |
-| 2019년 06월 ~ <br/>2019년 9월  | 교환학생     | Summer education program in San Jose State Univ. 1 Washinton Square, CA, USA                                                                                                                               |
-| 2017년 12월 ~ <br/>2018년 3월  | 교환학생     | Winter education program in HELP Univ. Bukit Damansara 50490 Kuala Lumpur, Malaysia                                                                                                                        |
+| 날짜                           | 분류          | 내용                                                                                                                                                                                                                                         |
+| ------------------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2022년 01월 ~<br/>2022년 12월  | 특허 출원     | 블록체인 클라이언트 취약점 탐지 방법 및 취약점 탐지 장치                                                                                                                                                                                     |
+| 2021년 09월 ~ <br/>2021년 11월 | SW 등록       | RE100(알이100) 실현을 위한 블록체인 기반 REC(신재생에너지공급인증서) 거래 플랫폼 프로토타입 [C-2021-044149](https://www.ntis.go.kr/outcomes/popup/srchTotlSpwr.do?cmd=view&rstId=SNW-2021-00312106034&returnURI=null&pageCode=RI_SW_RST_DTL) |
+| 2021년 09월 ~ <br/>2021년 11월 | 대회참여      | Convergence Security Graduate School Hackathon Competition                                                                                                                                                                                   |
+| 2021년 09월 ~ <br/>2021년 12월 | 대회참여(4등) | 2021 Cybersecurity AI/big data challenge, Korea Internet & Security Agency(KISA) - 파일리스 악성코드탐지 부문                                                                                                                                |
+| 2020년 09월 ~ <br/>2020년 12월 | 대회참여(3등) | 2020 K-cyber security challenge, Korea Internet & Security Agency(KISA) - 개인정보보호 부문                                                                                                                                                  |
+| 2019년 06월 ~ <br/>2019년 9월  | 교환학생      | Summer education program in San Jose State Univ. 1 Washinton Square, CA, USA                                                                                                                                                                 |
+| 2017년 12월 ~ <br/>2018년 3월  | 교환학생      | Winter education program in HELP Univ. Bukit Damansara 50490 Kuala Lumpur, Malaysia                                                                                                                                                          |
 
 
