@@ -17,6 +17,7 @@ description: "스터디 계획"
 | 2023-03-01 | ~~HTTP Benchmark Tool 제작~~                                                           |
 | 2023-03-10 | ~~동시성 테스트를 위한 HTTP Benchmark Tool goroutine multithreading + Spring Boot Tomcat 설정~~ |
 | 2023-03-14 | ~~Postgresql partitioning + FDW(Foreign Data Wrapper)~~                              |
-| 2023-03-15 | Spring-Cloud                                                                         |
+| 2023-03-15 | ~~Spring-Cloud~~                                                                     |
+| 2023-04-01 | CQRS and Event-Sourcing with MSA                                                     |
 
 
