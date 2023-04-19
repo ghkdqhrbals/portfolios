@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 📌 Cassandra의 구조 및 동작과정, RDB와의 차이점
-parent: 📌 NO-SQL
+parent: NO-SQL
 nav_order: 6
 ---
 {: .highlight }

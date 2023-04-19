@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 📌 NO-SQL
+title: NO-SQL
 nav_order: 6
 description: "no sql"
 has_children: true
