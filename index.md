@@ -127,16 +127,18 @@ permalink: /
     | Kafka                        | 3대의 Broker과 replica들을 통한 안전성 및 확장성 제공                                                                 |
     | Debezium/JDBC-Sink-connector | Kafka를 통한 백업 DB uni-directional sync [Details](https://ghkdqhrbals.github.io/posts/chatting(9)/)                 |
     | Docker                       | 서버/DB/Kafka/Connector/ELK/Monitoring/etc. 실행 자동화                                                               |
-    | Nginx                        | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                           |
+    | Nginx/Spring-Cloud-gateway   | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                           |
     | Stomp                        | 채팅 실시간성 제공                                                                                                    |
     | JPA + JDBC                   | INSERT 문 JDBC 배치 프로세싱, 비동기 DB 관리                                                                          |
     | AWS RDS                      | authDB에 적용되었으며, Postgresql 성능지표 시각화                                                                     |
+    | Spring-Security              | JWT 인증 및 유저 인가 설정                                                                     |
+    | Spring-Cloud                 | Eureka 및 Config-Server 설정으로 자동 yaml 배포 및 확장성 고려                                                                |
 
     </div>
     </details>
   * <details><summary>아키텍처 펼치기</summary><div markdown="1">
     
-    ![image](assets/images/v3.1.0.png)
+    ![image](assets/img/msa/10.svg)
     </div>
     </details>
       
