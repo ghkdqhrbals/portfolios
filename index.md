@@ -138,7 +138,7 @@ permalink: /
     </details>
   * 아키텍처
     
-    ![image](assets/img/msa/12.svg)
+    ![image](assets/img/msa/21.svg)
     
       
   * <details><summary>시각화된 자료 펼치기</summary><div markdown="1">
