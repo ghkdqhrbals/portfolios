@@ -32,7 +32,7 @@ permalink: /
     > 1. MQ Kafka 를 통해 Consumer 별 오프셋을 제공함으로써 서버를 수평확장하기 쉬운 아키텍처를 구성하였습니다.
     > 2. Docker 를 통해 약 **20개**의 컨테이너를 자동으로 관리하며, 이미지 재사용성을 높이고, 환경관리를 통합하였습니다.
     > 3. API gateway 를 통해 백엔드의 통합 entry point를 제공하고, 로드밸런싱을 적용함으로써 외부에서 쉽게 접근하고 확장이 용이하도록 설계하였습니다.
-    > 4. Saga 의 Choreography 형태로 서비스 메쉬를 구현하였습니다. 또한 이벤트 성공여부를 클라이언트에 반환하기 위해 SSE(WebFlux) 로 전송 하였습니다.
+    > 4. Saga 의 Orchestration 형태로 유저 서비스 기능을 구현하였습니다. 또한 이벤트 성공여부들을 클라이언트에 반환하기 위해 SSE(WebFlux) 로 전송 합니다.
     > #### 장애대응
     > 1. Kafka 를 multi-broker로 설정하고 메세지들의 replica를 설정함으로써, 메세지 유실장애에 대응하였습니다.
     > 2. Debezium/JDBC-sink-connector을 통해 백업 DB를 설정함으로써, DB 유실장애에 대응하였습니다(인증DB는 AWS-RDS 백업기능으로 대체하였습니다).
