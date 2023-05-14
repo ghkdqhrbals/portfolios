@@ -10,8 +10,7 @@ permalink: /
 
 저는 **장애발생에 미리 대응**하길 좋아하며, **확장성 있는 시스템 구축**하는 것을 중점적으로 개발하길 좋아합니다.
 
-Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals) 
-
+Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)
 
 #### INDEX
 - Introduction / Education / Skills
@@ -136,6 +135,7 @@ Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)
       8. 이벤트 기반 Web Server 인 Undertow 를 사용함으로써 대용량 트래픽 처리 성능을 향상시켰습니다.
       9. 세션 DB관리 부담을 없애기 위해 Spring-Security에 JWT를 적용하였으며, 토큰의 Payload에 permission 정보를 기반으로 인가를 설정하였습니다.
       10. 성능 최적화에 필요한 HTTP Benchmark Tool 을 직접 만들어 측정하였습니다.
+
 
       결론적으로 유저저장API(인증서버 -> 고객서버 / 채팅서버 유저 저장) 성능 **110%**, 향상/채팅 저장 API(Mono) 성능 **470%** 향상되었습니다.
     
@@ -375,6 +375,5 @@ Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)
 | 2020년 09월 ~ <br/>2020년 12월 | 대회참여(3등) | 2020 K-cyber security challenge, Korea Internet & Security Agency(KISA) - 개인정보보호 부문                                                                                                                                                  |
 | 2019년 06월 ~ <br/>2019년 9월  | 교환학생      | Summer education program in San Jose State Univ. 1 Washinton Square, CA, USA                                                                                                                                                                 |
 | 2017년 12월 ~ <br/>2018년 3월  | 교환학생      | Winter education program in HELP Univ. Bukit Damansara 50490 Kuala Lumpur, Malaysia                                                                                                                                                          |
-
 
 </div></details>

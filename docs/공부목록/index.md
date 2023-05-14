@@ -21,6 +21,7 @@ description: "스터디 계획"
 | 2023-04-01 | ~~CQRS and Event-Sourcing with MSA 구현~~                                              |
 | 2023-04-16 | ~~NIO/Reactor-Model/Netty 아키텍처 이해~~                                                  |
 | 2023-04-25 | ~~Kafka CDC 및 Netty 클라이언트 키 매핑-SinksMap~~                                            |
-| 2023-04-30 | 주문서비스 Order 서비스/Product 서비스/Customer 서비스 간 이벤트 스키마 및 보상트랜젝션 설계                       |
+| 2023-04-30 | ~~주문서비스 Order 서비스/Product 서비스/Customer 서비스 간 이벤트 스키마 및 보상트랜젝션 설계~~                   |
+| 2023-05-01 | 성능문제 해결 및 캐시서버구축                                                                     |
 
 
