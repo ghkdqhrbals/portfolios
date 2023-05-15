@@ -78,7 +78,7 @@ Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.
 >
 > </div></details>
 
-## 3.  📕 프로젝트를 수행하기 위해 따로 공부하여 정리한 목록 
+## 3.  📕 프로젝트를 수행하기 위해 따로 공부 및 정리한 포스팅 
 * [메세지큐 - 1](https://ghkdqhrbals.github.io/portfolios/docs/메세지큐/2022-12-01-message-queue/) : 메세지 큐의 장점과 단점 정리
 * [메세지큐 - 2](https://ghkdqhrbals.github.io/portfolios/docs/메세지큐/2022-12-02-kafka/) : Kafka 용어정리 및 구조 파악 
 * [마이크로서비스 - 1(EN)](https://ghkdqhrbals.github.io/portfolios/docs/msa/2022-09-05-micro-service-architecture2/) : 기본적인 MSA 의 장단점 및 이해 정리
@@ -97,3 +97,5 @@ Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.
 * [Golang - 1](https://ghkdqhrbals.github.io/portfolios/docs/Go언어/2022-09-18-thread-goroutine/) : 부하 테스트 툴 제작 시 필요한 경량 스레드 구조 정리
 * [Java - 1](https://ghkdqhrbals.github.io/portfolios/docs/Java/java3/) : 자바의 CompletableFure 을 통한 콜백/멀티스레딩 정리
 * [Java - 2](https://ghkdqhrbals.github.io/portfolios/docs/Java/java1/) : 자바의 동기/비동기 Blocking/Non-blocking 정리
+
+## 4.  📗 프로젝트 진행 포스팅
