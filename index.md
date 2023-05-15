@@ -51,12 +51,11 @@ Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)
   > ![img](assets/img/rds/result.png)
   >
   > |                       | Local                                         | Container                                   | Nginx+Container                             |
-      > | --------------------- | --------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-  >   | Request Thread : 10   | AVG:**34.28**ms, MAX:633.4ms, MIN:17.74ms     | AVG:**47.33**ms, MAX:1094.04ms, MIN:23.65ms | AVG:**47.41**ms, MAX:1110.89ms, MIN:23.23ms |
-  >   | Request Thread : 100  | AVG:**106.15**ms, MAX:822.36ms, MIN:18.26ms   | AVG:190.93ms, MAX:756.37ms, MIN:30.14ms     | AVG:320.01ms, MAX:2357.13ms, MIN:32.69ms    |
-  >   | Request Thread : 500  | AVG:**547.98**ms, MAX:2610.97ms, MIN:24.80ms  | AVG:971.29ms, MAX:5768.36ms, MIN:28.29ms    | AVG:982.68ms, MAX:4768.08ms, MIN:30.1ms     |
-  >   | Request Thread : 1000 | AVG:**1184.84**ms, MAX:5455.63ms, MIN:27.25ms | AVG:1550.86ms, MAX:6895.59ms, MIN:37.54ms   | AVG:1820.41ms, MAX:9866.15ms, MIN:39.19ms   |
->
+  > | --------------------- | --------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+  > | Request Thread : 10   | AVG:**34.28**ms, MAX:633.4ms, MIN:17.74ms     | AVG:**47.33**ms, MAX:1094.04ms, MIN:23.65ms | AVG:**47.41**ms, MAX:1110.89ms, MIN:23.23ms |
+  > | Request Thread : 100  | AVG:**106.15**ms, MAX:822.36ms, MIN:18.26ms   | AVG:190.93ms, MAX:756.37ms, MIN:30.14ms     | AVG:320.01ms, MAX:2357.13ms, MIN:32.69ms    |
+  > | Request Thread : 500  | AVG:**547.98**ms, MAX:2610.97ms, MIN:24.80ms  | AVG:971.29ms, MAX:5768.36ms, MIN:28.29ms    | AVG:982.68ms, MAX:4768.08ms, MIN:30.1ms     |
+  > | Request Thread : 1000 | AVG:**1184.84**ms, MAX:5455.63ms, MIN:27.25ms | AVG:1550.86ms, MAX:6895.59ms, MIN:37.54ms   | AVG:1820.41ms, MAX:9866.15ms, MIN:39.19ms   |
 
 * **뱅킹 백엔드 서버** (Gin/Golang)
   > #### 확장성 있는 시스템 구축
