@@ -16,6 +16,29 @@ html {
   scroll-behavior: smooth;
 }
 
+details > summary {
+  padding: 2px 6px;
+  width: fit-content;
+  margin-bottom: 7px;
+  background-color: #e0e8ff;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 2.5px 2.5px 1px #293666;
+  cursor: pointer;
+}
+
+//details > p {
+//  border-radius: 0 0 10px 10px;
+//  background-color: #ddd;
+//  padding: 2px 6px;
+//  margin: 0;
+//  box-shadow: 2.5px 2.5px 1px #293666;
+//}
+
+details[open] > summary {
+  background-color: #ccf;
+}
+
 body {
   font-family: $body-font-family;
   font-size: inherit;
