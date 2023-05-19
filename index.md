@@ -326,14 +326,14 @@ Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)
 </div>
 
 
-[Github](https://github.com/ghkdqhrbals/Malware_LSTM){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 .ml-5}
+[개발과정](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp2/){: .btn .btn-primary .fs-2 .mb-4 .mb-md-0 .ml-5 } [Github](https://github.com/ghkdqhrbals/Malware_LSTM){: .btn .btn-black .fs-2 .mb-4 .mb-md-0 .ml-5}
 * 📌 **빈도수 모델을 통한 악성 파워쉘 스크립트 탐지**
   * **개요** : python으로 제작된 Fileless Malware 중 파워쉘 스크립트 탐지 툴입니다.
     * #### 탐지 유연성 개선
       LSTM 와 TF/IDF 의 앙상블을 통해 기존 스태틱 탐지에 유연성을 더하였습니다.
     * #### 비난독화 고려
       난독화된 악성코드를 분석하는 것은 오히려 성능에 악영향을 미칩니다. 따라서 저희는 Revoke Expression으로 난독화 정도를 파악한 뒤, Power Decoder을 통해 다양한 방법으로 비난독화를 진행하였습니다. 
-  * **기간** : 2021.07 ~ 2021.12
+  * **기간** : 2021.09 ~ 2021.12
   * **인원** : 3인(팀장)
   * <details><summary>사용기술 펼치기</summary><div markdown="1">
 
