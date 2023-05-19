@@ -46,7 +46,7 @@ exclude:
 # Set a path/url to a logo that will be displayed instead of the title
 #logo: "/assets/images/laptop.png"
 favicon_ico: "/assets/images/laptop.png"
-avatar: '/assets/avatar/avatar2.png'
+avatar: '/assets/avatar/avatar.jpg'
 
 # Enable or disable the site search
 # Supports true (default) or false
