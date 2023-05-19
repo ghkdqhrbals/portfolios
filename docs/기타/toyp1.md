@@ -22,8 +22,7 @@ nav_order: 3
 ![p3](../../../assets/img/etc/그림3.png)
 ![p1](../../../assets/img/etc/그림1.png)
 
-### 완료된 목록 
-
+### 완료된 목록
 
 1) CSV데이터 깨짐현상 수정.
 - txt로 받아서 다시 csv로 재인코딩.
