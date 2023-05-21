@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 크롤링 프로젝트
-parent: 토이 프로젝트
+parent: 📌 토이 프로젝트
 nav_order: 3
 ---
 
