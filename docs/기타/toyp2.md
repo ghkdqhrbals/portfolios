@@ -13,6 +13,7 @@ nav_order: 2
   * ✍️ 윈도우 파일리스 악성코드 데이터 분석
   * 📃 파일리스 악성코드 탐지 논문 정리
   * 💡 파일리스 악성코드 탐지 모델 개발
+* Github : [https://github.com/ghkdqhrbals/Malware_LSTM](https://github.com/ghkdqhrbals/Malware_LSTM)
 
 ### ✍️ 윈도우 파일리스 악성코드 데이터 분석
 
