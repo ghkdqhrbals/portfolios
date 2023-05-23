@@ -17,8 +17,7 @@ nav_order: 7
   * ✍️ map의 개수를 10개로 제한하고 편의를 위해 각각의 map정보를 txt로 받아와 변환, 가공하여 Map에 저장
   * ✍️ Grid map에 state 별로 차량 및 고객, 도로 표시함수 제작
 * Github : [https://github.com/ghkdqhrbals/GraduateProject](https://github.com/ghkdqhrbals/GraduateProject)
-
-[과제 소개 pdf]()
+* 과제 발표자료 : [주행시뮬레이터.pdf](https://ghkdqhrbals.github.io/portfolios/assets/img/terms/주행시뮬레이터.pdf)
 
 ### 1. **과제 진행**
 
