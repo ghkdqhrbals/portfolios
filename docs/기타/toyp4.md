@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 새로운 블록체인 합의 알고리즘 설계
+title: 🔒 새로운 블록체인 합의 알고리즘 설계
 parent: 📌 토이 프로젝트
 nav_order: 4
 ---
