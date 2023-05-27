@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "뱅킹 API 서버 구현(1)"
-parent: 뱅킹 서버 프로젝트
+title: (English) implementation (1)
+parent: Bank API server project
 nav_order: 1
 ---
 

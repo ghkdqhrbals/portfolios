@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 뱅킹 서버 프로젝트
-nav_order: 3
+title: Bank API server project
+nav_order: 4
 has_children: true
 ---
 

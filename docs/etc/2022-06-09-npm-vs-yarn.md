@@ -1,6 +1,6 @@
 ---
 layout: default
-title: NPM vs YARN
+title: (English) NPM vs YARN
 parent: 기타
 nav_order: 2
 ---

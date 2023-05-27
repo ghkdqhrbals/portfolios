@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RDB Transaction(EN)
+title: (English) RDB Transaction
 parent: RDBMS
 nav_order: 2
 ---

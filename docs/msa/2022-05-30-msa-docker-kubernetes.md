@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Relationship between MSA & Docker
+title: (English) Relationship between MSA and Docker
 parent: MSA
 nav_order: 3
 ---

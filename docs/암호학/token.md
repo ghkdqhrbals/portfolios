@@ -1,6 +1,6 @@
 ---
 layout: default
-title: JWT vs PASETO
+title: (English) JWT vs PASETO
 parent: 암호학
 nav_order: 7
 ---

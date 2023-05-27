@@ -1,6 +1,6 @@
 ---
 layout: default
-title: What is MSA?
+title: (English) What is MSA?
 parent: MSA
 nav_order: 1
 ---

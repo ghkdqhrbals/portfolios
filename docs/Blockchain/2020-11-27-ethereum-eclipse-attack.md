@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Geth 1.6.6버전 아키텍처와 이클립스 공격 설명
-parent: 이더리움
+title: (English) Geth v1.6.6 아키텍처와 이클립스 공격 설명
+parent: 📌 이클립스 공격 프로젝트
 nav_order: 1
 ---
 # Analysis of Geth 1.6.6v's P2P network

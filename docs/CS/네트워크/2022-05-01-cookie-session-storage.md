@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Network(4)<br/>Cookie and Session, JWT(Json Web Token)
+title: Network(4)<br/>Cookie and Session, JWT(Json Web Token) (English)
 parent: 네트워크
 grand_parent: CS정리
 nav_order: 4

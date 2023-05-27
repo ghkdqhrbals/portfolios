@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ECC encryption
+title: (English) ECC encryption
 parent: 암호학
 nav_order: 6
 ---

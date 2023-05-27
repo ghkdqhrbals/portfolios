@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Goroutine(Golang 경량 스레드)의 구조 및 동작과정  
+title: (English) What is Goroutine and its behavior
 parent: Go
 nav_order: 4
 ---

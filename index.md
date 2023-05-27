@@ -6,7 +6,8 @@ description: "다양한 프로젝트를 기록하는 곳입니다"
 permalink: /
 ---
 
-안녕하세요. 신입 개발자 황보규민입니다 😊
+
+안녕하세요. 백엔드 개발자 황보규민입니다 😊
 
 저는 **장애발생에 미리 대응**하길 좋아하며, **확장성 있는 시스템 구축**하는 것을 중점적으로 개발하길 좋아합니다.
 
@@ -224,7 +225,9 @@ Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)
 <div class="empty-line">
 </div>
 
-[논문확인](https://scienceon.kisti.re.kr/srch/selectPORSrchArticleOrgnl.do?cn=DIKO0016457502){: .btn .btn-blue .fs-2 .mb-4 .mb-md-0 .ml-5} [소개영상](https://www.youtube.com/watch?v=HbAPQwbNtfw){: .btn .btn-red .fs-2 .mb-4 .mb-md-0 }
+
+
+[개요확인](https://ghkdqhrbals.github.io/portfolios/docs/Blockchain/){: .btn .btn-primary .fs-2 .mb-4 .mb-md-0 .ml-5 } [논문확인](https://scienceon.kisti.re.kr/srch/selectPORSrchArticleOrgnl.do?cn=DIKO0016457502){: .btn .btn-blue .fs-2 .mb-4 .mb-md-0 .ml-5} [소개영상](https://www.youtube.com/watch?v=HbAPQwbNtfw){: .btn .btn-red .fs-2 .mb-4 .mb-md-0 }
 * ## 📌 **다중 Geth 취약점을 이용한 블록체인 이클립스 공격 설계** 
   * **개요** : Golang으로 제작된 이더리움 클라이언트(~1.9.25v)를 마비시키는 공격설계 논문입니다
     * ### **모니터링**
