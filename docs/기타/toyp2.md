@@ -1,11 +1,11 @@
 ---
 layout: default
-title: 😈 악성코드 패턴추출 프로젝트
+title: 😈 파워쉘 악성 스크립트 탐지 프로젝트
 parent: 📌 토이 프로젝트
 nav_order: 2
 ---
 
-**해당 프로젝트는 2015 Window malware dataset을 대상으로한 N-gram 기반 악성코드 패턴추출 프로젝트입니다.**
+**해당 프로젝트는 KISA에서 주최한 2021 사이버보안 AI*빅테이터 경진대회의 본선에서 진행한 프로젝트입니다.**
 
 * 참여인원 : 3인 팀(팀장 역할)
 * 기간 : 2021년 09월 ~ 2021년 12월(3개월)
@@ -14,6 +14,7 @@ nav_order: 2
   * 📃 파일리스 악성코드 탐지 논문 정리
   * 💡 파일리스 악성코드 탐지 모델 개발
 * Github : [https://github.com/ghkdqhrbals/Malware_LSTM](https://github.com/ghkdqhrbals/Malware_LSTM)
+* 결과 : 4등
 
 ### ✍️ 윈도우 파일리스 악성코드 데이터 분석
 
@@ -69,7 +70,7 @@ nav_order: 2
 
 이 때 같은 데이터셋을 가지고 탐지하는 모델끼리 비교하는 것이 모델성능을 비교하기에 좋습니다.
 
-따라서 **Pulling Back the certain on EncodedCommand PowerShell Attacks** 이라는 기술문서의 데이터셋을 공통적으로 처리하는 모델 5가지를 비교하려고 합니다(그 중 대표되는 논문인 AST-Based Deep Learning for Detecting Malicious PowerShell 만 기술하겠습니다. 더 구체적인 내용들은 다음 링크를 확인해주세요! [파일리스 악성코드 분석 자료](https://ghkdqhrbals.github.io/assets/img/golang/study-powershell-malware.pdf)).
+따라서 **Pulling Back the certain on EncodedCommand PowerShell Attacks** 이라는 기술문서의 데이터셋을 공통적으로 처리하는 모델 5가지를 비교하려고 합니다(그 중 대표되는 논문인 AST-Based Deep Learning for Detecting Malicious PowerShell 만 기술하겠습니다. 다른 논문정리는 다음 링크를 확인해주세요! [파일리스 악성코드 분석 자료](https://ghkdqhrbals.github.io/assets/img/golang/study-powershell-malware.pdf)).
 
 <details><summary> AST-Based Deep Learning for Detecting Malicious PowerShell 논문 정리 </summary><div markdown="1">
 
@@ -109,15 +110,24 @@ nav_order: 2
 
 <details><summary> 사용 모델 아키텍처 및 결과 </summary><div markdown="1">
 
-## N-gram 기반 악성코드 대표 특성 도출
-  * step 1 : Malware assembly file에서 .text section의 opcode를 추출합니다
-  * step 2 : 1-gram부터 9-gram까지 opcode pattern의 빈도수를 추출합니다
-  * step 3 : 유형별 악성코드 파일에서 opcode pattern이 나타나는 비율 측정 후, 다른 유형과 차이를 가지는 대표 opcode pattern 추출합니다
+## Frequency Model 을 통한 특성 도출
 
-![p1](../../../assets/img/etc/1.png)
+![p1](../../../assets/img/terms/11.png)
+![p1](../../../assets/img/terms/12.png)
+![p1](../../../assets/img/terms/13.png)
+![p1](../../../assets/img/terms/14.png)
+![p1](../../../assets/img/terms/15.png)
 
 ## 결과
-혹시 모를 라이센스 문제로 일정 부분만 표시하겠습니다.
-![p1](../../../assets/img/etc/2.png)
+정밀도 : 0.8562
+재현율 : 0.7057
+F1-score : 0.7737
+
+## 후기
+사실 LSTM 과 TF-IDF 를 앙상블하여 모델링 해보았지만, LSTM 이 악성 스크립트를 잘 학습하지 못했습니다. **아마 AST 로는 악성 스크립트의 특성이 반영되지 못한게 가장 큰 이유가 아닐까 생각합니다**. 따라서 앙상블을 중간에 제외하고 TF-IDF 로만 반영하여 학습하였습니다.
+
+그리고 대부분의 제공된 데이터셋은 난독화가 되어 있었습니다. 따라서 해당 부분을 비난독화하고자 Revoke Expression/PowerDecoder 등 여러 툴을 사용하여 진행하였지만, **약 5%는 난독화가 제대로 진행되지 않았습니다**. 즉, 모델학습에 치명적인 결과를 초래한다는 것이죠! 결과로 꽤 낮은 정밀도가 나왔다고 생각합니다. 
 
 </div></details>
+
+
