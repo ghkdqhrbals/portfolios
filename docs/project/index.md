@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 📌 실시간 채팅서버 프로젝트
-nav_order: 2
+nav_order: 3
 has_children: true
 ---
 
