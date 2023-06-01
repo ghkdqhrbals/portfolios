@@ -88,7 +88,7 @@ permalink: /
 
 ## **개인 프로젝트(기여도 100%)**
 
-* [뱅킹 서버 자동배포](https://ghkdqhrbals.github.io/portfolios/docs/project2/)
+* [뱅킹 서버 배포 자동화](https://ghkdqhrbals.github.io/portfolios/docs/project2/)
   * 기술 스택 : Golang, Gin, 비동기 멀티스레드 처리, Docker/Kubernetes, AWS-Route-53/ECR/EKS/Secrets/IAM, Git-Actions
   * 기간 : 2022.06 ~ 2022.09
   * Github : [https://github.com/ghkdqhrbals/golang-backend-master](https://github.com/ghkdqhrbals/golang-backend-master)
@@ -128,9 +128,8 @@ permalink: /
   * 나의 역할
     * 윈도우 악성코드 데이터 분석(기여도 20%)
     * N-gram 기반 악성코드 대표 특성 도출(기여도 100%)
-  * Github : 비공개
   * 설명
-    * 국가연구과제 수행 중, N-gram 기반 악성코드 대표 특성 추출 개발
+    * 국가연구과제 수행 중, N-gram 기반 악성코드 대표 특성 추출 프로그램
 
 
 * [파워쉘 악성 스크립트 탐지](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp2/)(기여도 80%)
@@ -165,7 +164,6 @@ permalink: /
   * 나의 역할 
     * UI/UX 제작(기여도 80%)
     * 경로 탐색 알고리즘 제작(기여도 100%)
-    * 지도 제작(기여도 100%)
   * Github : [https://github.com/ghkdqhrbals/GraduateProject](https://github.com/ghkdqhrbals/GraduateProject)
   * 과제 발표자료 : [https://ghkdqhrbals.github.io/portfolios/assets/img/terms/주행시뮬레이터.pdf](https://ghkdqhrbals.github.io/portfolios/assets/img/terms/주행시뮬레이터.pdf)
   * 설명
@@ -195,7 +193,6 @@ permalink: /
     * 이더리움 구현 취약점 분석
     * 새로운 이클립스 공격
     * 이클립스 공격 실험증명
-  * Github : 비공개
   * 논문 : [https://scienceon.kisti.re.kr/srch/selectPORSrchArticleOrgnl.do?cn=DIKO0016457502](https://scienceon.kisti.re.kr/srch/selectPORSrchArticleOrgnl.do?cn=DIKO0016457502)
   * 논문소개(English) : [ttps://sites.google.com/view/master-thesis-hwangbogyumin/](https://sites.google.com/view/master-thesis-hwangbogyumin/)
   * 설명
