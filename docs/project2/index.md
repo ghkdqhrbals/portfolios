@@ -5,10 +5,11 @@ nav_order: 4
 has_children: true
 ---
 
-# **뱅킹 백엔드 서버** [Github](https://github.com/ghkdqhrbals/golang-backend-master){: .btn .btn-black .fs-3 .mb-4 .mb-md-0 }
-* **개요** : Golang 으로 제작된 뱅킹 RestAPI 제공 백엔드 서버입니다
-* **기간** : 2022.06 ~ 2022.09 (4개월)
-* **인원** : 1인
+# **뱅킹 백엔드 서버**
+* Github : [https://github.com/ghkdqhrbals/golang-backend-master](https://github.com/ghkdqhrbals/golang-backend-master)
+* 개요 : Golang 으로 제작된 뱅킹 RestAPI 제공 백엔드 서버입니다
+* 기간 : 2022.06 ~ 2022.09 (4개월)
+* 인원 : 1인
 
 | 사용기술     | 내용                                                                                                                    |
 |:---------|:----------------------------------------------------------------------------------------------------------------------|

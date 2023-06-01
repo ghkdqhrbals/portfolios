@@ -9,8 +9,8 @@ has_children: true
 
 Kafka와 ELK stack을 통해 실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다 😊
 
-Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
-
+* Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
+* Youtube : [https://www.youtube.com/watch?v=3VqwZ17XyEQ](https://www.youtube.com/watch?v=3VqwZ17XyEQ)
 
 ## 1.  💡 아키텍처 변천사
 
