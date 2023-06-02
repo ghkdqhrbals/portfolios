@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 2023-02-27<br/>개발자 취준생 일기
-parent: 일상
+parent: 개발자 일기
 nav_order: 1
 ---
 # 현재와 목표간의 거리
