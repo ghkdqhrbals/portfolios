@@ -1,9 +1,3 @@
----
-layout: default
-title: Cassandra 와 RDB 차이점 정리
-parent: NO-SQL
-nav_order: 2
----
 
 Cassandra is a high performance and highly scalable distributed NoSQL database management system.
 RDBMS is a Database management system or software which is designed for relational databases.

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 개발자 일기
-nav_order: 100
+nav_order: 200
 has_children: true
 ---
 
