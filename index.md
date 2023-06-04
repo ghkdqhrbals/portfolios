@@ -105,6 +105,7 @@ permalink: /
   * 기술 스택 : Golang, 비동기 멀티스레딩 처리, 시간경과에 따른 트래픽 딜레이 그래프 생성
   * 기간 : 2023.01 ~ 2023.02
   * Github : [https://github.com/ghkdqhrbals/gotybench](https://github.com/ghkdqhrbals/gotybench)
+  * Youtube : [https://www.youtube.com/watch?v=cV3ILCrfsco](https://www.youtube.com/watch?v=cV3ILCrfsco)
   * 설명
     * HTTP 벤치마크 툴
     * 1000개 이상의 동시 API 전송 테스트 가능
