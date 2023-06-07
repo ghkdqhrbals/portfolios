@@ -21,8 +21,11 @@ permalink: /
 
 ## **학력**
 
-* 부산대학교 2020.09 ~ 2022.08 컴퓨터공학과 석사 졸업
-* 부산대학교 2014.03 ~ 2020.08 정보컴퓨터공 학부 졸업
+* 석사 졸업(2020.09 ~ 2022.08)
+  * 부산대학교 컴퓨터공학과
+  * 블록체인 보안 연구 및 AI 연구
+* 학사 졸업(2014.03 ~ 2020.08)
+  * 부산대학교 정보컴퓨터공학부
 
 ---
 
@@ -80,7 +83,7 @@ permalink: /
 
     </div>
       </details>
-  * 기간 : 2022년 10월 ~ 진행중
+  * 기간 : 2022.10 ~ 2023.06
   * 인원 : 1명
   * Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
   * Youtube : [https://www.youtube.com/watch?v=3VqwZ17XyEQ](https://www.youtube.com/watch?v=3VqwZ17XyEQ)
@@ -112,7 +115,7 @@ permalink: /
 * [**포트폴리오 웹**](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp6/)
 
   * 기술 스택 : React, HTML, CSS, AWS, NGINX, Docker
-  * 기간 : 2022.08월 ~ 2022.09
+  * 기간 : 2022.08 ~ 2022.09
   * Github : [https://github.com/ghkdqhrbals/portfolio](https://github.com/ghkdqhrbals/portfolio)
   * 설명
     * React로 제작한 포트폴리오 홈페이지
