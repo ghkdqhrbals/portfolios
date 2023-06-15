@@ -69,16 +69,21 @@ permalink: /
 
     | 사용기술                     | 내용                                                                                                                 |
     | ---------------------------- | :------------------------------------------------------------------------------------------------------------------- |
+    | Java                         | CompletableFuture 와 Flux 객체를 통한 비동기 및 non-blocking 처리                                                        |
+    | Nginx/Spring-Cloud-gateway   | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                          |
+    | Spring-Security              | Reactor 기반 JWT 인증 및 유저 Role 별 인가 설정                                                                      |
+    | Spring-Cloud                 | Eureka 및 Config-Server 설정으로 자동 yaml 배포 및 확장성 고려                                                       |
+    | Spring-Boot                  | 여러가지 싱글톤 객체 관리                                                       |
+    | Spring-WebFlux               | 자바의 Future 객체와 비슷하지만 더 LAZY 한 비동기/non-blocking 방식 설정                                                      |
     | ELK stack                    | Elastic Search + Logstash + Kibana 를 통한 통계수집/시각화[Image](https://ghkdqhrbals.github.io/assets/img/es/5.png) |
     | Kafka                        | 3대의 Broker과 replica들을 통한 안전성 및 확장성 제공. MSA 백본망으로 사용                                           |
     | Debezium/JDBC-Sink-connector | Kafka를 통한 백업 DB uni-directional sync[Details](https://ghkdqhrbals.github.io/posts/chatting(9)/)                 |
-    | Docker                       | 서버/DB/Kafka/Connector/ELK/Monitoring/etc. 실행 자동화                                                              |
-    | Nginx/Spring-Cloud-gateway   | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                          |
+    | Docker                       | 컴포즈로 서버+DB+Kafka+Connector+ELK+Monitoring+... 등 여러 서비스 실행 자동화                                                              |
     | Stomp                        | 채팅 실시간성 제공                                                                                                   |
     | JPA + JDBC                   | INSERT 문 JDBC 배치 프로세싱, 비동기 DB 관리                                                                         |
     | AWS RDS                      | authDB에 적용되었으며, Postgresql 성능지표 시각화                                                                    |
-    | Spring-Security              | Reactor 기반 JWT 인증 및 유저 Role 별 인가 설정                                                                      |
-    | Spring-Cloud                 | Eureka 및 Config-Server 설정으로 자동 yaml 배포 및 확장성 고려                                                       |
+    | Redis                        | 마이크로 서비스간 전송되는 이벤트Status를 저장하는 DB로 사용                                                                     |
+    
 
 
     </div>
