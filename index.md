@@ -65,24 +65,26 @@ permalink: /
 
 * [**실시간 채팅 서버**](https://ghkdqhrbals.github.io/portfolios/docs/project/)(기여도 100%)
   * <details><summary>기술 스택</summary><div markdown="1">
-
-
-    | 사용기술                     | 내용                                                                                                                 |
-    | ---------------------------- | :------------------------------------------------------------------------------------------------------------------- |
-    | Java                         | CompletableFuture 와 Flux 객체를 통한 비동기 및 non-blocking 처리                                                        |
+  
+    | 사용기술                         | 내용                                                                                                                 |
+    | ------------------------------| ---------------------------- | :------------------------------------------------------------------------------------------------------------------- |
+    | **Java**                         | CompletableFuture 와 Flux 객체를 통한 비동기 및 non-blocking 처리                                                        |
     | Nginx/Spring-Cloud-gateway   | API gateway로써 채팅서버 및 인증서버를 묶어서 통합 RestApi entry point 제공                                          |
     | Spring-Security              | Reactor 기반 JWT 인증 및 유저 Role 별 인가 설정                                                                      |
-    | Spring-Cloud                 | Eureka 및 Config-Server 설정으로 자동 yaml 배포 및 확장성 고려                                                       |
+    | Spring-Cloud                 | config-server 와 rabbitmq 를 통해 git에서 yaml 설정 파일을 클론하고 이를 모든 서버가 사용할 수 있도록 함. 또한 Eureka 서버를 통해 API 게이트웨이의 로드밸런싱을 도움                                         |
     | Spring-Boot                  | 여러가지 싱글톤 객체 관리                                                       |
     | Spring-WebFlux               | 자바의 Future 객체와 비슷하지만 더 LAZY 한 비동기/non-blocking 방식 설정                                                      |
-    | ELK stack                    | Elastic Search + Logstash + Kibana 를 통한 통계수집/시각화[Image](https://ghkdqhrbals.github.io/assets/img/es/5.png) |
-    | Kafka                        | 3대의 Broker과 replica들을 통한 안전성 및 확장성 제공. MSA 백본망으로 사용                                           |
+    | ELK stack                    | 통계수집 및 시각화[Image](https://ghkdqhrbals.github.io/assets/img/es/5.png) |
+    | **Kafka**                    | 3대의 Broker과 replica들을 통한 안전성 및 확장성 제공. MSA 백본망으로 사용                                           |
     | Debezium/JDBC-Sink-connector | Kafka를 통한 백업 DB uni-directional sync[Details](https://ghkdqhrbals.github.io/posts/chatting(9)/)                 |
-    | Docker                       | 컴포즈로 서버+DB+Kafka+Connector+ELK+Monitoring+... 등 여러 서비스 실행 자동화                                                              |
-    | Stomp                        | 채팅 실시간성 제공                                                                                                   |
+    | Docker                       | 컴포즈로 `서버`+`DB`+`Kafka`+`Connector`+`ELK`+`Monitoring`+... 등 여러 서비스 실행 자동화                                                              |
+    | Stomp                        | 채팅 실시간성 제공을 위해 사용함. 또한 프론트가 SSE 이벤트를 수신할 때 실시간 Status를 표시해주기 위해 사용                                                                                                 |
     | JPA + JDBC                   | INSERT 문 JDBC 배치 프로세싱, 비동기 DB 관리                                                                         |
     | AWS RDS                      | authDB에 적용되었으며, Postgresql 성능지표 시각화                                                                    |
     | Redis                        | 마이크로 서비스간 전송되는 이벤트Status를 저장하는 DB로 사용                                                                     |
+    | JWT                          | 세션과 인증DB의 부담을 줄이기 위해 사용      |
+    | RabbitMQ                     | 엑츄에이터로 새롭게 업데이트 된 설정들을 push 할 때, 모든 서비스들은 이 메세지큐를 통해 배포받음      |
+    | Thymeleaf/JavaScript         | 프론트에 사용          |
     
 
 
