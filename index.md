@@ -30,10 +30,13 @@ permalink: /
 ---
 
 ## **경험**
-* 취약점 분석 웹 어플리케이션 개발(FOXEE) 2023.06 ~ 현재
-  * Java, Spring
-* [DB 스냅샷 프로그램](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/) 개발(주식회사 펄스) 2020.01 ~ 2020.02
-  * Python, Selenium
+* 선임연구원(FOXEE) 2023.06 ~ 현재
+  * 역할 : 취약점 분석 웹 서비스 개발
+  * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB, Docker, etc.
+  * 협업툴 : Notion(스프린트 관리 및 문서작성), Github(코드 버저닝), Microsoft Team(화상회의), Protopie(화면설계), draw.io(아키텍처 설계), erd-cloud(ERD 설계)
+* 인턴(주식회사 펄스) 2020.01 ~ 2020.02
+  * 역할 : [DB 스냅샷 프로그램](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/)
+  * 개발스택 : Python, Selenium
 
 ---
 
