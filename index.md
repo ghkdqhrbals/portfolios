@@ -30,7 +30,8 @@ permalink: /
 ---
 
 ## **경험**
-
+* 취약점 분석 웹 어플리케이션 개발(FOXEE) 2023.06 ~ 현재
+  * Java, Spring
 * [DB 스냅샷 프로그램](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/) 개발(주식회사 펄스) 2020.01 ~ 2020.02
   * Python, Selenium
 
