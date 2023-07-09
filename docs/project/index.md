@@ -7,10 +7,33 @@ has_children: true
 
 # **채팅 서버**
 
-Kafka와 ELK stack을 통해 실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다 😊
+실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다 😊
 
 * Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
 * Youtube : [https://www.youtube.com/watch?v=3VqwZ17XyEQ](https://www.youtube.com/watch?v=3VqwZ17XyEQ)
+
+<details><summary> Project Modules </summary><div markdown="1">
+
+1. `common-dto` : 에러 처리와 다양한 변수 및 dto들을 관리하는 모듈입니다.
+2. `gateway-service` : Netty, (Spring-Cloud-Gateway) 통합 백엔드 엔트리를 제공하는 게이트웨이로써 JWT 토큰 검증 및 유저권한에 따라 백엔드에 엑세스를 허가해주는 모듈입니다.
+3. `config-service` : 여러 설정파일들을 rabbitMQ와 actuator로 여러 서버에 전파하는 역할을 수행합니다.
+4. `discovery-service` : Eureka 서버로 `gateway-service` 에게 로드밸런싱을 위한 서버 url 리스트를 반환해주는 역할을 수행합니다.
+5. `docker-elk` : `엘라스틱 서치` + `로그 스태시` + `키바나` 를 병합하여 도커라이징 된 라이브러리로, `Kafka` 의 newUser 토픽을 읽어와 인덱스에 저장 및 그래프화 하는 모듈입니다.
+6. `인증서버` : Undertow, JWT 토큰 발급 및 `채팅서버`와 `고객서버`에 유저 추가 이벤트를 Saga Orchestration 방식으로 전파하는 역할을 수행합니다.
+7. `채팅서버` : Tomcat, 채팅서비스를 제공하는 서버입니다.
+8. `고객서버` : Tomcat, 사용자의 계좌를 관리하는 서버입니다.
+9. `주문서버` : (**Not set**) 사용자의 상품주문을 관리하는 서버입니다.
+10. `상품서버` : (**Not set**) 상품목록을 관리하는 서버입니다.
+11. `kafkaMQ` : `인증서버`, `고객서버`, `주문서버` 가 유저정보를 서로 전파받을 떄 사용됩니다. 또한 RDB 의 Backup를 생성할 때 사용되며 ELK 의 통계를 만들때 사용되는 백본망입니다.
+12. `rabbitMQ` : Actuator 에 설정파일들을 실시간으로 전파할 떄 사용되는 메세지큐입니다.
+13. `nginx` : (deprecated)
+14. `Redis` : 이벤트 전송 상태를 저장할 때 사용하는 DB입니다.
+15. `RDB` : (Postgres) AWS-RDS 및 localDB 를 사용하며, 주요서비스들의 데이터들을 저장합니다.
+
+</div></details>
+
+
+-----
 
 ## 1.  💡 아키텍처 변천사
 
@@ -37,6 +60,8 @@ Kafka와 ELK stack을 통해 실시간 트래픽 관찰 및 안전성과 확장�
 ![image](../../assets/img/msa/12.svg)
 
 </div></details>
+
+------
 
 ## 2.  🔨 성능 이슈 해결 및 최적화 과정
 
@@ -78,6 +103,9 @@ Kafka와 ELK stack을 통해 실시간 트래픽 관찰 및 안전성과 확장�
 >
 > </div></details>
 
+
+------
+
 ## 3.  📕 프로젝트를 수행하기 위해 따로 공부 및 정리한 포스팅 
 * [메세지큐 - 1](https://ghkdqhrbals.github.io/portfolios/docs/메세지큐/2022-12-01-message-queue/) : 메세지 큐의 장점과 단점 정리
 * [메세지큐 - 2](https://ghkdqhrbals.github.io/portfolios/docs/메세지큐/2022-12-02-kafka/) : Kafka 용어정리 및 구조 파악 
@@ -97,5 +125,9 @@ Kafka와 ELK stack을 통해 실시간 트래픽 관찰 및 안전성과 확장�
 * [Golang - 1](https://ghkdqhrbals.github.io/portfolios/docs/Go언어/2022-09-18-thread-goroutine/) : 부하 테스트 툴 제작 시 필요한 경량 스레드 구조 정리
 * [Java - 1](https://ghkdqhrbals.github.io/portfolios/docs/Java/java3/) : 자바의 CompletableFure 을 통한 콜백/멀티스레딩 정리
 * [Java - 2](https://ghkdqhrbals.github.io/portfolios/docs/Java/java1/) : 자바의 동기/비동기 Blocking/Non-blocking 정리
+* [Git 컨벤션 - 1](https://accurate-allspice-e0a.notion.site/git-convention-9e8f78c9d33346bca965c30fb6537d5a) : Git 컨벤션 정리
+* [JWT - 1](https://accurate-allspice-e0a.notion.site/jwt-2eb41c679cfe4fa4b5210594482b8025?pvs=4) : 토큰 저장 시 주의사항 및 구현 방식 정리
+
+그 밖에 Reactor, R2DBC, Spring-WebFlux Transactional 처리, etc. 
 
 ## 4.  📗 프로젝트 진행 포스팅
