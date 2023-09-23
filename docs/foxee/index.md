@@ -11,7 +11,7 @@ has_children: true
 
 ### 1. 현재 까지의 아키텍처 설계 및 구현 사항들
 
-![img.png](../arc1.png)
+![img.png](arc1.png)
 
 ### 2. 각 tag 에 대한 상세설명
 **(a)** 모델서버는 Kafka MQ 에 아래의 구조로 이벤트를 전송합니다.
