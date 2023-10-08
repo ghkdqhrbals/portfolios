@@ -1,7 +1,7 @@
 ---
 layout: default
 title: (English) Kubernetes
-parent: 도커
+parent: 도커와 쿠버네티스
 nav_order: 3
 ---
 

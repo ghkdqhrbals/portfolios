@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 도커
+title: 도커와 쿠버네티스
 nav_order: 8
 has_children: true
 ---
