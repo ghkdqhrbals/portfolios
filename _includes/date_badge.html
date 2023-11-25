@@ -1,0 +1,44 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+      }
+      .badge {
+        background: #333; /* Dark grey background */
+        border-radius: 3px;
+        color: white;
+        display: inline-flex;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .badge-part1 {
+        background: #555; /* Lighter grey background */
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        padding: 0px 20px;
+      }
+      .badge-part2 {
+        background: #4CAF50; /* Green background */
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        padding: 0px 20px;
+      }
+    </style>
+</head>
+<body>
+
+<div class="badge">
+    <div class="badge-part1">update at</div>
+    <div class="badge-part2">{{ include.date }}</div>
+</div>
+
+</body>
+</html>
