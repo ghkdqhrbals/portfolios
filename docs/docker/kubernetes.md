@@ -37,8 +37,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: golang-backend-api-deployment
-  labels:
-    app: golang-backend-api
 spec:
   replicas: 2
   selector:
@@ -61,15 +59,105 @@ spec:
 ```
 
 * apiVersion : 쿠버네티스가 제공하는 기능들의 버전입니다. 정말 다양한 버전이 존재하고 각각의 버전은 지원하는 바가 전부 다릅니다. 다양한 버전들과 각각의 내용은 [https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-apiversion-definition-guide.html](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-apiversion-definition-guide.html)에서 확인가능합니다.
-* kind : 타입입니다.
-* metadata : 이 설정에 라벨을 붙이고 저장하는 역할을 수행합니다.
-* spec : details of components
+* kind : 타입입니다. 주로 우리는 Service, PersistanceVolume, PersistanceVolumeClaim, Deployment, Ingress 등을 사용할 수 있습니다.
+* metadata : 여러 메타데이터들을 입력할 수 있습니다. 라벨을 붙이고 저장하는 역할을 수행합니다.
+
+<details><summary> metadata 필드에 입력할 수 있는 주요 속성들 </summary><div markdown="1">
+
+1. **name (필수):**
+
+- 리소스의 이름을 지정합니다. 이름은 리소스의 고유 식별자이어야 합니다.
+- 예: `name: my-pod`
+
+2. **namespace:**
+
+- 리소스가 속하는 네임스페이스(namespace)를 지정합니다. 네임스페이스를 지정하지 않으면 기본 네임스페이스인 "default"가 사용됩니다.
+- 예: `namespace: my-namespace`
+
+3. **labels:**
+
+- 리소스에 부여할 라벨(Label)을 지정합니다. 라벨은 리소스를 식별하는 데 사용됩니다.
+- 예:
+  ```yaml
+  labels:
+    app: my-app
+    environment: production
+  ```
+
+4. **annotations:**
+
+- 리소스에 추가 정보를 제공하는 어노테이션(Annotation)을 지정합니다. 어노테이션은 라벨과 유사하지만 더 자세한 메타데이터를 저장하는 데 사용됩니다.
+- 예:
+  ```yaml
+  annotations:
+    description: This is my application.
+    owner: John Doe
+  ```
+
+5. **resourceVersion:**
+
+- 리소스의 버전 정보를 나타내는 값입니다. 주로 클러스터 내에서 리소스의 변경을 추적하는 데 사용됩니다.
+
+6. **generateName:**
+
+- 이름을 자동으로 생성할 때 사용하는 접두사(prefix)입니다. 주로 리소스를 동적으로 생성할 때 사용됩니다.
+
+7. **finalizers:**
+
+- 리소스가 삭제될 때 실행되어야 하는 종료 처리(finalization) 핸들러를 지정합니다.
+
+8. **clusterName:**
+
+- 리소스가 속한 클러스터의 이름을 지정합니다.
+
+9. **selfLink:**
+
+- 리소스의 자체 링크를 지정합니다.
+
+10. **uid:**
+
+- 리소스의 고유 식별자인 UID를 지정합니다.
+
+11. **ownerReferences:**
+
+- 다른 리소스가 해당 리소스를 소유하는 경우 연관된 리소스 정보를 지정합니다.
+
+12. **creationTimestamp:**
+
+- 리소스가 생성된 시간을 나타내는 타임스탬프를 포함합니다.
+
+13. **deletionTimestamp:**
+
+- 리소스가 삭제될 예정인 경우, 삭제 예정인 시간을 나타내는 타임스탬프를 포함합니다.
+
+14. **deletionGracePeriodSeconds:**
+
+- 리소스가 삭제될 때 Graceful Delete를 위한 대기 시간을 지정합니다.
+
+15. **initializers:**
+
+- 초기화를 제어하기 위한 설정 정보를 포함합니다.
+
+16. **managedFields:**
+
+- 리소스의 관리 필드 정보를 포함합니다.
+
+17. **ownerReference:**
+
+- 다른 리소스가 해당 리소스를 소유하는 경우에 대한 연결 정보를 포함합니다.
+
+위에서 설명한 메타데이터 속성 중 일부는 필수이며, 다른 일부는 선택 사항입니다. 리소스의 유형 및 사용 사례에 따라 어떤 메타데이터를 설정할지를 결정해야 합니다.
+
+</div></details>
+
+* spec : 실제로 리소스를 생성할 때 필요한 정보들을 입력합니다.
   * replicas : `pod`의 개수를 설정합니다.
-  * selector : 복제본을 생성할 템플릿 이름을 선택합니다.
-  * template.spec.container : 템플릿에 어떤 도커 이미지가 사용될 것인지, 포트 및 기타 설정을 수행합니다(Docker설정과 동일합니다).
+  * selector : 복제본을 생성할 템플릿 이름을 선택합니다. Service의 metadata.label 과 동일한 값을 가져야합니다. **만일 Service 의 `metadata.label.{key:value}` 가 app: golang-backend-api 라면, 여기서도 app: golang-backend-api 를 가져야합니다.**
+  * template.metadata : 이 deployment 로 인해 복제되는 여러 파드들에게 공통으로 적용할 메타데이터를 입력할 수 있습니다.
+  * template.spec : 각 템플릿에 어떤 도커 이미지가 사용될 것인지, 포트 및 기타 설정을 수행합니다(Docker설정과 동일합니다). 
     1. Docker Hub 에서 `ghkdqhrbals/simplebank:latest` 이미지를 가져옵니다.
     2. `golang-backend-api`라는 이름으로 컨테이너를 생성합니다.
-    3. `8080` 포트를 외부에 노출시킵니다.
+    3. `8080` 포트를 네트워크 내부에 노출시킵니다.
 
 ### 2-2.  **Service**
 앞서 우리는 deployment.yaml를 통해 `Pod`를 2개 생성했습니다. `Service` 타입은 이 Pod들에 통합 entry포인트를 제공하며, 어떤 방식으로 외부에서 접속할 지 네트워크를 설정하는 타입입니다. 아래는 service.yaml 파일입니다.
@@ -95,7 +183,7 @@ spec:
 
 * spec.type : `ClusterIP`, `LoadBalancer`, `NodePort` 중 하나를 선택할 수 있습니다.
   * ClusterIP : 이 설정은 쿠버네티스 클러스터 내부에서만 `Pod`에 접속할 수 있도록 설정해줍니다.
-  * NodePort : 클러스터 외부에서도 `Pod`에 접속 가능하도록 설정해줍니다.
+  * NodePort : 클러스터 외부에서도 `Pod`에 접속 가능하도록 설정해줍니다. 만약 2개의 파드와 연결된 서비스가 NodePort 로 되어있다면, 라운드로빈 방식으로 순서대로 요청이 각 파드에 전달됩니다.
   * LoadBalancer : 클라우드에서 제공하는 로드밸런싱을 사용하기 위한 타입입니다.
 
 {: .highlight }
@@ -109,13 +197,13 @@ spec:
 > 
 > 하지만 아직까지는, 외부로 포트가 노출되지 않았습니다.
 > 
-> 이제부터 이걸 설정하기 위해서 우리는 **Ingress** 를 작성해주어야합니다!
+> 이제부터 이걸 설정하기 위해서 우리는 **Ingress** 를 작성해주어야합니다!(물론 NodePort 로 직접외부노출할 수 있습니다.)
 
 
 ### 2-3. **Ingress**
 ![a](../../../assets/p/6/ingress.png)
 
-Ingress는 외부에 포트를 노출시켜줌과 동시에 로드밸런싱을 설정해주는 역할을 수행합니다. 아래는 ingress.yaml 파일입니다.
+**Ingress는 외부에 포트를 노출시켜줌과 동시에 로드밸런싱을 설정해주는 역할을 수행합니다.** 아래는 ingress.yaml 파일입니다.
 
 ```yaml
 apiVersion: networking.k8s.io/v1

@@ -4,6 +4,30 @@ title: (English) Kubernetes
 parent: 도커와 쿠버네티스
 nav_order: 3
 ---
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .badge-style {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white; /* 흰색 텍스트 */
+            font-size: 12px; /* 텍스트 크기 */
+            font-weight: bold; /* 굵은 글씨 */
+            padding: 1px 20px; /* 상하 10px, 좌우 20px의 패딩 */
+        }
+        .badge-container {
+            background-color: #333; /* 배지를 담을 컨테이너의 배경색 */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="badge-container">
+    <span class="badge-style">2022. 03. 15</span>
+</div>
+</body></html>
 
 # **Kubernetes**
 * Kubernetes is a platform for managing containerized workloads and services, that facilitates both declarative configuration and automation

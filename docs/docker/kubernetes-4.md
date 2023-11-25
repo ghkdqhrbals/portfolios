@@ -521,27 +521,3 @@ spec:
 이렇게 경로를 수정하거나 잘라내는 방식을 사용하면 클라이언트 요청을 더 유연하게 처리할 수 있습니다.
 
 </div></details>
-
-<details><summary> </summary><div markdown="1">
-
-
-
-</div></details>
-
-<details><summary> </summary><div markdown="1">
-
-
-
-</div></details>
-
-<details><summary> </summary><div markdown="1">
-
-
-
-</div></details>
-
-<details><summary> </summary><div markdown="1">
-
-
-
-</div></details>
