@@ -4,7 +4,7 @@
 {% if footer_custom != "" or site.last_edit_timestamp or site.gh_edit_link %}
   <hr>
   <footer>
-    <html>
+
     <script src="https://utteranc.es/client.js"
             repo="ghkdqhrbals/portfolios"
             issue-term="pathname"
@@ -12,7 +12,6 @@
             crossorigin="anonymous"
             async>
     </script>
-    </html>
 
     {% if site.back_to_top %}
       <p><a href="#top" id="back-to-top">{{ site.back_to_top_text }}</a></p>
