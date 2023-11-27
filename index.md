@@ -33,8 +33,7 @@ permalink: /
 
 * 선임연구원(FOXEE) 2023.06 ~ 현재 (5개월)
   * 역할 : 취약점 분석 웹 서비스 개발
-  * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB, Docker, etc.
-  * 협업툴 : Notion(스프린트 관리 및 문서작성), Github(코드 버저닝), Microsoft Team(화상회의), Protopie(화면설계), draw.io(아키텍처 설계), erd-cloud(ERD 설계)
+  * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB postgresql, Docker, etc.
 * 인턴(주식회사 펄스) 2020.01 ~ 2020.02 (1개월)
   * 역할 : [DB 스냅샷 프로그램](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/)
   * 개발스택 : Python, Selenium
@@ -43,22 +42,22 @@ permalink: /
 
 ## **기술 스택**
 
-프론트엔드
-
-* **HTML, CSS** : 현재 포트폴리오 페이지 및 [이전 포트폴리오 프로젝트](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp6/) 등 간단한 프론트 구현가능
-
 백엔드
 
-* **Java/Spring** : 채팅서버 프로젝트에서 비동기 멀티스레딩을 통한 효율향상 경험
+* **Java/Spring-Boot** : 채팅서버 프로젝트에서 비동기 멀티스레딩을 통한 효율향상 경험
 * **Spring-Cloud/Security** : 채팅서버 프로젝트에서 Config 서버를 통한 설정파일 배포 경험. 또한 JWT 토큰 인증/인가 처리를 Reactor 기반으로 처리한 경험이 있음
 * **Kafka** : 채팅서버 프로젝트에서 MSA 의 백본망으로 사용한 경험
 * **Golang/Gin** : 뱅킹서버 프로젝트/HTTP 벤치마크 프로젝트에서 비동기 멀티스레딩을 통한 효율향상 경험
 * **Docker/Shell-script** : 채팅서버/뱅킹서버/HTTP 벤치마크 프로젝트에서 서버 실행에 필요한 부분을 자동화한 경험
 * **Kubernetes/AWS/Git-Actions** : 뱅킹서버 프로젝트에서 CI/CD 를 구현한 경험
 
+프론트엔드
+
+* **HTML, CSS** : 현재 포트폴리오 페이지 및 [이전 포트폴리오 프로젝트](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp6/) 등 간단한 프론트 구현가능
+
 기타
 
-* **Linux** : 리눅스 환경에서의 코딩경험 많음
+* **Linux** : amazon linux
 * **Git/Notion** : 소스 버전관리 및 일정관리
 * **Security**
   * 이더리움 블록체인 네트워크 취약점 발견 및 공격성공 : 1저자로 [네트워크 보안 취약점 논문](https://scienceon.kisti.re.kr/srch/selectPORSrchArticleOrgnl.do?cn=DIKO0016457502) 발표
