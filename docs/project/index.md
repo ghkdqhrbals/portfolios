@@ -102,7 +102,51 @@ has_children: true
 > * [linger.ms 와 batch_size 문제] 문제였나? ❌
 >
 > </div></details>
-
+* [성능 최적화 과정 - 9](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-21-chatting(40)/) : HPA(max 3), ReadinessProbe, CPU limit, EKS NodeGroup AutoScaling O(CPU usage 50%), Caching, 톰켓 최적화
+> <details><summary> 개선된 지표확인 </summary><div markdown="1">
+>
+> | 지표 | 개선 이전 | 개선 이후 | 변화 |
+> |------|-----------|-----------|------|
+> | TPS 평균 | 109.27 | 312.16 | **185.68% 🟢** |
+> | TPS p95 | 271.82 | 376.77 | **38.61% 🟢** |
+> | TPS p99 | 298.47 | 415.61 | **39.25% 🟢** |
+> | MTTFB 평균 | 1605.44 ms | 950.89 ms | **68.84% 🟢** |
+> | MTTFB p95 | 24013.28 ms | 1322.11 ms | **1716.28% 🟢** |
+> | MTTFB p99 | 27690.40 ms | 1833.22 ms | **1410.48% 🟢** |
+> | MTTFB 차이 평균 | 2838.38 ms | 112.52 ms | **2422.56% 🟢** |
+> | MTTFB 평균적인 변동률 | 75.00% | 10.67% | **602.91% 🟢** |
+>
+> </div></details>
+* [성능 최적화 과정 - 10](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-29-chatting(41)/) : Nginx Ingress replicaSet=2~3
+> <details><summary> 개선된 지표확인 </summary><div markdown="1">
+>
+> | 지표              | 개선 이전      | 개선 이후      | Change |
+----------------|------------|------------|-------|--------|
+> | TPS 평균         | 319.99     | 422.20     | **31.94% 🟢** |
+> | TPS p95        | 376.77     | 497.80     | **32.12% 🟢** |
+> | TPS p99        | 415.61     | 532.80     | **28.20% 🟢** |
+> | MTTFB 평균       | 950.89 ms  | 709.86 ms  | **25.35% 🟢** |
+> | MTTFB p95      | 1322.11 ms | 958.64 ms  | **27.49% 🟢** |
+> | MTTFB p99      | 1833.22 ms | 1117.45 ms | **39.04% 🟢** |
+> | MTTFB 차이 평균    | 112.52 ms  | 58.82 ms   | **47.72% 🟢** |
+> | MTTFB 평균적인 변동률 | 10.67%     | 7.67%      | **28.12% 🟢** |
+>
+> </div></details>
+* [성능 최적화 과정 - 11](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-01-03-chatting(42)/) : RDB b-tree Long type PK indexing
+> <details><summary> 개선된 지표확인 </summary><div markdown="1">
+>
+> | 지표 | 개선 이전 | 개선 이후 | Change        |
+> |------|-----------|---------------|------|
+> | TPS 평균 | 377.24 | 404.36 | **7.19% 🟢**  |
+> | TPS p95 | 464.73 | 472.70 | **1.71% 🟢**  |
+> | TPS p99 | 491.26 | 520.06 | **5.86% 🟢**  |
+> | MTTFB 평균 | 496.27 ms | 456.42 ms | **8.73% 🟢**  |
+> | MTTFB p95 | 882.81 ms | 799.67 ms | **10.4% 🟢**  |
+> | MTTFB p99 | 1163.81 ms | 1130.67 ms | **2.93% 🟢**  |
+> | MTTFB 차이 평균 | 106.51 ms | 74.02 ms | **43.89% 🟢** |
+> | MTTFB 평균적인 변동률 | 20.77% | 15.27% | **36.02% 🟢** |
+>
+> </div></details>
 
 ------
 
