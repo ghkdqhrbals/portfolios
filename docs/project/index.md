@@ -61,9 +61,18 @@ has_children: true
 
 </div></details>
 
+
+<details><summary> V5.3 아키텍처 </summary><div markdown="1">
+
+<img width="880" alt="스크린샷 2023-12-15 오후 12 31 41" src="https://github.com/ghkdqhrbals/spring-chatting-server/assets/29156882/2652be5a-2d1c-4a7b-957b-d69aaa21007e">
+
+</div></details>
+
 ------
 
 ## 2.  🔨 성능 이슈 해결 및 최적화 과정
+
+성능 최적화 방법과 결과를 [link](https://github.com/ghkdqhrbals/spring-chatting-server/issues?q=is%3Aissue+label%3A%22feature%3A+performance%22+) 에 상세히 정리하였습니다! 이를 바탕으로 작성한 포스팅입니다. 
 
 * [성능 최적화 과정 - 1](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-16-chatting(13)/) : **6가지 가설** 중, 도커 리소스 추가와 서버 수평 확장를 통한 성능 최적화 진행
 > <details><summary> 6가지 가설 </summary><div markdown="1">
@@ -121,7 +130,7 @@ has_children: true
 > <details><summary> 개선된 지표확인 </summary><div markdown="1">
 >
 > | 지표              | 개선 이전      | 개선 이후      | Change |
-----------------|------------|------------|-------|--------|
+> | ----------------|------------|------------|-------|
 > | TPS 평균         | 319.99     | 422.20     | **31.94% 🟢** |
 > | TPS p95        | 376.77     | 497.80     | **32.12% 🟢** |
 > | TPS p99        | 415.61     | 532.80     | **28.20% 🟢** |
@@ -172,6 +181,6 @@ has_children: true
 * [Git 컨벤션 - 1](https://accurate-allspice-e0a.notion.site/git-convention-9e8f78c9d33346bca965c30fb6537d5a) : Git 컨벤션 정리
 * [JWT - 1](https://accurate-allspice-e0a.notion.site/jwt-2eb41c679cfe4fa4b5210594482b8025?pvs=4) : 토큰 저장 시 주의사항 및 구현 방식 정리
 
-그 밖에 Reactor, R2DBC, Spring-WebFlux Transactional 처리, etc. 
+그 밖에 Reactor, R2DBC, Spring-WebFlux Transactional 처리, K8S, AWS, etc. 
 
 ## 4.  📗 프로젝트 진행 포스팅
