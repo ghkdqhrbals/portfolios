@@ -5,9 +5,13 @@ nav_order: 1
 description: "개발자 이력서"
 permalink: /
 ---
-# 황보규민
+# 황보규민(Kevin)
+안녕하세요! Blog 와 Git Issue 에 항상 모든것을 기록하는 개발자 황보규민입니다. 
+새로운 기술에 관심이 많고 그 중 특히 자동화와 성능개선을 좋아합니다. 
+저는 항상 새로운 기술을 배우고, 기록하고, 공유하고, 개선하는 개발자가 되고 싶습니다. 
+저의 이력서를 읽어주셔서 감사합니다 :)
 
-[English CV here](https://ghkdqhrbals.github.io/portfolios/en)
+[English CV here!](https://ghkdqhrbals.github.io/portfolios/cv_en.pdf)
 
 ---
 
@@ -16,18 +20,6 @@ permalink: /
 * Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)
 * 이메일 : ghkdqhrbals@gmail.com
 * LinkedIn : [https://www.linkedin.com/in/gyumin-hwangbo-92382218b/](https://www.linkedin.com/in/gyumin-hwangbo-92382218b/)
-
----
-
-## **학력**
-
-* 석사 졸업(2020.09 ~ 2022.08)
-  * 부산대학교 컴퓨터공학과
-  * 블록체인 보안 연구 및 AI 연구
-* 학사 졸업(2014.03 ~ 2020.08)
-  * 부산대학교 정보컴퓨터공학부
-
----
 
 ## **경험**
 
@@ -38,20 +30,26 @@ permalink: /
   * 역할 : 사내 편의 서비스 개발
   * 개발스택 : Python, Selenium
 
----
+## **학력**
+
+* 석사 졸업(2020.09 ~ 2022.08)
+  * 부산대학교 컴퓨터공학과
+  * 블록체인 보안 연구 및 AI 연구
+* 학사 졸업(2014.03 ~ 2020.08)
+  * 부산대학교 정보컴퓨터공학부
 
 ## **프로젝트**
-
-* [**실시간 채팅 서버**](https://ghkdqhrbals.github.io/portfolios/docs/project/)(기여도 100%)
-* [HTTP benchmark tool - gotybench](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp3/)(기여도 100%)
-* [뱅킹 서버 배포 자동화](https://ghkdqhrbals.github.io/portfolios/docs/project2/)(기여도 100%)
-* [윈도우 악성코드 유형 별 대표특성 추출](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp8/)(기여도 50%)
-* [파워쉘 악성 스크립트 탐지](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp2/)(기여도 80%)
-* [블록체인 기반 친환경 에너지 거래 플랫폼 프로토타입](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp4/)(기여도 50%)
-* [택시 주행 시뮬레이터](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp7/)(기여도 60%)
-* [근처 맛집 추천 앱](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp5/)(기여도 10%)
-* [포트폴리오 웹](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp6/)(기여도 100%)
-* [DB snapshot](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/)(기여도 100%)
+* [취약점 분석 웹 서비스](https://ghkdqhrbals.github.io/portfolios/docs/foxee/)(기여도 70%) Spring/Java, FastAPI/Python
+* [**실시간 채팅 서버**](https://ghkdqhrbals.github.io/portfolios/docs/project/)(기여도 100%) Spring/Java
+* [HTTP benchmark tool - gotybench](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp3/)(기여도 100%) Golang
+* [뱅킹 서버 배포 자동화](https://ghkdqhrbals.github.io/portfolios/docs/project2/)(기여도 100%) Gin/Golang
+* [윈도우 악성코드 유형 별 대표특성 추출](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp8/)(기여도 50%) Python
+* [파워쉘 악성 스크립트 탐지](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp2/)(기여도 80%) Python
+* [블록체인 기반 친환경 에너지 거래 플랫폼 프로토타입](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp4/)(기여도 50%) Python
+* [택시 주행 시뮬레이터](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp7/)(기여도 60%) Python
+* [근처 맛집 추천 앱](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp5/)(기여도 10%) Android/Java
+* [포트폴리오 웹](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp6/)(기여도 100%) React/JS
+* [DB snapshot](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/)(기여도 100%) Python
 
 ## **논문**
 
