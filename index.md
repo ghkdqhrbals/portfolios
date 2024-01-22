@@ -39,17 +39,17 @@ permalink: /
   * 부산대학교 정보컴퓨터공학부
 
 ## **프로젝트**
-* [취약점 분석 웹 서비스](https://ghkdqhrbals.github.io/portfolios/docs/foxee/)(기여도 70%) Spring/Java, FastAPI/Python
 * [**실시간 채팅 서버**](https://ghkdqhrbals.github.io/portfolios/docs/project/)(기여도 100%) Spring/Java
+* [취약점 분석 웹 서비스](https://ghkdqhrbals.github.io/portfolios/docs/foxee/)(기여도 70%) Spring/Java, FastAPI/Python
 * [HTTP benchmark tool - gotybench](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp3/)(기여도 100%) Golang
 * [뱅킹 서버 배포 자동화](https://ghkdqhrbals.github.io/portfolios/docs/project2/)(기여도 100%) Gin/Golang
 * [윈도우 악성코드 유형 별 대표특성 추출](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp8/)(기여도 50%) Python
 * [파워쉘 악성 스크립트 탐지](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp2/)(기여도 80%) Python
 * [블록체인 기반 친환경 에너지 거래 플랫폼 프로토타입](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp4/)(기여도 50%) Python
 * [택시 주행 시뮬레이터](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp7/)(기여도 60%) Python
-* [근처 맛집 추천 앱](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp5/)(기여도 10%) Android/Java
 * [포트폴리오 웹](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp6/)(기여도 100%) React/JS
 * [DB snapshot](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/)(기여도 100%) Python
+* [근처 맛집 추천 앱](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp5/)(기여도 10%) Android/Java
 
 ## **논문**
 
