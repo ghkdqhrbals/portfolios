@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 이력서
+title: About Me
 nav_order: 1
 description: "개발자 이력서"
 permalink: /
