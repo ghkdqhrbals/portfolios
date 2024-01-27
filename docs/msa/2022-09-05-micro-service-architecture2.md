@@ -1,9 +1,13 @@
 ---
 layout: default
-title: (English) What is MSA?
-parent: MSA
+title: (EN) What is MSA?
+parent: Micro Service Architecture
 nav_order: 1
 ---
+
+created at 2022-09-05
+{: .label .label-yellow }
+
 # What is MSA?
 ![monoly_msa](../../../assets/p/6/Monolithic_MSA.PNG)
 * Monolithic's **Disadvantage**

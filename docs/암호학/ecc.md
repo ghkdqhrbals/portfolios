@@ -1,9 +1,12 @@
 ---
 layout: default
 title: (English) ECC encryption
-parent: 암호학
+parent: Cryptography
 nav_order: 6
 ---
+
+created at 2022-05-12
+{: .label .label-yellow }
 
 E : Y^2 = X^3 + aX + b (mod p)
 

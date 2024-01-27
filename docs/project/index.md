@@ -6,7 +6,7 @@ has_children: true
 ---
 
 # **채팅 서버**
-실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다 😊
+1인 프로젝트로 진행된 실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다 😊
 
 * Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
 * Deployed URL : [https://www.litcodev.com](https://www.litcodev.com)

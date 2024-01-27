@@ -1,10 +1,12 @@
 ---
 layout: default
 title: (English) JWT vs PASETO
-parent: 암호학
+parent: Cryptography
 nav_order: 7
 ---
 
+created at 2022-06-01
+{: .label .label-yellow }
 
 This run on Application Layer(Unlike TLS tickets)
 

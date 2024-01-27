@@ -1,9 +1,13 @@
 ---
 layout: default
-title: Saga 패턴
-parent: MSA
+title: (KR) Saga 의 두 가지 패턴 설명
+parent: Micro Service Architecture
 nav_order: 2
 ---
+
+created at 2022-09-04
+{: .label .label-yellow }
+
 # SAGA
 SAGA 패턴은 MSA에서 트랜젝션의 ACID를 보장하기위해 만든 패턴입니다. SAGA는 여러 서비스들이 연결된 방식에 따라, 관리를 어떤 방식으로 진행하는지에 따라 Orchestration/Choreography 이 두 가지의 형태를 가집니다.
 

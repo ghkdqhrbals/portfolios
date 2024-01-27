@@ -1,9 +1,13 @@
 ---
 layout: default
 title: 메세지 큐의 개념 및 장점
-parent: 메세지 큐
+parent: Message Queue
 nav_order: 1
 ---
+
+created at 2022-12-01
+{: .label .label-yellow }
+
 # 메세지 큐(MQ)
 ## MQ 란?
 클라이언트의 요청을 큐에 저장하고 Consumer이 필요할 때 꺼내쓰는 아키텍처.

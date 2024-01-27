@@ -5,6 +5,9 @@ parent: RDBMS
 nav_order: 1
 ---
 
+created at 2023-06-26
+{: .label .label-yellow }
+
 저는 JPA, Data-JPA, JPQL를 사용해서 채팅 프로젝트에서 사용합니다. 하지만 성능이 생각보다 낮았습니다.
 
 따라서 NativeQuery(=SQL query)를 사용하여 좀 더 최적화시키려 합니다. 그러기 위해서 다양한 최적화 방식들을 정리해보려고 하는데요. 아래와 같이 **7가지 쿼리 최적화 방식**들을 정리하였습니다.

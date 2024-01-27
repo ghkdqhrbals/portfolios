@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 메세지 큐
+title: Message Queue
 nav_order: 5
 has_children: true
 ---
