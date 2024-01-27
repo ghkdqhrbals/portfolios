@@ -2,7 +2,7 @@
 layout: default
 title: 알고리즘
 nav_order: 4
-parent: CS정리
+parent: Computer Science
 has_children: true
 ---
 

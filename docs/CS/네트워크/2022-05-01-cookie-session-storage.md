@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Network(4)<br/>Cookie and Session, JWT(Json Web Token) (English)
-parent: 네트워크
-grand_parent: CS정리
+title: (EN) Network(4)<br/>Cookie and Session, JWT(Json Web Token)
+parent: Network
+grand_parent: Computer Science
 nav_order: 4
 ---
 We generally use TOKEN for authentications. But we don't actually know the details about token. Today I will talk about token, espectially JWT(json web token).

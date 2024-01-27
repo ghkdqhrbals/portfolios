@@ -1,6 +1,6 @@
 ---
 layout: default
-title: (English) What is Goroutine and its behavior
+title: (EN) What is Goroutine and its behavior
 parent: Go
 nav_order: 4
 ---

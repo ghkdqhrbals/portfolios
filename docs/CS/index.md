@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CS정리
+title: Computer Science
 nav_order: 12
 has_children: true
 ---

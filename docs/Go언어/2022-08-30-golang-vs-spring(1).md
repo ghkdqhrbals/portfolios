@@ -1,6 +1,6 @@
 ---
 layout: default
-title: (English) Golang vs Spring Native
+title: (EN) Golang vs Spring Native
 parent: Go
 nav_order: 3
 ---

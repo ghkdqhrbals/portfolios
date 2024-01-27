@@ -4,6 +4,10 @@ title: 📌 Cassandra의 구조 및 동작과정, RDB와의 차이점
 parent: NO-SQL
 nav_order: 1
 ---
+
+created at 2022-08-02
+{: .label .label-yellow }
+
 {: .highlight }
 > 카산드라는 대표적인 AP 시스템을 사용하는 분산 DB 중 하나입니다
 >

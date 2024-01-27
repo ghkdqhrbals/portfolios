@@ -1,8 +1,8 @@
 ---
 layout: default
-title: 네트워크
+title: Network
 nav_order: 1
-parent: CS정리
+parent: Computer Science
 has_children: true
 ---
 

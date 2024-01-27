@@ -1,6 +1,6 @@
 ---
 layout: default
-title: (English) Golang vs Java(2)
+title: (EN) Golang vs Java(2)
 parent: Go
 nav_order: 2
 ---
