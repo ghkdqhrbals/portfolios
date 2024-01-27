@@ -11,6 +11,18 @@ has_children: true
 * Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
 * Deployed URL : [https://www.litcodev.com](https://www.litcodev.com)
 
+### Backend
+
+| Pod 종류와 Scale-up/down | 전체 아키텍처 | 
+|--|--|
+| ![pods](../../assets/chat/archtecture/pods.png) | ![architecture](../../assets/chat/archtecture/arc.png) |
+
+| (기존) 모노서버 배포 자동화 | (최근) AWS-EKS 배포 자동화 | 
+|--|--|
+| ![monodeploy](../../assets/chat/archtecture/monodeploy.png) | ![multijob](../../assets/chat/archtecture/multijob.png) ![slack](../../assets/chat/archtecture/slack.png) |
+
+### Front
+
 <img src="../../assets/chat/1.png" alt="Image 1" width="200"><img src="../../assets/chat/2.png" alt="Image 2" width="200"><img src="../../assets/chat/3.png" alt="Image 3" width="200"><img src="../../assets/chat/4.png" alt="Image 4" width="200"><img src="../../assets/chat/5.png" alt="Image 5" width="200">
 
 <details><summary> Project Modules </summary><div markdown="1">
