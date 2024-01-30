@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Bank API server project
+title: Bank API Server Project
 nav_order: 4
 has_children: true
 ---

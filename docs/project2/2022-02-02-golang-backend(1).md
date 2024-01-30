@@ -1,7 +1,7 @@
 ---
 layout: default
-title: (English) implementation (1)
-parent: Bank API server project
+title: (EN) implementation (1)
+parent: Bank API Server Project
 nav_order: 1
 ---
 
