@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 📌 이클립스 공격 프로젝트
+title: 📌 Ethereum Eclipse Attack
 nav_order: 3
 has_children: true
 ---

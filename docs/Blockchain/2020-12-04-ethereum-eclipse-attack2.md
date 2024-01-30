@@ -1,7 +1,7 @@
 ---
 layout: default
-title: (English) Geth v1.8.x 아키텍처와 이클립스 공격 설명
-parent: 📌 이클립스 공격 프로젝트
+title: (EN) Geth v1.8.x Architecture and Eclipse Attack
+parent: 📌 Ethereum Eclipse Attack
 nav_order: 2
 ---
 # Countermeasures of Eclipse Attack in Geth v1.8.x
