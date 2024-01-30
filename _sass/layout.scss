@@ -74,9 +74,9 @@
 .site-footer {
   width: 100%;
 
-  // @include mq(lg) {
-  //   width: $nav-width;
-  // }
+  @include mq(lg) {
+    width: $nav-width;
+  }
 }
 
 .site-nav {
