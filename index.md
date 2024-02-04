@@ -8,25 +8,29 @@ permalink: /
 
 ### About me
 
-안녕하세요! 백엔드 개발자 황보규민입니다. 저는 사용 중인 기술에 대한 이해를 바탕으로 새로운 기술들의 장단점을 파악하는 데 관심이 많습니다. 새로운 기술이 유행한다고 해서 선택하는 게 아닌, 실제업무에 어떤 장점을 가져다 줄 지 분석하고 적용합니다.
+안녕하세요! 백엔드 개발자 황보규민입니다. 저는 경험을 토대로 아래와 같이 팀과 회사에 기여할 수 있습니다.
 
-기술역량을 쌓기 위해 기술에 관한 블로그를 자주 보고, 구글 트렌드로 어떤 기술이 인기 있는지 확인합니다. 책이나 온라인 강의로 기술의 이론을 배우고, 제 개인 프로젝트에 적용해보면서 실제로 얼마나 유용한지 테스트합니다.
+1. Spring/Java17 기반 RestAPI 개발과 DB Schema 설계 및 성능 최적화를 통해 **서비스 개발** 및 성능 향상에 기여할 수 있습니다.
+2. AWS EKS, Cloud-Watch, Route-53, ECR, RDS, EC2 등 전반적인 AWS 에 대한 사용경험을 토대로 효율적인 **클라우드 서비스 설계**가 가능합니다.
+3. **배포와 서비스 자동화**를 통해 팀 내부 개발효율 상승과 서비스 유지보수 시간을 단축시킬 수 있습니다.
+4. Docker 와 Kubernetes 를 사용하여 개발한 경험을 통해 서비스의 트래픽을 효율적으로 분산시키고 모니터링 함으로써 **서비스의 안전성을 향상**시킬 수 있습니다.
 
-제가 가장 중요하게 생각하는 가치는 ‘소통’입니다. 기능 개발과 유지 보수는 팀원들과의 긴밀한 협업이 필수입니다. 이 과정에서 서로 의견을 나누고, 좋은 방향을 모색함으로써, 더 효과적이고 혁신적인 해결책을 찾아낼 수 있다고 생각합니다.
-
-[English CV](https://ghkdqhrbals.github.io/portfolios/cv_en.pdf)
 
 ---
 
 ### **기본정보**
 
 * Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)
-* 이메일 : ghkdqhrbals@gmail.com
+* CV Korean : [https://www.rallit.com/hub/resumes/92151/황보규민](https://www.rallit.com/hub/resumes/92151/황보규민)
+* CV English(PDF) : [https://ghkdqhrbals.github.io/portfolios/cv_en.pdf](https://ghkdqhrbals.github.io/portfolios/cv_en.pdf)
 * LinkedIn : [https://www.linkedin.com/in/gyumin-hwangbo-92382218b/](https://www.linkedin.com/in/gyumin-hwangbo-92382218b/)
+* Instagram : [https://www.instagram.com/hb_traveller/](https://www.instagram.com/hb_traveller/)
+* Email : ghkdqhrbals@gmail.com
+
 
 ### **경험**
 
-* 선임연구원(FOXEE) 2023.06 ~ 2023.12 (6개월)
+* 선임연구원(FOXEE) 2023.06 ~ 2023.12 (7개월)
   * 역할 : 취약점 분석 웹 서비스 개발
   * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB postgresql, Docker, etc.
 * 인턴(주식회사 펄스) 2020.01 ~ 2020.02 (1개월)
