@@ -87,121 +87,117 @@ has_children: true
 
 성능 최적화 방법과 결과를 [link](https://github.com/ghkdqhrbals/spring-chatting-server/issues?q=is%3Aissue+label%3A%22feature%3A+performance%22+) 에 상세히 정리하였습니다! 이를 바탕으로 작성한 포스팅입니다. 
 
-* [성능 최적화 과정 - 1](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-16-chatting(13)/) : **6가지 가설** 중, 도커 리소스 추가와 서버 수평 확장를 통한 성능 최적화 진행
-> <details><summary> 6가지 가설 </summary><div markdown="1">
->
->  * [서버부하 툴의 속도문제] 문제였나? ❌
->  * [이벤트 흐름에서의 문제] 문제였나? ❌
->  * [백업 과정에서의 문제] 문제였나? ❌ 
->  * [과도한 replication 생성] 문제였나? ❌
->  * [제한된 CPU/MEMORY 리소스로 인한 문제] 문제였나? ✅
->  * [단일 인증 서버로 인한 병목현상] 문제였나? ✅
->
-> </div></details>
-* [성능 최적화 과정 - 2](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-17-chatting(15)/) : JPA-Batch를 통한 성능 최적화 진행
-* [성능 최적화 과정 - 3](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-24-chatting(17)/) : JDBC-Batch 성능 그래프 확인
-* [성능 최적화 과정 - 4](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-27-chatting(18)/) : **5가지 성능 개선 사안**들 및 적용된 값들 정리
-> <details><summary> 5가지 성능 개선 사안 </summary><div markdown="1">
->
->  * [JDBC-Batch] before : 1 / after : 100
->  * [chatting_id 내부 자동 생성(네트워크 로드 감소)] before : from db sequence / after : random.UUID
->  * [db parallel processor 확장(db cpu 사용률 증가)] before : 1개 / after : 8개
->  * [쿼리 빈도 축소( sql 최적화 + lazy fetch )] before : 6번 / after : 4번
->  * [서버 수평 확장] before : 1대 / after : 2대
->
-> </div></details>
-* [성능 최적화 과정 - 5](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-03-05-chatting(21)/) : AWS-RDS 그래프 지표 관찰 및 db connection 증가를 통한 성능 최적화 진행
-* [성능 최적화 과정 - 6](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-03-11-chatting(23)/) : 부하 테스트를 위한 툴 제작 및 실제 테스트 결과
-* [성능 최적화 과정 - 7](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-03-16-chatting(25)/) : RDB 인덱싱 활성화를 통한 성능 최적화 진행
-* [성능 최적화 과정 - 8](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-05-01-chatting(35)/) : **6가지 가설** 중, 이벤트 전송 스레드 증가를 통한 성능 최적화 진행
-> <details><summary> 6가지 가설 </summary><div markdown="1">
->
-> * [Undertow 의 적은 parellel thread] 문제였나? ❌
-> * [Spring Security 의 토큰 확인 절차에서 발생할 수 있는 딜레이 문제] 문제였나? ❌
-> * [이벤트 트랜젝션을 관리하는 Redis 저장 성능 문제] 문제였나? ❌
-> * [CPU/Memory 부족] 문제였나? ✅
-> * [적은 Kafka Producer 스레드 개수] 문제였나? ✅
-> * [linger.ms 와 batch_size 문제] 문제였나? ❌
->
-> </div></details>
-* [성능 최적화 과정 - 9](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-21-chatting(40)/) : HPA(max 3), ReadinessProbe, CPU limit, EKS NodeGroup AutoScaling O(CPU usage 50%), Caching, 톰켓 최적화
-> <details><summary> 개선된 지표확인 </summary><div markdown="1">
->
-> | Metric             | Before       | After        | Change      |
-> |--------------------|--------------|--------------|-------------|
-> | Total Tests        | 40,228       | 181,050      | **349.29% 🟢**  |
-> | Error Rate         | 51.11%(20,560)| 0.00%(0)     | **No Error 🟢** |
-> | TPS 평균 (Average)  | 109.27       | 312.16       | **185.94% 🟢**  |
-> | TPS p50            | 69.00        | 319.00       | **362.32% 🟢**  |
-> | TPS p95            | 4.00         | 217.45       | **5362.50% 🟢** |
-> | TPS p99            | 2.84         | 132.28       | **4556.34% 🟢** |
-> | TPS p99.9          | 1.63         | 96.52        | **5852.76% 🟢** |
-> | MTTFB 평균 (Average)| 1605.44 ms   | 950.89 ms    | **-40.68% 🟢**  |
-> | MTTFB p50          | 1636.55 ms   | 919.20 ms    | **-43.90% 🟢**  |
-> | MTTFB p95          | 24013.28 ms  | 1322.11 ms   | **-94.47% 🟢**  |
-> | MTTFB p99          | 27690.40 ms  | 1833.22 ms   | **-93.40% 🟢**  |
-> | MTTFB p99.9        | 28157.50 ms  | 2099.12 ms   | **-92.52% 🟢**  |
-> | MTTFB 차이 평균 (Average Difference)| 2838.38 ms | 112.52 ms | **-96.04% 🟢**  |
-> | MTTFB 평균적인 변동률 (Average Variability)| 75.00% | 10.67% | **-85.77% 🟢**  |
->
-> </div></details>
-* [성능 최적화 과정 - 10](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-29-chatting(41)/) : Nginx Ingress replicaSet=2~3
-> <details><summary> 개선된 지표확인 </summary><div markdown="1">
->
-> | 지표              | 개선 이전      | 개선 이후      | Change |
-> | ----------------|------------|------------|-------|
-> | TPS 평균         | 319.99     | 422.20     | **31.94% 🟢** |
-> | TPS p95        | 376.77     | 497.80     | **32.12% 🟢** |
-> | TPS p99        | 415.61     | 532.80     | **28.20% 🟢** |
-> | MTTFB 평균       | 950.89 ms  | 709.86 ms  | **25.35% 🟢** |
-> | MTTFB p95      | 1322.11 ms | 958.64 ms  | **27.49% 🟢** |
-> | MTTFB p99      | 1833.22 ms | 1117.45 ms | **39.04% 🟢** |
-> | MTTFB 차이 평균    | 112.52 ms  | 58.82 ms   | **47.72% 🟢** |
-> | MTTFB 평균적인 변동률 | 10.67%     | 7.67%      | **28.12% 🟢** |
->
-> </div></details>
-* [성능 최적화 과정 - 11](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-01-03-chatting(42)/) : RDB b-tree Long type PK indexing
-> <details><summary> 개선된 지표확인 </summary><div markdown="1">
->
-> | Metric          | Before     | After      | Change            |
------------------|------------|------------|-------------------|------------------|
-> | Total Tests     | 220,313    | 236,957    | 7.54% 🟢          |
-> | Error Rate      | 0.00%(7)   | 0.00%(0)   | -                 |
-> | TPS 평균          | 377.24     | 404.36     | 7.18% 🟢          |
-> | TPS p50         | 390.25     | 420.50     | 7.76% 🟢          |
-> | TPS p95         | 270.60     | 277.90     | 2.69% 🟢          |
-> | TPS p99         | 92.58      | 64.34      | -30.53% 🔴        |
-> | TPS p99.9       | 34.05      | 43.17      | 26.74% 🟢         |
-> | MTTFB 평균        | 496.27 ms  | 456.42 ms  | -8.03% 🟢         |
-> | MTTFB p50       | 480.31 ms  | 431.84 ms  | -10.07% 🟢        |
-> | MTTFB p95       | 882.81 ms  | 799.67 ms  | -9.41% 🟢         |
-> | MTTFB p99       | 1163.81 ms | 1130.67 ms | -2.84% 🟢         |
-> | MTTFB p99.9     | 1225.86 ms | 1275.62 ms | 4.06% 🔴          |
-> | MTTFB 차이 평균     | 106.51 ms  | 74.02 ms   | -30.46% 🟢        |
-> | MTTFB 평균적인 변동률  | 20.77%     | 15.27%     | -26.60% 🟢        |
->
-> </div></details>
-* [성능 최적화 과정 - 12](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-02-04-chatting(47)/) : RDB Look-Aside + Write-Around caching
-> <details><summary> 개선된 지표확인 </summary><div markdown="1">
->
-> | Metric                               | Before       | After        | Change     |
---------------------------------------|--------------------|--------------|--------------|------------|
-> | Total Tests                          | 12,356       | 16,788       | 36.00% 🟢  |
-> | Error Rate                           | 0.00%(0)     | 0.00%(0)     | 0 ⚪        |
-> | TPS 평균 (Average)                     | 228.81       | 310.89       | 35.87% 🟢  |
-> |  TPS p50                             | 240.50       | 307.50       | 27.84% 🟢  |
-> | TPS p95                              | 162.40       | 282.85       | 74.20% 🟢  |
-> | TPS p99                              | 107.09       | 237.47       | 121.77% 🟢 |
-> | TPS p99.9                            | 90.36        | 223.55       | 147.24% 🟢 |
-> | MTTFB 평균 (Average)                   | 438.32 ms   | 324.82 ms   | -25.93% 🟢 |
-> | MTTFB p50                            | 432.94 ms   | 323.11 ms   | -25.27% 🟢 |
-> | MTTFB p95                            | 733.43 ms   | 380.09 ms   | -48.14% 🟢 |
-> | MTTFB p99                            | 912.43 ms   | 471.73 ms   | -48.31% 🟢 |
-> | MTTFB p99.9                          | 951.93 ms   | 496.67 ms   | -47.85% 🟢 |
-> | MTTFB 차이 평균 (Average Difference)     | 65.06 ms | 24.31 ms | -62.68% 🟢 |
-> | MTTFB 평균적인 변동률 (Average Variability) | 13.73% | 7.67% | -44.11% 🟢 |
->
-> </div></details>
+* 2023-01-16 [성능 최적화 과정 - 1](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-16-chatting(13)/) : 도커 리소스 추가와 서버 수평 확장를 통한 성능 최적화 진행
+* 2023-01-17 [성능 최적화 과정 - 2](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-17-chatting(15)/) : JPA-Batch를 통한 성능 최적화 진행
+* 2023-01-24 [성능 최적화 과정 - 3](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-24-chatting(17)/) : JDBC-Batch 성능 그래프 확인
+* 2023-01-27 [성능 최적화 과정 - 4](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-27-chatting(18)/) : JDBC Batch 최적화 및 Postgresql 병렬 프로세서 확장
+* 2023-03-05 [성능 최적화 과정 - 5](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-03-05-chatting(21)/) : AWS-RDS 그래프 지표 관찰 및 db connection 증가를 통한 성능 최적화 진행
+* 2023-03-11 [성능 최적화 과정 - 6](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-03-11-chatting(23)/) : 부하 테스트를 위한 툴 제작 및 실제 테스트 결과
+* 2023-03-16 [성능 최적화 과정 - 7](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-03-16-chatting(25)/) : RDB 인덱싱 활성화를 통한 성능 최적화 진행
+* 2023-05-01 [성능 최적화 과정 - 8](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-05-01-chatting(35)/) : 이벤트 전송 스레드 증가를 통한 성능 최적화 진행
+* 2023-12-21 [성능 최적화 과정 - 9](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-21-chatting(40)/) : HPA(max 3), ReadinessProbe, CPU limit, EKS NodeGroup AutoScaling O(CPU usage 50%), Caching, 톰켓 최적화
+
+    <details><summary> 개선된 지표확인 </summary><div markdown="1">
+    
+    ![img](../../assets/cd/tps.png)
+    ![img](../../assets/cd/mttfb.png)
+    ![img](../../assets/cd/p.png)
+    
+    | Metric             | Before       | After        | Change      |
+    |--------------------|--------------|--------------|-------------|
+    | Total Tests        | 40,228       | 181,050      | **349.29% 🟢**  |
+    | Error Rate         | 51.11%(20,560)| 0.00%(0)     | **No Error 🟢** |
+    | TPS 평균 (Average)  | 109.27       | 312.16       | **185.94% 🟢**  |
+    | TPS p50            | 69.00        | 319.00       | **362.32% 🟢**  |
+    | TPS p95            | 4.00         | 217.45       | **5362.50% 🟢** |
+    | TPS p99            | 2.84         | 132.28       | **4556.34% 🟢** |
+    | TPS p99.9          | 1.63         | 96.52        | **5852.76% 🟢** |
+    | MTTFB 평균 (Average)| 1605.44 ms   | 950.89 ms    | **-40.68% 🟢**  |
+    | MTTFB p50          | 1636.55 ms   | 919.20 ms    | **-43.90% 🟢**  |
+    | MTTFB p95          | 24013.28 ms  | 1322.11 ms   | **-94.47% 🟢**  |
+    | MTTFB p99          | 27690.40 ms  | 1833.22 ms   | **-93.40% 🟢**  |
+    | MTTFB p99.9        | 28157.50 ms  | 2099.12 ms   | **-92.52% 🟢**  |
+    | MTTFB 차이 평균 (Average Difference)| 2838.38 ms | 112.52 ms | **-96.04% 🟢**  |
+    | MTTFB 평균적인 변동률 (Average Variability)| 75.00% | 10.67% | **-85.77% 🟢**  |
+    
+    </div></details>
+
+* 2023-12-29 [성능 최적화 과정 - 10](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-29-chatting(41)/) : Nginx Ingress replicaSet=2~3
+
+    <details><summary> 개선된 지표확인 </summary><div markdown="1">
+
+    ![img](../../assets/ingresspod/Untitled.png)
+    ![img](../../assets/ingresspod/Untitled2.png)
+    ![img](../../assets/ingresspod/Untitled3.png)
+
+    | Metric                               | Ingress Pod 1 | Ingress Pod 2 | Change     |
+    |--------------------|---------------|------------|-------------------|-------------|
+    | Total Tests                          | 181,050       | 240,587       | 32.93% 🟢  |
+    | Error Rate                          | 0.00%(0)      | 0.00%(3)      | N/A        |
+    | TPS 평균 (Average)                     | 312.16        | 410.55        | 31.51% 🟢  |
+    | TPS p50                              | 319.00        | 422.50        | 32.38% 🟢  |
+    | TPS p95                              | 217.45        | 288.60        | 32.69% 🟢  |
+    | TPS p99                              | 132.28        | 147.62        | 11.62% 🟢  |
+    | TPS p99.9                            | 96.52         | 37.04         | -61.68% 🔴 |
+    | MTTFB 평균 (Average)                   | 950.89 ms     | 709.86 ms     | -25.29% 🟢 |
+    | MTTFB p50                            | 919.20 ms     | 693.65 ms     | -24.54% 🟢 |
+    | MTTFB p95                            | 1322.11 ms    | 958.64 ms     | -27.49% 🟢 |
+    | MTTFB p99                            | 1833.22 ms    | 1117.45 ms    | -39.05% 🟢 |
+    | MTTFB p99.9                          | 2099.12 ms    | 1396.80 ms    | -33.54% 🟢 |
+    | MTTFB 차이 평균 (Average Difference)     | 112.52 ms     | 58.82 ms      | -47.66% 🟢 |
+    | MTTFB 평균적인 변동률 (Average Variability) | 10.67%        | 7.67%         | -28.09% 🟢 |
+    
+    </div></details>
+
+* 2024-01-03 [성능 최적화 과정 - 11](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-01-03-chatting(42)/) : RDB b-tree Long type PK indexing
+
+    <details><summary> 개선된 지표확인 </summary><div markdown="1">
+    
+    | Metric          | Before     | After      | Change            |
+    |-----------------|------------|------------|-------------------|
+    | Total Tests     | 220,313    | 236,957    | 7.54% 🟢          |
+    | Error Rate      | 0.00%(7)   | 0.00%(0)   | -                 |
+    | TPS 평균          | 377.24     | 404.36     | 7.18% 🟢          |
+    | TPS p50         | 390.25     | 420.50     | 7.76% 🟢          |
+    | TPS p95         | 270.60     | 277.90     | 2.69% 🟢          |
+    | TPS p99         | 92.58      | 64.34      | -30.53% 🔴        |
+    | TPS p99.9       | 34.05      | 43.17      | 26.74% 🟢         |
+    | MTTFB 평균        | 496.27 ms  | 456.42 ms  | -8.03% 🟢         |
+    | MTTFB p50       | 480.31 ms  | 431.84 ms  | -10.07% 🟢        |
+    | MTTFB p95       | 882.81 ms  | 799.67 ms  | -9.41% 🟢         |
+    | MTTFB p99       | 1163.81 ms | 1130.67 ms | -2.84% 🟢         |
+    | MTTFB p99.9     | 1225.86 ms | 1275.62 ms | 4.06% 🔴          |
+    | MTTFB 차이 평균     | 106.51 ms  | 74.02 ms   | -30.46% 🟢        |
+    | MTTFB 평균적인 변동률  | 20.77%     | 15.27%     | -26.60% 🟢        |
+    
+    </div></details>
+  
+* 2024-02-04 [성능 최적화 과정 - 12](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-02-04-chatting(47)/) : RDB 캐싱 (Look-Aside + Write-Around)
+
+    <details><summary> 개선된 지표확인 </summary><div markdown="1">
+
+    ![img](../../assets/caching/Untitled.png)
+    ![img](../../assets/caching/Untitled2.png)
+    ![img](../../assets/caching/Untitled3.png)    
+
+    | Metric                               | Before       | After        | Change     |
+    |--------------------|--------------|--------------|------------|
+    | Total Tests                          | 12,356       | 16,788       | 36.00% 🟢  |
+    | Error Rate                           | 0.00%(0)     | 0.00%(0)     | 0 ⚪        |
+    | TPS 평균 (Average)                     | 228.81       | 310.89       | 35.87% 🟢  |
+    |  TPS p50                             | 240.50       | 307.50       | 27.84% 🟢  |
+    | TPS p95                              | 162.40       | 282.85       | 74.20% 🟢  |
+    | TPS p99                              | 107.09       | 237.47       | 121.77% 🟢 |
+    | TPS p99.9                            | 90.36        | 223.55       | 147.24% 🟢 |
+    | MTTFB 평균 (Average)                   | 438.32 ms   | 324.82 ms   | -25.93% 🟢 |
+    | MTTFB p50                            | 432.94 ms   | 323.11 ms   | -25.27% 🟢 |
+    | MTTFB p95                            | 733.43 ms   | 380.09 ms   | -48.14% 🟢 |
+    | MTTFB p99                            | 912.43 ms   | 471.73 ms   | -48.31% 🟢 |
+    | MTTFB p99.9                          | 951.93 ms   | 496.67 ms   | -47.85% 🟢 |
+    | MTTFB 차이 평균 (Average Difference)     | 65.06 ms | 24.31 ms | -62.68% 🟢 |
+    | MTTFB 평균적인 변동률 (Average Variability) | 13.73% | 7.67% | -44.11% 🟢 |
+    
+    </div></details>
 
 
 ------

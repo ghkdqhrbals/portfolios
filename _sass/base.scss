@@ -17,15 +17,36 @@ html {
 }
 
 details > summary {
+  box-shadow: 1px 2.5px 0 rgb(0,0,0,0.5);
   padding: 2px 6px;
   margin-bottom: 7px;
-  background-color: #ebebeb;
+  background-color: rgb(71 86 160 / 7%);
+  border-radius: 6px;
+}
+
+details > summary:active {
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  padding: 2px 6px;
+  margin-bottom: 7px;
+  background-color: #bdbdbd;
+  //#a0476d;
   border-radius: 6px;
 }
 
 
 details[open] > summary {
-  background-color: #d9d9ff;
+  box-shadow: 1px 2.5px 0 rgb(0,0,0,0.5);
+  background-color: #4756a0;
+  color: white;
+  font-weight: bold;
+}
+
+details[open] > summary:active {
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  padding: 2px 6px;
+  margin-bottom: 7px;
+  background-color: #bdbdbd;
+  border-radius: 6px;
 }
 
 body {
