@@ -5,22 +5,51 @@ nav_order: 3
 has_children: true
 ---
 
-# **채팅 서버**
-1인 프로젝트로 진행된 실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다 😊
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+
+1인 프로젝트로 진행된 자동화 및 성능개선에 초점을 둔 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다 😊
+
+2022.11 부터 시작해서 2024.02 까지 약 1년 3개월이 걸렸네요! 중간중간 현업과 병행하다보니 더딘부분도 있었지만 결국 마무리하게 되었습니다. 제가 좋아하는 자동화와 성능개선을 마음껏 할 수 있어서 정말 재미있는 프로젝트였습니다.
 
 * Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
 
+현재 적용된 기술스택은 아래와 같습니다.
+
+## 적용된 기술스택
 ### Backend
+* Spring-Boot / Java 17
+* Spring-Security / Data-JPA / Cloud
+* Postgresql, Redis
+* Tomcat, Nginx
+* JUnit5, Mockito, testContainer, nGrinder
+* JWT
 
-| Amazon Node Scaling 인/아웃 | 전체 아키텍처                 | 
-|--------------------------|-------------------------|
-| ![img](nodescaling.png)  | ![img](pods.png) |
-
-| (기존) 모노서버 배포 자동화 | (최근) AWS-EKS 배포 자동화 | 
-|--|--|
-| ![monodeploy](../../assets/chat/archtecture/monodeploy.png) | ![multijob](../../assets/chat/archtecture/multijob.png) ![slack](../../assets/chat/archtecture/slack.png) |
+### Infrastructure & Cloud
+* Docker, Kubernetes
+* AWS-IAM / EKS / ECR / RDS / EC2 / ELB / Route-53 / Cloud-Watch / Auto Scaleing
+* Git Actions, shell script, gradle script
+* Grafana & Prometheus, io.micrometer
+* Kafka, RabbitMQ
 
 ### Front
+* Spring stomp
+* Thymeleaf, html, css
+
+## 아키텍처
+### [Backend] 쿠버네티스 파드
+![img](pods.png)
+### [Backend] EC2 Instnace 평균 CPU 사용률에 따른 노드 스케일 인/아웃
+![img](nodescaling.png)
+### [Backend] Git Actions multijob CI/CD 자동화
+
+![img](1.svg)
+
+### [Frontend] Front UI
 
 <img src="../../assets/chat/1.png" alt="Image 1" width="200"><img src="../../assets/chat/2.png" alt="Image 2" width="200"><img src="../../assets/chat/3.png" alt="Image 3" width="200"><img src="../../assets/chat/4.png" alt="Image 4" width="200"><img src="../../assets/chat/5.png" alt="Image 5" width="200">
 
@@ -28,9 +57,9 @@ has_children: true
 
 -----
 
-## 1.  💡 아키텍처 변천사
+## 💡 아키텍처 변천사
 
-<details><summary> 최신 아키텍처 </summary><div markdown="1">
+<details><summary> V5.3 아키텍처 </summary><div markdown="1">
 
 ![img](pods.png)
 
@@ -75,7 +104,7 @@ has_children: true
 
 ------
 
-## 2.  🔨 성능 이슈 해결 및 최적화 과정
+## 🔨 성능 이슈 해결 및 최적화 과정
 
 성능 최적화 방법과 결과를 [link](https://github.com/ghkdqhrbals/spring-chatting-server/issues?q=is%3Aissue+label%3A%22feature%3A+performance%22+) 에 상세히 정리하였습니다! 이를 바탕으로 작성한 포스팅입니다. 
 
@@ -194,7 +223,7 @@ has_children: true
 
 ------
 
-## 3.  📕 프로젝트를 수행하기 위해 따로 공부 및 정리한 포스팅 
+## 📕 프로젝트를 수행하기 위해 따로 공부 및 정리한 포스팅 
 * [메세지큐 - 1](https://ghkdqhrbals.github.io/portfolios/docs/메세지큐/2022-12-01-message-queue/) : 메세지 큐의 장점과 단점 정리
 * [메세지큐 - 2](https://ghkdqhrbals.github.io/portfolios/docs/메세지큐/2022-12-02-kafka/) : Kafka 용어정리 및 구조 파악 
 * [마이크로서비스 - 1(EN)](https://ghkdqhrbals.github.io/portfolios/docs/msa/2022-09-05-micro-service-architecture2/) : 기본적인 MSA 의 장단점 및 이해 정리
@@ -218,4 +247,4 @@ has_children: true
 
 그 밖에 Reactor, R2DBC, Spring-WebFlux Transactional 처리, K8S, AWS, etc. 
 
-## 4.  📗 프로젝트 진행 포스팅
+## 📗 프로젝트 진행 포스팅
