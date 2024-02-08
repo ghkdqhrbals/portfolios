@@ -9,13 +9,12 @@ has_children: true
 1인 프로젝트로 진행된 실시간 트래픽 관찰 및 안전성과 확장성을 고려한 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다 😊
 
 * Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
-* Deployed URL : [https://www.litcodev.com](https://www.litcodev.com)
 
 ### Backend
 
-| Pod 종류와 Scale-up/down | 전체 아키텍처 | 
-|--|--|
-| ![pods](../../assets/chat/archtecture/pods.png) | ![architecture](../../assets/chat/archtecture/arc.png) |
+| Amazon Node Scaling 인/아웃 | 전체 아키텍처                 | 
+|--------------------------|-------------------------|
+| ![img](nodescaling.png)  | ![img](pods.png) |
 
 | (기존) 모노서버 배포 자동화 | (최근) AWS-EKS 배포 자동화 | 
 |--|--|
@@ -25,46 +24,23 @@ has_children: true
 
 <img src="../../assets/chat/1.png" alt="Image 1" width="200"><img src="../../assets/chat/2.png" alt="Image 2" width="200"><img src="../../assets/chat/3.png" alt="Image 3" width="200"><img src="../../assets/chat/4.png" alt="Image 4" width="200"><img src="../../assets/chat/5.png" alt="Image 5" width="200">
 
-<details><summary> Project Modules </summary><div markdown="1">
-
-1. `common-dto` : 에러 처리와 다양한 변수 및 dto들을 관리하는 모듈입니다.
-2. `gateway-service` : Netty, (Spring-Cloud-Gateway) 통합 백엔드 엔트리를 제공하는 게이트웨이로써 JWT 토큰 검증 및 유저권한에 따라 백엔드에 엑세스를 허가해주는 모듈입니다.
-3. `config-service` : 여러 설정파일들을 rabbitMQ와 actuator로 여러 서버에 전파하는 역할을 수행합니다.
-4. `discovery-service` : Eureka 서버로 `gateway-service` 에게 로드밸런싱을 위한 서버 url 리스트를 반환해주는 역할을 수행합니다.
-5. `docker-elk` : `엘라스틱 서치` + `로그 스태시` + `키바나` 를 병합하여 도커라이징 된 라이브러리로, `Kafka` 의 newUser 토픽을 읽어와 인덱스에 저장 및 그래프화 하는 모듈입니다.
-6. `인증서버` : Undertow, JWT 토큰 발급 및 `채팅서버`와 `고객서버`에 유저 추가 이벤트를 Saga Orchestration 방식으로 전파하는 역할을 수행합니다.
-7. `채팅서버` : Tomcat, 채팅서비스를 제공하는 서버입니다.
-8. `고객서버` : Tomcat, 사용자의 계좌를 관리하는 서버입니다.
-9. `주문서버` : (**Not set**) 사용자의 상품주문을 관리하는 서버입니다.
-10. `상품서버` : (**Not set**) 상품목록을 관리하는 서버입니다.
-11. `kafkaMQ` : `인증서버`, `고객서버`, `주문서버` 가 유저정보를 서로 전파받을 떄 사용됩니다. 또한 RDB 의 Backup를 생성할 때 사용되며 ELK 의 통계를 만들때 사용되는 백본망입니다.
-12. `rabbitMQ` : Actuator 에 설정파일들을 실시간으로 전파할 떄 사용되는 메세지큐입니다.
-13. `nginx` : (deprecated)
-14. `Redis` : 이벤트 전송 상태를 저장할 때 사용하는 DB입니다.
-15. `RDB` : (Postgres) AWS-RDS 및 localDB 를 사용하며, 주요서비스들의 데이터들을 저장합니다.
-
-</div></details>
 
 
 -----
 
 ## 1.  💡 아키텍처 변천사
 
-<details><summary> V1 아키텍처 </summary><div markdown="1">
+<details><summary> 최신 아키텍처 </summary><div markdown="1">
 
-![img](../../assets/img/kafka/kafkaVersion.png)
+![img](pods.png)
 
-</div></details>
-
-<details><summary> V2, V3 아키텍처 </summary><div markdown="1">
-
-![img](../../assets/img/es/final.png)
+![img](nodescaling.png)
 
 </div></details>
 
-<details><summary> V4 아키텍처 </summary><div markdown="1">
+<details><summary> V5.2 아키텍처 </summary><div markdown="1">
 
-![img](../../assets/img/msa/v3.1.0.png)
+<img width="880" alt="스크린샷 2023-12-15 오후 12 31 41" src="https://github.com/ghkdqhrbals/spring-chatting-server/assets/29156882/2652be5a-2d1c-4a7b-957b-d69aaa21007e">
 
 </div></details>
 
@@ -74,12 +50,28 @@ has_children: true
 
 </div></details>
 
+<details><summary> V4 아키텍처 </summary><div markdown="1">
 
-<details><summary> V5.3 아키텍처 </summary><div markdown="1">
-
-<img width="880" alt="스크린샷 2023-12-15 오후 12 31 41" src="https://github.com/ghkdqhrbals/spring-chatting-server/assets/29156882/2652be5a-2d1c-4a7b-957b-d69aaa21007e">
+![img](../../assets/img/msa/v3.1.0.png)
 
 </div></details>
+
+<details><summary> V2, V3 아키텍처 </summary><div markdown="1">
+
+![img](../../assets/img/es/final.png)
+
+</div></details>
+
+<details><summary> V1 아키텍처 </summary><div markdown="1">
+
+![img](../../assets/img/kafka/kafkaVersion.png)
+
+</div></details>
+
+
+
+
+
 
 ------
 
