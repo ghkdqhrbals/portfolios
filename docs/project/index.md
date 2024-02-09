@@ -47,7 +47,7 @@ has_children: true
 ![img](nodescaling.png)
 ### [Backend] Git Actions multijob CI/CD 자동화
 
-![img](1.svg)
+![img](1.png)
 
 ### [Frontend] Front UI
 
