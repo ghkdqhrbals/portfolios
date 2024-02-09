@@ -88,7 +88,7 @@ description: "성능개선을 위해 떠난 여정들을 기록합니다"
 
 * 2023-12-29 [Nginx Ingress replicaSet=2~3](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-29-chatting(41)/)
 
-  <details><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
+  <details open><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
 
   ![img](../../assets/ingresspod/Untitled.png)
   ![img](../../assets/ingresspod/Untitled2.png)
@@ -115,7 +115,7 @@ description: "성능개선을 위해 떠난 여정들을 기록합니다"
 
 * 2024-01-03 [RDB b-tree Long type PK indexing](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-01-03-chatting(42)/)
 
-  <details><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
+  <details open><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
 
   | Metric          | Before     | After      | Change            |
   |-----------------|------------|------------|-------------------|
@@ -136,9 +136,9 @@ description: "성능개선을 위해 떠난 여정들을 기록합니다"
 
   </div></details>
 
-* [RDB Look-Aside + Write-Around caching](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-02-04-chatting(47)/)
+* 2024-02-04 [RDB Look-Aside + Write-Around caching](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-02-04-chatting(47)/)
 
-  <details><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
+  <details open><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
 
   ![img](../../assets/caching/Untitled.png)
   ![img](../../assets/caching/Untitled2.png)

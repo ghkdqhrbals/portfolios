@@ -40,7 +40,7 @@ has_children: true
 * Spring stomp
 * Thymeleaf, html, css
 
-## 아키텍처
+## 💡 아키텍처
 ### [Backend] 쿠버네티스 파드
 ![img](pods.png)
 ### [Backend] EC2 Instnace 평균 CPU 사용률에 따른 노드 스케일 인/아웃
@@ -118,7 +118,7 @@ has_children: true
 * 2023-05-01 [성능 최적화 과정 - 8](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-05-01-chatting(35)/) : 이벤트 전송 스레드 증가를 통한 성능 최적화 진행
 * 2023-12-21 [성능 최적화 과정 - 9](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-21-chatting(40)/) : HPA(max 3), ReadinessProbe, CPU limit, EKS NodeGroup AutoScaling O(CPU usage 50%), Caching, 톰켓 최적화
 
-    <details><summary> 개선된 지표확인 </summary><div markdown="1">
+    <details open><summary> 개선된 지표확인 </summary><div markdown="1">
     
     ![img](../../assets/cd/tps.png)
     ![img](../../assets/cd/mttfb.png)
@@ -145,7 +145,7 @@ has_children: true
 
 * 2023-12-29 [성능 최적화 과정 - 10](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-29-chatting(41)/) : Nginx Ingress replicaSet=2~3
 
-    <details><summary> 개선된 지표확인 </summary><div markdown="1">
+    <details open><summary> 개선된 지표확인 </summary><div markdown="1">
 
     ![img](../../assets/ingresspod/Untitled.png)
     ![img](../../assets/ingresspod/Untitled2.png)
