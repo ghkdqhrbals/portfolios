@@ -1,0 +1,22 @@
+name: Daily Commit
+
+on:
+  schedule:
+    - cron: '12 4 * * *' # 분 시 일 월 요일(0~7 일요일)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Create Commit
+        run: |
+          echo "$(date)" >> commit.txt
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add commit.txt
+          git commit -m "Daily commit $(date)"
+          git push
