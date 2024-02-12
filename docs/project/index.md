@@ -18,9 +18,11 @@ has_children: true
 
 * Github : [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
 
-현재 적용된 기술스택은 아래와 같습니다.
+-----
 
 ## 적용된 기술스택
+현재 적용된 기술스택은 아래와 같습니다.
+
 ### Backend
 * Spring-Boot / Java 17
 * Spring-Security / Data-JPA / Cloud
@@ -40,6 +42,8 @@ has_children: true
 * Spring stomp
 * Thymeleaf, html, css
 
+-----
+
 ## 💡 아키텍처
 ### [Backend] 쿠버네티스 파드
 ![img](pods.png)
@@ -52,53 +56,6 @@ has_children: true
 ### [Frontend] Front UI
 
 <img src="../../assets/chat/1.png" alt="Image 1" width="200"><img src="../../assets/chat/2.png" alt="Image 2" width="200"><img src="../../assets/chat/3.png" alt="Image 3" width="200"><img src="../../assets/chat/4.png" alt="Image 4" width="200"><img src="../../assets/chat/5.png" alt="Image 5" width="200">
-
-
-
------
-
-## 💡 아키텍처 변천사
-
-<details><summary> V5.3 아키텍처 </summary><div markdown="1">
-
-![img](pods.png)
-
-![img](nodescaling.png)
-
-</div></details>
-
-<details><summary> V5.2 아키텍처 </summary><div markdown="1">
-
-<img width="880" alt="스크린샷 2023-12-15 오후 12 31 41" src="https://github.com/ghkdqhrbals/spring-chatting-server/assets/29156882/2652be5a-2d1c-4a7b-957b-d69aaa21007e">
-
-</div></details>
-
-<details><summary> V5 아키텍처 </summary><div markdown="1">
-
-![image](../../assets/img/msa/12.svg)
-
-</div></details>
-
-<details><summary> V4 아키텍처 </summary><div markdown="1">
-
-![img](../../assets/img/msa/v3.1.0.png)
-
-</div></details>
-
-<details><summary> V2, V3 아키텍처 </summary><div markdown="1">
-
-![img](../../assets/img/es/final.png)
-
-</div></details>
-
-<details><summary> V1 아키텍처 </summary><div markdown="1">
-
-![img](../../assets/img/kafka/kafkaVersion.png)
-
-</div></details>
-
-
-
 
 
 
@@ -172,7 +129,7 @@ has_children: true
 
 * 2024-01-03 [성능 최적화 과정 - 11](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-01-03-chatting(42)/) : RDB b-tree Long type PK indexing
 
-    <details><summary> 개선된 지표확인 </summary><div markdown="1">
+    <details open><summary> 개선된 지표확인 </summary><div markdown="1">
     
     | Metric          | Before     | After      | Change            |
     |-----------------|------------|------------|-------------------|
@@ -195,7 +152,7 @@ has_children: true
   
 * 2024-02-04 [성능 최적화 과정 - 12](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-02-04-chatting(47)/) : RDB 캐싱 (Look-Aside + Write-Around)
 
-    <details><summary> 개선된 지표확인 </summary><div markdown="1">
+    <details open><summary> 개선된 지표확인 </summary><div markdown="1">
 
     ![img](../../assets/caching/Untitled.png)
     ![img](../../assets/caching/Untitled2.png)
