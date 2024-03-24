@@ -15,6 +15,7 @@ permalink: /
 3. Git Actions, Shell Script, Docker 경험을 토대로 배포와 서비스 자동화를 구현하여 팀 내부 개발효율 상승과 서비스 유지보수 시간을 단축시킬 수 있습니다.
 4. Kubernetes 와 다양한 메트릭 수집경험을 통해 서비스의 트래픽을 효율적으로 분산시키고 모니터링 함으로써 서비스의 안전성을 향상시킬 수 있습니다.
 
+최근에는 [벤치마커](https://github.com/backend-tech-forge/benchmark) 프로젝트를 진행하고 있습니다.
 
 ---
 
@@ -30,7 +31,7 @@ permalink: /
 
 ### **경험**
 
-* 선임연구원(FOXEE) 2023.06 ~ 2023.12 (7개월)
+* 선임연구원(FOXEE) 2023.06 ~ 2024.01 (7개월)
   * 역할 : 취약점 분석 웹 서비스 개발
   * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB postgresql, Docker, etc.
 * 인턴(주식회사 펄스) 2020.01 ~ 2020.02 (1개월)
