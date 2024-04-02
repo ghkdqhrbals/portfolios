@@ -20,6 +20,11 @@ BM has 2 major components.
 
 And for user who confiuring own service, eureka server is used in service discovery purpose.
 
+![alt text](../../assets/benchmark/image.png)
+![alt text](../../assets/benchmark/image-1.png)
+![alt text](../../assets/benchmark/image-2.png)
+![alt text](../../assets/benchmark/image-3.png)
+![alt text](../../assets/benchmark/image-4.png)
 
 ## Features
 * Scalable bm-agent by advertising to eureka server.
