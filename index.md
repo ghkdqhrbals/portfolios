@@ -30,7 +30,9 @@ permalink: /
 
 
 ### **경험**
-
+* Backend Engineer(FOODDASH) 2024.04 ~ present
+  * 역할: 백엔드 개발
+    * 기술: Spring-Boot/Batch, Kotlin, Mysql, Mongodb.
 * 선임연구원(FOXEE) 2023.06 ~ 2024.01 (7개월)
   * 역할 : 취약점 분석 웹 서비스 개발
   * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB postgresql, Docker, etc.
