@@ -138,7 +138,7 @@ Aspirin is the most cost-effective therapy option.
 cohort study : https://journals.lww.com/jneuro-ophthalmology/abstract/2023/09000/demographics,_risk_factors,_and_etiology_of.15.aspx
 
 
-## Appendixx
+## Appendix
 
 * [Rt Thalamus impairment 시 발생하는 증상](https://www.flintrehab.com/thalamic-stroke/#secondary)
 * [동측반맹 recovery 연구](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4206079/pdf/fnint-08-00082.pdf)
