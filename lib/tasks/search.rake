@@ -28,7 +28,7 @@ permalink: /assets/js/search-data.json
 {%- for pages in pages_array -%}
   {%- for page in pages -%}
     {%- if page.title and page.search_exclude != true -%}
-      {%- assign page_content = page.content | replace: 'src="', 'src="/portfolios/assets/' -%}
+      {%- assign page_content = page.content -%}
       {%- assign heading_level = site.search.heading_level | default: 2 -%}
       {%- for j in (2..heading_level) -%}
         {%- assign tag = \'<h\' | append: j -%}
