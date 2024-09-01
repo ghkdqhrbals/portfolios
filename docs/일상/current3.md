@@ -136,7 +136,6 @@ Aspirin is the most cost-effective therapy option.
 
 
 cohort study : https://journals.lww.com/jneuro-ophthalmology/abstract/2023/09000/demographics,_risk_factors,_and_etiology_of.15.aspx
-asdf
 
 ## Appendix
 
