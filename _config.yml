@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: 황보규민 개발스토리
 description: Gyumin Hwangbo Porfolio
-baseurl: "/cv" # the subpath of your site, e.g. /blog
+baseurl: "portfolios" # the subpath of your site, e.g. /blog
 url: "https://ghkdqhrbals.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
