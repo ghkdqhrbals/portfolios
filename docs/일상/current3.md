@@ -43,10 +43,11 @@ PCA가 해마에 혈류를 공급하기에 기억력에 손상이 있을수도 �
 ## 2. 내 뇌경색 재발 위험성 감소를 위한 방안
 > 의학분야에서의 신뢰있는 Impact Factor, H-index 를 몰라서 어떤 저널의 논문을 읽어야 하는지 잘 모르겠음. 그래서 아래의 논문들을 무작정 믿을 순 없지만 일단 요약해놓음.
 > 
-> **결론부터 말하면 다 아는 내용임** 
+> **결론부터 말하면 쉽고 다 아는 내용임** 
 > 1. 담배 끊기 (끊고 5년 뒤 non-smoker risk level 과 비슷해짐)
 > 2. 하루 30분 중강도 유산소 운동 하기 (내 경우에는 120 ~ 142 bpm)
 > 3. 의사 검진 및 처방
+> 4. 잘 자기
 >
 > 요약이라지만 본인 의학 지식이 짧기에 잘못 읽은 부분이 있을 수 있으며, 읽었던 논문 자체의 신뢰도가 높다고 할 수 없음.
 > 
@@ -57,16 +58,14 @@ PCA가 해마에 혈류를 공급하기에 기억력에 손상이 있을수도 �
 * stroke recurrence 의 prevention 은 frist stroke prevention 방음과 조금 다름(Risk factors for early recurrence after ischemic stroke 논문). 
 처음 뇌졸중 발생 원인을 찾아서 그 원인을 제거하는 것이 가장 중요함. 위험인자도 원인이 될 수 있음. 나의 경우에는 위험인자가 흡연이였기에 **흡연을 중단하는 것이 가장 중요**함.
 
-![img_3.png](img_3.png)
+![img_3.png](/assets/img_3.png)
 > 그냥 이것들을 잘 관리하면 재발 위험성이 줄어든다는 것. 여기에 내가 속한 것은 Smoke 와 Physical Inactivity 도 있음. 그래서 운동 좀 해라라고 함. * moderate intensity exercise : 10 minutes, 4 times a per week. 중강도 운동 4번 10분씩 하면 됨. 아니면 2번 20분 씩 해도 됨. 
 > * +reference : Lopes-Virella MF, et al. Relationship between risk factor control and vascular events in the SAMMPRIS trial. Neurology. 2014;83(9):810-817.
-
-
 
 ### [2019, Impact of Smoking Status on Stroke Recurrence](https://www.ahajournals.org/doi/pdf/10.1161/JAHA.118.011696)
 * 2013.01 ~ 2016.12 까지 first-ever ischemic stroke 3069명의 환자를 대상으로 연구. asian 환자대상(NSRP) 아쉽게도 5년이상의 코호트 연구는 아니였음.
 
-![img_2.png](img_2.png)
+![img_2.png](/assets/img_2.png)
 > 물론 이 연구들은 고지혈증, 고혈압, 등등의 risk factors 이 없는 오직 smoke 만 관여된 결론은 아님. 그래서 내 경우와 다를듯.
 > 
 > 하루 피는 담배 개수에 따른 결과도 해당 논문에 표로 정리되어 있지만 일단은 담배를 끊는게 가장 중요한 것 같음.
@@ -103,7 +102,7 @@ Aspirin is the most cost-effective therapy option.
 * 이거는 first stroke prevention 위주 연구
 * risk factor 인 smoke 끊으면 5년 뒤 non-smoker risk level 과 비슷해짐.
 
-![img_1.png](img_1.png)
+![img_1.png](/assets/img_1.png)
 * hypertension 고혈압 : major risk of 허혈성 stroke! 특히 이제 작은 관통 동맥이 막힌 허혈성 뇌졸중을 겪은 사람이라면 가장 빡세게 관리해야함
   * 140/90 mmHg 이상
 * diabetes 당뇨
@@ -147,10 +146,6 @@ cohort study : https://journals.lww.com/jneuro-ophthalmology/abstract/2023/09000
 
 논문들을 여러개 묶어서 분석한 결과를 소개함. 뭐 대충 커피를 2-4 잔 마시면 뇌졸중 위험성이 줄어든다는 결론이 나옴. 근데 믿을만한 논문인지는 잘 모르겠음. 
 긴 시간 카페인 섭취가 뇌졸중에 미치는 영향을 분석한 논문이 필요함. 어디서는 좋다고하고 어디서는 안좋다고하고 좀 더 찾아봐야 할 듯.
-
-Notation
-
-* CI(Confidential Interval): 신뢰구간으로  
 
 <html>
     <script src="https://utteranc.es/client.js"
