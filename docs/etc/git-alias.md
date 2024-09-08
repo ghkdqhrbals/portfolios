@@ -15,5 +15,5 @@ git config --global alias.personal '!ssh-add -D && ssh-add ~/.ssh/id_rsa && git 
 git config --global alias.work '!ssh-add -D && ssh-add ~/.ssh/id_ed25519 && git config --global user.name "{your_git_name}" && git config --global user.email "{your_git_email}"'
 ```
  
-이후에는 `git personal` 혹은 `git work` 로 alias 설정된 명령어 연계 사용 가능.
+이후에는 `git personal` 혹은 `git work` 로 alias 설정된 명령어 연계 사용 가능!
 
