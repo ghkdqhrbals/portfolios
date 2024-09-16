@@ -17,11 +17,11 @@ permalink: /
 * 2024.03 ~ 2024.04 (1개월)
 [벤치마커 서비스](https://github.com/backend-tech-forge/benchmark)(기여도 90%) Spring-Boot/Java17
 
-* 2022.11 ~ 2024.02 (1년 3개월)
-[실시간 채팅 서버](https://ghkdqhrbals.github.io/portfolios/docs/project/)(기여도 100%) Spring/Java
-
 * 2023.06 ~ 2024.01 (7개월)
 [취약점 분석 웹 서비스](https://ghkdqhrbals.github.io/portfolios/docs/foxee/)(기여도 70%) Spring/Java, FastAPI/Python
+
+* 2022.11 ~ 2024.02 (1년 3개월)
+  [실시간 채팅 서버](https://ghkdqhrbals.github.io/portfolios/docs/project/)(기여도 100%) Spring/Java
 
 * 2022.06 ~ 2022.09 (4개월)
 [뱅킹 서버 배포 자동화](https://ghkdqhrbals.github.io/portfolios/docs/project2/)(기여도 100%) Gin/Golang
