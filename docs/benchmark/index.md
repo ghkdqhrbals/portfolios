@@ -10,7 +10,7 @@ nav_order: 2
 
 A enterprise level performance testing solution. Taking inspiration from [nGrinder](https://github.com/naver/ngrinder), this project aims to develop a Spring Boot application mirroring nGrinder’s functionality as closely as possible.
 
-You can use our service in [https://www.high-load.org](https://www.high-load.org).
+~~You can use our service in [https://www.high-load.org](https://www.high-load.org).~~ (currently not available due to cost issue)
 
 BM has 2 major components.
 * **bm-controller**
@@ -44,8 +44,6 @@ But, **we cannot control concurrency level of webClient**. Because webClient its
 Because of that reason, **we create thread as much as the number of vuser and send webClient and blocking them**. So requests are performed in parallel as many vusers and are also blocked. We used this method to control the concurrency level.
 
 * **Scalable bm-agent & Real-time agent status observer**
-
-![img.png](img/agent-status.png)
 
 bm-agent is an application that actually transmits HTTP to the target server.
 And we observe that this bm-agent consume heavy load and need to distribute the load by making it scalable across multiple worker nodes. And the bm-controller should be noticed the scaled in/out of the corresponding bm-agent.

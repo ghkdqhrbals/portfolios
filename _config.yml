@@ -13,9 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: 황보규민 개발스토리
-description: Gyumin Hwangbo Porfolio
-baseurl: "portfolios" # the subpath of your site, e.g. /blog
+title: 엔지니어링 로그
+description: Backend Engineering Blog
+baseurl: "/portfolios" # the subpath of your site, e.g. /blog
 url: "https://ghkdqhrbals.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty

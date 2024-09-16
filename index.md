@@ -2,22 +2,51 @@
 layout: default
 title: About Me
 nav_order: 1
-description: "개발자 이력서"
+description: "About Me"
 permalink: /
 ---
 
 ### About me
 
-안녕하세요! 백엔드 개발자 황보규민입니다. 제 프로젝트 경험들을 토대로 아래와 같이 팀과 회사에 기여할 수 있습니다.
-
-1. Spring/Java 17 기반의 RestAPI 개발과 DB Schema 설계뿐만 아니라 여러 부분에서의 성능향상에 기여할 수 있습니다.
-2. AWS EKS, Cloud-Watch, Route-53, ECR, RDS, EC2 등 전반적인 AWS 에 대한 사용경험을 토대로 효율적인 클라우드 서비스 설계가 가능합니다.
-3. Git Actions, Shell Script, Docker 경험을 토대로 배포와 서비스 자동화를 구현하여 팀 내부 개발효율 상승과 서비스 유지보수 시간을 단축시킬 수 있습니다.
-4. Kubernetes 와 다양한 메트릭 수집경험을 통해 서비스의 트래픽을 효율적으로 분산시키고 모니터링 함으로써 서비스의 안전성을 향상시킬 수 있습니다.
-
-최근에는 [벤치마커](https://github.com/backend-tech-forge/benchmark) 프로젝트를 진행하고 있습니다.
+안녕하세요 백엔드 개발자 황보규민입니다. 현재 뛰어난 팀원들과 함께 일하며, 더 나은 서비스를 만들기 위해 노력하고 있습니다.
 
 ---
+
+### **토이 프로젝트 리스트**
+
+* 2024.03 ~ 2024.04 (1개월)
+[벤치마커 서비스](https://github.com/backend-tech-forge/benchmark)(기여도 90%) Spring-Boot/Java17
+
+* 2022.11 ~ 2024.02 (1년 3개월)
+[실시간 채팅 서버](https://ghkdqhrbals.github.io/portfolios/docs/project/)(기여도 100%) Spring/Java
+
+* 2023.06 ~ 2024.01 (7개월)
+[취약점 분석 웹 서비스](https://ghkdqhrbals.github.io/portfolios/docs/foxee/)(기여도 70%) Spring/Java, FastAPI/Python
+
+* 2022.06 ~ 2022.09 (4개월)
+[뱅킹 서버 배포 자동화](https://ghkdqhrbals.github.io/portfolios/docs/project2/)(기여도 100%) Gin/Golang
+
+* 2021.09 ~ 2021.12 (3개월)
+[윈도우 악성코드 유형 별 대표특성 추출](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp8/)(기여도 40%) Python
+
+* 2021.09 ~ 2021.12 (3개월)
+[파워쉘 악성 스크립트 탐지](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp2/)(기여도 80%) Python
+
+* 2021.09 ~ 2021.10 (1개월)
+[블록체인 기반 친환경 에너지 거래 플랫폼 프로토타입](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp4/)(기여도 50%) Python
+
+* 2022.08 ~ 2022.09 (1개월)
+[포트폴리오 웹](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp6/)(기여도 100%) React/JS
+
+* 2020.02 ~ 2020.06 (4개월)
+[택시 주행 시뮬레이터](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp7/)(기여도 60%) Python
+
+* 2020.01 ~ 2020.02(1개월)
+[DB snapshot](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/)(기여도 100%) Python
+
+* 2019.04 ~ 2019.05(2개월)
+[근처 맛집 추천 앱](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp5/)(기여도 10%) Android/Java
+
 
 ### **기본정보**
 
@@ -32,9 +61,9 @@ permalink: /
 ### **경험**
 * Backend Engineer(FOODDASH) 2024.04 ~ present
   * 역할: 백엔드 개발
-    * 기술: Spring-Boot/Batch, Kotlin, Mysql, Mongodb.
+    * 기술: Spring-Boot/Kotlin, Mysql, Mongodb, Batch, etc.
 * 선임연구원(FOXEE) 2023.06 ~ 2024.01 (7개월)
-  * 역할 : 취약점 분석 웹 서비스 개발
+  * 역할 : 취약점 분석 웹 백엔드, AI 서비스 개발
   * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB postgresql, Docker, etc.
 * 인턴(주식회사 펄스) 2020.01 ~ 2020.02 (1개월)
   * 역할 : 사내 편의 서비스 개발
@@ -47,21 +76,6 @@ permalink: /
   * 블록체인 보안 연구 및 AI 연구
 * 학사 졸업(2014.03 ~ 2020.08)
   * 부산대학교 정보컴퓨터공학부
-
-### **메인 프로젝트**
-* [**실시간 채팅 서버**](https://ghkdqhrbals.github.io/portfolios/docs/project/)(기여도 100%) Spring/Java
-* [취약점 분석 웹 서비스](https://ghkdqhrbals.github.io/portfolios/docs/foxee/)(기여도 70%) Spring/Java, FastAPI/Python
-
-### **토이 프로젝트**
-
-* [뱅킹 서버 배포 자동화](https://ghkdqhrbals.github.io/portfolios/docs/project2/)(기여도 100%) Gin/Golang
-* [윈도우 악성코드 유형 별 대표특성 추출](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp8/)(기여도 50%) Python
-* [파워쉘 악성 스크립트 탐지](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp2/)(기여도 80%) Python
-* [블록체인 기반 친환경 에너지 거래 플랫폼 프로토타입](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp4/)(기여도 50%) Python
-* [택시 주행 시뮬레이터](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp7/)(기여도 60%) Python
-* [포트폴리오 웹](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp6/)(기여도 100%) React/JS
-* [DB snapshot](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/)(기여도 100%) Python
-* [근처 맛집 추천 앱](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp5/)(기여도 10%) Android/Java
 
 ### **논문**
 
