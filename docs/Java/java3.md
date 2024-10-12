@@ -1,7 +1,7 @@
 ---
 layout: default
 title: CompletableFuture 기능 별 심화이해
-parent: Java-Spring
+parent: Server
 nav_order: 3
 ---
 
