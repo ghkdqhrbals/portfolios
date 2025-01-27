@@ -1,7 +1,7 @@
 ---
 layout: default
 title: BM performance tester
-nav_order: 2
+nav_order: 3
 ---
 
 # BM performance tester
