@@ -9,6 +9,8 @@ nav_order: 1
 
 Hello, I'm Gyumin Hwangbo, a backend engineer working with an amazing team to create better services every day.
 
+I love automation to reduce repetitive tasks and improve efficiency like implementing AWS profile changer bar, CI/CD for each brand modules, batch tracking, etc.
+
 ---
 
 ### **Toy Project List**
@@ -55,18 +57,18 @@ Hello, I'm Gyumin Hwangbo, a backend engineer working with an amazing team to cr
 
 ### **Experience**
 
-* [FOODDASH](https://fooddash.co.kr) (Backend Engineer) | Apr. 2024 – Present
+* [FOODDASH](https://fooddash.co.kr) as Backend Engineer (2024.04 ~ Present)
   * Develop multifranchise F&B solutions(kyochon, jadam, eupcheonri, etc.) with Kotlin/Spring-boot.
   * Optimize batch processing of user membership grade update job (reduce processing time from 19m 13s to 53s).
   * Build a fully automated deployment pipeline that supports both brand-specific and shared modules. Set up change detection for staging environments and manual triggers for production, with rollout tracking. The pipeline combined GitHub Actions, Docker, ECR, and EKS, and delivered Slack notifications at each step to improve visibility and reliability.
   * Implement Redis stream failover handling(DLQ, sync live consumer and redeliver message from ex-consumer to live-consumer, stream key versioning).
 
-* FOXEE (Senior Researcher) | Jun. 2023 – Jan. 2024
+* [FOXEE](https://www.foxee.co.kr) as Senior Researcher (2023.06 ~ 2024.01)
   * Develop backend for vulnerability detection service using Spring-Boot/Java, Python.
   * Optimize deployment process with GitHub Actions and Docker.
   * Contribute to AI data preprocessing and increase F1-score.
 
-* Pulse Co., Ltd. (Backend Engineer Intern) | Jan. 2020 – Feb. 2020 
+* Pulse Co., Ltd. as Backend Engineer Intern (2020.01 ~ 2020.02) 
   * Internal convenience service development
 
 ### **Education**
