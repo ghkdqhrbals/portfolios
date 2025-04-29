@@ -2,6 +2,7 @@
 layout: default
 title: (EN) Geth v1.8.x Architecture and Eclipse Attack
 parent: 📌 Ethereum Eclipse Attack
+date: 2020-12-04
 nav_order: 2
 ---
 # Countermeasures of Eclipse Attack in Geth v1.8.x

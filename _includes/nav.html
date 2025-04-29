@@ -200,6 +200,11 @@
                   {%- assign grand_children_list = grand_children_list | reverse -%}
                 {%- endif -%}
                 <a href="{{ child.url | relative_url }}" class="nav-list-link{% if page.url == child.url %} active{% endif %}">
+                  {% if child.date %}
+                  <span style="font-size: 0.6em; color: #666; display: block; padding: 1px 0; letter-spacing: 0.15em;">
+                    {{ child.date | date: "%Y-%m-%d" }}
+                  </span>
+                  {% endif %}
                   {{ child.title }} [{{grand_children_list.size}}]
                 </a>
                 <ul class="nav-list">
@@ -207,6 +212,11 @@
                   {%- unless grand_child.nav_exclude -%}
                   <li class="nav-list-item {% if page.url == grand_child.url %} active{% endif %}">
                     <a href="{{ grand_child.url | relative_url }}" class="nav-list-link{% if page.url == grand_child.url %} active{% endif %}">
+                      {% if grand_child.date %}
+                      <span style="font-size: 0.6em; color: #666; display: block; padding: 1px 0; letter-spacing: 0.15em;">
+                        {{ grand_child.date | date: "%Y-%m-%d" }}
+                      </span>
+                      {% endif %}
                       {{ grand_child.title }}
                     </a>
                   </li>
@@ -215,6 +225,11 @@
                 </ul>
               {% else %}
                 <a href="{{ child.url | relative_url }}" class="nav-list-link{% if page.url == child.url %} active{% endif %}">
+                  {% if child.date %}
+                  <span style="font-size: 0.6em; color: #666; display: block; padding: 1px 0; letter-spacing: 0.15em;">
+                    {{ child.date | date: "%Y-%m-%d" }}
+                  </span>
+                  {% endif %}
                   {{ child.title }}
                 </a>
                 {%- assign csize = csize | plus: 1 -%}

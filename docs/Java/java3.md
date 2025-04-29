@@ -2,6 +2,7 @@
 layout: default
 title: CompletableFuture 기능 별 심화이해
 parent: Server
+date: 2023-03-15
 nav_order: 3
 ---
 

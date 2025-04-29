@@ -230,7 +230,7 @@
 	"editor.cursorWidth": 0,
 
 	// Controls whether inline color decorations should be shown using the default document color provider
-	"editor.defaultColorDecorators": false,
+	"editor.defaultColorDecorators": "never",
 
 	// Defines a default folding range provider that takes precedence over all other folding range providers. Must be the identifier of an extension contributing a folding range provider.
 	//  - null: All active folding range providers
@@ -883,10 +883,6 @@
 
 	// Emulate selection behavior of tab characters when using spaces for indentation. Selection will stick to tab stops.
 	"editor.stickyTabStops": false,
-
-	// This setting is deprecated, please use separate settings like 'editor.suggest.showKeywords' or 'editor.suggest.showSnippets' instead.
-	// 
-	"editor.suggest.filteredTypes": {},
 
 	// Controls whether filtering and sorting suggestions accounts for small typos.
 	"editor.suggest.filterGraceful": true,
@@ -2264,9 +2260,6 @@
 	// Show notebook editor rich content results for closed notebooks. Please refresh your search results after changing this setting.
 	"search.experimental.closedNotebookRichContentResults": false,
 
-	// Controls whether the last typed input to Quick Search should be restored when opening it the next time.
-	"search.experimental.quickAccess.preserveInput": false,
-
 	// Controls whether to follow symlinks while searching.
 	"search.followSymlinks": true,
 
@@ -2440,7 +2433,7 @@
 	"debug.allowBreakpointsEverywhere": false,
 
 	// Automatically show values for variables that are lazily resolved by the debugger, such as getters.
-	"debug.autoExpandLazyVariables": false,
+	"debug.autoExpandLazyVariables": "off",
 
 	// At the end of a debug session, all the read-only tabs associated with that session will be closed
 	"debug.closeReadonlyTabsOnEnd": false,
@@ -4333,10 +4326,6 @@
 	// Controls whether bold text in the terminal will always use the "bright" ANSI color variant.
 	"terminal.integrated.drawBoldTextInBrightColors": true,
 
-	// This is now deprecated. Instead use the `terminal.integrated.enableVisualBell` and `accessibility.signals.terminalBell` settings.
-	// 
-	"terminal.integrated.enableBell": false,
-
 	// Whether to enable file links in terminals. Links can be slow when working on a network drive in particular because each file link is verified against the file system. Changing this will take effect only in new terminals.
 	//  - off: Always off.
 	//  - on: Always on.
@@ -5765,178 +5754,9 @@
 		"diffEditor.ignoreTrimWhitespace": false
 	},
 
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when a chat request is made.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.chatRequestSent": "off",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound on loop while the response is pending.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.chatResponsePending": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound on loop while the response has been received.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.chatResponseReceived": "off",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when a feature is cleared (for example, the terminal, Debug Console, or Output channel). When this is disabled, an ARIA alert will announce 'Cleared'.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.clear": "off",
-
-	// This setting is deprecated, instead use the `signals.debouncePositionChanges` setting.
-	// Whether or not position changes should be debounced
-	"audioCues.debouncePositionChanges": false,
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the focus moves to a deleted line in Accessible Diff Viewer mode or to the next/previous change.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.diffLineDeleted": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.diffLineInserted": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the focus moves to a modified line in Accessible Diff Viewer mode or to the next/previous change.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.diffLineModified": "auto",
-
 	// Deprecated. Use the specific setting for each audio cue instead (`audioCues.*`).
 	// 
 	"audioCues.enabled": null,
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when a file or notebook is formatted. Also see `accessibility.alert.format`
-	//  - userGesture: Plays the audio cue when a user explicitly formats a file.
-	//  - always: Plays the audio cue whenever a file is formatted, including if it is set to format on save, type, or, paste, or run of a cell.
-	//  - never: Never plays the audio cue.
-	"audioCues.format": "never",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the active line has a breakpoint.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.lineHasBreakpoint": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the active line has an error.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.lineHasError": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the active line has a folded area that can be unfolded.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.lineHasFoldedArea": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the active line has an inline suggestion.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.lineHasInlineSuggestion": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the active line has a warning.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.lineHasWarning": "off",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when trying to read a line with inlay hints that has no inlay hints.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.noInlayHints": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when a notebook cell execution is successfully completed.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.notebookCellCompleted": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when a notebook cell execution fails.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.notebookCellFailed": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the debugger stopped on a breakpoint.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.onDebugBreak": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when a file is saved. Also see `accessibility.alert.save`
-	//  - userGesture: Plays the audio cue when a user explicitly saves a file.
-	//  - always: Plays the audio cue whenever a file is saved, including auto save.
-	//  - never: Never plays the audio cue.
-	"audioCues.save": "never",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when a task is completed.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.taskCompleted": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when a task fails (non-zero exit code).
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.taskFailed": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when the terminal bell is ringing.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.terminalBell": "on",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when a terminal command fails (non-zero exit code).
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.terminalCommandFailed": "auto",
-
-	// This setting is deprecated. Use `signals` settings instead.
-	// Plays a sound when terminal Quick Fixes are available.
-	//  - auto: Enable sound when a screen reader is attached.
-	//  - on: Enable sound.
-	//  - off: Disable sound.
-	"audioCues.terminalQuickFix": "auto",
-
-	// Deprecated. Use `accessibility.signals.sounds.volume` instead.
-	// 
-	"audioCues.volume": null,
 
 	// The name under which the remote tunnel access is registered. If not set, the host name is used.
 	"remote.tunnels.access.hostNameOverride": "",
@@ -6017,112 +5837,25 @@
 	"accessibility.accessibleView.closeOnKeyPress": true,
 
 	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when the debugger breaks. Also see `audioCues.onDebugBreak`.
-	"accessibility.alert.breakpoint": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a chat request is sent. Also see `audioCues.chatRequestSent`.
-	"accessibility.alert.chatRequestSent": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a chat response is pending. Also see `audioCues.chatResponsePending`.
-	"accessibility.alert.chatResponsePending": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a feature is cleared (for example, the terminal, Debug Console, or Output channel). Also see `audioCues.clear`.
-	"accessibility.alert.clear": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when the active line has an error. Also see `audioCues.lineHasError`.
-	"accessibility.alert.error": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when the active line has a folded area that can be unfolded. Also see `audioCues.lineHasFoldedArea`.
-	"accessibility.alert.foldedArea": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a file or notebook cell is formatted. Also see `audioCues.format`.
-	//  - userGesture: Indicates when a file is formatted via user gesture.
-	//  - always: Indicates whenever is a file is formatted, including auto save, on cell execution, and more.
-	//  - never: Never alerts.
-	"accessibility.alert.format": "always",
-
-	// This setting is deprecated. Use the `signals` settings instead.
 	// Indicates when on a line with a breakpoint. Also see `audioCues.lineHasBreakpoint`.
 	"accessibility.alert.lineHasBreakpoint": true,
 
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when there are no inlay hints. Also see `audioCues.noInlayHints`.
-	"accessibility.alert.noInlayHints": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a notebook cell completes successfully. Also see `audioCues.notebookCellCompleted`.
-	"accessibility.alert.notebookCellCompleted": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a notebook cell fails. Also see `audioCues.notebookCellFailed`.
-	"accessibility.alert.notebookCellFailed": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when the debugger breaks. Also see `audioCues.onDebugBreak`.
-	"accessibility.alert.onDebugBreak": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a file is saved. Also see `audioCues.save`.
-	//  - userGesture: Indicates when a file is saved via user gesture.
-	//  - always: Indicates whenever is a file is saved, including auto save.
-	//  - never: Never alerts.
-	"accessibility.alert.save": "always",
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a task completes successfully (zero exit code). Also see `audioCues.taskCompleted`.
-	"accessibility.alert.taskCompleted": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a task fails (non-zero exit code). Also see `audioCues.taskFailed`.
-	"accessibility.alert.taskFailed": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when the terminal bell is activated.
-	"accessibility.alert.terminalBell": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when a terminal command fails (non-zero exit code). Also see `audioCues.terminalCommandFailed`.
-	"accessibility.alert.terminalCommandFailed": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when there is an available terminal quick fix. Also see `audioCues.terminalQuickFix`.
-	"accessibility.alert.terminalQuickFix": true,
-
-	// This setting is deprecated. Use the `signals` settings instead.
-	// Indicates when the active line has a warning. Also see `audioCues.lineHasWarning`.
-	"accessibility.alert.warning": true,
-
 	// Plays a signal when a chat request is made.
 	"accessibility.signals.chatRequestSent": {
-		"sound": "auto",
-		"announcement": "auto"
-	},
-
-	// Plays a signal on loop while the response is pending.
-	"accessibility.signals.chatResponsePending": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Indicates when the response has been received.
 	"accessibility.signals.chatResponseReceived": {
-		"sound": "auto"
+		"sound": "off"
 	},
 
 	// Plays a signal when a feature is cleared (for example, the terminal, Debug Console, or Output channel).
 	"accessibility.signals.clear": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
-
-	// Whether or not position changes should be debounced
-	"accessibility.signals.debouncePositionChanges": false,
 
 	// Indicates when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.
 	"accessibility.signals.diffLineDeleted": {
@@ -6141,26 +5874,26 @@
 
 	// Plays a signal when a file or notebook is formatted.
 	"accessibility.signals.format": {
-		"sound": "never",
-		"announcement": "never"
+		"announcement": "always",
+		"sound": "never"
 	},
 
 	// Plays a signal when the active line has a breakpoint.
 	"accessibility.signals.lineHasBreakpoint": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Indicates when the active line has an error.
 	"accessibility.signals.lineHasError": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Indicates when the active line has a folded area that can be unfolded.
 	"accessibility.signals.lineHasFoldedArea": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Indicates when the active line has an inline suggestion.
@@ -6170,71 +5903,68 @@
 
 	// Plays a signal when the active line has a warning.
 	"accessibility.signals.lineHasWarning": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Plays a signal when trying to read a line with inlay hints that has no inlay hints.
 	"accessibility.signals.noInlayHints": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Plays a signal when a notebook cell execution is successfully completed.
 	"accessibility.signals.notebookCellCompleted": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Plays a signal when a notebook cell execution fails.
 	"accessibility.signals.notebookCellFailed": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Plays a signal when the debugger stopped on a breakpoint.
 	"accessibility.signals.onDebugBreak": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Plays a signal when a file is saved.
 	"accessibility.signals.save": {
-		"sound": "never",
-		"announcement": "never"
+		"announcement": "always",
+		"sound": "never"
 	},
-
-	// The volume of the sounds in percent (0-100).
-	"accessibility.signals.sounds.volume": 70,
 
 	// Plays a signal when a task is completed.
 	"accessibility.signals.taskCompleted": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Plays a signal when a task fails (non-zero exit code).
 	"accessibility.signals.taskFailed": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Plays a signal when the terminal bell is ringing.
 	"accessibility.signals.terminalBell": {
-		"sound": "auto",
+		"sound": "off",
 		"announcement": "auto"
 	},
 
 	// Plays a signal when a terminal command fails (non-zero exit code).
 	"accessibility.signals.terminalCommandFailed": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Plays a signal when terminal Quick Fixes are available.
 	"accessibility.signals.terminalQuickFix": {
-		"sound": "auto",
-		"announcement": "auto"
+		"announcement": "auto",
+		"sound": "auto"
 	},
 
 	// Indicates when the voice recording has started.
@@ -7043,10 +6773,6 @@
 		"markdown": false,
 		"scminput": false
 	},
-
-	// Deprecated: Please use github.copilot.editor.enableAutoCompletions instead.
-	// Show inline suggestions
-	"github.copilot.inlineSuggest.enable": true,
 
 	// Enables the experimental `/fixTestFailure` intent
 	"github.copilot.chat.fixTestFailures": false,
@@ -8106,5 +7832,13 @@
 
 	// The string append to the resolved image path before paste.
 	"pasteImage.suffix": "",
+	"accessibility.signalOptions.volume": null,
+	"accessibility.signalOptions.debouncePositionChanges": false,
+	"accessibility.signals.progress": {
+		"announcement": "auto",
+		"sound": "auto"
+	},
+	"testing.automaticallyOpenTestResults": "openOnTestStart",
+	"search.quickAccess.preserveInput": false,
 
 }
