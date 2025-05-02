@@ -2,6 +2,7 @@
 layout: default
 title: (EN) What is MSA?
 parent: Micro Service Architecture
+date: 2022-09-05
 nav_order: 1
 ---
 
