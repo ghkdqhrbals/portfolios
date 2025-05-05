@@ -8,9 +8,36 @@ permalink: /
 
 ### About me
 
-안녕하세요 백엔드 개발자 황보규민입니다. 현재 뛰어난 팀원들과 함께 일하며, 더 나은 서비스를 만들기 위해 노력하고 있습니다.
+안녕하세요. 반복되는 과정을 자동화하여 생산성 높이는 것을 좋아하며 견고한 서비스를 만드는 데에 집중하는 백엔드 개발자 황보규민 입니다.
 
----
+### **경험**
+* Backend Engineer([FOODDASH](https://fooddash.co.kr/)) 2024.04 ~ present
+  * Kotlin/Spring Boot 기반으로 교촌, 자담, 읍천리 등 멀티 프랜차이즈 F&B 솔루션 개발.
+  * 사용자 멤버십 등급 갱신 배치 작업 최적화 처리 19분 13초 → 53초. [link](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/)
+  * 브랜드 별 모듈화 및 CI/CD 파이프라인 구성. [link](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/)
+  * Redis Stream 기반 비동기 알림 시스템 설계 및 리밸런싱, DLQ, consumer 관리 로직 구현 [link](https://ghkdqhrbals.github.io/portfolios/docs/Java/30/)
+
+* Senior Researcher(foxee) 2023.06 ~ 2024.01 (7개월)
+  * 역할 : 취약점 분석 웹 백엔드, AI 서비스 개발
+  * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB postgresql, Docker, etc.
+* Intern(주식회사 펄스) 2020.01 ~ 2020.02 (1개월)
+  * 역할 : 사내 편의 서비스 개발
+  * 개발스택 : Python, Selenium
+
+### **학력**
+
+* 석사 졸업(2020.09 ~ 2022.08)
+  * 부산대학교 컴퓨터공학과
+  * AI 보안 연구 및 블록체인 보안 연구
+* 학사 졸업(2014.03 ~ 2020.08)
+  * 부산대학교 정보컴퓨터공학부
+
+### **기본정보**
+
+* Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)ㄴ
+* LinkedIn : [https://www.linkedin.com/in/gyumin-hwangbo-92382218b/](https://www.linkedin.com/in/gyumin-hwangbo-92382218b/)
+* Instagram : [https://www.instagram.com/hb_traveller/](https://www.instagram.com/hb_traveller/)
+* Email : ghkdqhrbals@gmail.com
 
 ### **토이 프로젝트 리스트**
 
@@ -43,36 +70,6 @@ permalink: /
 
 * 2019.04 ~ 2019.05(2개월)
 [근처 맛집 추천 앱](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp5/)(기여도 10%) Android/Java
-
-
-### **기본정보**
-
-* Github : [https://github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)
-* CV Korean : [https://www.rallit.com/hub/resumes/92151/황보규민](https://www.rallit.com/hub/resumes/92151/황보규민)
-* CV English(PDF) : [https://ghkdqhrbals.github.io/portfolios/cv_en.pdf](https://ghkdqhrbals.github.io/portfolios/cv_en.pdf)
-* LinkedIn : [https://www.linkedin.com/in/gyumin-hwangbo-92382218b/](https://www.linkedin.com/in/gyumin-hwangbo-92382218b/)
-* Instagram : [https://www.instagram.com/hb_traveller/](https://www.instagram.com/hb_traveller/)
-* Email : ghkdqhrbals@gmail.com
-
-
-### **경험**
-* Backend Engineer(FOODDASH) 2024.04 ~ present
-  * 역할: 백엔드 개발
-    * 기술: Spring-Boot/Kotlin, Mysql, Mongodb, Batch, etc.
-* 선임연구원(FOXEE) 2023.06 ~ 2024.01 (7개월)
-  * 역할 : 취약점 분석 웹 백엔드, AI 서비스 개발
-  * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB postgresql, Docker, etc.
-* 인턴(주식회사 펄스) 2020.01 ~ 2020.02 (1개월)
-  * 역할 : 사내 편의 서비스 개발
-  * 개발스택 : Python, Selenium
-
-### **학력**
-
-* 석사 졸업(2020.09 ~ 2022.08)
-  * 부산대학교 컴퓨터공학과
-  * 블록체인 보안 연구 및 AI 연구
-* 학사 졸업(2014.03 ~ 2020.08)
-  * 부산대학교 정보컴퓨터공학부
 
 ### **논문**
 

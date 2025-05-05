@@ -2,6 +2,7 @@
 layout: default
 title: 📌 쿼리 최적화 방법
 parent: RDBMS
+date: 2023-06-26
 nav_order: 1
 ---
 

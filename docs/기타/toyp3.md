@@ -1,7 +1,8 @@
 ---
 layout: default
-title: 🏁 GOTYBENCH(HTTP Benchmark Tool) 설계
-parent: 📌 토이 프로젝트
+title: GOTYBENCH(HTTP Benchmark Tool) 설계
+date: 2022-02-01
+parent: 토이 프로젝트
 nav_order: 1
 ---
 # **Introduction**

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 📌 토이 프로젝트
+title: 토이 프로젝트
 nav_order: 3
 has_children: true
 ---

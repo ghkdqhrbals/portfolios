@@ -2,6 +2,7 @@
 layout: default
 title: (EN) Golang vs Spring Native
 parent: Go
+date: 2022-08-30
 nav_order: 3
 ---
 As I'm a golang developer, there is a article that compare between golang and spring.

@@ -2,6 +2,7 @@
 layout: default
 title: Elastic Search 심화(2)<br/>ELK stack
 parent: Elastic Search
+date: 2023-01-02
 nav_order: 3
 ---
 

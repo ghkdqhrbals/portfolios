@@ -2,6 +2,7 @@
 layout: default
 title: Elastic Search 심화(1)
 parent: Elastic Search
+date: 2023-01-01
 nav_order: 2
 ---
 
