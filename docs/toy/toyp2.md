@@ -63,7 +63,7 @@ nav_order: 2
 
 ### 📃 파일리스 악성코드 탐지 논문 정리
 
-<details><summary> 논문 정리 </summary><div markdown="1">
+<details open><summary> 논문 정리 </summary><div markdown="1">
 
 현재(2021년 9월) 눈여겨볼 논문들은 총 **8개**로 아래와 같이 정리해보았습니다.
 
@@ -109,7 +109,7 @@ nav_order: 2
 
 ### 💡 파일리스 악성코드 탐지 모델 개발
 
-<details><summary> 사용 모델 아키텍처 및 결과 </summary><div markdown="1">
+<details open><summary> 사용 모델 아키텍처 및 결과 </summary><div markdown="1">
 
 ## Frequency Model 을 통한 특성 도출
 
