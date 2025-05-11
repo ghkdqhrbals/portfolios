@@ -1,6 +1,6 @@
 ---
 layout: default
-title: s파워쉘 악성 스크립트 탐지 프로젝트
+title: 파워쉘 악성 스크립트 탐지 프로젝트
 date: 2021-09-01
 parent: 토이 프로젝트
 nav_order: 2
