@@ -1,6 +1,6 @@
 ---
 layout: default
-title: XAI를 활용한 취약점 분석 웹 어플리케이션
+title: Explainable AI(XAI)로 취약점 분석
 nav_order: 5
 ---
 

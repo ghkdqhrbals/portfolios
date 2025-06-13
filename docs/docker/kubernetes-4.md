@@ -2,6 +2,7 @@
 layout: default
 title: ChatGPT 에게 쿠버네티스를 물어보기 
 parent: 도커와 쿠버네티스
+date: 2021-04-05
 nav_order: 7
 ---
 

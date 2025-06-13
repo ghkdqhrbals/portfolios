@@ -2,6 +2,7 @@
 layout: default
 title: (English) Kubernetes
 parent: 도커와 쿠버네티스
+date: 2022-03-15
 nav_order: 3
 ---
 

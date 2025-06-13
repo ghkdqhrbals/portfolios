@@ -3,6 +3,7 @@ layout: default
 title: (EN) Network(4)<br/>Cookie and Session, JWT(Json Web Token)
 parent: Network
 grand_parent: Computer Science
+date: 2022-05-01
 nav_order: 4
 ---
 We generally use TOKEN for authentications. But we don't actually know the details about token. Today I will talk about token, espectially JWT(json web token).

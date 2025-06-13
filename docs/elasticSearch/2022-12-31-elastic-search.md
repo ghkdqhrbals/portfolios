@@ -2,6 +2,7 @@
 layout: default
 title: Elastic Search의 개념 및 RDB와의 차이점
 parent: Elastic Search
+date: 2022-12-31
 nav_order: 1
 ---
 

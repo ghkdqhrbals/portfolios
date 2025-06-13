@@ -2,6 +2,7 @@
 layout: default
 title: 쿠버네티스를 이해하기 위해 필요한 사전 지식들
 parent: 도커와 쿠버네티스
+date: 2021-03-19
 nav_order: 5
 ---
 

@@ -2,6 +2,7 @@
 layout: default
 title: (EN) Golang vs Java(1)
 parent: Go
+date: 2022-08-23
 nav_order: 1
 ---
 

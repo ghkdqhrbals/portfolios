@@ -1,7 +1,8 @@
 ---
 layout: default
-title: 🔍 DB 관찰 툴 프로젝트
-parent: 📌 토이 프로젝트
+title: DB 관찰 툴 프로젝트
+date: 2020-01-01
+parent: 토이 프로젝트
 nav_order: 3
 ---
 

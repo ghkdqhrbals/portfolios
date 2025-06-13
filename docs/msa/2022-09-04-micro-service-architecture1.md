@@ -2,6 +2,7 @@
 layout: default
 title: (KR) Saga 의 두 가지 패턴 설명
 parent: Micro Service Architecture
+date: 2022-09-04
 nav_order: 2
 ---
 

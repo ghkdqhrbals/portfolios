@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 📌 Ethereum Eclipse Attack
-nav_order: 3
+title: Ethereum Eclipse Attack
+nav_order: 10
 has_children: true
 ---
 

@@ -1,7 +1,8 @@
 ---
 layout: default
 title: (EN) Geth v1.6.6 Architecture and Eclipse Attack
-parent: 📌 Ethereum Eclipse Attack
+parent: Ethereum Eclipse Attack
+date: 2020-11-27
 nav_order: 1
 ---
 # Analysis of Geth 1.6.6v's P2P network

@@ -2,6 +2,7 @@
 layout: default
 title: (EN) Relationship between MSA and Docker
 parent: Micro Service Architecture
+date: 2022-05-30
 nav_order: 3
 ---
 

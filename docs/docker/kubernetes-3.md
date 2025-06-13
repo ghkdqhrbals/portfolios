@@ -2,6 +2,7 @@
 layout: default
 title: 쿠버네티스 생명 주기
 parent: 도커와 쿠버네티스
+date: 2021-04-02
 nav_order: 6
 ---
 
