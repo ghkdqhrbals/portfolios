@@ -25,7 +25,7 @@ permalink: /
   </span>
 </p>
 
-## SUMMARY
+## **SUMMARY**
 
 안녕하세요. Spring-Boot/Kotlin 기반의 백엔드 시스템 설계 및 개발 경험을 보유한 백엔드 엔지니어 황보규민입니다.
 
