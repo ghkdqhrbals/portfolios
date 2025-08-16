@@ -649,7 +649,7 @@
 	"editor.maxTokenizationLineLength": 20000,
 
 	// Controls whether the minimap is hidden automatically.
-	"editor.minimap.autohide": false,
+	"editor.minimap.autohide": "none",
 
 	// Controls whether the minimap is shown.
 	"editor.minimap.enabled": true,

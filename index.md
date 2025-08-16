@@ -32,15 +32,18 @@ permalink: /
 저는 Redis Stream 기반의 메시징 시스템 설계<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[1]</a></sup>, 대용량 배치 작업 최적화<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[2]</a></sup>, 브랜드 별 CI/CD 파이프라인 구성<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[3]</a></sup> 등 
 실무에서 기술 경험을 바탕으로 **안전한 백엔드 시스템 구축**과 **운영 자동화** 측면에서 팀에  기여할 수 있습니다. 또한 기술적인 문제 해결 과정들을 문서화하고 팀원들과 지속적으로 공유함으로써 함께 성장할 수 있는 문화를 조성할 수 있습니다.
 
+개인적으로도 사이드 프로젝트를 진행하면서 팀에 적용할 만한 것들을 테스트하고 있습니다. 현재는 mysql - stream - mongodb ETL 작업을 진행중에 있습니다.
+
 ## **EXPERIENCE**
 * Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04 ~ present
-  * Kotlin/Spring-Boot 기반으로 교촌, 자담, 읍천리 등 멀티 프랜차이즈 F&B 솔루션 개발.
+  * Kotlin/Spring-Boot 기반 교촌, 자담, 읍천리 등 멀티 프랜차이즈 F&B 솔루션 개발.
+  * 회원, 주문 결제 및 롤백, 멤버십 설계 및 개발.
   * 사용자 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 **95.4% 개선.**<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[1]</a></sup>
   * 브랜드 별 모듈화 및 개별&통합 CI/CD 파이프라인 구성.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[2]</a></sup>
-  * Redis Stream 기반 비동기 알림 시스템 설계 및 리밸런싱, DLQ, 컨슈머 관리 로직 구현.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
+  * Redis Stream 기반 비동기 알림 시스템 설계 및 리밸런싱, DLQ, 컨슈머 관리 로직 도입.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
 
 * Senior Researcher(foxee) 2023.06 ~ 2024.01
-  * 역할 : 취약점 분석 웹 백엔드, AI 서비스 개발
+  * 역할 : 취약점 분석 웹 백엔드, CNN eXplainable AI 개발
   * 개발스택 : Java, Spring-Boot/Cloud/Security/Webflux, RDB postgresql, Docker, etc.
 * Intern(주식회사 펄스) 2020.01 ~ 2020.02
   * 역할 : 사내 편의 서비스 개발
