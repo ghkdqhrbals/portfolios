@@ -6,41 +6,42 @@ description: "About Me"
 permalink: /
 ---
 
-<p style="color:#6c757d; font-size:0.95rem; margin-bottom:1rem; text-align:center;">
-  <span style="margin:0 12px;">
+<div class="contact-inline">
+  <span>
     <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/phone.svg" alt="phone" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
     (+82) 10-5177-1967
   </span>
-  <span style="margin:0 12px;">
+  <span>
     <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/envelope.svg" alt="email" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-    <a href="mailto:ghkdqhrbals@gmail.com" style="color:#6c757d; text-decoration:none;">ghkdqhrbals@gmail.com</a>
+    <a href="mailto:ghkdqhrbals@gmail.com">ghkdqhrbals@gmail.com</a>
   </span>
-  <span style="margin:0 12px;">
+  <span>
     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="github" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-    <a href="https://github.com/ghkdqhrbals" style="color:#6c757d; text-decoration:none;">ghkdqhrbals</a>
+    <a href="https://github.com/ghkdqhrbals">ghkdqhrbals</a>
   </span>
-  <span style="margin:0 12px;">
+  <span>
     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="linkedin" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-    <a href="https://www.linkedin.com/in/gyumin-hwangbo-92382218b/" style="color:#6c757d; text-decoration:none;">gyumin</a>
+    <a href="https://www.linkedin.com/in/gyumin-hwangbo-92382218b/">gyumin</a>
   </span>
-</p>
+</div>
 
 # SUMMARY
 
-안녕하세요. Spring-Boot/Kotlin 기반의 백엔드 시스템 설계 및 개발 경험을 보유한 백엔드 엔지니어 황보규민입니다.
+안녕하세요. Spring-Boot/Kotlin 기반의 백엔드 시스템 설계 및 개발 경험을 보유한 백엔드 엔지니어 <span class="my-name">황보규민</span>입니다.
 
 저는 Redis Stream 기반의 메시징 시스템 설계<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[1]</a></sup>, 대용량 배치 작업 95.4% 최적화<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[2]</a></sup>, 브랜드 별 CI/CD 파이프라인 구성<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[3]</a></sup> 등 
-실무에서 기술 경험을 바탕으로 **안전한 백엔드 시스템 구축**과 **운영 자동화** 측면에서 팀에  기여할 수 있습니다. 또한 QA 하기 편하도록 테스트하기 좋은 로직으로 코드 작성하는 것을 선호하며 기술적인 문제 해결 과정들을 문서화하고 팀원들과 지속적으로 공유함으로써 함께 성장할 수 있는 문화를 조성할 수 있습니다.
+실무 기술 경험을 바탕으로 **안전한 백엔드 시스템 구축**과 **운영 자동화** 측면에서 팀에 기여할 수 있습니다. 또한 QA 하기 편하도록 테스트하기 좋은 로직으로 코드 작성하는 것을 선호하며 기술적인 문제 해결 과정들을 문서화하고 팀원들과 지속적으로 공유함으로써 함께 성장할 수 있는 문화를 조성할 수 있습니다.
 
 
 
 # EXPERIENCE
-* Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04 ~ present(1 year 4 month)
+* Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04 ~ present
   * Kotlin/Spring-Boot 기반 교촌, 자담 등 멀티 프랜차이즈 F&B 솔루션 개발.
   * 회원, 주문 결제 및 롤백, 멤버십 설계 및 개발.
   * 사용자 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 **95.4% 개선.**<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[1]</a></sup>
   * 브랜드 별 모듈화 및 개별&통합 CI/CD 파이프라인 구성.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[2]</a></sup>
-  * Redis Stream 도입 비동기 알림 시스템 설계, 리밸런싱, DLQ, 컨슈머 관리 로직 설계.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
+  * Redis stream 도입 비동기 알림 시스템 설계, 리밸런싱, DLQ, 컨슈머 관리 로직 설계.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
+  * MySQL -> Redis stream -> MongoDB [CDC ETL](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/) 시스템 설계 및 개발.
   * 개발스택 : Kotlin/Spring-Boot, Mysql, MongoDB, Kubernetes, AWS
 * Senior Researcher(foxee) 2023.06 ~ 2024.01(7 month)
   * Java/Spring-Boot 기반 취약점 분석 웹 백엔드 개발
@@ -62,17 +63,17 @@ permalink: /
 
 * 2025.03 AWS 계정변경 유틸리티
   
-  멀티 프렌차이즈를 운영하면서 aws 계정설정이 자주 스위칭되는데 직접 변경해주기 귀찮아서 mac xbar 자동화 툴에 스크립트로 추가. [https://github.com/matryer/xbar-plugins/pull/2103](https://github.com/matryer/xbar-plugins/pull/2103)
+  멀티 프렌차이즈를 운영하면서 aws 계정설정이 자주 스위칭되어 편의를 위해 mac xbar 자동화 툴에 [스크립트](https://github.com/matryer/xbar-plugins/pull/2103)로 추가.
 * 2024.03 ~ 2024.04 벤치마크 서비스
 
-  nGrinder 로 로드 테스트하던 중 똑같이 만들 수 있을 것 같아서 개발. [https://github.com/backend-tech-forge/benchmark](https://github.com/backend-tech-forge/benchmark)
+  nGrinder 로 로드 테스트하던 중 똑같이 만들 수 있을 것 같아서 백엔드 팀원 모아서 [개발](https://github.com/backend-tech-forge/benchmark).
 * 2024.01 ~ 2024.02 슬랙 리스트 알림 Git Actions
 
-  슬랙에 알림 전송할 떄 리스트로 편하게 전송하는 Git Actions 없어서 쓸려고 마켓에 올려서 사용. [https://github.com/ghkdqhrbals/slack-list](https://github.com/ghkdqhrbals/slack-list)
-* 2022.11 ~ 2024.02 실시간 채팅 서비스
+  슬랙에 알림 전송할 떄 리스트로 편하게 전송하는 Git Actions 없어서 편하게 쓸려고 [마켓](https://github.com/ghkdqhrbals/slack-list)에 올려서 사용.
+* 2022.11 ~ 2024.02 실시간 채팅 서비스 ([47 stars](https://github.com/ghkdqhrbals/spring-chatting-server))
 
-  개인으로 1년 넘게 진행하던 프로젝트이며 현재는 **[KT AICC](https://www.kt-aicc.com/user/index)** 에 적용됨. [https://github.com/ghkdqhrbals/spring-chatting-server](https://github.com/ghkdqhrbals/spring-chatting-server)
-  * **최대 59배 속도 개선** (TPS p99.9 1.63	-> 96.52) <sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/pf/" style="color:#007bff;text-decoration:none;">[7]</a></sup> by nGrinder
+  개인으로 1년 넘게 진행했던 프로젝트이며 현재는 **[KT AICC](https://www.kt-aicc.com/user/index)** AI 챗봇에 적용되어있음. 
+  * **최대 59배 속도 개선** (TPS p99.9 1.63	-> 96.52) <sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/pf/" style="color:#007bff;text-decoration:none;">[7]</a></sup>
 
 * 2022.06 ~ 2022.09 뱅킹 서버 배포 자동화 <sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/project2/" style="color:#007bff; text-decoration:none;">[8]</a></sup>
 * 2021.09 ~ 2021.12 윈도우 악성코드 유형 별 대표특성 추출 <sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/toy/toyp8/" style="color:#007bff; text-decoration:none;">[9]</a></sup>
