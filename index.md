@@ -36,12 +36,12 @@ permalink: /
 
 # EXPERIENCE
 * Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04 ~ present
-  * Kotlin/Spring-Boot 기반 교촌, 자담 등 멀티 프랜차이즈 F&B 솔루션 개발.
-  * 회원, 주문 결제 및 롤백, 멤버십 설계 및 개발.
+  * Kotlin/Spring-Boot 기반 교촌, 자담 등 멀티 프랜차이즈 F&B 솔루션 개발
+  * 회원, 주문 결제 및 롤백, 멤버십 설계 및 개발
   * 사용자 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 **95.4% 개선.**<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[1]</a></sup>
   * 브랜드 별 모듈화 및 개별&통합 CI/CD 파이프라인 구성.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[2]</a></sup>
   * Redis stream 도입 비동기 알림 시스템 설계, 리밸런싱, DLQ, 컨슈머 관리 로직 설계.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
-  * MySQL -> Redis stream -> MongoDB [CDC ETL](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/) 시스템 설계 및 개발.
+  * MySQL -> Redis stream -> MongoDB [CDC ETL](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/) 시스템 설계 및 개발
   * 개발스택 : Kotlin/Spring-Boot, Mysql, MongoDB, Kubernetes, AWS
 * Senior Researcher(foxee) 2023.06 ~ 2024.01(7 month)
   * Java/Spring-Boot 기반 취약점 분석 웹 백엔드 개발
@@ -53,23 +53,17 @@ permalink: /
 
 # EDUCATION
 
-* 석사 졸업(2020.09 ~ 2022.08)
-  * 부산대학교 컴퓨터공학과
-  * 블록체인 및 취약점 보안 연구
-* 학사 졸업(2014.03 ~ 2020.08)
-  * 부산대학교 컴퓨터공학부
+* 부산대학교 컴퓨터공학과 석사 졸업(2020.09 ~ 2022.08)
+* 부산대학교 정보컴퓨터공학부 학사 졸업(2014.03 ~ 2020.08)
+* 부일 외국어고등학교 졸업(2010.03 ~ 2013.02)
 
 # OPENSOURCE
 
-* 2025.03 AWS 계정변경 유틸리티
+* 2025.03 [AWS 계정변경 유틸리티](https://github.com/matryer/xbar-plugins/pull/2103)
   
-  멀티 프렌차이즈를 운영하면서 aws 계정설정이 자주 스위칭되어 편의를 위해 mac xbar 자동화 툴에 [스크립트](https://github.com/matryer/xbar-plugins/pull/2103)로 추가.
-* 2024.03 ~ 2024.04 벤치마크 서비스
-
-  nGrinder 로 로드 테스트하던 중 똑같이 만들 수 있을 것 같아서 백엔드 팀원 모아서 [개발](https://github.com/backend-tech-forge/benchmark).
-* 2024.01 ~ 2024.02 슬랙 리스트 알림 Git Actions
-
-  슬랙에 알림 전송할 떄 리스트로 편하게 전송하는 Git Actions 없어서 편하게 쓸려고 [마켓](https://github.com/ghkdqhrbals/slack-list)에 올려서 사용.
+  멀티 프렌차이즈를 운영하면서 aws 계정설정이 자주 스위칭되어 편의를 위해 mac xbar 자동화 툴 머지
+* 2024.03 ~ 2024.04 [서버 벤치마크 서비스](https://github.com/backend-tech-forge/benchmark)
+* 2024.01 ~ 2024.02 [슬랙 리스트 알림 Git Actions](https://github.com/ghkdqhrbals/slack-list)
 * 2022.11 ~ 2024.02 실시간 채팅 서비스 ([47 stars](https://github.com/ghkdqhrbals/spring-chatting-server))
 
   개인으로 1년 넘게 진행했던 프로젝트이며 현재는 **[KT AICC](https://www.kt-aicc.com/user/index)** AI 챗봇에 적용되어있음. 
