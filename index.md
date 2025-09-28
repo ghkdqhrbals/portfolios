@@ -25,7 +25,7 @@ permalink: /
   </span>
 </p>
 
-## **SUMMARY**
+# SUMMARY
 
 안녕하세요. Spring-Boot/Kotlin 기반의 백엔드 시스템 설계 및 개발 경험을 보유한 백엔드 엔지니어 황보규민입니다.
 
@@ -34,7 +34,7 @@ permalink: /
 
 
 
-## **EXPERIENCE**
+# EXPERIENCE
 * Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04 ~ present(1 year 4 month)
   * Kotlin/Spring-Boot 기반 교촌, 자담 등 멀티 프랜차이즈 F&B 솔루션 개발.
   * 회원, 주문 결제 및 롤백, 멤버십 설계 및 개발.
@@ -50,7 +50,7 @@ permalink: /
   * 역할 : 사내 편의 서비스 개발
   * 개발스택 : Python
 
-## **EDUCATION**
+# EDUCATION
 
 * 석사 졸업(2020.09 ~ 2022.08)
   * 부산대학교 컴퓨터공학과
@@ -58,14 +58,14 @@ permalink: /
 * 학사 졸업(2014.03 ~ 2020.08)
   * 부산대학교 컴퓨터공학부
 
-## **OPENSOURCE**
+# OPENSOURCE
 
 * 2025.03 AWS 계정변경 유틸리티
   
   멀티 프렌차이즈를 운영하면서 aws 계정설정이 자주 스위칭되는데 직접 변경해주기 귀찮아서 mac xbar 자동화 툴에 스크립트로 추가. [https://github.com/matryer/xbar-plugins/pull/2103](https://github.com/matryer/xbar-plugins/pull/2103)
 * 2024.03 ~ 2024.04 벤치마크 서비스
 
-  nGrinder 로 로드 테스트하던 중 나도 똑같이 만들 수 있을 것 같아서 개발. [https://github.com/backend-tech-forge/benchmark](https://github.com/backend-tech-forge/benchmark)
+  nGrinder 로 로드 테스트하던 중 똑같이 만들 수 있을 것 같아서 개발. [https://github.com/backend-tech-forge/benchmark](https://github.com/backend-tech-forge/benchmark)
 * 2024.01 ~ 2024.02 슬랙 리스트 알림 Git Actions
 
   슬랙에 알림 전송할 떄 리스트로 편하게 전송하는 Git Actions 없어서 쓸려고 마켓에 올려서 사용. [https://github.com/ghkdqhrbals/slack-list](https://github.com/ghkdqhrbals/slack-list)
@@ -79,11 +79,11 @@ permalink: /
 * 2021.09 ~ 2021.12 파워쉘 악성 스크립트 탐지 <sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/toy/toyp2/" style="color:#007bff; text-decoration:none;">[10]</a></sup>
 * 2021.09 ~ 2021.10 블록체인 기반 친환경 에너지 거래 플랫폼 프로토타입 <sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/toy/toyp4/" style="color:#007bff; text-decoration:none;">[11]</a></sup>
 
-## **PAPER**
+# PAPER
 
 * 이더리움 블록체인 이클립스 공격 논문 <sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Blockchain/" style="color:#007bff; text-decoration:none;">[16]</a></sup>
 
-## **ACTIVITY**
+# ACTIVITY
 
 * (특허등록) 블록체인 클라이언트 취약점 탐지 방법 및 취약점 탐지 장치 (2022.01 ~ 2022.12) <sup><a href="https://patents.google.com/patent/KR20240019566A/ko" style="color:#007bff; text-decoration:none;">[17]</a></sup>
 * (학술대회) (NLP)N-gram과 위협 행위 기반의 Windows 악성코드 패밀리 주요 유형 패턴 분석 (2021.12)<sup><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11035874" style="color:#007bff; text-decoration:none;">[18]</a></sup>

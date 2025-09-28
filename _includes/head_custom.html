@@ -1,0 +1,116 @@
+<style>
+	/* Minimal clean tech blog enhancements */
+	.brand-inline {display:flex;align-items:baseline;gap:10px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;}
+	.brand-inline .site-title {font-size:18px;font-weight:600;letter-spacing:.5px;color:#1f2937;text-decoration:none;}
+	.brand-inline .site-desc {font-size:12px;color:#6b7280;font-weight:400;margin-top:2px;}
+	/* Body readability */
+	.main-content p {line-height:1.68;}
+	.main-content h1,.main-content h2,.main-content h3 {font-weight:600;letter-spacing:-.5px;}
+	.main-content h2 {margin-top:2.4em;padding-top:.2em;border-top:1px solid #f0f2f5;}
+	/* Lists spacing */
+	.main-content li {margin:4px 0;}
+	/* Links - subtle underline on hover */
+	.main-content a:not(.btn){text-decoration:none;border-bottom:1px solid rgba(99,102,241,.25);transition:border-color .2s,background-color .2s;}
+	.main-content a:not(.btn):hover{border-color:#6366f1;background:rgba(99,102,241,.06);} 
+	/* Inline code */
+	p code,li code {background:#f3f4f6;padding:2px 5px;border-radius:4px;font-size:.78em;}
+	/* Code blocks language label */
+	figure.highlight {border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;}
+	figure.highlight pre {padding-top:32px;}
+	figure.highlight pre[data-lang]::before {content:attr(data-lang);position:absolute;top:6px;right:10px;font-size:11px;font-weight:500;color:#6b7280;letter-spacing:.5px;}
+	figure.highlight pre {position:relative;}
+	/* Blockquote cleaner */
+	blockquote {background:#f9fafb;border-left:4px solid #6366f1 !important;padding:10px 14px !important;border-radius:4px;margin:18px 0 !important;}
+	blockquote p {margin:0.4em 0;}
+	/* Table style */
+	.main-content table {font-size:14px;}
+	.main-content table th {background:#f3f4f6;font-weight:600;}
+	/* Utility badge */
+	.badge {display:inline-block;background:#6366f1;color:#fff;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:500;letter-spacing:.4px;}
+	/* Site header alignment tweak */
+	#main-header {align-items:center;}
+</style>
+<style>
+	/* Unified clean heading system H1~H4 */
+	:root {--heading-accent:#6366f1;--heading-indent:46px;--heading-number-color:currentColor;} /* numbers same color as heading text */
+	.main-content {counter-reset:h1counter;}
+	.main-content h1 {counter-increment:h1counter;counter-reset:h2counter;}
+	.main-content h2 {counter-increment:h2counter;counter-reset:h3counter;}
+	.main-content h3 {counter-increment:h3counter;counter-reset:h4counter;}
+	.main-content h4 {counter-increment:h4counter;}
+
+	/* Shared visual pattern */
+	.main-content h1,.main-content h2,.main-content h3,.main-content h4 {
+		position:relative;
+		padding-left:var(--heading-indent);
+		font-weight:650;
+		letter-spacing:-.01em;
+		line-height:1.22;
+		margin-bottom:.85em;
+		margin-top:2.4em;
+	}
+	.main-content h1 {font-size:clamp(2.1rem,4.2vw,2.7rem);margin-top:.6em;}
+	.main-content h2 {font-size:clamp(1.55rem,2.6vw,2.0rem);}
+	.main-content h3 {font-size:1.28rem;}
+	.main-content h4 {font-size:1.08rem;letter-spacing:-.005em;}
+	.main-content h1:first-child {margin-top:.4em;}
+
+	/* Number token (consistent style) */
+	.main-content h1::before,
+	.main-content h2::before,
+	.main-content h3::before,
+	.main-content h4::before {
+		position:absolute;left:0;top:50%;transform:translateY(-50%);
+		font-weight:600;color:var(--heading-number-color);font-size:0.8em;letter-spacing:.035em;opacity:1;
+		/* Slightly stronger for better readability */
+	}
+	.main-content h1::before {content:counter(h1counter) ".";}
+	.main-content h2::before {content:counter(h1counter) "." counter(h2counter);}
+	.main-content h3::before {content:counter(h1counter) "." counter(h2counter) "." counter(h3counter);}
+	.main-content h4::before {content:counter(h1counter) "." counter(h2counter) "." counter(h3counter) "." counter(h4counter);}
+
+	/* Subtle divider line below all headings except last before another heading */
+	.main-content h2::after,
+	.main-content h3::after,
+	.main-content h4::after {content:none;}
+	/* Gray underline only for H1 */
+	.main-content h1::after {content:"";position:absolute;left:0;bottom:-0.45em;width:100%;height:2px;background:#e5e7eb;}
+
+	/* Tight paragraph spacing after headings */
+	.main-content h1 + p,
+	.main-content h2 + p,
+	.main-content h3 + p,
+	.main-content h4 + p {margin-top:.35em;}
+
+	/* Hover anchor accent */
+	.main-content .anchor-heading:hover {color:var(--heading-accent);} 
+
+	/* Remove underline/border style from links inside headings */
+	.main-content h1 > a,
+	.main-content h2 > a,
+	.main-content h3 > a,
+	.main-content h4 > a {
+		text-decoration:none !important;
+		border-bottom:none !important;
+		background:none !important;
+		padding:0;
+	}
+	.main-content h1 > a:hover,
+	.main-content h2 > a:hover,
+	.main-content h3 > a:hover,
+	.main-content h4 > a:hover {color:var(--heading-accent);}
+
+	/* Compact mode for narrow screens */
+	@media (max-width: 640px){
+		:root {--heading-indent:46px;}
+		.main-content h1,.main-content h2,.main-content h3,.main-content h4 {margin-top:2.0em;}
+		.main-content h1 {font-size:2.1rem;}
+		.main-content h2 {font-size:1.55rem;}
+		.main-content h3 {font-size:1.15rem;}
+		.main-content h4 {font-size:.98rem;}
+		.main-content h1::before,
+		.main-content h2::before,
+		.main-content h3::before,
+		.main-content h4::before {font-size:.72em;}
+	}
+</style>
