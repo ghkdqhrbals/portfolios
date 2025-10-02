@@ -30,10 +30,19 @@
 	/* Site header alignment tweak */
 	#main-header {align-items:center;}
 </style>
-{% if page.permalink == '/' or page.url == '/' %}
+{% if page.permalink == '/' or page.url == '/' or page.permalink == '/cv/' or page.url == '/cv/' %}
 <link rel="stylesheet" href="{{ '/assets/css/index.css' | relative_url }}">
 {% endif %}
 <style>
+	/* CV page: hide sidebar & top header ONLY when viewport <=900px */
+	@media (max-width: 900px){
+		/* Hide full sidebar and top header on CV page */
+		body.page-cv .side-bar {display:none !important;}
+		body.page-cv .main-header {display:none !important;}
+		/* Expand main area to full width */
+		body.page-cv .main {margin-left:0 !important; max-width:100% !important;}
+		body.page-cv #main-content-wrap {padding-left:18px;padding-right:18px;}
+	}
 	/* Unified clean heading system H1~H4 */
 	:root {--heading-accent:#6366f1;--heading-indent:46px;--heading-number-color:currentColor;} /* numbers same color as heading text */
 	.main-content {counter-reset:h1counter;}

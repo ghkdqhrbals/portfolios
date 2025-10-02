@@ -1,0 +1,14 @@
+{% comment %}Recent docs dataset (dated first desc, then undated). Used by load-more JS.{% endcomment %}
+{% assign docs_all = site.pages | where_exp: 'p','p.path contains "docs/"' %}
+{% assign dated = docs_all | where_exp: 'p','p.date' | sort: 'date' | reverse %}
+{% assign undated = docs_all | where_exp: 'p','p.date == nil' | sort: 'path' %}
+<template id="recent-data">[
+{% for p in dated %}
+{% assign cat = p.path | replace: 'docs/', '' | split: '/' | first %}
+{"date":"{{ p.date | date: '%Y-%m-%d' }}","title":{{ p.title | jsonify }},"url":"{{ p.url | relative_url }}"{% if p.parent %},"parent":{{ p.parent | jsonify }}{% endif %}{% if cat %},"cat":{{ cat | jsonify }}{% endif %}}{% unless forloop.last and undated == empty %},{% endunless %}
+{% endfor %}
+{% for p in undated %}
+{% assign cat = p.path | replace: 'docs/', '' | split: '/' | first %}
+{"date":"","title":{{ p.title | jsonify }},"url":"{{ p.url | relative_url }}"{% if p.parent %},"parent":{{ p.parent | jsonify }}{% endif %}{% if cat %},"cat":{{ cat | jsonify }}{% endif %}}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]</template>

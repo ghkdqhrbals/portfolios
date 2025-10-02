@@ -6,7 +6,20 @@ layout: table_wrappers
 
 <html lang="{{ site.lang | default: 'en-US' }}">
 {% include head.html %}
-<body{% if page.permalink == '/' or page.url == '/' %} class="page-index"{% endif %}>
+{% assign base_slash = site.baseurl | append: '/' %}
+{% assign classes = '' %}
+{% if page.permalink == '/' or page.url == '/' or page.url == site.baseurl or page.url == base_slash %}
+  {% assign classes = classes | append: ' page-index' %}
+{% endif %}
+{% assign cv_baseurl = site.baseurl | append: '/cv/' %}
+{%- comment -%}
+  Ensure CV detection works regardless of baseurl or whether permalink is explicitly set.
+  Some builds generate page.url like /cv/index.html, so also match contains '/cv/'.
+{%- endcomment -%}
+{% if page.permalink == '/cv/' or page.url == '/cv/' or page.url == cv_baseurl or page.url contains '/cv/' %}
+  {% assign classes = classes | append: ' page-cv' %}
+{% endif %}
+<body class="{{ classes | strip }}">
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   {% include icons/icons.html %}
   {% include components/sidebar.html %}

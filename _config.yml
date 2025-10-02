@@ -162,6 +162,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
 
+# Pagination (custom plugin) page size
+recent_docs_per_page: 20
+
 kramdown:
   syntax_highlighter_opts:
     block:

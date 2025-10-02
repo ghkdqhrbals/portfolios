@@ -1,0 +1,56 @@
+{% comment %}
+Manual pagination for dated docs pages without custom plugin (GitHub Pages compatible).
+Parameters via page front matter:
+  page_number: current page (1-based)
+  per_page: override items per page (default 20)
+{% endcomment %}
+{% assign per_page = page.per_page | default: 20 %}
+{% assign page_number = page.page_number | default: 1 %}
+{% assign all_docs = site.pages | where_exp: "p","p.path contains 'docs/' and p.date" | sort: 'date' | reverse %}
+{% assign total_pages = all_docs.size | divided_by: per_page %}
+{% assign remainder = all_docs.size | modulo: per_page %}
+{% if remainder > 0 %}{% assign total_pages = total_pages | plus: 1 %}{% endif %}
+
+{% assign page_index = page_number | minus: 1 %}
+{% assign offset = per_page | times: page_index %}
+
+<div class="recent-posts">
+  <ul class="recent-posts-list">
+  {% for p in all_docs offset:offset limit:per_page %}
+    {% unless p.url == '/' %}
+    <li>
+      <span class="r-date">{{ p.date | date: '%Y-%m-%d' }}</span>
+      <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+      {% if p.parent %}<span class="r-parent">({{ p.parent }})</span>{% endif %}
+    </li>
+    {% endunless %}
+  {% endfor %}
+  </ul>
+
+  {% if total_pages > 1 %}
+  <nav class="recent-pagination" aria-label="Recent posts pagination">
+    {% if page_number > 1 %}
+      {% assign prev_num = page_number | minus: 1 %}
+      {% if prev_num == 1 %}
+        <a class="pager prev" href="{{ '/' | relative_url }}">← Prev</a>
+      {% else %}
+        <a class="pager prev" href="{{ ('/page' | append: prev_num | append: '/') | relative_url }}">← Prev</a>
+      {% endif %}
+    {% endif %}
+    <span class="pages">
+      {% for i in (1..total_pages) %}
+        {% if i == 1 %}
+          {% assign pg_url = '/' %}
+        {% else %}
+          {% assign pg_url = '/page' | append: i | append: '/' %}
+        {% endif %}
+        <a class="num{% if i == page_number %} active{% endif %}" href="{{ pg_url | relative_url }}">{{ i }}</a>
+      {% endfor %}
+    </span>
+    {% if page_number < total_pages %}
+      {% assign next_num = page_number | plus: 1 %}
+      <a class="pager next" href="{{ ('/page' | append: next_num | append: '/') | relative_url }}">Next →</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</div>

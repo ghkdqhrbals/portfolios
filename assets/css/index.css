@@ -9,20 +9,30 @@
 .page-index .tag-ref a {color:#2563eb;text-decoration:none;}
 .page-index .tag-ref a:hover {text-decoration:underline;}
 /* General link color override on index page (clean blue tone) */
-.page-index .main-content a {color:#3b82f6 !important;border-bottom:1px solid rgba(59,130,246,.35) !important;text-decoration:none;}
-.page-index .main-content a:hover {color:#1d4ed8 !important;border-bottom-color:#2563eb !important;}
+.page-index .main-content a, .page-cv .main-content a {color:#3b82f6 !important;border-bottom:1px solid rgba(59,130,246,.35) !important;text-decoration:none;}
+.page-index .main-content a:hover, .page-cv .main-content a:hover {color:#1d4ed8 !important;border-bottom-color:#2563eb !important;}
 /* Remove underline/border specifically for heading anchor links */
 .page-index .main-content h1 > a,
 .page-index .main-content h2 > a,
 .page-index .main-content h3 > a,
 .page-index .main-content h4 > a,
-.page-index .main-content .anchor-heading {border-bottom:none !important;text-decoration:none !important;}
+.page-index .main-content .anchor-heading,
+.page-cv .main-content h1 > a,
+.page-cv .main-content h2 > a,
+.page-cv .main-content h3 > a,
+.page-cv .main-content h4 > a,
+.page-cv .main-content .anchor-heading {border-bottom:none !important;text-decoration:none !important;}
 /* Override global heading numbering (disable on index) */
 .page-index .main-content h1::before,
 .page-index .main-content h2::before,
 .page-index .main-content h3::before,
-.page-index .main-content h4::before {content:none !important;}
-.page-index .main-content h1,.page-index .main-content h2,.page-index .main-content h3,.page-index .main-content h4 {padding-left:0 !important;}
+.page-index .main-content h4::before,
+.page-cv .main-content h1::before,
+.page-cv .main-content h2::before,
+.page-cv .main-content h3::before,
+.page-cv .main-content h4::before {content:none !important;}
+.page-index .main-content h1,.page-index .main-content h2,.page-index .main-content h3,.page-index .main-content h4,
+.page-cv .main-content h1,.page-cv .main-content h2,.page-cv .main-content h3,.page-cv .main-content h4 {padding-left:0 !important;}
 /* Use global pseudo-element underline only; remove extra border to avoid double line */
 .page-index .main-content h1 {padding-bottom:4px;}
 
@@ -33,3 +43,25 @@
 @media (max-width: 900px){.page-index .my-name {font-size:1.28em;}}
 @media (max-width: 720px){.page-index .my-name {font-size:1.4em;}}
 @media (max-width: 560px){.page-index .my-name {font-size:1.55em;}}
+
+/* Recent posts list */
+.page-index .recent-posts {margin:2.6rem 0 3.0rem;}
+.page-index .recent-posts-list {list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;}
+.page-index .recent-posts-list li {display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;font-size:.9rem;line-height:1.32;padding:6px 10px;border:1px solid #f1f5f9;border-radius:6px;background:#fcfdff;transition:background .18s,border-color .18s,transform .18s;}
+.page-index .recent-posts-list li:hover {background:#f5f9ff;border-color:#e2e8f0;}
+.page-index .recent-posts-list a {font-weight:500;color:#0f3e8c !important;border-bottom:none !important;}
+.page-index .recent-posts-list a:hover {color:#1d4ed8 !important;}
+.page-index .recent-posts-list .r-date {font-family:ui-monospace,Menlo,monospace;font-size:.7rem;color:#64748b;letter-spacing:.5px;padding:2px 6px;border:1px solid #e2e8f0;border-radius:4px;background:#f8fafc;}
+.page-index .recent-posts-list .r-parent {font-size:.68rem;color:#94a3b8;}
+.page-index .recent-posts .recent-more {margin-top:10px;font-size:.78rem;}
+.page-index .recent-posts .recent-more a {color:#2563eb !important;border:none !important;font-weight:500;}
+.page-index .recent-posts .recent-more a:hover {color:#1d4ed8 !important;}
+
+/* Pagination */
+.page-index .recent-pagination {display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;font-size:.78rem;}
+.page-index .recent-pagination .pages {display:flex;gap:6px;}
+.page-index .recent-pagination a {text-decoration:none !important;border:none !important;background:#f1f5f9;color:#475569 !important;padding:4px 10px;border-radius:4px;font-weight:500;line-height:1.2;transition:background .18s,color .18s,box-shadow .18s;}
+.page-index .recent-pagination a:hover {background:#e2e8f0;color:#1e3a8a !important;}
+.page-index .recent-pagination a.active {background:#2563eb;color:#fff !important;box-shadow:0 0 0 1px #1d4ed8 inset;}
+.page-index .recent-pagination a.prev,.page-index .recent-pagination a.next {background:#eef2f7;font-weight:600;}
+.page-index .recent-pagination a.prev:hover,.page-index .recent-pagination a.next:hover {background:#dbe4ee;}
