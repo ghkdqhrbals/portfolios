@@ -1,0 +1,84 @@
+diff --git a/docs/Java/38.md b/docs/Java/38.md
+index 060ffbd..0befc32 100644
+--- a/docs/Java/38.md
++++ b/docs/Java/38.md
+@@ -1,26 +1,61 @@
+ ---
+ layout: default
+-title: 실수방지 셋업
+-date: 2025-10-02
++title: llama2 chat 7b ai mac 64GB RAM 에서 단순히 돌려보기
++date: 2025-10-04
+ parent: 📌 Server
+ ---
+ 
+-## Table of contents
++Table of contents
++
+ {: .no_toc .text-delta }
+ 
+-1. TOC
+-{:toc}
++최종 목적은 git PR 요약 및 개선점을 머지 이전에 알아서 AI 가 작성하도록 하는게 목적이다. 
++
++이를 위해서는 그래도 1분이내 응답이 만료되어야하고, 응답이 1000자 까지 지원해줘야한다. input 은 길게도 들어갈 수 있도록.
++
++일단 다른 openai 나 gemini 등 SaaS API 는 대충 0.050/100만 개 토큰별로 비용발생하니까 생각보다 아까웠다 ㅜㅜ. 그래서 로컬에서 돌릴 수 있는 모델을 찾아보다가 허깅페이스에서 llama2 chat 7b chat 모델을 엑세스 받아서 사용해봄. 심지어 AI 모델 implement 를 위한 방법도 GPT 로 물어보면서 셋업하니까 요즘은 진짜 히고싶은거 있으면 물어보면 다 할 수 있어서 너무 좋다.(물론 개인적인 사용을 위한 용도까지 셋업해주고 상업용으로 AI 모델 셋업하는건 아예 다른얘기다. 옛날엔 GPU 코딩으로 CUDA 병렬처리까지 직접 다 했어야했는데 요즘은 또 모르겠다.) 
++
++일단 돌려봤고 결과는 다음과 같다.
++
++```python
++from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
++from huggingface_hub import login
++import torch
++
++access_token = "hf_..."
++
++login(access_token)
++
++model_id = "meta-llama/Llama-2-7b-chat-hf"
++
++tokenizer = AutoTokenizer.from_pretrained(model_id, token=access_token)
++model = AutoModelForCausalLM.from_pretrained(
++    model_id,
++    torch_dtype=torch.float16,
++    device_map="auto",
++    token=access_token
++)
++
++chat_pipeline = pipeline(
++    "text-generation",
++    model=model,
++    tokenizer=tokenizer,
++    torch_dtype=torch.float16,
++    device_map="auto"
++)
++
++prompt = """[INST] Redis Streams로 분산 메시지 처리하는 방법 설명. /INST]"""
+ 
+-# Intro
++outputs = chat_pipeline(
++    prompt,
++    do_sample=True,
++    temperature=0.7,
++    top_p=0.9,
++    max_new_tokens=500,
++    pad_token_id=tokenizer.eos_token_id
++)
+ 
+-실수로 인해 발생하는 장애를 방지하기 위해 개인적인 규칙과 셋업을 기록합니다.
++print("Result:", outputs[0]["generated_text"])
++```
+ 
+-1. SQL 쿼리는 직접 짠 뒤 AI 검증 -> 한 명 이상 같이 검증 -> 실행시간 남기고 -> update, delete 는 select 로 한 번 보고 explain 건 뒤 수행한다.
+-2. 난 날짜에 약하기때문에 
+-    1. 기존 db 의 타임존 정책을 명확히 이해하고(우리는 UTC default)
+-    2. 나노초? 밀리초? 인지 확인하고(mysql data type) 
+-    3. 유틸만들면 윤년 테스트 필요.
+-    4. 최소 40개 이상 월 초, 말 포함. 테스트 코드 작성한다.
+-3. `SHOW VARIABLES LIKE 'sql_safe_updates';`, `SET sql_safe_updates=1;` 로 update, delete 시 where 절이 없으면 db 에서 에러나게 한다.
+-4. 공통 유틸은 여러 곳에서 사용되기때문에 테스트코드에 집착한다.
+-5. 만약 잘못되었을 때 롤백을 어떻게 할 수 있는지까지 미리 문서화 해놓는다. 롤백을 하지 않더라도 이런거 미리 생각해놓으면 실수를 줄일 수 있다.
+\ No newline at end of file
++mac 으로 돌리면 mpu 로 GPU 가속되면서 돌아감. 근데 응답
+\ No newline at end of file
