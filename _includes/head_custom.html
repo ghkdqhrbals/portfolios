@@ -82,8 +82,21 @@
 	.side-bar .nav-list .nav-list-item.active > .nav-list-link {background:#eef1f5 !important;color:#111 !important;font-weight:600;}
 	.side-bar .nav-list .nav-list {border-left:1px solid #eceff2 !important;}
 	.side-bar .nav-list .nav-list .nav-list-link:hover {background:#f3f5f7 !important;}
-	.side-bar .nav-list-link:focus {outline:2px solid #b6bcc4 !important;}
+	/* 클릭/포커스 시 기존 외곽선 대신 명암 강조 */
+	.side-bar .nav-list-link {transition:background .18s ease,color .18s ease, box-shadow .18s ease;}
+	.side-bar .nav-list-link:focus,
+	.side-bar .nav-list-link:focus-visible,
+	.side-bar .nav-list-link:active {outline:none !important;box-shadow:none !important;}
+	.side-bar .nav-list-link:focus,
+	.side-bar .nav-list-link:focus-visible {background:#e9edf1 !important;}
+	.side-bar .nav-list-link:active {background:#d3d8dd !important;}
+	/* 활성 항목 (클릭 후 유지) */
+	.side-bar .nav-list-item.active > .nav-list-link {background:#d7dce1 !important;color:#111 !important;font-weight:600;}
 	.side-bar .nav-list-link svg {filter:none;}
+	/* Sidebar 카운트 배지 */
+	.side-bar .nav-count {display:inline-block;min-width:20px;padding:2px 6px;margin-right:6px;border-radius:12px;background:#eef1f4;color:#44505a;font-size:11px;font-weight:600;text-align:center;line-height:1;vertical-align:middle;letter-spacing:.5px;}
+	.side-bar .nav-list-item.active > .nav-list-link .nav-count {background:#dce2e8;color:#222;}
+	.side-bar .nav-title {vertical-align:middle;}
 	/* Sidebar 날짜 스타일 (작고 옅은 캡션) */
 	.side-bar .nav-date {display:block;font-size:11px;line-height:1.1;margin-bottom:2px;font-weight:600;letter-spacing:.15em;color:#8a9096;text-transform:uppercase;}
 	.side-bar .nav-list-item.active > .nav-list-link .nav-date {color:#636b72;}

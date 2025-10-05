@@ -176,7 +176,8 @@
           {%- assign children_list = second_level_pages
                 | where: "parent", node.title | sort: "date" | reverse -%}
           <a id="#" href="{{ node.url | relative_url }}" class="nav-list-link{% if page.url == node.url %} active{% endif %}">
-            {{ node.title }} [{{ children_list.size }}]
+            <span class="nav-count" aria-label="children count">{{ children_list.size }}</span>
+            <span class="nav-title">{{ node.title }}</span>
           </a>
 
           {%- if node.child_nav_order == 'desc' or node.child_nav_order == 'reversed' -%}
@@ -201,7 +202,8 @@
                 {%- endif -%}
                 <a href="{{ child.url | relative_url }}" class="nav-list-link{% if page.url == child.url %} active{% endif %}">
                   {% if child.date %}<span class="nav-date">{{ child.date | date: "%Y.%m.%d" }}</span>{% endif %}
-                  {{ child.title }} [{{grand_children_list.size}}]
+                  <span class="nav-count" aria-label="children count">{{ grand_children_list.size }}</span>
+                  <span class="nav-title">{{ child.title }}</span>
                 </a>
                 <ul class="nav-list">
                 {%- for grand_child in grand_children_list -%}
