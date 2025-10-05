@@ -8,19 +8,8 @@
 			if(pre && lang){pre.setAttribute('data-lang', lang.toUpperCase());}
 		});
 	}
-	function addReadingTime(){
-		const content=document.querySelector('#main-content');
-		if(!content) return; 
-		// Skip on CV page
-		if(document.body.classList.contains('page-cv')) return;
-		const text=content.innerText||''; const words=text.trim().split(/\s+/).filter(Boolean).length; if(words < 120) return;
-		const mins=Math.max(1, Math.round(words/200));
-		const firstHeading=content.querySelector('h1,h2');
-		const meta=document.createElement('div');
-		meta.style.cssText='font-size:12px;color:#6b7280;margin:4px 0 18px;display:flex;gap:14px;';
-		meta.innerHTML = '<span>⏱ '+mins+' min read</span><span>✍️ '+words+' words</span>';
-		if(firstHeading){firstHeading.insertAdjacentElement('afterend', meta);} else {content.prepend(meta);}  
-	}
+	// (Removed) Reading time 기능 전역 비활성화
+	function addReadingTime(){}
 
 	function initRecent(){
 		const root=document.getElementById('recent-root');
@@ -109,5 +98,5 @@
 		render();
 	}
 
-	document.addEventListener('DOMContentLoaded', function(){addLangBadges();addReadingTime();initRecent();});
+	document.addEventListener('DOMContentLoaded', function(){addLangBadges();/* reading time 제거 */initRecent();});
 })();

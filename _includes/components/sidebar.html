@@ -5,7 +5,7 @@
       Gyumin Hwangbo
     </a>
 
-    <img src="{{ '/assets/avatar/avatar.jpg' | relative_url }}" class="avatar" onerror="this.style.display='none'">
+  <!-- Avatar removed per request -->
 
     <a href="#" id="menu-button" class="site-button">
       <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
@@ -52,12 +52,12 @@
                     </svg>
                   </a>
                   {%- endif -%}
-                  <div class="nav-category">{{ collection_value.name }} </div>
+                  <div class="nav-category main-cat">{{ collection_value.name }} </div>
                   {% include nav.html pages=collection key=collection_key %}
                 </li>
               </ul>
             {% else %}
-              <div class="nav-category">{{ collection_value.name }}</div>
+              <div class="nav-category main-cat">{{ collection_value.name }}</div>
               {% include nav.html pages=collection key=collection_key %}
             {% endif %}
           {% else %}

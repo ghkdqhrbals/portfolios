@@ -29,6 +29,80 @@
 	.badge {display:inline-block;background:#6366f1;color:#fff;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:500;letter-spacing:.4px;}
 	/* Site header alignment tweak */
 	#main-header {align-items:center;}
+
+	/* --- Sidebar 구분선 & 시각적 그룹 향상 --- */
+	.side-bar {--sb-divider:#e5e7eb;}
+	.side-bar .nav-category {position:relative;padding:10px 14px 4px;font-size:12px;font-weight:600;letter-spacing:.5px;color:#374151;text-transform:uppercase;opacity:.9;}
+	.side-bar .nav-category:not(:first-of-type){margin-top:10px;}
+	/* 위쪽 구분선 */
+	.side-bar .nav-category:not(:first-of-type)::before {content:"";position:absolute;left:12px;right:12px;top:0;height:1px;background:linear-gradient(90deg,rgba(0,0,0,0),var(--sb-divider),rgba(0,0,0,0));}
+	/* nav-list item 경계선 */
+	.side-bar .nav-list > .nav-list-item {position:relative;}
+	.side-bar .nav-list > .nav-list-item + .nav-list-item {margin-top:2px;}
+	.side-bar .nav-list > .nav-list-item > .nav-list-link {border-radius:6px;padding:6px 12px;line-height:1.3;}
+	.side-bar .nav-list > .nav-list-item > .nav-list-link:hover {background:#f3f4f6;}
+	/* 첫/마지막 그룹 안쪽 패딩 정돈 */
+	.side-bar nav.site-nav {padding-top:6px;padding-bottom:14px;}
+	/* depth 2 이하 가이드 라인 (왼쪽 세로 라인) */
+	.side-bar .nav-list .nav-list {margin-left:10px;border-left:1px solid #edf0f3;padding-left:6px;}
+	/* active 강조 */
+	.side-bar .nav-list .nav-list-item.active > .nav-list-link {background:#eef2ff;color:#4338ca;font-weight:600;}
+	/* external link 아이콘 있는 행도 동일 패딩 */
+	.side-bar .nav-list-item.external > .nav-list-link {padding:6px 12px;border-radius:6px;}
+	/* 스크롤 시 카테고리 헤더 배경 살짝 고정 */
+	.side-bar .nav-category {background:linear-gradient(#fff,#fff) padding-box;}
+	/* 구분 감각 강화: 카테고리 바로 아래 첫 리스트 상단 얇은 라인 */
+	.side-bar .nav-category + ul.nav-list {margin-top:4px;padding-top:4px;border-top:1px dashed #e2e8f0;}
+	/* 모바일 폭 좁을 때 지나친 라인 축소 */
+	@media (max-width:640px){
+		.side-bar .nav-list .nav-list {border-left:none;margin-left:4px;padding-left:10px;}
+	}
+
+	/* Sidebar 무채색 계열 재정의 (보라색 제거) */
+	.side-bar .nav-list-link {color:#4b5563;}
+	.side-bar .nav-list > .nav-list-item > .nav-list-link:hover {background:#f1f2f3;color:#111;}
+	.side-bar .nav-list .nav-list-item.active > .nav-list-link {background:#dfe2e6;color:#111;font-weight:600;}
+	.side-bar .nav-category {color:#555;}
+	/* focus/keyboard 접근성 */
+	.side-bar .nav-list-link:focus {outline:2px solid #9ca3af;outline-offset:1px;}
+	/* 중첩 리스트 링크도 동일하게 */
+	.side-bar .nav-list .nav-list .nav-list-link:hover {background:#f5f6f7;}
+
+	/* ===== Sidebar Light Option A (화이트 + 연회색) ===== */
+	.side-bar {background:#ffffff !important;color:#374151;box-shadow:1px 0 0 #edeff1;}
+	.side-bar a {border:0 !important;}
+	.side-bar .site-title {color:#1f2937 !important;}
+	/* .avatar 제거됨 */
+	.side-bar .nav-category {color:#5a6068 !important;letter-spacing:.6px;}
+	.side-bar .nav-category::before {background:linear-gradient(90deg,rgba(255,255,255,0),#e5e7eb,rgba(255,255,255,0)) !important;}
+	.side-bar .nav-category + ul.nav-list {border-top:1px dashed #e5e7eb !important;}
+	.side-bar .nav-list-link {color:#3d4650 !important;}
+	.side-bar .nav-list > .nav-list-item > .nav-list-link {background:transparent;}
+	.side-bar .nav-list > .nav-list-item > .nav-list-link:hover {background:#f5f7f9 !important;color:#111 !important;}
+	.side-bar .nav-list .nav-list-item.active > .nav-list-link {background:#eef1f5 !important;color:#111 !important;font-weight:600;}
+	.side-bar .nav-list .nav-list {border-left:1px solid #eceff2 !important;}
+	.side-bar .nav-list .nav-list .nav-list-link:hover {background:#f3f5f7 !important;}
+	.side-bar .nav-list-link:focus {outline:2px solid #b6bcc4 !important;}
+	.side-bar .nav-list-link svg {filter:none;}
+	/* Sidebar 날짜 스타일 (작고 옅은 캡션) */
+	.side-bar .nav-date {display:block;font-size:11px;line-height:1.1;margin-bottom:2px;font-weight:600;letter-spacing:.15em;color:#8a9096;text-transform:uppercase;}
+	.side-bar .nav-list-item.active > .nav-list-link .nav-date {color:#636b72;}
+	/* 메인 카테고리 차별화 */
+	.side-bar .nav-category.main-cat {font-size:13px;letter-spacing:.8px;color:#1e2934 !important;margin-top:18px;padding:12px 14px 6px;font-weight:700;position:relative;}
+	.side-bar .nav-category.main-cat:first-of-type {margin-top:4px;}
+	.side-bar .nav-category.main-cat::after {content:"";position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:#11111110;border-radius:2px;}
+	.side-bar .nav-category.main-cat + ul.nav-list {border-top:none !important;padding-top:2px;}
+	/* 메인 카테고리 바로 아래 1차 링크 강조 */
+	.side-bar .nav-category.main-cat + ul.nav-list > .nav-list-item > .nav-list-link {font-weight:500;}
+
+	/* Sidebar 전용 폰트 (가독성 향상) */
+	.side-bar, .side-bar .nav-category, .side-bar .nav-list-link, .side-bar .site-title {
+		font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important;
+		font-feature-settings: "liga" 1, "kern" 1;
+		-webkit-font-smoothing: antialiased;
+	}
+	/* 링크 자간 약간 조정 */
+	.side-bar .nav-list-link {letter-spacing:.2px;}
 </style>
 {% if page.permalink == '/' or page.url == '/' or page.permalink == '/cv/' or page.url == '/cv/' %}
 <link rel="stylesheet" href="{{ '/assets/css/index.css' | relative_url }}">
