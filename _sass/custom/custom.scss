@@ -9,3 +9,54 @@ $pink-300: #dd2cd4;
 .u-inline {display:inline-block;}
 .u-mono {font-family:Menlo,Consolas,monospace;}
 .u-tight {margin-top:0.25rem;margin-bottom:0.25rem;}
+
+/* --- Navigation refinement (professional style) --- */
+.side-bar {background:linear-gradient(180deg,#111 0%,#181a1f 100%); box-shadow: 2px 0 6px rgba(0,0,0,.4);} 
+.site-title {font-weight:600; letter-spacing:.5px;}
+
+.nav-list {padding-left:0; margin:0; list-style:none;}
+.nav-list > .nav-list-item {position:relative;}
+.nav-list-link {display:flex; align-items:center; gap:.4rem; padding:6px 10px 6px 14px; border-left:3px solid transparent; font-size:14px; line-height:1.25; color:#d0d4db; transition:background .16s ease,border-color .2s ease,color .2s ease;} 
+.nav-list-link:hover {background:#1f2329; color:#fff; text-decoration:none;}
+.nav-list-link.active {background:#22262d; color:#fff; font-weight:600; border-left-color:#4f8cff;}
+.nav-list-expander {display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; margin-right:2px; color:#7a828e; border-radius:4px; background:transparent !important; box-shadow:none !important; transition:color .15s;}
+.nav-list-expander:hover {color:#fff; text-decoration:none; background:transparent;}
+.nav-list-expander .nav-expander-icon {width:16px; height:16px; transform:rotate(0deg); transform-origin:50% 50%; transition:transform .25s ease;}
+.nav-list-item.active > .nav-list-expander .nav-expander-icon[aria-expanded=true],
+.nav-list-expander[aria-expanded=true] .nav-expander-icon {transform:rotate(90deg);} 
+
+/* Badges */
+.nav-badge {display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:500; min-width:20px; padding:0 6px; height:18px; border-radius:10px; background:#273444; color:#b5c0cc; line-height:1; border:1px solid #2f3d4d; letter-spacing:.5px;}
+.nav-list-link.active .nav-badge {background:#4f8cff; border-color:#3178e0; color:#fff;}
+
+/* Date */
+.nav-date {font-size:11px; font-weight:400; color:#6d7680; margin-right:2px;}
+.nav-list-link.active .nav-date {color:#99a3af;}
+
+/* Leaf titles subtle lighten */
+.nav-leaf-title {flex:1;}
+
+/* Level indent */
+.nav-list > .nav-list-item > ul.nav-list {margin-left:.75rem; border-left:1px dashed #2a333c;}
+.nav-list ul.nav-list ul.nav-list {margin-left:.75rem; border-left:1px dashed #273038;}
+
+/* Scroll styling (desktop) */
+.site-nav {scrollbar-width:thin; scrollbar-color:#657e92 transparent;} /* transparent track */
+.site-nav::-webkit-scrollbar {width:8px;}
+/* Lighten track so hover되지 않은 영역이 먹색 블록처럼 보이지 않도록 */
+.site-nav::-webkit-scrollbar-track {background:transparent;}
+/* 반투명 thumb 로 전체가 먹색으로 꽉 차 보이는 현상 방지 */
+.site-nav::-webkit-scrollbar-thumb {background:linear-gradient(180deg,rgba(140,172,196,.65),rgba(110,140,160,.55)); border-radius:6px; border:2px solid rgba(120,150,170,.25); box-shadow:0 0 0 1px rgba(90,120,140,.25) inset;}
+.site-nav::-webkit-scrollbar-thumb:hover {background:linear-gradient(180deg,rgba(160,190,210,.85),rgba(130,165,185,.7)); border-color:rgba(140,175,195,.45);}
+/* Hover 시에도 track 투명 유지 */
+.site-nav:hover::-webkit-scrollbar-track {background:transparent;}
+
+/* Focus */
+.nav-list-link:focus-visible, .nav-list-expander:focus-visible {outline:2px solid #4f8cff; outline-offset:1px;}
+
+@media (max-width: 860px){
+	.side-bar {box-shadow:none;}
+	.nav-list-link {padding:6px 8px 6px 12px;}
+	.nav-badge {display:none;} /* space conservation */
+}
+

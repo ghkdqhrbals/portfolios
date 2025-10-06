@@ -166,8 +166,8 @@
     {%- unless node.nav_exclude -%}
       <li class="nav-list-item{% if page.collection == include.key and page.url == node.url or page.grand_parent == node.title or page.parent == node.title and page.grand_parent == nil %} active{% endif %}">
         {%- if node.has_children -%}
-          <a href="#" class="nav-list-expander" aria-label="toggle links in {{ node.title }} category">
-            <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg>
+          <a href="#" class="nav-list-expander" role="button" aria-label="{{ node.title }} 하위 항목 열기/닫기" aria-expanded="{% if page.url == node.url or page.parent == node.title or page.grand_parent == node.title %}true{% else %}false{% endif %}">
+            <svg class="nav-expander-icon" viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg>
           </a>
         {%- endif -%}
 
@@ -175,8 +175,8 @@
         {%- if node.has_children -%}
           {%- assign children_list = second_level_pages
                 | where: "parent", node.title | sort: "date" | reverse -%}
-          <a id="#" href="{{ node.url | relative_url }}" class="nav-list-link{% if page.url == node.url %} active{% endif %}">
-            <span class="nav-count" aria-label="children count">{{ children_list.size }}</span>
+          <a id="#" href="{{ node.url | relative_url }}" class="nav-list-link{% if page.url == node.url %} active{% endif %}" data-children="{{ children_list.size }}">
+            <span class="nav-badge nav-count" aria-label="하위 문서 수">{{ children_list.size }}</span>
             <span class="nav-title">{{ node.title }}</span>
           </a>
 
@@ -188,8 +188,8 @@
             {%- unless child.nav_exclude -%}
             <li class="nav-list-item {% if page.url == child.url or page.parent == child.title %} active{% endif %}">
               {%- if child.has_children -%}
-                <a href="#" class="nav-list-expander" aria-label="toggle links in {{ child.title }} category">
-                  <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg>
+                <a href="#" class="nav-list-expander" role="button" aria-label="{{ child.title }} 하위 항목 열기/닫기" aria-expanded="{% if page.url == child.url or page.parent == child.title %}true{% else %}false{% endif %}">
+                  <svg class="nav-expander-icon" viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg>
                 </a>
               {%- endif -%}
               {%- if child.has_children -%}
@@ -200,9 +200,9 @@
                 {%- if child.child_nav_order == 'desc' or child.child_nav_order == 'reversed' -%}
                   {%- assign grand_children_list = grand_children_list | reverse -%}
                 {%- endif -%}
-                <a href="{{ child.url | relative_url }}" class="nav-list-link{% if page.url == child.url %} active{% endif %}">
-                  {% if child.date %}<span class="nav-date">{{ child.date | date: "%Y.%m.%d" }}</span>{% endif %}
-                  <span class="nav-count" aria-label="children count">{{ grand_children_list.size }}</span>
+                <a href="{{ child.url | relative_url }}" class="nav-list-link{% if page.url == child.url %} active{% endif %}" data-children="{{ grand_children_list.size }}">
+                  {% if child.date %}<span class="nav-date" aria-label="작성일">{{ child.date | date: "%Y.%m.%d" }}</span>{% endif %}
+                  <span class="nav-badge nav-count" aria-label="하위 문서 수">{{ grand_children_list.size }}</span>
                   <span class="nav-title">{{ child.title }}</span>
                 </a>
                 <ul class="nav-list">
@@ -210,8 +210,8 @@
                   {%- unless grand_child.nav_exclude -%}
                   <li class="nav-list-item {% if page.url == grand_child.url %} active{% endif %}">
                     <a href="{{ grand_child.url | relative_url }}" class="nav-list-link{% if page.url == grand_child.url %} active{% endif %}">
-                      {% if grand_child.date %}<span class="nav-date">{{ grand_child.date | date: "%Y.%m.%d" }}</span>{% endif %}
-                      {{ grand_child.title }}
+                      {% if grand_child.date %}<span class="nav-date" aria-label="작성일">{{ grand_child.date | date: "%Y.%m.%d" }}</span>{% endif %}
+                      <span class="nav-leaf-title">{{ grand_child.title }}</span>
                     </a>
                   </li>
                   {%- endunless -%}
@@ -219,8 +219,8 @@
                 </ul>
               {% else %}
                 <a href="{{ child.url | relative_url }}" class="nav-list-link{% if page.url == child.url %} active{% endif %}">
-                  {% if child.date %}<span class="nav-date">{{ child.date | date: "%Y.%m.%d" }}</span>{% endif %}
-                  {{ child.title }}
+                  {% if child.date %}<span class="nav-date" aria-label="작성일">{{ child.date | date: "%Y.%m.%d" }}</span>{% endif %}
+                  <span class="nav-leaf-title">{{ child.title }}</span>
                 </a>
                 {%- assign csize = csize | plus: 1 -%}
 
