@@ -7,22 +7,22 @@ permalink: /cv/
 ---
 
 <div class="contact-inline">
-  <span>
-    <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/phone.svg" alt="phone" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-    (+82) 10-5177-1967
-  </span>
-  <span>
-    <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/envelope.svg" alt="email" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-    <a href="mailto:ghkdqhrbals@gmail.com">ghkdqhrbals@gmail.com</a>
-  </span>
-  <span>
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="github" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-    <a href="https://github.com/ghkdqhrbals">ghkdqhrbals</a>
-  </span>
-  <span>
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="linkedin" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-    <a href="https://www.linkedin.com/in/gyumin-hwangbo-92382218b/">gyumin</a>
-  </span>
+	<span>
+		<img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/phone.svg" alt="phone" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
+		(+82) 10-5177-1967
+	</span>
+	<span>
+		<img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/envelope.svg" alt="email" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
+		<a href="mailto:ghkdqhrbals@gmail.com">ghkdqhrbals@gmail.com</a>
+	</span>
+	<span>
+		<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="github" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
+		<a href="https://github.com/ghkdqhrbals">ghkdqhrbals</a>
+	</span>
+	<span>
+		<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="linkedin" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
+		<a href="https://www.linkedin.com/in/gyumin-hwangbo-92382218b/">gyumin</a>
+	</span>
 </div>
 
 안녕하세요. Spring-Boot/Kotlin 기반의 백엔드 시스템 설계 및 개발 경험을 보유한 백엔드 엔지니어 <span class="my-name">황보규민</span>입니다.
@@ -56,7 +56,9 @@ permalink: /cv/
 * 부일 외국어고등학교 졸업(2010.03 ~ 2013.02)
 
 ## OPENSOURCE
+* 2025.10 [OAuth2.0 인증모듈 퍼블릭 package 배포](https://github.com/ghkdqhrbals/personal-module)
 
+  lightweight OAuth2.0 인증모듈로 revoke 지원을 포함합니다.
 * 2025.03 [AWS 계정변경 유틸리티](https://github.com/matryer/xbar-plugins/pull/2103)
   
   멀티 프렌차이즈를 운영하면서 aws 계정설정이 자주 스위칭되어 편의를 위해 mac xbar 자동화 툴 머지
