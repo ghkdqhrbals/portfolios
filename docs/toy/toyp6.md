@@ -37,7 +37,7 @@ nav_order: 6
 
 <details><summary> 설정 코드 </summary><div markdown="1">
 
-### 1. 도커 설정
+### 도커 설정
 
 <details><summary> Docker-compose.yaml </summary><div markdown="1">
 
@@ -82,7 +82,7 @@ networks:
 
 </div></details>
 
-### 2. 리버스 프록시 설정
+### 리버스 프록시 설정
 
 <details><summary> NGINX.conf </summary><div markdown="1">
 
@@ -130,7 +130,7 @@ http {
 
 </div></details>
 
-### 3. AWS 배포
+### AWS 배포
 
 > 현재는 EC2 및 Route 비용문제로 인해 다운시켰습니다.
 

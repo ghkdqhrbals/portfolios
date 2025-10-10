@@ -12,7 +12,7 @@ nav_order: 4
 
 ![a](../../../assets/p/6/kubernetes_detail.png)
 
-## 1. **Components**
+## **Components**
 
 * `Cluster` : `Controll Plane`과 1개 이상의 `Worker Node` 의 집합입니다.
   * `Controll Plane` : `Master Node` 로도 불립니다. 이 노드는 `Worker Node` 들과 `Pod` 들을 관리하는 역할을 수행합니다.
@@ -26,7 +26,7 @@ nav_order: 4
     * `Container runtime` : `Container Registry`로부터 도커 이미지를 가져오고, 컨테이너를 시작/종료할 수 있습니다.
   > `Container Registry` : `Docker Hub`, `Amazon Elastic Container Registry(ECR)`, `Google Container Registry(GCR)`
 
-## 2. **Types of yaml used in Kubernetes**
+## **Types of yaml used in Kubernetes**
 실질적으로 서버들은 `Pod`라는 단위로 서비스됩니다. 이러한 Pod를 만들기 위해서는 다양한 타입의 configuration 파일들이 필요합니다. 이러한 파일 형식은 주로 yaml이라는 형식을 사용하게 되는데요. `Deployment`, `Service`, `Ingress`, `ClusterIssuer`, 등의 타입이 존재합니다. 이제부터 각각의 yaml파일들을 알아보겠습니다.
 
 ### 2-1. **Deployment**

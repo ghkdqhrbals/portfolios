@@ -223,8 +223,11 @@
 		/* 메인 컨텐츠 전체 폭 사용 */
 		body.page-cv .main {margin:0 !important; max-width:100% !important;}
 		body.page-cv #main-content-wrap {padding-left:0 !important; padding-right:0 !important;}
-		/* 링크 밑줄 제거 & 색상 단색화 (프린트 가독성) */
-		body.page-cv .main-content a {color:#000 !important; border:0 !important; text-decoration:none !important;}
+		/* CV 페이지 링크: 인쇄 시에도 하이퍼링크 형태 유지 (밑줄 + 파란색) */
+		/* 밝은 톤의 파랑 (기존 #0645ad 보다 명도/채도 ↑) */
+		body.page-cv .main-content a {color:#2582e6 !important; border:0 !important; text-decoration:underline !important; text-underline-offset:2px;}
+		body.page-cv .main-content a:visited {color:#1d6cc2 !important;}
+		body.page-cv .main-content a:hover, body.page-cv .main-content a:active {color:#d6492e !important;}
 		/* 코드 / 배경 요소 단순화 */
 		body.page-cv figure.highlight {border:1px solid #000 !important; box-shadow:none !important;}
 		/* 페이지 여백 (Chrome PDF) */

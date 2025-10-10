@@ -60,3 +60,22 @@ $pink-300: #dd2cd4;
 	.nav-badge {display:none;} /* space conservation */
 }
 
+/* Print: show link URLs inline */
+@media print {
+	 /* 강제 우선순위 부여, 일부 PDF 엔진이 색/밑줄 제거 시도 방지 */
+	 a {text-decoration:underline !important; color:#0645ad !important; cursor:pointer !important;}
+	 a:visited {color:#0b0080 !important;}
+	 a:active, a:hover {color:#ba0000 !important;}
+	 a:focus {outline:1px dotted #333 !important;}
+	 a[href^="http"], a[href^="https"] {word-break:break-word;}
+	 /* 혹시 pointer-events 제거된 경우 복구 */
+	 a {pointer-events:auto !important;}
+	 /* CV 페이지 링크 더 진하게 */
+	 .page-cv a {color:#003c99 !important; font-weight:600 !important;}
+	 .page-cv a:visited {color:#002f73 !important;}
+	 .page-cv a:active, .page-cv a:hover {color:#ba0000 !important;}
+	/* Hide navigation & non-essential UI while keeping content like about page */
+	.side-bar, .site-header, nav[aria-label="Main"], .nav-list-expander, .search, .search-input-wrap {display:none !important;}
+	body {background:#fff !important;}
+}
+

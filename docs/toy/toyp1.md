@@ -27,7 +27,7 @@ nav_order: 3
 
 <details><summary> 크롤러 제작 </summary><div markdown="1">
 
-### 1. 환경
+### 환경
 
 * 작업 환경 : Pycharm(python3.6)
 * 사용 라이브러리 : selenium(3.141.0v), beautifulsoup4(4.8.2), pyqt5(5.13.0v), pandas(1.0.1v), numpy(1.18.1v), xlsxWriter(1.2.8v), pip(20.0.2v), cx_freeze(6.1v)
@@ -41,7 +41,7 @@ nav_order: 3
    * 모델==3: 전체 검색하여 Ui_Dialog.class의 QTableView에 출력
 4. setup.py : cx_freeze로 exe파일 추출.
 
-### 2. 완료된 목록
+### 완료된 목록
 
 1) CSV데이터 깨짐현상 수정.
 - txt로 받아서 다시 csv로 재인코딩.
@@ -66,7 +66,7 @@ nav_order: 3
 7) 크롤링으로 csv파일을 받아올 때, Headless로 구현 및 속도 향상.
 - csv데이터를 읽는데 보편적으로 쓰이는 것이 Pandas.lib이지만 데이터 크기가 커질수록읽거나쓸 때 느려지는 단점이 있다. 따라서 Pyarrow라이브러리를 활용하여 csv파일처리 속도를 향상시킨다. 메모리 절약은 해결할 수 없다. multi thread를 사용하기 때문에 속도가 빠르다.
 
-### 3. 결과
+### 결과
 
 ![p3](../../../assets/img/etc/그림3.png)
 ![p1](../../../assets/img/etc/그림1.png)

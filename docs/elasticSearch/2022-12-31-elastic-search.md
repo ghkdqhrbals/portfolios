@@ -14,7 +14,7 @@ nav_order: 1
 5. RDB와의 차이점(추가)
 6. 문법(Appendix)
 
-## 1. 개념
+## 개념
 ES(ElasticSearch)는 Java 오픈소스 분산 검색 엔진이다. ES는 역색인을 지원하기에 기존 RDB가 지원하지 않는 비정형 데이터를 **인덱싱 + 검색하는 것에 특화**되어있다.
 
 > * 비정형 데이터 : Boolean같이 true/false로 정형화 된 데이터가 아닌 규칙이 없는 데이터. ex) **음성**, **텍스트**, **영상**
@@ -31,7 +31,7 @@ ES(ElasticSearch)는 Java 오픈소스 분산 검색 엔진이다. ES는 역색�
 
 
 
-## 2. RDB와의 차이점
+## RDB와의 차이점
 
 > 예시
 >
@@ -92,16 +92,16 @@ curl -XGET "my_index/question,answer/_search" -H 'Content-Type:application/json'
 >
 > reference [Why are Mapping Types being removed?](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/removal-of-types.html#_why_are_mapping_types_being_removed)
 
-## 3. Type을 독립적으로 가지도록 설정하지 않은 이유
+## Type을 독립적으로 가지도록 설정하지 않은 이유
 
 만약 동일한 인덱스 내부에서 Type별 독립 Field를 가지게 된다면, **비슷한 기능을 하는 Field가 분리되며 데이터가 분산되고 도큐먼트를 효율적으로 압축하는 Lucene의 기능을 방해할것**이라고 한다.
 
-## 4. 그럼 어떻게 ES에서 부모자식관계를 설정해야할까?
+## 그럼 어떻게 ES에서 부모자식관계를 설정해야할까?
 * 두가지 선택지 존재
   1. Field가 독립구분되는 Index을 RDB의 테이블처럼 생각하고 설정하는 방법
   2. Type을 그대로 필드에 직접 customType으로 설정하는 방법.
 
-### 4-1. Field가 독립구분되는 Index을 RDB의 테이블처럼 생각하고 설정하는 방법
+### Field가 독립구분되는 Index을 RDB의 테이블처럼 생각하고 설정하는 방법
 
 (물론 이 방법으로도 RDB의 플로우를 완벽히 따라갈 순 없다. 부모의 PK field를 바로 삭제할 수 있기 떄문이다.)
 
@@ -119,7 +119,7 @@ curl -XGET "question,answer/_search" -H 'Content-Type:application/json' -d
 ...
 ```
 
-### 4-2. Type을 그대로 필드에 직접 추가하는 방법(customType)
+### Type을 그대로 필드에 직접 추가하는 방법(customType)
 * 기존 Type으로 부모관계를 설정할 때
 
 ```
@@ -219,7 +219,7 @@ GET my_index/_search
 
 ```
 
-## 5. 추가적인 RDB와의 차이점
+## 추가적인 RDB와의 차이점
 * RestApi를 통한 쿼리
 
 > RDB는 SQL문을 날려 테이블에 삽입하였다면, ES는 RestAPI를 통해 CRUD operation이 가능하다.

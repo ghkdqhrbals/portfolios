@@ -15,7 +15,7 @@ reference [https://www.elastic.co/kr/virtual-events/optimizing-the-ingest-pipeli
 
 그림을 보면 크게 1. 데이터를 수집/정제하는 **Ingest Pipeline**, 2. 데이터가 저장되는 **ElasticSearch**, 3. 데이터를 시각화하는 **Kibana** 로 나뉜다. 이제부터 각각 어떤식으로 사용할 수 있는지 확인해보자.
 
-## 1. Ingest Pipeline
+## Ingest Pipeline
 Ingest pipeline은 Beats나 Agent, Logstash를 통해 구축할 수 있으며 별개로 따로 추가해줄 수도 있다. 주로 Beats와 Agent는 가벼운 필터링을 위해 사용되며 Logstash는 더욱 다양한 정제를 위해 사용된다.
 
 아래는 직접 Ingest api를 통해 pipeline을 추가한 예시이다.
@@ -97,10 +97,10 @@ output {
 
 보다시피 Logstash는 더 다양한 기능이 존재한다. **1. kafka로부터 직접 메세지를 소비**하고, **2. 필터링하며**, **3. ES의 원하는 index에 저장**할 수 있다. 위의 예시는 정말 간단한 예시이며, filter뿐만 아니라 다른 여러 설정들이 무궁무진하다. 문법이나 이런것들은 다음을 참조하자. [https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html](https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html)
 
-## 2. ElasticSearch
+## ElasticSearch
 이부분은 이전 포스팅을 참조하자.
 
-## 3. Kibana
+## Kibana
 
 Kibana는 시각화 툴 + ElasticSearch의 여러가지 설정들을 쉽게 해주는 기술이다. 필자는 이를 이용해서 아래와 같이 **신규가입자 수** + **가입자 이름 분포도** 등을 확인할 수 있게 시각화해보았다.
 

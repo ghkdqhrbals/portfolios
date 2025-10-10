@@ -11,6 +11,46 @@
 	// (Removed) Reading time 기능 전역 비활성화
 	function addReadingTime(){}
 
+	// PDF 출력 시 상대경로 링크도 클릭 가능한 절대경로로 보존
+	function ensurePrintableHyperlinks(){
+		function candidates(){
+			// 기본: main-content 내부
+			let list=[...document.querySelectorAll('.main-content a[href]')];
+			// about 페이지 특이 케이스: 혹시 마크업이 다르면 body 전체에서 main-content 밖 텍스트 링크도 처리
+			if(location.pathname.match(/about|profile|me|cv/i)){
+				const extra=[...document.querySelectorAll('body a[href]')]
+					.filter(a=>!a.closest('.side-bar'))
+					.filter(a=>!list.includes(a));
+				list = list.concat(extra);
+			}
+			return list;
+		}
+		function normalize(){
+			candidates().forEach(a=>{
+				const href=a.getAttribute('href');
+				if(!href) return;
+				if(href.startsWith('http://')||href.startsWith('https://')||href.startsWith('mailto:')||href.startsWith('#')||href.startsWith('javascript:')) return;
+				if(a.dataset.origHref) return; // 이미 처리됨
+				// 상대경로 → 절대경로 (a.href 사용)
+				try {
+					a.dataset.origHref = href;
+					a.setAttribute('href', a.href); // a.href 는 absolute
+				} catch(e){}
+			});
+		}
+		function restore(){
+			candidates().forEach(a=>{
+				const orig=a.dataset.origHref; if(orig){ a.setAttribute('href', orig); }
+				delete a.dataset.origHref;
+			});
+		}
+		window.addEventListener('beforeprint', normalize);
+		window.addEventListener('afterprint', restore);
+		if(window.matchMedia){
+			try{window.matchMedia('print').addEventListener('change', e=>{ if(e.matches){ normalize(); } else { restore(); } });}catch(e){}
+		}
+	}
+
 	function initRecent(){
 		const root=document.getElementById('recent-root');
 		if(!root) return; // not index
@@ -98,5 +138,5 @@
 		render();
 	}
 
-	document.addEventListener('DOMContentLoaded', function(){addLangBadges();/* reading time 제거 */initRecent();});
+	document.addEventListener('DOMContentLoaded', function(){addLangBadges();/* reading time 제거 */initRecent();ensurePrintableHyperlinks();});
 })();
