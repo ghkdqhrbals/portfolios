@@ -52,6 +52,7 @@ permalink: /cv/
 ## EDUCATION
 
 * 부산대학교 컴퓨터공학과 석사 졸업(2020.09 ~ 2022.08)
+  * 논문 : [디중 Geth 취약점을 이용한 블록체인 이클립스 공격 설계](https://ghkdqhrbals.github.io/portfolios/docs/Blockchain/)
 * 부산대학교 정보컴퓨터공학부 학사 졸업(2014.03 ~ 2020.08)
 * 부일 외국어고등학교 졸업(2010.03 ~ 2013.02)
 
@@ -76,7 +77,7 @@ permalink: /cv/
 
 ## PAPER
 
-* 이더리움 블록체인 이클립스 공격 논문 <sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Blockchain/" style="color:#007bff; text-decoration:none;">[16]</a></sup>
+* 이더리움 블록체인 공격 논문 <sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Blockchain/" style="color:#007bff; text-decoration:none;">[16]</a></sup>
 
 ## ACTIVITY
 
