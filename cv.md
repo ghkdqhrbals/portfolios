@@ -6,31 +6,11 @@ description: "About Me / CV"
 permalink: /cv/
 ---
 
-<div class="contact-inline">
-	<span>
-		<img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/phone.svg" alt="phone" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-		(+82) 10-5177-1967
-	</span>
-	<span>
-		<img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/envelope.svg" alt="email" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-		<a href="mailto:ghkdqhrbals@gmail.com">ghkdqhrbals@gmail.com</a>
-	</span>
-	<span>
-		<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="github" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-		<a href="https://github.com/ghkdqhrbals">ghkdqhrbals</a>
-	</span>
-	<span>
-		<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="linkedin" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-		<a href="https://www.linkedin.com/in/gyumin-hwangbo-92382218b/">gyumin</a>
-	</span>
-</div>
+안녕하세요. Spring Boot와 Kotlin 기반의 고가용성 백엔드 시스템을 설계하고 자동화하는 엔지니어 황보규민입니다.
 
-안녕하세요. Spring-Boot/Kotlin 기반의 백엔드 시스템 설계 및 개발 경험을 보유한 백엔드 엔지니어 <span class="my-name">황보규민</span>입니다.
+저는 Redis Stream 기반의 메시징 시스템 설계, 대용량 배치 작업 95.4% 성능 개선, 브랜드별 CI/CD 파이프라인 구축, CDC pipeline 개발 등 다양한 프로젝트를 통해 운영 자동화와 시스템 효율 극대화를 목표로 개발해왔습니다.
 
-저는 Redis Stream 기반의 메시징 시스템 설계<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[1]</a></sup>, 대용량 배치 작업 95.4% 최적화<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[2]</a></sup>, 브랜드 별 CI/CD 파이프라인 구성<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[3]</a></sup> 등 
-실무 기술 경험을 바탕으로 **안전한 백엔드 시스템 구축**과 **운영 자동화** 측면에서 팀에 기여할 수 있습니다. 또한 QA 하기 편하도록 테스트하기 좋은 로직으로 코드 작성하는 것을 선호하며 기술적인 문제 해결 과정들을 문서화하고 팀원들과 지속적으로 공유함으로써 함께 성장할 수 있는 문화를 조성할 수 있습니다.
-
-안정적으로 운영되는 시스템을 만드는 것이 현재 제가 가장 중요하게 생각하는 가치입니다.
+“모든 반복 작업은 결국 자동화되어야 한다”는 신념 아래, 배포·모니터링·데이터 동기화 등 사람이 개입하는 영역을 줄이고, 장애를 스스로 복구하거나 탐지할 수 있는 구조를 설계합니다.
 
 ## EXPERIENCE
 * Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04 ~ present
@@ -89,3 +69,8 @@ permalink: /cv/
 * (대회) 개인정보보호 대회(3등) : 2020 K-cyber security challenge, Korea Internet & Security Agency(KISA) - 개인정보보호 부문 (2020.09 ~ 2020.12)
 * (SW 해외교육) 미국 산호세 주립대학 San Jose State Univ. 1 Washinton Square, CA, USA (2019.06 ~ 2019.09)
 * (교환학생) 말레이시아 헬프 대학 HELP Univ. Bukit Damansara 50490 Kuala Lumpur, Malaysia (2017.12 ~ 2018.03)
+
+## LINKS
+- GitHub: [github.com/ghkdqhrbals](https://github.com/ghkdqhrbals)  
+- Portfolio: [ghkdqhrbals.github.io/portfolios](https://ghkdqhrbals.github.io/portfolios)  
+- LinkedIn: [linkedin.com/in/gyumin-hwangbo](https://www.linkedin.com/in/gyumin-hwangbo-92382218b/)
