@@ -14,7 +14,7 @@ permalink: /cv/
 
 ## EXPERIENCE
 * Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04 ~ present
-  * Kotlin/Spring-Boot 기반 교촌, 자담 등 멀티 프랜차이즈 F&B 솔루션 개발
+  * Kotlin/Spring-Boot 기반 멀티 프랜차이즈 F&B 솔루션 개발(교촌, 자담, etc.)
   * 회원, 주문 결제 및 롤백, 멤버십 설계 및 개발
   * 사용자 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 **95.4% 개선.**<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[1]</a></sup>
   * 브랜드 별 모듈화 및 개별&통합 CI/CD 파이프라인 구성.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[2]</a></sup>
