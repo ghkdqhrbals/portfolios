@@ -14,16 +14,16 @@ permalink: /cv/
 
 ## EXPERIENCE
 * Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04 ~ present
-  * Kotlin/Spring-Boot 기반 멀티 프랜차이즈 F&B 솔루션 개발(교촌, 자담, etc.)
-  * 회원, 주문 결제 및 롤백, 멤버십 설계 및 개발
-  * 사용자 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 **95.4% 개선.**<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[1]</a></sup>
-  * 브랜드 별 모듈화 및 개별&통합 CI/CD 파이프라인 구성.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[2]</a></sup>
-  * Redis stream 도입 비동기 알림 시스템 설계, 리밸런싱, DLQ, 컨슈머 관리 로직 설계.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
-  * MySQL -> Redis stream -> MongoDB [CDC ETL](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/) 시스템 설계 및 개발
-  * 개발스택 : Kotlin/Spring-Boot, Mysql, MongoDB, Kubernetes, AWS
-* Senior Researcher(foxee) 2023.06 ~ 2024.01(7 month)
-  * Java/Spring-Boot 기반 취약점 분석 웹 백엔드 개발
-  * 악성코드 이미지 CNN eXplainable AI 개발
+  * MAU 77만 교촌을 포함한 자담 등 멀티 프랜차이즈 브랜드의 주문/결제/멤버십 서비스 개발 및 운영.
+  * 100만명 이상 회원 대상 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 **95.4% 개선.**<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[1]</a></sup>
+  * 브랜드 별 모듈화 및 개별 & 통합 CI/CD 파이프라인 구성.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[2]</a></sup>
+  * Redis Stream 을 활용한 비동기 알림 시스템 설계. 리밸런싱, DLQ, 장애 자동복구 구현.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
+  * 초당 수천 건 수준의 이벤트를 처리할 수 있는 데이터 동기화 파이프라인 설계 및 개발(Redis Stream 백프레셔, memory 85% 제한 consume, 멱등성 보장으로 안전한 동기화 처리). [CDC ETL](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/)
+  * 개발스택 : Kotlin/Spring-Boot, Mysql, MongoDB, Kubernetes, AWS-based infra
+* Senior Researcher(foxee) 2023.06 ~ 2024.01
+  * Java/Spring-Boot 기반 취약점 분석 웹 백엔드 PoC 개발
+  * 악성코드 이미지 CNN eXplainable AI 연구
+  * 윈도우 2015 악성코드 데이터 벡터 정제 및 시각화
   * 개발스택 : Java/Spring-Boot, PostgreSQL, Docker
 * Intern(주식회사 펄스) 2020.01 ~ 2020.02(1 month)
   * 역할 : 사내 편의 서비스 개발
@@ -39,7 +39,7 @@ permalink: /cv/
 ## OPENSOURCE
 * 2025.10 [OAuth2.0 인증모듈 퍼블릭 package 배포](https://github.com/ghkdqhrbals/personal-module)
 
-  lightweight OAuth2.0 인증모듈로 revoke 지원을 포함합니다.
+  경량 OAuth2.0 인증모듈로 spring security 에 없는 revoke 지원을 포함합니다.
 * 2025.03 [AWS 계정변경 유틸리티](https://github.com/matryer/xbar-plugins/pull/2103)
   
   멀티 프렌차이즈를 운영하면서 aws 계정설정이 자주 스위칭되어 편의를 위해 mac xbar 자동화 툴 머지
