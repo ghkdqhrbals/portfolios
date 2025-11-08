@@ -1579,7 +1579,10 @@
 	"workbench.editor.wrapTabs": false,
 
 	// Configure [glob patterns](https://aka.ms/vscode-glob-patterns) to editors (for example `"*.hex": "hexEditor.hexedit"`). These have precedence over the default behavior.
-	"workbench.editorAssociations": {},
+	"workbench.editorAssociations": {
+		"*.copilotmd": "vscode.markdown.preview.editor",
+		"*.xlsx": "default"
+	},
 
 	// Controls the minimum size of a file in MB before asking for confirmation when opening in the editor. Note that this setting may not apply to all editor types and environments.
 	"workbench.editorLargeFileConfirmation": 1024,
