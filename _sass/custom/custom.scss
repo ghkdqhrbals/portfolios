@@ -60,6 +60,62 @@ $pink-300: #dd2cd4;
 	.nav-badge {display:none;} /* space conservation */
 }
 
+/* === Enhanced Code Block Styling === */
+
+/* 코드 블럭 내부 텍스트 스타일 개선 */
+div.highlight pre.highlight,
+figure.highlight pre {
+  color: #abb2bf;
+  line-height: 1.6;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+/* 구문 강조 색상 (One Dark 테마 스타일) */
+.highlight {
+  .k, .kd, .kn, .kp, .kr, .kt { color: #c678dd; } /* 키워드 */
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: #98c379; } /* 문자열 */
+  .m, .mf, .mh, .mi, .mo, .il { color: #d19a66; } /* 숫자 */
+  .n, .na, .nb, .nc, .nd, .ne, .nf, .ni, .nl, .nn, .no, .nt, .nv, .nx { color: #61afef; } /* 이름/함수 */
+  .c, .c1, .cm, .cp, .cs { color: #5c6370; font-style: italic; } /* 주석 */
+  .o, .ow { color: #56b6c2; } /* 연산자 */
+  .err { color: #e06c75; background-color: transparent; } /* 에러 */
+  .p { color: #abb2bf; } /* 괄호 */
+}
+
+/* 라인 넘버 스타일 */
+.highlight .lineno {
+  color: #5c6370;
+  user-select: none;
+  text-align: right;
+  padding-right: 1em;
+  border-right: 1px solid #3e3e3e;
+  margin-right: 1em;
+}
+
+/* 스크롤바 스타일 (코드 블럭) */
+div.highlight::-webkit-scrollbar,
+figure.highlight pre::-webkit-scrollbar {
+  height: 8px;
+  background: #2d2d2d;
+}
+
+div.highlight::-webkit-scrollbar-thumb,
+figure.highlight pre::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 4px;
+}
+
+div.highlight::-webkit-scrollbar-thumb:hover,
+figure.highlight pre::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
+/* 코드 블럭 호버 시 미세한 애니메이션 */
+div.highlighter-rouge,
+figure.highlight {
+  transition: transform 0.2s ease;
+}
+
 /* Print: show link URLs inline */
 @media print {
 	 /* 강제 우선순위 부여, 일부 PDF 엔진이 색/밑줄 제거 시도 방지 */
@@ -77,5 +133,10 @@ $pink-300: #dd2cd4;
 	/* Hide navigation & non-essential UI while keeping content like about page */
 	.side-bar, .site-header, nav[aria-label="Main"], .nav-list-expander, .search, .search-input-wrap {display:none !important;}
 	body {background:#fff !important;}
+	/* 코드 블럭 프린트용 스타일 */
+	div.highlighter-rouge, figure.highlight {
+		border: 1px solid #ccc !important;
+		background: #f5f5f5 !important;
+	}
 }
 

@@ -92,6 +92,9 @@
 		// sort again for safety
 		data.sort((a,b)=>{ if(a.date && b.date) return a.date < b.date ? 1 : -1; if(a.date && !b.date) return -1; if(!a.date && b.date) return 1; return (a.title||'').localeCompare(b.title||'', 'ko'); });
 		let loaded=0; const total=data.length;
+		// Update total count
+		const totalCountEl=document.getElementById('total-count');
+		if(totalCountEl){ totalCountEl.textContent=total; }
 		function catColor(cat){
 			if(!cat) return null;
 			let hash=0; for(let i=0;i<cat.length;i++){ hash = cat.charCodeAt(i) + ((hash<<5)-hash); }
@@ -111,15 +114,18 @@
 				const it=data[i];
 				const li=document.createElement('li');
 				const cat=deriveCat(it);
-				let catHtml='';
-				if(cat){
-					if(cat === 'Server'){
-						catHtml='<span class="r-cat" style="background:#111;color:#fff;border:1px solid #000" title="'+cat+'">'+cat+'</span>';
-					}else{
-						const c=catColor(cat); if(c){ catHtml='<span class="r-cat" style="background:'+c.bg+';color:'+c.fg+';border:1px solid '+c.br+'" title="'+cat+'">'+cat+'</span>'; }
-					}
-				}
-				li.innerHTML='<span class="r-date">'+(it.date||'—')+'</span><a class="r-title" href="'+it.url+'">'+(it.title||'(제목없음)')+'</a>'+catHtml;
+				// ls -l format: permissions links user group size date filename
+				const dateStr = (it.date || '').replace(/-/g, '.');
+				const title = it.title||'(제목없음)';
+				// Estimate content size (fetch from data or default)
+				const groupTag = cat || 'misc';
+				const filename = title + '.md';
+				
+				li.innerHTML = 
+					'<span class="r-date">' + dateStr + '</span>' +
+					// groupTag
+					'<span class="tags">[' + groupTag + ']</span>' +
+					'<a class="r-title" href="'+it.url+'">' + filename + '</a>';
 				frag.appendChild(li);
 			}
 			list.appendChild(frag);

@@ -34,12 +34,17 @@ permalink: /
 아직 부족한 점이 많지만,
 특별한 목적보다는 재미있게 실험하고, 문제를 해결하며, 그 경험에서 배운 점들을 나누는 데 초점을 두고 있습니다.
 
-## RECENT POSTS
+<div class="terminal-header">
+	<span class="prompt">gyumin@blog</span><span class="path"></span>% ls -lh --color=auto recent_posts/
+</div>
 
-<div id="recent-root" class="recent-root" data-per-page="20">
+<div id="recent-root" class="recent-root terminal-output" data-per-page="20">
+	<div class="terminal-header-line">total <span id="total-count">0</span></div>
 	<ul id="recent-list" class="recent-list"></ul>
 	<div class="recent-controls">
-		<button id="recent-more" type="button" style="display:none">더 보기</button>
+		<div class="terminal-prompt">
+			<span class="prompt">gyumin@blog<button id="recent-more" type="button" style="display:none">%  next</button>
+		</div>
 		<span id="recent-count" class="recent-count" style="display:none"></span>
 	</div>
 	<noscript>
@@ -48,19 +53,159 @@ permalink: /
 </div>
 
 <style>
-	.recent-root{margin-top:8px}
-	.recent-list{list-style:none;margin:0;padding:0;}
-	.recent-list li{display:flex;gap:10px;align-items:center;padding:6px 4px;border-bottom:1px solid #eee;font-size:14px;}
-	.recent-list li .r-date{width:78px;font-family:monospace;color:#666;font-size:12px;flex-shrink:0;}
-	.recent-list li .r-title{flex:1;min-width:0;}
-	.recent-list li .r-cat{margin-left:8px;display:inline-flex;align-items:center;font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px;line-height:1;letter-spacing:.25px;max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;}
-	.recent-list li .r-parent{margin-left:6px;font-size:11px;color:#555;}
-	.recent-list li a{flex:1;text-decoration:none;color:#111;}
-	.recent-list li a:hover{text-decoration:underline;}
-	#recent-more{margin:14px 0 4px;padding:8px 18px;border:1px solid #ccc;background:#fff;border-radius:4px;cursor:pointer;font-size:14px;}
-	#recent-more:hover{background:#f5f5f5;}
-	#recent-count{margin-left:12px;font-size:12px;color:#555;}
-	.recent-empty{padding:24px 4px;color:#777;font-size:14px;}
+	.terminal-header {
+		background: #0c0c0c;
+		color: #c0c0c0;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+		padding: 10px 14px;
+		border-radius: 6px 6px 0 0;
+		font-size: 13px;
+		border: 1px solid #2a2a2a;
+		border-bottom: none;
+		letter-spacing: 0.3px;
+	}
+	.terminal-header .prompt {
+		color: #4ae54a;
+		font-weight: normal;
+	}
+	.terminal-header .path {
+		color: #5599ff;
+		font-weight: bold;
+	}
+	.terminal-output {
+		background: #0c0c0c;
+		border: 1px solid #2a2a2a;
+		border-radius: 0 0 6px 6px;
+		padding: 14px;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+		color: #c0c0c0;
+		font-size: 13px;
+		line-height: 1.5;
+	}
+	.terminal-header-line {
+		color: #888;
+		margin-bottom: 8px;
+		font-size: 13px;
+	}
+	.recent-root {
+		margin-top: 0;
+	}
+	.recent-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.recent-list li {
+		display: flex;
+		align-items: baseline;
+		gap: 6px;
+		padding: 1px 0;
+		font-size: 13px;
+		color: #c0c0c0;
+		line-height: 1.4;
+	}
+	.recent-list li::before {
+		display: none !important;
+		content: none !important;
+	}
+	.recent-list li .r-perm {
+		color: #888;
+		font-size: 12px;
+		width: 75px;
+		flex-shrink: 0;
+	}
+	.recent-list li .r-links {
+		color: #888;
+		font-size: 12px;
+		width: 12px;
+		text-align: right;
+		flex-shrink: 0;
+	}
+	.recent-list li .r-user {
+		color: #888;
+		font-size: 12px;
+		width: 55px;
+		flex-shrink: 0;
+	}
+	.recent-list li .r-group {
+		color: #888;
+		font-size: 12px;
+		width: 45px;
+		flex-shrink: 0;
+	}
+	.recent-list li .r-size {
+		color: #888;
+		font-size: 12px;
+		width: 35px;
+		text-align: right;
+		flex-shrink: 0;
+	}
+	.recent-list li .r-date {
+		color: #888;
+		font-size: 12px;
+		white-space: nowrap;
+		width: 75px;
+		flex-shrink: 0;
+	}
+	.recent-list li .r-title {
+		flex: 1;
+		min-width: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.recent-list li a {
+		text-decoration: none;
+		color: #5599ff;
+		font-weight: normal;
+		display: inline-block;
+	}
+	.recent-list li a:hover {
+		color: #66aaff;
+		text-decoration: underline;
+	}
+	.terminal-prompt {
+		margin-top: 12px;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+	.terminal-prompt .prompt {
+		color: #4ae54a;
+	}
+	.terminal-prompt .path {
+		color: #5599ff;
+		font-weight: bold;
+	}
+	#recent-more {
+		margin: 0;
+		padding: 0;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		font-size: 13px;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+		color: #c0c0c0;
+		transition: color 0.15s;
+	}
+	#recent-more:hover {
+		color: #fff;
+		background: transparent;
+		box-shadow: none;
+	}
+	#recent-count {
+		margin-left: 12px;
+		font-size: 12px;
+		color: #666;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+	}
+	.recent-empty {
+		padding: 12px 0;
+		color: #666;
+		font-size: 13px;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+	}
 </style>
 
 {% include recent_data.json.html %}
