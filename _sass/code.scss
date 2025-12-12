@@ -70,7 +70,7 @@ figure.highlight {
   font-size: 15px;
   margin-top: 0;
   margin-bottom: $sp-3;
-  background-color: #1e1e1e;
+  background-color: #1e1e1e !important;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   -webkit-overflow-scrolling: touch;
@@ -78,6 +78,10 @@ figure.highlight {
   padding: 0;
   border: 1px solid #2d2d2d;
   transition: box-shadow 0.2s ease;
+  
+  * {
+    background-color: transparent !important;
+  }
   
   &:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -195,7 +199,7 @@ figure.highlight {
 
   pre {
     margin: 0;
-    line-height: 2;
+    line-height: 1.5;
   }
 }
 

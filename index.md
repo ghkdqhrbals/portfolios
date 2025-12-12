@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Recent Posts
-nav_order: 1
+nav_exclude: true
 description: "Latest technical notes"
 permalink: /
 ---
@@ -43,7 +43,7 @@ permalink: /
 	<ul id="recent-list" class="recent-list"></ul>
 	<div class="recent-controls">
 		<div class="terminal-prompt">
-			<span class="prompt">gyumin@blog<button id="recent-more" type="button" style="display:none">%  next</button>
+			<span class="prompt">gyumin@blog</span>% <button id="recent-more" type="button" style="display:none">next</button>
 		</div>
 		<span id="recent-count" class="recent-count" style="display:none"></span>
 	</div>
@@ -81,7 +81,7 @@ permalink: /
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 		color: #c0c0c0;
 		font-size: 13px;
-		line-height: 1.5;
+		line-height: 1.2;
 	}
 	.terminal-header-line {
 		color: #888;
@@ -100,10 +100,10 @@ permalink: /
 		display: flex;
 		align-items: baseline;
 		gap: 6px;
-		padding: 1px 0;
+		padding: 0;
 		font-size: 13px;
 		color: #c0c0c0;
-		line-height: 1.4;
+		line-height: 1.2;
 	}
 	.recent-list li::before {
 		display: none !important;

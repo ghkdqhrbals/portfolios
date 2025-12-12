@@ -26,8 +26,34 @@ $pink-300: #dd2cd4;
 .nav-list-expander[aria-expanded=true] .nav-expander-icon {transform:rotate(90deg);} 
 
 /* Badges */
-.nav-badge {display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:500; min-width:20px; padding:0 6px; height:18px; border-radius:10px; background:#273444; color:#b5c0cc; line-height:1; border:1px solid #2f3d4d; letter-spacing:.5px;}
-.nav-list-link.active .nav-badge {background:#4f8cff; border-color:#3178e0; color:#fff;}
+.nav-badge {
+	display:inline-flex; 
+	align-items:center; 
+	justify-content:center; 
+	font-size:10px; 
+	font-weight:600; 
+	min-width:18px; 
+	padding:0 5px; 
+	height:16px; 
+	border-radius:8px; 
+	background:rgba(255,255,255,0.08); 
+	color:#8b92a0; 
+	line-height:1; 
+	border:none;
+	letter-spacing:0.3px;
+	font-family: 'Monaco', 'Menlo', monospace;
+	margin-left:auto;
+	transition: all 0.2s ease;
+}
+.nav-list-link:hover .nav-badge {
+	background:rgba(255,255,255,0.12); 
+	color:#b5c0cc;
+}
+.nav-list-link.active .nav-badge {
+	background:rgba(79,140,255,0.2); 
+	color:#66aaff;
+	font-weight:700;
+}
 
 /* Date */
 .nav-date {font-size:11px; font-weight:400; color:#6d7680; margin-right:2px;}
@@ -72,14 +98,16 @@ figure.highlight pre {
 
 /* 구문 강조 색상 (One Dark 테마 스타일) */
 .highlight {
-  .k, .kd, .kn, .kp, .kr, .kt { color: #c678dd; } /* 키워드 */
-  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: #98c379; } /* 문자열 */
-  .m, .mf, .mh, .mi, .mo, .il { color: #d19a66; } /* 숫자 */
-  .n, .na, .nb, .nc, .nd, .ne, .nf, .ni, .nl, .nn, .no, .nt, .nv, .nx { color: #61afef; } /* 이름/함수 */
-  .c, .c1, .cm, .cp, .cs { color: #5c6370; font-style: italic; } /* 주석 */
-  .o, .ow { color: #56b6c2; } /* 연산자 */
-  .err { color: #e06c75; background-color: transparent; } /* 에러 */
-  .p { color: #abb2bf; } /* 괄호 */
+  * { background-color: transparent !important; }
+  
+  .k, .kd, .kn, .kp, .kr, .kt { color: #c678dd !important; } /* 키워드 */
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: #98c379 !important; } /* 문자열 */
+  .m, .mf, .mh, .mi, .mo, .il { color: #d19a66 !important; } /* 숫자 */
+  .n, .na, .nb, .nc, .nd, .ne, .nf, .ni, .nl, .nn, .no, .nt, .nv, .nx { color: #61afef !important; } /* 이름/함수 */
+  .c, .c1, .cm, .cp, .cs { color: #5c6370 !important; font-style: italic; } /* 주석 */
+  .o, .ow { color: #56b6c2 !important; } /* 연산자 */
+  .err { color: #e06c75 !important; } /* 에러 */
+  .p { color: #abb2bf !important; } /* 괄호 */
 }
 
 /* 라인 넘버 스타일 */
