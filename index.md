@@ -54,37 +54,37 @@ permalink: /
 
 <style>
 	.terminal-header {
-		background: #0c0c0c;
-		color: #c0c0c0;
+		background: #f8f9fa;
+		color: #2d3748;
 		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
 		padding: 10px 14px;
 		border-radius: 6px 6px 0 0;
 		font-size: 13px;
-		border: 1px solid #2a2a2a;
+		border: 1px solid #e2e8f0;
 		border-bottom: none;
 		letter-spacing: 0.3px;
 	}
 	.terminal-header .prompt {
-		color: #4ae54a;
+		color: #10b981;
 		font-weight: normal;
 	}
 	.terminal-header .path {
-		color: #5599ff;
+		color: #0a66c2;
 		font-weight: bold;
 	}
 	.terminal-output {
-		background: #0c0c0c;
-		border: 1px solid #2a2a2a;
+		background: #ffffff;
+		border: 1px solid #e2e8f0;
 		border-radius: 0 0 6px 6px;
 		padding: 14px;
 		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-		color: #c0c0c0;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		color: #374151;
 		font-size: 13px;
 		line-height: 1.2;
 	}
 	.terminal-header-line {
-		color: #888;
+		color: #6b7280;
 		margin-bottom: 8px;
 		font-size: 13px;
 	}
@@ -102,7 +102,7 @@ permalink: /
 		gap: 6px;
 		padding: 0;
 		font-size: 13px;
-		color: #c0c0c0;
+		color: #374151;
 		line-height: 1.2;
 	}
 	.recent-list li::before {
@@ -110,61 +110,68 @@ permalink: /
 		content: none !important;
 	}
 	.recent-list li .r-perm {
-		color: #888;
+		color: #6b7280;
 		font-size: 12px;
 		width: 75px;
 		flex-shrink: 0;
 	}
 	.recent-list li .r-links {
-		color: #888;
+		color: #6b7280;
 		font-size: 12px;
 		width: 12px;
 		text-align: right;
 		flex-shrink: 0;
 	}
 	.recent-list li .r-user {
-		color: #888;
+		color: #6b7280;
 		font-size: 12px;
 		width: 55px;
 		flex-shrink: 0;
 	}
 	.recent-list li .r-group {
-		color: #888;
+		color: #6b7280;
 		font-size: 12px;
 		width: 45px;
 		flex-shrink: 0;
 	}
 	.recent-list li .r-size {
-		color: #888;
+		color: #6b7280;
 		font-size: 12px;
 		width: 35px;
 		text-align: right;
 		flex-shrink: 0;
 	}
 	.recent-list li .r-date {
-		color: #888;
+		color: #6b7280;
 		font-size: 12px;
 		white-space: nowrap;
 		width: 75px;
 		flex-shrink: 0;
 	}
-	.recent-list li .r-title {
+	/* .recent-list li .r-title {
 		flex: 1;
 		min-width: 0;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		color: #374151;
 	}
-	.recent-list li a {
-		text-decoration: none;
-		color: #5599ff;
+	.recent-list li .r-title a {
+		text-decoration: none !important;
+		color: #0a66c2 !important;
 		font-weight: normal;
-		display: inline-block;
-	}
-	.recent-list li a:hover {
-		color: #66aaff;
-		text-decoration: underline;
-	}
+		display: inline;
+		border-bottom: none !important;
+		background-image: none !important;
+		box-shadow: none !important;
+	} */
+	/* .recent-list li .r-title a:hover {
+		color: #2563eb !important;
+		text-decoration: underline !important;
+		text-decoration-thickness: 2px !important;
+		text-underline-offset: 2px !important;
+		border-bottom: none !important;
+	} */
 	.terminal-prompt {
 		margin-top: 12px;
 		display: flex;
@@ -172,10 +179,10 @@ permalink: /
 		gap: 6px;
 	}
 	.terminal-prompt .prompt {
-		color: #4ae54a;
+		color: #10b981;
 	}
 	.terminal-prompt .path {
-		color: #5599ff;
+		color: #0a66c2;
 		font-weight: bold;
 	}
 	#recent-more {
@@ -186,23 +193,23 @@ permalink: /
 		cursor: pointer;
 		font-size: 13px;
 		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-		color: #c0c0c0;
+		color: #374151;
 		transition: color 0.15s;
 	}
 	#recent-more:hover {
-		color: #fff;
+		color: #111827;
 		background: transparent;
 		box-shadow: none;
 	}
 	#recent-count {
 		margin-left: 12px;
 		font-size: 12px;
-		color: #666;
+		color: #6b7280;
 		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
 	}
 	.recent-empty {
 		padding: 12px 0;
-		color: #666;
+		color: #6b7280;
 		font-size: 13px;
 		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
 	}

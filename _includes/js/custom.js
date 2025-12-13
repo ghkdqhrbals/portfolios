@@ -125,7 +125,7 @@
 					'<span class="r-date">' + dateStr + '</span>' +
 					// groupTag
 					'<span class="tags">[' + groupTag + ']</span>' +
-					'<a class="r-title" href="'+it.url+'">' + filename + '</a>';
+					'<span class="r-title"><a href="'+it.url+'">' + filename + '</a></span>';
 				frag.appendChild(li);
 			}
 			list.appendChild(frag);

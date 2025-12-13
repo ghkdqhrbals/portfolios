@@ -2,15 +2,15 @@
 .page-index .main-content {max-width:900px;margin:0 auto;}
 .page-index .main-content h1:first-of-type {margin-top:1.2rem;}
 .page-index .contact-inline {display:flex;flex-wrap:wrap;justify-content:center;gap:14px;font-size:0.9rem;color:#64748b;margin:0 0 1.3rem;}
-.page-index .contact-inline a {color:inherit;text-decoration:none;}
-.page-index .contact-inline a:hover {text-decoration:underline;color:#475569;}
+.page-index .contact-inline a {color:inherit;text-decoration:none;border-bottom:none !important;background:transparent !important;}
+.page-index .contact-inline a:hover {text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px;color:#475569;border-bottom:none !important;background:transparent !important;}
 .page-index .section-block {margin:2.8rem 0 2.4rem;}
 .page-index .section-block h1,.page-index .section-block h2,.page-index .section-block h3 {margin-top:0;}
 .page-index .tag-ref a {color:#2563eb;text-decoration:none;}
 .page-index .tag-ref a:hover {text-decoration:underline;}
 /* General link color override on index page (clean blue tone) */
-.page-index .main-content a, .page-cv .main-content a {color:#3b82f6 !important;border-bottom:1px solid rgba(59,130,246,.35) !important;text-decoration:none;}
-.page-index .main-content a:hover, .page-cv .main-content a:hover {color:#1d4ed8 !important;border-bottom-color:#2563eb !important;}
+.page-index .main-content a, .page-cv .main-content a {color:#0a66c2 !important;border-bottom:none !important;text-decoration:none !important;background:transparent !important;}
+.page-index .main-content a:hover, .page-cv .main-content a:hover {color:#1d4ed8 !important;text-decoration:underline !important;text-decoration-thickness:2px !important;text-underline-offset:2px !important;border-bottom:none !important;background:transparent !important;}
 /* Remove underline/border specifically for heading anchor links */
 .page-index .main-content h1 > a,
 .page-index .main-content h2 > a,
