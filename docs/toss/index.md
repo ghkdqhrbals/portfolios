@@ -31,7 +31,7 @@ has_toc: false
     * LLM 에 서킷브레이커 셋업 8h
 * 기술 구현 [1~4주차]
     * Redis Stream 샤딩 구현. + ACL + **eviction 안되도록** 24h
-    * 메세지 재처리 전략 고도화 16h
+    * 메세지 재처리 전략, 트랜젝션 코디네이터 자제구현 16h
     * Grafana lag 모니터링 + 장애알림 셋업 24h+8h
 
 # RESULTS
