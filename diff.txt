@@ -9,7 +9,7 @@ index 060ffbd..0befc32 100644
 -date: 2025-10-02
 +title: llama2 chat 7b ai mac 64GB RAM 에서 단순히 돌려보기
 +date: 2025-10-04
- parent: 📌 Server
+ parent: Server
  ---
  
 -## Table of contents

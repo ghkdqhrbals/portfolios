@@ -6,25 +6,6 @@ description: "Latest technical notes"
 permalink: /
 ---
 
-<div class="contact-inline">
-	<span>
-		<img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/phone.svg" alt="phone" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-		(+82) 10-5177-1967
-	</span>
-	<span>
-		<img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/solid/envelope.svg" alt="email" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-		<a href="mailto:ghkdqhrbals@gmail.com">ghkdqhrbals@gmail.com</a>
-	</span>
-	<span>
-		<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="github" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-		<a href="https://github.com/ghkdqhrbals">ghkdqhrbals</a>
-	</span>
-	<span>
-		<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="linkedin" style="height:1em;vertical-align:middle;filter:grayscale(1);margin-right:4px;">
-		<a href="https://www.linkedin.com/in/gyumin-hwangbo-92382218b/">gyumin</a>
-	</span>
-</div>
-
 안녕하세요. 백엔드 개발자 황보규민입니다.
 
 이곳은 제가 실무에서 겪은 문제와 해결 과정, 그리고 그 속에서 얻은 인사이트를 기록하고 공유하는 공간입니다.
@@ -34,11 +15,11 @@ permalink: /
 아직 부족한 점이 많지만,
 특별한 목적보다는 재미있게 실험하고, 문제를 해결하며, 그 경험에서 배운 점들을 나누는 데 초점을 두고 있습니다.
 
-<div class="terminal-header">
-	<span class="prompt">gyumin@blog</span><span class="path"></span>% ls -lh --color=auto recent_posts/
-</div>
 
 <div id="recent-root" class="recent-root terminal-output" data-per-page="20">
+	<div class="terminal-prompt">
+		<span class="prompt">gyumin@blog</span><span class="path"></span>% ls -al --color=auto recent_posts/
+	</div>
 	<div class="terminal-header-line">total <span id="total-count">0</span></div>
 	<ul id="recent-list" class="recent-list"></ul>
 	<div class="recent-controls">
@@ -53,6 +34,40 @@ permalink: /
 </div>
 
 <style>
+	.social-links {
+		display: flex;
+		gap: 16px;
+		justify-content: center;
+		margin: 24px 0 32px;
+	}
+	.social-links a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: #f1f5f9;
+		transition: all 0.2s ease;
+		border: none !important;
+		text-decoration: none !important;
+	}
+	.social-links a:hover {
+		background: #e2e8f0;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		text-decoration: none !important;
+	}
+	.social-icon {
+		width: 20px;
+		height: 20px;
+		filter: grayscale(1) brightness(0.4);
+		transition: filter 0.2s ease;
+	}
+	.social-links a:hover .social-icon {
+		filter: grayscale(0) brightness(1);
+	}
+	
 	.terminal-header {
 		background: #f8f9fa;
 		color: #2d3748;

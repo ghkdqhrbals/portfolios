@@ -49,6 +49,20 @@ $pink-300: #dd2cd4;
 	background:rgba(255,255,255,0.12); 
 	color:#b5c0cc;
 }
+
+/* Navigation Icons */
+.nav-icon {
+	width: 20px;
+	height: 20px;
+	margin-right: 6px;
+	object-fit: contain;
+	vertical-align: middle;
+	filter: brightness(0.9);
+	transition: filter 0.2s ease;
+}
+.nav-list-link:hover .nav-icon {
+	filter: brightness(1);
+}
 .nav-list-link.active .nav-badge {
 	background:rgba(79,140,255,0.2); 
 	color:#66aaff;
@@ -79,6 +93,33 @@ $pink-300: #dd2cd4;
 
 /* Focus */
 .nav-list-link:focus-visible, .nav-list-expander:focus-visible {outline:2px solid #4f8cff; outline-offset:1px;}
+
+/* Aux links 아이콘 스타일 */
+.aux-nav .aux-nav-list-item a {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	padding: 6px !important;
+	background: transparent !important;
+	border: none !important;
+	text-decoration: none !important;
+}
+
+.aux-nav .aux-nav-list-item a img {
+	width: 22px;
+	height: 22px;
+	filter: grayscale(1) brightness(0.7);
+	transition: filter 0.2s ease;
+}
+
+.aux-nav .aux-nav-list-item a:hover {
+	background: transparent !important;
+	text-decoration: none !important;
+}
+
+.aux-nav .aux-nav-list-item a:hover img {
+	filter: grayscale(0) brightness(1);
+}
 
 @media (max-width: 860px){
 	.side-bar {box-shadow:none;}
@@ -142,6 +183,23 @@ figure.highlight pre::-webkit-scrollbar-thumb:hover {
 div.highlighter-rouge,
 figure.highlight {
   transition: transform 0.2s ease;
+}
+
+/* 전역 링크 스타일 */
+.main-content a {
+  color: #0a66c2 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  background: transparent !important;
+}
+
+.main-content a:hover {
+  color: #1d4ed8 !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 2px !important;
+  border-bottom: none !important;
+  background: transparent !important;
 }
 
 /* Print: show link URLs inline */

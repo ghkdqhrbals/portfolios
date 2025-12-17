@@ -177,6 +177,9 @@
                 | where: "parent", node.title | sort: "date" | reverse -%}
           <a id="#" href="{{ node.url | relative_url }}" class="nav-list-link{% if page.url == node.url %} active{% endif %}" data-children="{{ children_list.size }}">
             <span class="nav-badge nav-count" aria-label="하위 문서 수">{{ children_list.size }}</span>
+            {%- if node.nav_icon -%}
+              <img src="{{ node.nav_icon | relative_url }}" alt="" class="nav-icon" />
+            {%- endif -%}
             <span class="nav-title">{{ node.title }}</span>
           </a>
 
@@ -232,6 +235,9 @@
         {% else %}
 
           <a href="{{ node.url | relative_url }}" class="nav-list-link{% if page.url == node.url %} active{% endif %}">
+            {%- if node.nav_icon -%}
+              <img src="{{ node.nav_icon | relative_url }}" alt="" class="nav-icon" />
+            {%- endif -%}
             {{ node.title }}
           </a>
         {%- endif -%}
