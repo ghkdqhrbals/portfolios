@@ -17,7 +17,7 @@ permalink: /cv/
   * MAU 77만 교촌을 포함한 자담 등 멀티 프랜차이즈 브랜드의 주문/결제/멤버십 서비스 개발 및 운영.
   * 100만명 이상 회원 대상 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 **95.4% 개선.**<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[1]</a></sup>
   * 브랜드 별 모듈화 및 개별 & 통합 CI/CD 파이프라인 구성.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[2]</a></sup>
-  * Redis Stream 을 활용한 비동기 알림 시스템 설계. 리밸런싱, DLQ, 장애 자동복구 구현.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
+  * Redis Stream 을 활용한 비동기 알림 시스템 설계 및 개발리드. 리밸런싱, DLQ, 장애 자동복구 구현.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
   * 초당 수천 건의 이벤트를 처리할 수 있는 데이터 동기화 파이프라인 설계 및 개발리드(Redis Stream 백프레셔, memory 85% 제한 consume, 멱등성 보장으로 안전한 동기화 처리). [CDC ETL](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/)
   * 개발스택 : Kotlin/Spring-Boot, Mysql, Redis Stream MQ, Kubernetes, AWS-based infra
 * Senior Researcher(foxee) 2023.06 ~ 2024.01
