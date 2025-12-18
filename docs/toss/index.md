@@ -2,7 +2,7 @@
 layout: default
 title: 토스 러너스 하이 2기
 nav_order: 2
-has_children: false
+has_children: true
 nav_icon: /assets/Toss_Symbol_Primary.png
 has_toc: false
 ---
