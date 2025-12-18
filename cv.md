@@ -13,7 +13,7 @@ permalink: /cv/
 "모든 반복 작업은 결국 자동화되어야 한다"는 지향점 아래, 배포·모니터링·데이터 동기화 등 사람이 개입하는 영역을 줄이고, 장애를 스스로 복구하거나 탐지할 수 있는 구조를 설계합니다.
 
 ## EXPERIENCE
-* Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04.15 ~ present
+* Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04.15 ~ 2025.11.30
   * MAU 77만 교촌을 포함한 자담 등 멀티 프랜차이즈 브랜드의 주문/결제/멤버십 서비스 개발 및 운영.
   * 100만명 이상 회원 대상 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 **95.4% 개선.**<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[1]</a></sup>
   * 브랜드 별 모듈화 및 개별 & 통합 CI/CD 파이프라인 구성.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[2]</a></sup>
