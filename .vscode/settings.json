@@ -557,7 +557,7 @@
 	"editor.hover.delay": 300,
 
 	// Controls whether the hover is shown.
-	"editor.hover.enabled": true,
+	"editor.hover.enabled": "on",
 
 	// Controls the delay in milliseconds after which the hover is hidden. Requires `editor.hover.sticky` to be enabled.
 	"editor.hover.hidingDelay": 300,
