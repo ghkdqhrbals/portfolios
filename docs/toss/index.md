@@ -51,3 +51,4 @@ has_toc: false
 ## reference
 * [LY Corporation Tech Blog](https://techblog.lycorp.co.jp/ko/building-a-messaging-queuing-system-with-redis-streams)
 * [Deep Dive of BigKey and HotKey Issues in Redis, What They Are, How to Discover, How to Handle](https://dev.to/mrboogiej/deep-dive-of-bigkey-and-hotkey-issues-in-redis-what-they-are-how-to-discover-how-to-handle-4ldl)
+* [대규모 CDC Pipeline 운영을 위한 Debezium 개선 여정](https://toss.tech/article/cdc_pipeline)
