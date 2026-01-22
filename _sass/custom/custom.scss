@@ -132,7 +132,7 @@ $pink-300: #dd2cd4;
 /* 코드 블럭 내부 텍스트 스타일 개선 */
 div.highlight pre.highlight,
 figure.highlight pre {
-  color: #abb2bf;
+	color: #abb2bf;
   line-height: 1.6;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
@@ -140,15 +140,15 @@ figure.highlight pre {
 /* 구문 강조 색상 (One Dark 테마 스타일) */
 .highlight {
   * { background-color: transparent !important; }
-  
-  .k, .kd, .kn, .kp, .kr, .kt { color: #c678dd !important; } /* 키워드 */
-  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: #98c379 !important; } /* 문자열 */
-  .m, .mf, .mh, .mi, .mo, .il { color: #d19a66 !important; } /* 숫자 */
-  .n, .na, .nb, .nc, .nd, .ne, .nf, .ni, .nl, .nn, .no, .nt, .nv, .nx { color: #61afef !important; } /* 이름/함수 */
-  .c, .c1, .cm, .cp, .cs { color: #5c6370 !important; font-style: italic; } /* 주석 */
-  .o, .ow { color: #56b6c2 !important; } /* 연산자 */
-  .err { color: #e06c75 !important; } /* 에러 */
-  .p { color: #abb2bf !important; } /* 괄호 */
+	
+	.k, .kd, .kn, .kp, .kr, .kt { color: #c678dd !important; } /* 키워드 */
+	.s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: #98c379 !important; } /* 문자열 */
+	.m, .mf, .mh, .mi, .mo, .il { color: #d19a66 !important; } /* 숫자 */
+	.n, .na, .nb, .nc, .nd, .ne, .nf, .ni, .nl, .nn, .no, .nt, .nv, .nx { color: #61afef !important; } /* 이름/함수 */
+	.c, .c1, .cm, .cp, .cs { color: #5c6370 !important; font-style: italic; } /* 주석 */
+	.o, .ow { color: #56b6c2 !important; } /* 연산자 */
+	.err { color: #e06c75 !important; } /* 에러 */
+	.p { color: #abb2bf !important; } /* 괄호 */
 }
 
 /* 라인 넘버 스타일 */
@@ -165,18 +165,18 @@ figure.highlight pre {
 div.highlight::-webkit-scrollbar,
 figure.highlight pre::-webkit-scrollbar {
   height: 8px;
-  background: #2d2d2d;
+	background: #2d2d2d;
 }
 
 div.highlight::-webkit-scrollbar-thumb,
 figure.highlight pre::-webkit-scrollbar-thumb {
-  background: #4a4a4a;
+	background: #4a4a4a;
   border-radius: 4px;
 }
 
 div.highlight::-webkit-scrollbar-thumb:hover,
 figure.highlight pre::-webkit-scrollbar-thumb:hover {
-  background: #5a5a5a;
+	background: #5a5a5a;
 }
 
 /* 코드 블럭 호버 시 미세한 애니메이션 */

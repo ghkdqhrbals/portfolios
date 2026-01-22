@@ -1,18 +1,18 @@
 ---
 layout: default
 title: Garbage Collection
-parent: Server
+parent: Java-Kotlin
 date: 2023-03-02
 nav_order: 2
 ---
 
-## Garbage Collection
+# Garbage Collection
 Java에서는 new로 객체 생성하면 힙에다가 저장되잖아요? 이 때 힙 내부를 여러 단계로 나뉘어 어디에 저장하고 관리할지 정해주는게 GC입니다. 얘네는 세대교체를 베이스로 동작합니다.
 
 ### Eden Space [Young Generation]
 처음 생성된 모든 객체는 에덴 영역에 저장합니다. 그리고 이게 가득 차게되면 `minor gc`를 수행합니다.
 
-#### minor gc
+### minor gc
 얘는 아래와 같이 여러 단계로 나뉘어 집니다.
 1. `Eden`이 가득 차게 되면, 현재 사용중인 스레드 다 스톱시키고, 참조중인 객체가 있으면 `S0` 영역에다가 객체를 옮깁니다. `Eden`은 이 때 전부 비워집니다.
 2. `Eden`이 한번더 가득 차게 되면, `S0`과 `Eden`에서 여전히 참조중인 애들을 `S1`로 옮깁니다.  `S0`과 `Eden`은 비워집니다.

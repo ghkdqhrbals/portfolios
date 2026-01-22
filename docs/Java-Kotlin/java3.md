@@ -1,19 +1,17 @@
 ---
 layout: default
 title: CompletableFuture 기능 별 심화이해
-parent: Server
+parent: Java-Kotlin
 date: 2023-03-15
 nav_order: 3
 ---
 
 
-## 1. thenAccept/thenRun/thenApply
+### thenAccept/thenRun/thenApply
 
 `thenAccept` 는 이전에 전달받은 parameter 가 있을 때 사용되며, `thenRun` 은 없을 때 사용됩니다.
 
 예시로 함께 보겠습니다.
-
-## 1-1. Code
 
 ```java
 CompletableFuture.supplyAsync(()->{ // thenAccept에서 사용할 수 있는 값을 return으로 넘겨줍니다.
@@ -35,8 +33,6 @@ CompletableFuture.supplyAsync(()->{ // thenAccept에서 사용할 수 있는 값
     });
 ```
 
-## 1-2. Result
-
 ```
 [service-thread-4] c.c.domain.user.service.UserServiceImpl  : 서비스 thread-1
 [service-thread-4] c.c.domain.user.service.UserServiceImpl  : 서비스 thread-2
@@ -45,9 +41,7 @@ CompletableFuture.supplyAsync(()->{ // thenAccept에서 사용할 수 있는 값
 [service-thread-6] c.c.domain.user.service.UserServiceImpl  : 서비스 thread-5
 ```
 
-## 1-3. thenCompose
-
-## 1-4. Code
+### thenCompose
 
 ```java
 @Slf4j
@@ -95,7 +89,6 @@ public class UserServiceImpl  {
 }
 ```
 
-## 1-5. Result
 
 ```
 [service-thread-5] c.c.domain.user.service.UserServiceImpl  : 서비스 value:1
@@ -106,9 +99,8 @@ public class UserServiceImpl  {
 [another-service-thread-1] c.c.domain.user.service.UserServiceImpl  : 서비스 마무리
 ```
 
-## exceptionally
+### exceptionally
 
-### Code
 
 ```java
 @Slf4j
@@ -155,7 +147,6 @@ public class UserServiceImpl  {
 }
 ```
 
-### Result
 
 ```
 [service-thread-3] c.c.domain.user.service.UserServiceImpl  :           서비스 value:1
@@ -168,7 +159,7 @@ public class UserServiceImpl  {
 
 
 
-## CompletableFuture 의 람다식 내 지역변수 재사용 방식 및 Thread-safe 한 변수
+### CompletableFuture 의 람다식 내 지역변수 재사용 방식 및 Thread-safe 한 변수
 
 ```java
 public class SimpleTest {
