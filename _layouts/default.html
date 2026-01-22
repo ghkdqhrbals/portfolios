@@ -19,12 +19,22 @@ layout: table_wrappers
 {% if page.permalink == '/cv/' or page.url == '/cv/' or page.url == cv_baseurl or page.url contains '/cv/' %}
   {% assign classes = classes | append: ' page-cv' %}
 {% endif %}
+{% if page.hide_sidebar == true %}
+  {% assign classes = classes | append: ' hide-sidebar' %}
+{% endif %}
+{% if page.hide_header == true %}
+  {% assign classes = classes | append: ' hide-header' %}
+{% endif %}
 <body class="{{ classes | strip }}">
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   {% include icons/icons.html %}
-  {% include components/sidebar.html %}
+  {% unless page.hide_sidebar == true %}
+    {% include components/sidebar.html %}
+  {% endunless %}
   <div class="main" id="top">
-    {% include components/header.html %}
+    {% unless page.hide_header == true %}
+      {% include components/header.html %}
+    {% endunless %}
     <div id="main-content-wrap" class="main-content-wrap">
       {% include components/breadcrumbs.html %}
       <div id="main-content" class="main-content" role="main">

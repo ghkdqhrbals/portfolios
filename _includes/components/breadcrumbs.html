@@ -1,5 +1,5 @@
 {% unless page.url == "/" %}
-  {% if page.parent %}
+  {% if page.hide_breadcrumbs != true and page.parent %}
     <nav aria-label="Breadcrumb" class="breadcrumb-nav">
       <ol class="breadcrumb-nav-list">
         {% if page.grand_parent %}
