@@ -129,158 +129,60 @@ $pink-300: #dd2cd4;
 
 /* === Enhanced Code Block Styling === */
 
-/* IntelliJ (Darcula) 스타일에 가까운 코드 블럭 테마 */
-
-/* 코드 블럭 컨테이너(펜스/rouge/liquid 모두) */
-div.highlighter-rouge,
-div.listingblock > div.content,
-figure.highlight {
-	background-color: #2b2b2b !important; /* Darcula */
-	border: 1px solid #3c3f41 !important;
-	border-radius: 10px;
-	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
-}
-
-/* 코드 블럭 내부 텍스트(폰트/행간) */
+/* 코드 블럭 내부 텍스트 스타일 개선 */
 div.highlight pre.highlight,
-figure.highlight pre,
-.highlight pre,
-.highlight code {
-	color: #a9b7c6;
-	line-height: 1.65;
-	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-		"Liberation Mono", "Courier New", monospace;
+figure.highlight pre {
+	color: #abb2bf;
+  line-height: 1.6;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
 
-/* (중요) 내부 요소 배경은 투명으로 통일해서 바깥 컨테이너 색이 보이게 */
+/* 구문 강조 색상 (One Dark 테마 스타일) */
 .highlight {
-	* { background-color: transparent !important; }
-}
-
-/* Rouge 토큰 컬러(대략 IntelliJ Darcula 팔레트) */
-.highlight {
-	/* Comments */
-	.c, .c1, .cm, .cp, .cs { color: #808080 !important; font-style: italic; }
-
-	/* Keywords */
-	.k, .kc, .kd, .kn, .kp, .kr, .kt, .ow { color: #cc7832 !important; }
-
-	/* Strings */
-	.s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx, .sr, .ss { color: #6a8759 !important; }
-
-	/* Numbers */
-	.m, .mf, .mh, .mi, .mo, .il { color: #6897bb !important; }
-
-	/* Types / Class names */
-	.nc { color: #ffc66d !important; }
-
-	/* Function names */
-	.nf { color: #ffc66d !important; }
-
-	/* Constants / Symbols */
-	.no { color: #9876aa !important; }
-
-	/* Annotations / decorators */
-	.nd { color: #bbb529 !important; }
-
-	/* Variables / identifiers (default-ish) */
-	.n, .na, .nb, .ne, .ni, .nl, .nn, .nt, .nv, .nx { color: #a9b7c6 !important; }
-
-	/* Operators / punctuation */
-	.o { color: #a9b7c6 !important; }
-	.p { color: #a9b7c6 !important; }
-
-	/* Errors */
-	.err { color: #ff6b68 !important; background: rgba(255, 107, 104, 0.12) !important; }
-}
-
-/* 선택 영역(드래그) 느낌 개선 */
-div.highlighter-rouge ::selection,
-figure.highlight ::selection {
-	background: rgba(33, 66, 131, 0.85);
+  * { background-color: transparent !important; }
+	
+	.k, .kd, .kn, .kp, .kr, .kt { color: #c678dd !important; } /* 키워드 */
+	.s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: #98c379 !important; } /* 문자열 */
+	.m, .mf, .mh, .mi, .mo, .il { color: #d19a66 !important; } /* 숫자 */
+	.n, .na, .nb, .nc, .nd, .ne, .nf, .ni, .nl, .nn, .no, .nt, .nv, .nx { color: #61afef !important; } /* 이름/함수 */
+	.c, .c1, .cm, .cp, .cs { color: #5c6370 !important; font-style: italic; } /* 주석 */
+	.o, .ow { color: #56b6c2 !important; } /* 연산자 */
+	.err { color: #e06c75 !important; } /* 에러 */
+	.p { color: #abb2bf !important; } /* 괄호 */
 }
 
 /* 라인 넘버 스타일 */
 .highlight .lineno {
-	color: #606366;
+  color: #5c6370;
   user-select: none;
   text-align: right;
   padding-right: 1em;
-	border-right: 1px solid #3c3f41;
+  border-right: 1px solid #3e3e3e;
   margin-right: 1em;
-}
-
-/* 라인 넘버 있는 테이블일 때 gutter 배경 살짝 다르게 */
-.highlight table.rouge-table td.rouge-gutter {
-	background: rgba(0, 0, 0, 0.12) !important;
-}
-
-/* 코드 블럭 바깥 여백/패딩은 기존을 유지하되, pre 자체는 꽉 차게 */
-div.highlighter-rouge pre,
-figure.highlight pre {
-	margin: 0;
 }
 
 /* 스크롤바 스타일 (코드 블럭) */
 div.highlight::-webkit-scrollbar,
 figure.highlight pre::-webkit-scrollbar {
   height: 8px;
-	background: #2b2b2b;
+	background: #2d2d2d;
 }
 
 div.highlight::-webkit-scrollbar-thumb,
 figure.highlight pre::-webkit-scrollbar-thumb {
-	background: #4e5254;
+	background: #4a4a4a;
   border-radius: 4px;
 }
 
 div.highlight::-webkit-scrollbar-thumb:hover,
 figure.highlight pre::-webkit-scrollbar-thumb:hover {
-	background: #606366;
+	background: #5a5a5a;
 }
 
 /* 코드 블럭 호버 시 미세한 애니메이션 */
 div.highlighter-rouge,
 figure.highlight {
   transition: transform 0.2s ease;
-}
-
-/* 언어별 포인트(상단 바) */
-/* fenced code blocks: outer wrapper에 language-xxx가 붙음 */
-.language-java.highlighter-rouge {
-	border-top: 3px solid #f89820 !important; /* Java 오렌지 */
-}
-
-.language-kotlin.highlighter-rouge {
-	border-top: 3px solid #7f52ff !important; /* Kotlin 퍼플 */
-}
-
-/* liquid highlight blocks: figure.highlight에는 language wrapper가 없으므로 code에 bar를 그림 */
-figure.highlight pre > code {
-	position: relative;
-	display: block;
-}
-
-figure.highlight pre > code.language-java::before,
-figure.highlight pre > code.language-kotlin::before,
-figure.highlight pre > code.language-plaintext::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: -#{$sp-3};
-	height: 3px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-}
-
-figure.highlight pre > code.language-java::before { background: #f89820; }
-figure.highlight pre > code.language-kotlin::before { background: #7f52ff; }
-figure.highlight pre > code.language-plaintext::before { background: rgba(255, 255, 255, 0.12); }
-
-.language-plaintext.highlighter-rouge,
-.language-text.highlighter-rouge {
-	border-top: 3px solid rgba(255, 255, 255, 0.12) !important;
 }
 
 /* 전역 링크 스타일 */
