@@ -1,0 +1,19 @@
+{%- assign s = site.data.ga4_summary -%}
+
+{%- if s == nil or s.metrics == nil or s.enabled == false -%}
+	<p class="note">
+		<span class="note-title">Note</span>
+		GA4 통계 데이터가 아직 생성되지 않았습니다.<br />
+		- GitHub Secrets에 <code>GA4_PROPERTY_ID</code>, <code>GA4_SERVICE_ACCOUNT_JSON</code> 설정<br />
+		- Actions에서 Pages 배포 워크플로우가 한 번 실행되면 이 페이지에 반영됩니다.
+	</p>
+{%- else -%}
+	<div class="ga4-cards">
+		<div class="ga4-card"><div class="ga4-k">Active Users (30d)</div><div class="ga4-v">{{ s.metrics.activeUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Total Users (30d)</div><div class="ga4-v">{{ s.metrics.totalUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">New Users (30d)</div><div class="ga4-v">{{ s.metrics.newUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Sessions (30d)</div><div class="ga4-v">{{ s.metrics.sessions }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Page Views (30d)</div><div class="ga4-v">{{ s.metrics.screenPageViews }}</div></div>
+	</div>
+	<p class="ga4-meta">generatedAt: {{ s.generatedAt }}</p>
+{%- endif -%}
