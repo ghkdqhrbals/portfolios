@@ -1,6 +1,6 @@
 {%- assign s = site.data.ga4_summary -%}
 {%- if s and s.totalSince2022 and s.last30days and s.yesterday -%}
-<div class="nav-footer-stats">
-  All {{ s.totalSince2022.sessions }} · 30d {{ s.last30days.sessions }} · 1d {{ s.yesterday.sessions }}
+<div style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+  Visits: All {{ s.totalSince2022.sessions }} · 30d {{ s.last30days.sessions }} · 1d {{ s.yesterday.sessions }}
 </div>
 {%- endif -%}
