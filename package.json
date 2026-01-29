@@ -7,7 +7,7 @@
   "bugs": "https://github.com/just-the-docs/just-the-docs/issues",
   "devDependencies": {
     "@google-analytics/data": "^5.2.1",
-    "prettier": "^3.2.5",
+    "prettier": "^3.8.1",
     "stylelint": "^16.20.0",
     "stylelint-config-prettier-scss": "0.0.1",
     "stylelint-config-standard-scss": "^13.0.0",
