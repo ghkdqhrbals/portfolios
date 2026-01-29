@@ -7,3 +7,10 @@ _site
 Gemfile.lock
 node_modules
 .DS_Store
+
+# GA4 local hardcode (do NOT commit secrets)
+scripts/ga4.local.json
+scripts/ga4.key.json
+
+# Generated GA4 data (built at CI time)
+_data/ga4_*.json

@@ -1,19 +1,42 @@
 {%- assign s = site.data.ga4_summary -%}
 
-{%- if s == nil or s.metrics == nil or s.enabled == false -%}
+{%- if s == nil or s.totalSince2022 == nil or s.enabled == false -%}
 	<p class="note">
 		<span class="note-title">Note</span>
-		GA4 통계 데이터가 아직 생성되지 않았습니다.<br />
+		GA4 통계 데이터가 아직 활성화되지 않았습니다.<br />
+		{% if s and s.reason %}
+			원인: <code>{{ s.reason }}</code><br />
+		{% endif %}
 		- GitHub Secrets에 <code>GA4_PROPERTY_ID</code>, <code>GA4_SERVICE_ACCOUNT_JSON</code> 설정<br />
+		- 또는 로컬에서 <code>GA4_PROPERTY_ID</code>(예: <code>351902495</code>)를 설정하고 <code>scripts/ga4.local.json</code>에 서비스계정 키 JSON을 넣기<br />
 		- Actions에서 Pages 배포 워크플로우가 한 번 실행되면 이 페이지에 반영됩니다.
 	</p>
 {%- else -%}
+	<h3>2022년부터 총계</h3>
 	<div class="ga4-cards">
-		<div class="ga4-card"><div class="ga4-k">Active Users (30d)</div><div class="ga4-v">{{ s.metrics.activeUsers }}</div></div>
-		<div class="ga4-card"><div class="ga4-k">Total Users (30d)</div><div class="ga4-v">{{ s.metrics.totalUsers }}</div></div>
-		<div class="ga4-card"><div class="ga4-k">New Users (30d)</div><div class="ga4-v">{{ s.metrics.newUsers }}</div></div>
-		<div class="ga4-card"><div class="ga4-k">Sessions (30d)</div><div class="ga4-v">{{ s.metrics.sessions }}</div></div>
-		<div class="ga4-card"><div class="ga4-k">Page Views (30d)</div><div class="ga4-v">{{ s.metrics.screenPageViews }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Active Users</div><div class="ga4-v">{{ s.totalSince2022.activeUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Total Users</div><div class="ga4-v">{{ s.totalSince2022.totalUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">New Users</div><div class="ga4-v">{{ s.totalSince2022.newUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Sessions</div><div class="ga4-v">{{ s.totalSince2022.sessions }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Page Views</div><div class="ga4-v">{{ s.totalSince2022.screenPageViews }}</div></div>
+	</div>
+
+	<h3>최근 30일</h3>
+	<div class="ga4-cards">
+		<div class="ga4-card"><div class="ga4-k">Active Users</div><div class="ga4-v">{{ s.last30days.activeUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Total Users</div><div class="ga4-v">{{ s.last30days.totalUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">New Users</div><div class="ga4-v">{{ s.last30days.newUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Sessions</div><div class="ga4-v">{{ s.last30days.sessions }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Page Views</div><div class="ga4-v">{{ s.last30days.screenPageViews }}</div></div>
+	</div>
+
+	<h3>어제</h3>
+	<div class="ga4-cards">
+		<div class="ga4-card"><div class="ga4-k">Active Users</div><div class="ga4-v">{{ s.yesterday.activeUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Total Users</div><div class="ga4-v">{{ s.yesterday.totalUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">New Users</div><div class="ga4-v">{{ s.yesterday.newUsers }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Sessions</div><div class="ga4-v">{{ s.yesterday.sessions }}</div></div>
+		<div class="ga4-card"><div class="ga4-k">Page Views</div><div class="ga4-v">{{ s.yesterday.screenPageViews }}</div></div>
 	</div>
 	<p class="ga4-meta">generatedAt: {{ s.generatedAt }}</p>
 {%- endif -%}
