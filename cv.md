@@ -4,6 +4,7 @@ title: About Me
 nav_order: 1
 description: "About Me / CV"
 permalink: /cv/
+guestbook: false
 ---
 
 안녕하세요. Spring Boot/Kotlin 기반의 고가용성 백엔드 시스템을 설계하고 자동화하는 백엔드 엔지니어 황보규민입니다.

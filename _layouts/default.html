@@ -4,7 +4,10 @@ layout: table_wrappers
 
 <!DOCTYPE html>
 
-<html lang="{{ site.lang | default: 'en-US' }}">
+<html lang="{{ site.lang | default: 'en-US' }}"
+  data-site-baseurl="{{ site.baseurl | default: '' }}"
+  data-guestbook-api-base="{% if jekyll.environment == 'production' %}https://lowfidev.cloud{% else %}http://localhost:8000{% endif %}"
+  data-guestbook-page-override="{{ page.guestbook_page | default: '' }}">
 {% include head.html %}
 {% assign base_slash = site.baseurl | append: '/' %}
 {% assign classes = '' %}
@@ -19,11 +22,28 @@ layout: table_wrappers
 {% if page.permalink == '/cv/' or page.url == '/cv/' or page.url == cv_baseurl or page.url contains '/cv/' %}
   {% assign classes = classes | append: ' page-cv' %}
 {% endif %}
+{% assign gb_baseurl = site.baseurl | append: '/guestbook/' %}
+{% if page.permalink == '/guestbook/' or page.url == '/guestbook/' or page.url == gb_baseurl or page.url contains '/guestbook/' %}
+  {% assign classes = classes | append: ' page-guestbook' %}
+{% endif %}
 {% if page.hide_sidebar == true %}
   {% assign classes = classes | append: ' hide-sidebar' %}
 {% endif %}
 {% if page.hide_header == true %}
   {% assign classes = classes | append: ' hide-header' %}
+{% endif %}
+
+{%- comment -%}
+  Liquid has limited boolean expression parsing inside unless/if. Compute a simple flag.
+{%- endcomment -%}
+{% assign show_guestbook = '1' %}
+{% if page.guestbook == false %}
+  {% assign show_guestbook = '' %}
+{% endif %}
+{% if classes contains 'page-index' %}
+  {% if page.guestbook_on_index != true and page.guestbook_embed != true %}
+    {% assign show_guestbook = '' %}
+  {% endif %}
 {% endif %}
 <body class="{{ classes | strip }}">
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
@@ -44,131 +64,47 @@ layout: table_wrappers
           {{ content }}
         {% endif %}
 
-        <h2>방명록</h2>
-        <div id="guestbook-section" style="display: none;">
-            <div id="guestbook-list"></div>
-            <form id="guestbook-form">
-                <input type="text" id="name" placeholder="이름" required>
-                <input type="password" id="password" placeholder="비밀번호" required>
-                <textarea id="message" placeholder="메시지" required></textarea>
-                <button type="submit">추가</button>
-            </form>
+        {% if show_guestbook == '1' %}
+        <div id="guestbook-section">
+          <div id="guestbook-status"></div>
+
+          {% if classes contains 'page-guestbook' %}
+          <form id="guestbook-form" class="guestbook-form">
+            <div class="form-group gb-name">
+              <input type="text" id="name" placeholder="Name" autocomplete="name" required class="form-input">
+            </div>
+            <div class="form-group gb-password">
+              <input type="password" id="password" placeholder="Password" autocomplete="current-password" required class="form-input">
+            </div>
+            <div class="form-group gb-message">
+              <textarea id="message" placeholder="Write a comment…" required class="form-input form-message" maxlength="500" aria-label="Comment" rows="1"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post</button>
+          </form>
+          <div id="guestbook-list" class="guestbook-list"></div>
+          <div id="guestbook-pagination" class="guestbook-pagination" aria-label="Comments pagination"></div>
+          {% else %}
+          <div id="guestbook-list" class="guestbook-list"></div>
+          <div id="guestbook-pagination" class="guestbook-pagination" aria-label="Comments pagination"></div>
+          <form id="guestbook-form" class="guestbook-form">
+            <div class="form-group gb-name">
+              <input type="text" id="name" placeholder="Name" autocomplete="name" required class="form-input">
+            </div>
+            <div class="form-group gb-password">
+              <input type="password" id="password" placeholder="Password" autocomplete="current-password" required class="form-input">
+            </div>
+            <div class="form-group gb-message">
+              <textarea id="message" placeholder="Write a comment…" required class="form-input form-message" maxlength="500" aria-label="Comment" rows="1"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post</button>
+          </form>
+          {% endif %}
         </div>
-
-        <script>
-        const API_BASE = 'https://lowfidev.cloud';
-
-        async function checkHealth() {
-            try {
-                const response = await fetch(`${API_BASE}/health`);
-                if (response.ok) {
-                    document.getElementById('guestbook-section').style.display = 'block';
-                    loadGuestbook();
-                } else {
-                    console.log('Health check failed, guestbook hidden');
-                }
-            } catch (error) {
-                console.error('Health check error:', error);
-            }
-        }
-
-        async function loadGuestbook() {
-            try {
-                const currentPage = window.location.pathname;
-                const response = await fetch(`${API_BASE}/guestbook?page=${encodeURIComponent(currentPage)}`);
-                const data = await response.json();
-                const list = document.getElementById('guestbook-list');
-                list.innerHTML = data.entries.map(entry => `
-                    <div class="guestbook-entry" data-id="${entry[0]}">
-                        <p><strong>${entry[1]}</strong> (${entry[3]})</p>
-                        <p>${entry[2]}</p>
-                        <button onclick="editEntry(${entry[0]})">수정</button>
-                        <button onclick="deleteEntry(${entry[0]})">삭제</button>
-                    </div>
-                `).join('');
-            } catch (error) {
-                console.error('Failed to load guestbook:', error);
-            }
-        }
-
-        async function addEntry(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const password = document.getElementById('password').value;
-            const message = document.getElementById('message').value;
-            const currentPage = window.location.pathname;
-            try {
-                const response = await fetch(`${API_BASE}/guestbook`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, password, message, page: currentPage })
-                });
-                if (response.ok) {
-                    loadGuestbook();
-                    document.getElementById('guestbook-form').reset();
-                } else {
-                    alert('추가 실패');
-                }
-            } catch (error) {
-                console.error('Failed to add entry:', error);
-            }
-        }
-
-        async function editEntry(id) {
-            const password = prompt('비밀번호를 입력하세요:');
-            if (!password) return;
-            const message = prompt('새 메시지를 입력하세요:');
-            if (!message) return;
-            try {
-                const response = await fetch(`${API_BASE}/guestbook/${id}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ password, message })
-                });
-                if (response.ok) {
-                    loadGuestbook();
-                } else {
-                    alert('수정 실패');
-                }
-            } catch (error) {
-                console.error('Failed to edit entry:', error);
-            }
-        }
-
-        async function deleteEntry(id) {
-            const password = prompt('비밀번호를 입력하세요:');
-            if (!password) return;
-            try {
-                const response = await fetch(`${API_BASE}/guestbook/${id}?password=${encodeURIComponent(password)}`, {
-                    method: 'DELETE'
-                });
-                if (response.ok) {
-                    loadGuestbook();
-                } else {
-                    alert('삭제 실패');
-                }
-            } catch (error) {
-                console.error('Failed to delete entry:', error);
-            }
-        }
-
-        document.getElementById('guestbook-form').addEventListener('submit', addEntry);
-        checkHealth();
-        </script>
-
-        <style>
-        .guestbook-entry {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        .guestbook-entry button {
-            margin-right: 5px;
-        }
-        </style>
-
-        {% if page.has_children == true and page.has_toc != false %}
-          {% include components/children_nav.html toc_list=toc_list %}
+        <noscript>
+          <div style="margin-top:12px;padding:10px 12px;border:1px solid #fecaca;background:#fff1f2;color:#991b1b;border-radius:8px;">
+            Comments require JavaScript. Please enable JavaScript to view and post comments.
+          </div>
+        </noscript>
         {% endif %}
 
         {% if page.has_children == true and page.has_toc != false %}
@@ -186,6 +122,10 @@ layout: table_wrappers
 
   {% if site.mermaid %}
     {% include components/mermaid.html %}
+  {% endif %}
+
+  {% if show_guestbook == '1' %}
+  <script src="{{ '/assets/js/guestbook.js' | relative_url }}"></script>
   {% endif %}
 </body>
 </html>

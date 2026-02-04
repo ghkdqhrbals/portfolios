@@ -119,7 +119,7 @@
 				const title = it.title||'(제목없음)';
 				// Estimate content size (fetch from data or default)
 				const groupTag = cat || 'misc';
-				const filename = title + '.md';
+				const filename = title;
 				
 				li.innerHTML = 
 					'<span class="r-date">' + dateStr + '</span>' +

@@ -10,6 +10,11 @@ $pink-300: #dd2cd4;
 .u-mono {font-family:Menlo,Consolas,monospace;}
 .u-tight {margin-top:0.25rem;margin-bottom:0.25rem;}
 
+/* Slightly tighter leading (line spacing) */
+.main-content {
+	line-height: 1.5;
+}
+
 /* --- Navigation refinement (professional style) --- */
 .side-bar {background:linear-gradient(180deg,#111 0%,#181a1f 100%); box-shadow: 2px 0 6px rgba(0,0,0,.4);} 
 .site-title {font-weight:600; letter-spacing:.5px;}
@@ -218,11 +223,440 @@ figure.highlight {
 	 .page-cv a:active, .page-cv a:hover {color:#ba0000 !important;}
 	/* Hide navigation & non-essential UI while keeping content like about page */
 	.side-bar, .site-header, nav[aria-label="Main"], .nav-list-expander, .search, .search-input-wrap {display:none !important;}
+	#guestbook-section {display:none !important;}
 	body {background:#fff !important;}
 	/* 코드 블럭 프린트용 스타일 */
 	div.highlighter-rouge, figure.highlight {
 		border: 1px solid #ccc !important;
 		background: #f5f5f5 !important;
 	}
+}
+
+/* === Guestbook (minimal, theme-aligned) === */
+
+#guestbook-status {display:none;}
+#guestbook-form {display:none;}
+
+#guestbook-section {
+	margin-top: $sp-7;
+	padding-top: $sp-5;
+	border-top: $border $border-color;
+	background: transparent;
+}
+
+.page-index #guestbook-section.recent-guestbook {
+	margin-top: $sp-4;
+	padding-top: 0;
+	border-top: 0;
+}
+
+.guestbook-list {margin:0; padding:0;}
+
+.guestbook-thread {margin:0; padding:0;}
+
+.guestbook-entry {
+	background: transparent;
+	border: 0;
+	border-bottom: $border $border-color;
+	border-radius: 0;
+	padding: 0.16rem 0;
+	margin: 0;
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr) max-content max-content;
+	align-items: center;
+	gap: $sp-3;
+	line-height: 1.08;
+	font-size: $font-size-4;
+	font-weight: 400;
+}
+
+.guestbook-reply {
+	padding: 0.16rem 0;
+	margin-left: 1.25rem;
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr) max-content max-content;
+	align-items: center;
+	gap: $sp-3;
+	border-bottom: $border $border-color;
+	line-height: 1.08;
+	font-size: $font-size-4;
+	font-weight: 400;
+}
+
+.guestbook-reply:last-child {border-bottom: 0;}
+
+.guestbook-entry:last-child {
+	border-bottom: 0;
+}
+
+.entry-name {font-weight:600; color:$body-heading-color;}
+
+.entry-date {font-size:$font-size-2; color:$search-result-preview-color; white-space:nowrap;}
+
+.entry-message {
+	color:$body-text-color;
+	line-height: 1.08;
+	white-space: pre-wrap;
+	overflow: visible;
+	text-overflow: clip;
+	overflow-wrap: anywhere;
+}
+
+.entry-actions {display:inline-flex; gap:$sp-2; justify-self:end;}
+
+.entry-actions {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 120ms ease;
+}
+
+.guestbook-entry:hover .entry-actions,
+.guestbook-reply:hover .entry-actions,
+.guestbook-entry:focus-within .entry-actions,
+.guestbook-reply:focus-within .entry-actions {
+	opacity: 1;
+	visibility: visible;
+}
+
+@media (hover: none) {
+	.entry-actions {opacity: 1; visibility: visible;}
+}
+
+.action-btn {
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	padding:0.22rem 0.55rem;
+	border-radius:$border-radius;
+	border: 0;
+	background: transparent;
+	color:$search-result-preview-color;
+	font-size:$font-size-3;
+	line-height:1.2;
+	cursor:pointer;
+	box-shadow:none;
+
+	&:hover {
+		background: transparent;
+		color: $body-text-color;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+	&:focus-visible {outline:2px solid $link-color; outline-offset:2px;}
+}
+
+@media (max-width: 700px) {
+	.guestbook-entry {
+		grid-template-columns: max-content minmax(0, 1fr);
+		grid-template-areas:
+			"name message"
+			"date actions";
+		align-items: start;
+	}
+	.entry-name {grid-area: name;}
+	.entry-message {grid-area: message;}
+	.entry-date {grid-area: date;}
+	.entry-actions {grid-area: actions; justify-self: end;}
+}
+
+.edit-btn {
+	color:$search-result-preview-color;
+	&:hover {background: transparent;}
+}
+
+.delete-btn {
+	color:$search-result-preview-color;
+	&:hover {background: transparent;}
+}
+
+.guestbook-form {
+	margin-top:$sp-4;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	display: grid;
+	grid-template-columns: minmax(120px, 160px) minmax(120px, 160px) minmax(0, 1fr) max-content;
+	grid-template-areas:
+		"name password message submit";
+	align-items: center;
+	gap: $sp-2;
+	width: 100%;
+}
+
+.form-group {margin-bottom:$sp-4;}
+
+.guestbook-form .form-group {
+	margin-bottom: 0;
+	flex: 0 0 auto;
+	min-width: 0;
+}
+
+.guestbook-form .gb-name {grid-area: name;}
+.guestbook-form .gb-password {grid-area: password;}
+.guestbook-form .gb-message {grid-area: message;}
+
+.guestbook-form .form-message {
+	width: 100%;
+	min-width: 0;
+}
+
+.form-input,
+.form-textarea {
+	width:100%;
+	min-width:0;
+	box-sizing:border-box;
+	padding:0.45rem 0.6rem;
+	border:$border $border-color;
+	border-radius:$border-radius;
+	background:$body-background-color;
+	color:$body-text-color;
+	font-size:$font-size-4;
+
+	&:focus {
+		outline:none;
+		border-color: rgba($link-color, 0.55);
+		box-shadow: 0 0 0 3px rgba($link-color, 0.18);
+	}
+}
+
+.form-input::placeholder,
+.gb-reply-form input::placeholder {
+	font-size: $font-size-2;
+	opacity: 0.8;
+}
+
+/* Reply form (inline) */
+.gb-reply-form {
+	margin: 0.35rem 0 0.6rem 1.25rem;
+	display: grid;
+	grid-template-columns: minmax(120px, 160px) minmax(120px, 160px) minmax(0, 1fr) max-content max-content;
+	gap: $sp-2;
+	align-items: center;
+}
+
+.gb-reply-form input,
+.gb-reply-form textarea {
+	min-width: 0;
+	border: 0;
+	border-bottom: $border $border-color;
+	border-radius: 0;
+	background: transparent;
+	padding: 0.35rem 0.2rem;
+	font-size: $font-size-4;
+	line-height: 1.35;
+	resize: none;
+	overflow: hidden;
+
+	&:focus {
+		outline: none;
+		border-bottom-color: rgba($link-color, 0.55);
+		box-shadow: 0 2px 0 0 rgba($link-color, 0.20);
+	}
+}
+
+.gb-reply-submit,
+.gb-reply-cancel {
+	border: 0;
+	background: transparent;
+	color: $search-result-preview-color;
+	font-size: $font-size-3;
+	padding: 0.2rem 0.4rem;
+	cursor: pointer;
+
+	&:hover {
+		color: $body-text-color;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+}
+
+/* Make main inputs simpler too */
+.guestbook-form .form-input {
+	border: 0;
+	border-bottom: $border $border-color;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+	padding: 0.35rem 0.2rem;
+}
+
+.guestbook-form textarea.form-input {
+	resize: none;
+	overflow: hidden;
+}
+
+.guestbook-form .form-input:focus {
+	box-shadow: 0 2px 0 0 rgba($link-color, 0.20);
+}
+
+.form-textarea {min-height:110px; resize:vertical;}
+
+.submit-btn {
+	@extend .btn;
+	padding:0.32rem 0.75rem;
+	font-size: $font-size-3;
+	line-height: 1.2;
+	background: transparent;
+	color: $search-result-preview-color;
+	box-shadow: none;
+	border: 0;
+	grid-area: submit;
+	align-self: center;
+
+	&:hover {
+		background: transparent;
+		color: $body-text-color;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+}
+
+.guestbook-pagination {
+	display: none;
+	align-items: center;
+	justify-content: flex-end;
+	gap: $sp-2;
+	margin-top: $sp-2;
+	margin-bottom: $sp-3;
+}
+
+.gb-page-btn {
+	border: 0;
+	background: transparent;
+	color: $search-result-preview-color;
+	font-size: $font-size-3;
+	padding: 0.2rem 0.4rem;
+	cursor: pointer;
+
+	&:hover {
+		color: $body-text-color;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	&:disabled {
+		opacity: 0.45;
+		cursor: default;
+		text-decoration: none;
+	}
+}
+
+.gb-page-info {
+	color: $search-result-preview-color;
+	font-size: $font-size-2;
+}
+
+@media (max-width: 700px) {
+	.guestbook-form {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"name"
+			"password"
+			"message"
+			"submit";
+	}
+	.guestbook-form .form-message {
+		flex: 1 1 100%;
+		min-width: 0;
+	}
+	.submit-btn {justify-self: end;}
+}
+
+/* === Recent posts (home) - keep as clean as comments === */
+
+#recent-root.recent-root {
+	margin-top: $sp-7;
+	padding-top: $sp-5;
+	border-top: $border $border-color;
+}
+
+.recent-meta {
+	color: $search-result-preview-color;
+	font-size: $font-size-2;
+	margin: 0 0 $sp-2 0;
+}
+
+.recent-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.recent-list li {
+	display: grid;
+	grid-template-columns: max-content max-content minmax(0, 1fr);
+	gap: $sp-2;
+	align-items: baseline;
+	padding: 0.16rem 0;
+	border-bottom: $border $border-color;
+	line-height: 1.08;
+	font-size: $font-size-4;
+	font-weight: 400;
+}
+
+.recent-list li:last-child {border-bottom: 0;}
+
+.recent-list li::before {display: none !important; content: none !important;}
+
+.recent-list .r-date {
+	font-size: inherit;
+	color: $search-result-preview-color;
+	white-space: nowrap;
+	font-weight: inherit;
+}
+
+.recent-list .tags {
+	font-size: inherit;
+	color: $search-result-preview-color;
+	white-space: nowrap;
+	font-weight: inherit;
+}
+
+.recent-list .r-title {min-width: 0;}
+
+.recent-list .r-title a {
+	color: $body-text-color;
+	font-size: inherit;
+	font-weight: inherit;
+	text-decoration: none;
+	border-bottom: 0;
+	background-image: none;
+}
+
+.recent-list .r-title a:hover {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.recent-controls {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: $sp-2;
+	margin-top: $sp-2;
+}
+
+.recent-count {
+	color: $search-result-preview-color;
+	font-size: $font-size-2;
+}
+
+.recent-empty {
+	padding: 0.6rem 0;
+	color: $search-result-preview-color;
+	font-size: $font-size-2;
+}
+
+@media (max-width: 700px) {
+	.recent-list li {
+		grid-template-columns: max-content minmax(0, 1fr);
+		grid-template-areas:
+			"date title"
+			"tag title";
+		align-items: start;
+	}
+	.recent-list .r-date {grid-area: date;}
+	.recent-list .tags {grid-area: tag;}
+	.recent-list .r-title {grid-area: title;}
 }
 
