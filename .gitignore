@@ -8,6 +8,15 @@ Gemfile.lock
 node_modules
 .DS_Store
 
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Local guestbook DB
+guestbook.db
+
 # GA4 local hardcode (do NOT commit secrets)
 scripts/ga4.local.json
 scripts/ga4.key.json
