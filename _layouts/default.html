@@ -44,6 +44,133 @@ layout: table_wrappers
           {{ content }}
         {% endif %}
 
+        <h2>방명록</h2>
+        <div id="guestbook-section" style="display: none;">
+            <div id="guestbook-list"></div>
+            <form id="guestbook-form">
+                <input type="text" id="name" placeholder="이름" required>
+                <input type="password" id="password" placeholder="비밀번호" required>
+                <textarea id="message" placeholder="메시지" required></textarea>
+                <button type="submit">추가</button>
+            </form>
+        </div>
+
+        <script>
+        const API_BASE = 'https://lowfidev.cloud';
+
+        async function checkHealth() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                if (response.ok) {
+                    document.getElementById('guestbook-section').style.display = 'block';
+                    loadGuestbook();
+                } else {
+                    console.log('Health check failed, guestbook hidden');
+                }
+            } catch (error) {
+                console.error('Health check error:', error);
+            }
+        }
+
+        async function loadGuestbook() {
+            try {
+                const currentPage = window.location.pathname;
+                const response = await fetch(`${API_BASE}/guestbook?page=${encodeURIComponent(currentPage)}`);
+                const data = await response.json();
+                const list = document.getElementById('guestbook-list');
+                list.innerHTML = data.entries.map(entry => `
+                    <div class="guestbook-entry" data-id="${entry[0]}">
+                        <p><strong>${entry[1]}</strong> (${entry[3]})</p>
+                        <p>${entry[2]}</p>
+                        <button onclick="editEntry(${entry[0]})">수정</button>
+                        <button onclick="deleteEntry(${entry[0]})">삭제</button>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Failed to load guestbook:', error);
+            }
+        }
+
+        async function addEntry(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message').value;
+            const currentPage = window.location.pathname;
+            try {
+                const response = await fetch(`${API_BASE}/guestbook`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, password, message, page: currentPage })
+                });
+                if (response.ok) {
+                    loadGuestbook();
+                    document.getElementById('guestbook-form').reset();
+                } else {
+                    alert('추가 실패');
+                }
+            } catch (error) {
+                console.error('Failed to add entry:', error);
+            }
+        }
+
+        async function editEntry(id) {
+            const password = prompt('비밀번호를 입력하세요:');
+            if (!password) return;
+            const message = prompt('새 메시지를 입력하세요:');
+            if (!message) return;
+            try {
+                const response = await fetch(`${API_BASE}/guestbook/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password, message })
+                });
+                if (response.ok) {
+                    loadGuestbook();
+                } else {
+                    alert('수정 실패');
+                }
+            } catch (error) {
+                console.error('Failed to edit entry:', error);
+            }
+        }
+
+        async function deleteEntry(id) {
+            const password = prompt('비밀번호를 입력하세요:');
+            if (!password) return;
+            try {
+                const response = await fetch(`${API_BASE}/guestbook/${id}?password=${encodeURIComponent(password)}`, {
+                    method: 'DELETE'
+                });
+                if (response.ok) {
+                    loadGuestbook();
+                } else {
+                    alert('삭제 실패');
+                }
+            } catch (error) {
+                console.error('Failed to delete entry:', error);
+            }
+        }
+
+        document.getElementById('guestbook-form').addEventListener('submit', addEntry);
+        checkHealth();
+        </script>
+
+        <style>
+        .guestbook-entry {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .guestbook-entry button {
+            margin-right: 5px;
+        }
+        </style>
+
+        {% if page.has_children == true and page.has_toc != false %}
+          {% include components/children_nav.html toc_list=toc_list %}
+        {% endif %}
+
         {% if page.has_children == true and page.has_toc != false %}
           {% include components/children_nav.html toc_list=toc_list %}
         {% endif %}
