@@ -128,7 +128,7 @@
     setStatus('', 'info');
     const url = API_BASE + '/health';
     try {
-      const r = await fetch(url, { method: 'GET', mode: 'cors', cache: 'no-store' });
+      const r = await fetch(url, { method: 'GET', mode: 'cors', cache: 'no-store', credentials: 'include' });
       if (!r.ok) {
         setFormVisible(false);
         setStatus('', 'warn');
@@ -213,7 +213,7 @@
       + '&per_page=' + encodeURIComponent(String(PAGE_SIZE))
       + '&order=' + encodeURIComponent(order);
     try {
-      const r = await fetch(url, { method: 'GET', mode: 'cors', cache: 'no-store' });
+      const r = await fetch(url, { method: 'GET', mode: 'cors', cache: 'no-store', credentials: 'include' });
       const data = await r.json();
       const list = byId('guestbook-list');
       if (!list) return;
@@ -338,6 +338,7 @@
     try {
       const r = await fetch(url, {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, password, message, page }),
       });
@@ -376,6 +377,7 @@
     try {
       const r = await fetch(url, {
         method: 'PUT',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password, message }),
       });
@@ -404,6 +406,7 @@
     try {
       const r = await fetch(url, {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, password, message, page, parent_id: Number(parentId) }),
       });
@@ -426,7 +429,7 @@
 
     const url = API_BASE + '/guestbook/' + encodeURIComponent(String(id)) + '?password=' + encodeURIComponent(password);
     try {
-      const r = await fetch(url, { method: 'DELETE' });
+      const r = await fetch(url, { method: 'DELETE', credentials: 'include' });
       if (!r.ok) {
         alert('Delete failed');
         return;
