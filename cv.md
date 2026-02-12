@@ -15,11 +15,14 @@ guestbook: false
 
 ## EXPERIENCE
 * Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04.15 ~ 2025.11.30
-  * MAU 77만 교촌을 포함한 자담 등 멀티 프랜차이즈 브랜드의 주문/결제/멤버십 서비스 개발 및 운영.
-  * 100만명 이상 회원 대상 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 **95.4% 개선.**<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/20/" style="color:#007bff; text-decoration:none;">[1]</a></sup>
-  * 브랜드 별 모듈화 및 개별 & 통합 CI/CD 파이프라인 구성.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/25/" style="color:#007bff; text-decoration:none;">[2]</a></sup>
-  * Redis Stream 을 활용한 비동기 알림 시스템 설계 및 개발리드. 리밸런싱, DLQ, 장애 자동복구 구현.<sup><a href="https://ghkdqhrbals.github.io/portfolios/docs/Java/30/" style="color:#007bff;text-decoration:none;">[3]</a></sup>.
-  * 초당 수천 건의 이벤트를 처리할 수 있는 데이터 동기화 파이프라인 설계 및 개발리드(Redis Stream 백프레셔, memory 85% 제한 consume 안전한 동기화 처리). [CDC ETL](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/)
+  * MAU 77만 교촌을 포함한 자담 등 멀티 프랜차이즈 브랜드의 주문/결제/멤버십 서비스 개발 및 무중단 배포 운영.
+  * 자담 위메프오 데이터 마이그레이션 성공
+  * 100만명 이상 회원 대상 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 [95.4% 개선](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/).
+  * 브랜드 별 모듈화 및 개별 & [통합 CI/CD 파이프라인](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/) 구성.
+  * 대규모 알림 전송 배치와 실제 주문 알림 전송이 겹치면 외부 push API 타임아웃 발생 및 retry 할 때 서버 재시작 시 몇 건의 전송 누락 문제 확인
+    * 기존 인프라인 Redis 에 Stream 기능을 도입하며 재시작 이후에도 PEL 기반 재처리 가능하도록 보완하여 알림 유실 제거
+    * 결과적으로 전송 누락률 0% 수준으로 [안정화](https://ghkdqhrbals.github.io/portfolios/docs/Java/30/)
+  * 초당 수천 건의 이벤트를 처리할 수 있는 데이터 동기화 파이프라인 설계 및 [개발운영](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/)(Redis Stream 백프레셔, memory 85% 제한 consume 안전한 동기화 처리).
   * 개발스택 : Kotlin/Spring-Boot, Mysql, Redis Stream MQ, Kubernetes, AWS-based infra
 * Senior Researcher(foxee) 2023.06 ~ 2024.01
   * Java/Spring-Boot 기반 취약점 분석 웹 백엔드 개발
