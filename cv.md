@@ -15,7 +15,7 @@ guestbook: false
 
 ## EXPERIENCE
 * Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04.15 ~ 2025.11.30
-  * MAU 77만 교촌을 포함한 자담 등 멀티 프랜차이즈 브랜드의 주문/결제/멤버십 서비스 개발 및 무중단 배포 운영.
+  * 600만+ 회원, MAU 77만 교촌을 포함한 자담 등 멀티 프랜차이즈 브랜드의 주문/결제/멤버십 서비스 개발 및 무중단 배포 운영.
   * 자담 위메프오 데이터 마이그레이션 성공
   * 100만명 이상 회원 대상 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 [95.4% 개선](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/).
   * 브랜드 별 모듈화 및 개별 & [통합 CI/CD 파이프라인](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/) 구성.
