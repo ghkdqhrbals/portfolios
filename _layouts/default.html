@@ -124,7 +124,7 @@ layout: table_wrappers
     {% include components/mermaid.html %}
   {% endif %}
 
-  {% if show_guestbook == '1' %}
+{% if show_guestbook == '1' or page.qa_assistant == true %}
   <script src="{{ '/assets/js/guestbook.js' | relative_url }}"></script>
   {% endif %}
 </body>

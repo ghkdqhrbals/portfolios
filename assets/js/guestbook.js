@@ -33,6 +33,11 @@
     return (v || '').replace(/\/$/, '');
   }
 
+  function getPageTitle() {
+    const title = document.title || '';
+    return title.replace(/\s*[-|].*$/, '').trim();
+  }
+
   function getGuestbookPageOverride() {
     const el = document.documentElement;
     const v = el && el.getAttribute('data-guestbook-page-override');
@@ -115,8 +120,71 @@
   let lastTotal = 0;
   let replyOpenFor = null;
 
+  function setQaState(message, kind) {
+    const el = byId('blog-qa-status');
+    if (!el) return;
+    if (!message) {
+      el.textContent = '';
+      el.style.display = 'none';
+      return;
+    }
+    const tones = {
+      info: 'border:1px solid #dbeafe;background:#eff6ff;color:#1d4ed8;',
+      ok: 'border:1px solid #bbf7d0;background:#f0fdf4;color:#166534;',
+      error: 'border:1px solid #fecaca;background:#fff1f2;color:#991b1b;',
+    };
+    el.style.display = 'block';
+    el.setAttribute('style', 'margin:12px 0;padding:10px 12px;border-radius:12px;' + (tones[kind] || tones.info));
+    el.textContent = message;
+  }
+
+  function setSubmitLoading(isLoading) {
+    const submitEl = byId('blog-qa-submit');
+    const labelEl = submitEl && submitEl.querySelector ? submitEl.querySelector('.blog-qa-submit-label') : null;
+    if (!submitEl || !labelEl) return;
+
+    submitEl.disabled = !!isLoading;
+    submitEl.classList.toggle('is-loading', !!isLoading);
+    labelEl.textContent = isLoading ? '' : '➜';
+    submitEl.setAttribute('aria-label', isLoading ? '답변 생성 중' : '질문 보내기');
+  }
+
+  function setMiniStatus(idPrefix, text, kind) {
+    const card = byId(idPrefix + '-card');
+    const value = byId(idPrefix + '-value');
+    const dot = byId(idPrefix + '-dot');
+    if (!card || !value) return;
+
+    const tones = {
+      info: { border: '#cbd5e1', bg: '#f8fafc', fg: '#334155' },
+      ok: { border: '#bbf7d0', bg: '#f0fdf4', fg: '#166534' },
+      warn: { border: '#fde68a', bg: '#fffbeb', fg: '#92400e' },
+      error: { border: '#fecaca', bg: '#fff1f2', fg: '#991b1b' },
+    };
+    const tone = tones[kind] || tones.info;
+
+    card.style.borderColor = 'transparent';
+    card.style.background = 'transparent';
+    value.style.color = tone.fg;
+    value.textContent = text;
+    if (dot) {
+      dot.classList.remove('info', 'ok', 'warn', 'error');
+      dot.classList.add(kind || 'info');
+    }
+  }
+
+  async function checkBlogSiteStatus() {
+    try {
+      await fetch('https://ghkdqhrbals.github.io/portfolios/', { method: 'GET', mode: 'no-cors', cache: 'no-store' });
+      setMiniStatus('blog-site-status', 'reachable', 'ok');
+    } catch (_) {
+      setMiniStatus('blog-site-status', 'unreachable', 'error');
+    }
+  }
+
   async function checkHealth() {
     if (!API_BASE) {
+      setMiniStatus('backend-status', 'missing api base', 'warn');
       setFormVisible(false);
       setStatus('', 'warn');
       setSectionVisible(false);
@@ -130,6 +198,7 @@
     try {
       const r = await fetch(url, { method: 'GET', mode: 'cors', cache: 'no-store', credentials: 'include' });
       if (!r.ok) {
+        setMiniStatus('backend-status', 'degraded', 'warn');
         setFormVisible(false);
         setStatus('', 'warn');
         setSectionVisible(false);
@@ -139,16 +208,200 @@
       setFormVisible(true);
       setStatus('', 'ok');
       setSectionVisible(true);
+      setMiniStatus('backend-status', 'healthy', 'ok');
       logDebug('health ok', { url });
       return true;
     } catch (e) {
       const msg = e && e.message ? e.message : String(e);
+      setMiniStatus('backend-status', 'unreachable', 'error');
       setFormVisible(false);
       setStatus('', 'error');
       setSectionVisible(false);
       logError('health fetch failed', { message: msg, url });
       return false;
     }
+  }
+
+  function renderInlineMarkdown(text) {
+    return escapeHtml(String(text || ''))
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+  }
+
+  function renderMarkdown(markdown) {
+    const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
+    const html = [];
+    let inCodeBlock = false;
+    let codeLines = [];
+    let listType = null;
+    let paragraph = [];
+
+    function flushParagraph() {
+      if (!paragraph.length) return;
+      html.push('<p>' + renderInlineMarkdown(paragraph.join(' ')) + '</p>');
+      paragraph = [];
+    }
+
+    function flushList() {
+      if (!listType) return;
+      html.push('</' + listType + '>');
+      listType = null;
+    }
+
+    function flushCodeBlock() {
+      if (!inCodeBlock) return;
+      html.push('<pre><code>' + escapeHtml(codeLines.join('\n')) + '</code></pre>');
+      inCodeBlock = false;
+      codeLines = [];
+    }
+
+    for (let i = 0; i < lines.length; i += 1) {
+      const line = lines[i];
+      const trimmed = line.trim();
+
+      if (trimmed.startsWith('```')) {
+        flushParagraph();
+        flushList();
+        if (inCodeBlock) flushCodeBlock();
+        else inCodeBlock = true;
+        continue;
+      }
+
+      if (inCodeBlock) {
+        codeLines.push(line);
+        continue;
+      }
+
+      if (!trimmed) {
+        flushParagraph();
+        flushList();
+        continue;
+      }
+
+      const heading = trimmed.match(/^(#{1,6})\s+(.+)$/);
+      if (heading) {
+        flushParagraph();
+        flushList();
+        const level = Math.min(6, heading[1].length);
+        html.push('<h' + level + '>' + renderInlineMarkdown(heading[2]) + '</h' + level + '>');
+        continue;
+      }
+
+      const bullet = trimmed.match(/^[-*]\s+(.+)$/);
+      if (bullet) {
+        flushParagraph();
+        if (listType !== 'ul') {
+          flushList();
+          listType = 'ul';
+          html.push('<ul>');
+        }
+        html.push('<li>' + renderInlineMarkdown(bullet[1]) + '</li>');
+        continue;
+      }
+
+      const numbered = trimmed.match(/^\d+\.\s+(.+)$/);
+      if (numbered) {
+        flushParagraph();
+        if (listType !== 'ol') {
+          flushList();
+          listType = 'ol';
+          html.push('<ol>');
+        }
+        html.push('<li>' + renderInlineMarkdown(numbered[1]) + '</li>');
+        continue;
+      }
+
+      if (listType) flushList();
+      paragraph.push(trimmed);
+    }
+
+    flushParagraph();
+    flushList();
+    flushCodeBlock();
+
+    return html.join('');
+  }
+
+  function renderQaResult(answer, sources, mode) {
+    const host = byId('blog-qa-result');
+    if (!host) return;
+
+    const renderedAnswer = renderMarkdown(answer || '');
+    const sourceHtml = (sources || [])
+      .map((source) => {
+        const title = escapeHtml(String(source.title || '참고 링크'));
+        const url = escapeHtml(String(source.url || '#'));
+        return '<li><a href="' + url + '" target="_blank" rel="noreferrer">' + title + '</a></li>';
+      })
+      .join('');
+
+    host.innerHTML =
+      '<div class="blog-qa-answer markdown-body">' + renderedAnswer + '</div>' +
+      (sourceHtml ? '<div class="blog-qa-sources"><strong>참고한 글</strong><ul>' + sourceHtml + '</ul></div>' : '');
+  }
+
+  async function askQuestion(ev) {
+    ev.preventDefault();
+    if (!API_BASE) {
+      setQaState('API 서버 주소가 비어 있습니다.', 'error');
+      return;
+    }
+
+    const questionEl = byId('blog-qa-question');
+    const submitEl = byId('blog-qa-submit');
+    const question = (questionEl && questionEl.value) || '';
+    if (!question.trim()) {
+      setQaState('질문을 입력해 주세요.', 'error');
+      return;
+    }
+
+    setSubmitLoading(true);
+    setQaState('', 'info');
+
+    try {
+      const response = await fetch(API_BASE + '/ask', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question,
+          page_url: window.location.href,
+          page_title: getPageTitle(),
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        const detail = (data && (data.detail || data.message)) || '질문 처리에 실패했습니다.';
+        throw new Error(detail);
+      }
+
+      renderQaResult(data.answer, data.sources || [], data.mode || '');
+      setQaState('', 'ok');
+    } catch (e) {
+      const msg = e && e.message ? e.message : String(e);
+      setQaState(msg, 'error');
+    } finally {
+      setSubmitLoading(false);
+    }
+  }
+
+  function wireQaComposer(form) {
+    const textarea = byId('blog-qa-question');
+    if (!textarea || !form) return;
+
+    textarea.addEventListener('input', () => autoGrowTextarea(textarea));
+    textarea.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'Enter') return;
+      if (ev.shiftKey) return;
+      ev.preventDefault();
+      try {
+        if (typeof form.requestSubmit === 'function') form.requestSubmit();
+        else form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+      } catch (_) {}
+    });
+    autoGrowTextarea(textarea);
   }
 
   function clampInt(v, min, max, fallback) {
@@ -509,17 +762,28 @@
     setSectionVisible(true);
 
     const form = byId('guestbook-form');
-    if (!form) return;
+    const qaForm = byId('blog-qa-form');
 
-    wireEntryButtons();
-    wirePagination();
-    form.addEventListener('submit', addEntry);
+    if (qaForm) {
+      qaForm.addEventListener('submit', askQuestion);
+      wireQaComposer(qaForm);
+    }
 
-    const mainMessage = byId('message');
-    wireEnterToSubmit(mainMessage, form);
+    if (form) {
+      wireEntryButtons();
+      wirePagination();
+      form.addEventListener('submit', addEntry);
+
+      const mainMessage = byId('message');
+      wireEnterToSubmit(mainMessage, form);
+    }
+
+    if (!form && !qaForm) return;
+
+    checkBlogSiteStatus();
 
     checkHealth().then((ok) => {
-      if (!ok) return;
+      if (!ok || !form) return;
       loadGuestbook(1);
     });
   }
