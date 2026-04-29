@@ -134,7 +134,7 @@
       error: 'border:1px solid #fecaca;background:#fff1f2;color:#991b1b;',
     };
     el.style.display = 'block';
-    el.setAttribute('style', 'margin:12px 0;padding:10px 12px;border-radius:12px;' + (tones[kind] || tones.info));
+    el.setAttribute('style', 'margin:12px 0;padding:10px 12px;border-radius:8px;' + (tones[kind] || tones.info));
     el.textContent = message;
   }
 
@@ -276,7 +276,6 @@
 
       if (!trimmed) {
         flushParagraph();
-        flushList();
         continue;
       }
 
@@ -301,15 +300,16 @@
         continue;
       }
 
-      const numbered = trimmed.match(/^\d+\.\s+(.+)$/);
+      const numbered = trimmed.match(/^(\d+)\.\s+(.+)$/);
       if (numbered) {
         flushParagraph();
         if (listType !== 'ol') {
           flushList();
           listType = 'ol';
-          html.push('<ol>');
+          const start = Math.max(1, Number.parseInt(numbered[1], 10) || 1);
+          html.push('<ol start="' + start + '">');
         }
-        html.push('<li>' + renderInlineMarkdown(numbered[1]) + '</li>');
+        html.push('<li>' + renderInlineMarkdown(numbered[2]) + '</li>');
         continue;
       }
 
@@ -324,11 +324,41 @@
     return html.join('');
   }
 
-  function renderQaResult(answer, sources, mode) {
-    const host = byId('blog-qa-result');
-    if (!host) return;
+  function normalizeToolCalls(toolCalls) {
+    if (!Array.isArray(toolCalls)) return [];
+    return toolCalls
+      .map((toolCall) => {
+        if (!toolCall || typeof toolCall !== 'object') return null;
+        const tool = toolCall.tool || toolCall.name || '';
+        const args = toolCall.arguments || toolCall.args || {};
+        if (!tool) return null;
+        return { tool: String(tool), arguments: args };
+      })
+      .filter(Boolean);
+  }
 
-    const renderedAnswer = renderMarkdown(answer || '');
+  function createStreamingQaResult() {
+    const host = byId('blog-qa-result');
+    if (!host) return null;
+    host.innerHTML =
+      '<div class="blog-qa-tools" style="display:none;" aria-label="호출된 함수"><ul></ul></div>' +
+      '<div class="blog-qa-answer markdown-body"></div>' +
+      '<div class="blog-qa-sources" style="display:none;"><strong>참고한 글</strong><ul></ul></div>';
+    return host;
+  }
+
+  function updateStreamingAnswer(answer) {
+    const host = byId('blog-qa-result');
+    const answerEl = host && host.querySelector ? host.querySelector('.blog-qa-answer') : null;
+    if (!answerEl) return;
+    answerEl.innerHTML = renderMarkdown(answer || '');
+  }
+
+  function updateStreamingSources(sources) {
+    const host = byId('blog-qa-result');
+    const sourcesEl = host && host.querySelector ? host.querySelector('.blog-qa-sources') : null;
+    const listEl = sourcesEl && sourcesEl.querySelector ? sourcesEl.querySelector('ul') : null;
+    if (!sourcesEl || !listEl) return;
     const sourceHtml = (sources || [])
       .map((source) => {
         const title = escapeHtml(String(source.title || '참고 링크'));
@@ -336,10 +366,103 @@
         return '<li><a href="' + url + '" target="_blank" rel="noreferrer">' + title + '</a></li>';
       })
       .join('');
+    listEl.innerHTML = sourceHtml;
+    sourcesEl.style.display = sourceHtml ? 'block' : 'none';
+  }
 
-    host.innerHTML =
-      '<div class="blog-qa-answer markdown-body">' + renderedAnswer + '</div>' +
-      (sourceHtml ? '<div class="blog-qa-sources"><strong>참고한 글</strong><ul>' + sourceHtml + '</ul></div>' : '');
+  function addStreamingToolCall(toolCalls, toolCall) {
+    const normalized = normalizeToolCalls([toolCall])[0];
+    if (!normalized) return;
+    const key = normalized.tool + ':' + JSON.stringify(normalized.arguments || {});
+    const exists = toolCalls.some((existing) => existing.key === key);
+    if (!exists) toolCalls.push({ key, tool: normalized.tool, arguments: normalized.arguments });
+
+    const host = byId('blog-qa-result');
+    const toolsEl = host && host.querySelector ? host.querySelector('.blog-qa-tools') : null;
+    const listEl = toolsEl && toolsEl.querySelector ? toolsEl.querySelector('ul') : null;
+    if (!toolsEl || !listEl) return;
+    listEl.innerHTML = toolCalls
+      .map((item) => {
+        return '<li><span class="blog-qa-tool-name">' + escapeHtml(item.tool) + '</span></li>';
+      })
+      .join('');
+    toolsEl.style.display = toolCalls.length ? 'block' : 'none';
+  }
+
+  function parseSseMessage(raw) {
+    const message = { event: '', data: '' };
+    String(raw || '').split(/\r?\n/).forEach((line) => {
+      if (!line || line.startsWith(':')) return;
+      const idx = line.indexOf(':');
+      const field = idx >= 0 ? line.slice(0, idx) : line;
+      let value = idx >= 0 ? line.slice(idx + 1) : '';
+      if (value.startsWith(' ')) value = value.slice(1);
+      if (field === 'event') message.event = value;
+      if (field === 'data') message.data += (message.data ? '\n' : '') + value;
+    });
+    return message;
+  }
+
+  async function readAskStream(response, state) {
+    if (!response.body || !response.body.getReader) {
+      throw new Error('이 브라우저에서 스트리밍 응답을 읽을 수 없습니다.');
+    }
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    async function handleMessage(raw) {
+      const message = parseSseMessage(raw);
+      if (!message.data) return;
+
+      let payload;
+      try {
+        payload = JSON.parse(message.data);
+      } catch (_) {
+        return;
+      }
+
+      const eventName = payload.event || message.event;
+      if (eventName === 'answer_delta') {
+        state.answer += payload.delta || '';
+        updateStreamingAnswer(state.answer);
+        return;
+      }
+      if (eventName === 'tool_call') {
+        addStreamingToolCall(state.toolCalls, payload.tool_call);
+        return;
+      }
+      if (eventName === 'done') {
+        const result = payload.result || {};
+        state.answer = result.answer || state.answer;
+        updateStreamingAnswer(state.answer);
+        updateStreamingSources(result.sources || []);
+        normalizeToolCalls(result.tool_calls).forEach((toolCall) => addStreamingToolCall(state.toolCalls, toolCall));
+        state.done = true;
+        return;
+      }
+      if (eventName === 'error') {
+        throw new Error(payload.error || '스트리밍 처리 중 오류가 발생했습니다.');
+      }
+    }
+
+    while (true) {
+      const chunk = await reader.read();
+      if (chunk.done) break;
+      buffer += decoder.decode(chunk.value, { stream: true });
+
+      let boundary = buffer.search(/\r?\n\r?\n/);
+      while (boundary >= 0) {
+        const raw = buffer.slice(0, boundary);
+        buffer = buffer.slice(buffer.charAt(boundary) === '\r' ? boundary + 4 : boundary + 2);
+        await handleMessage(raw);
+        boundary = buffer.search(/\r?\n\r?\n/);
+      }
+    }
+
+    buffer += decoder.decode();
+    if (buffer.trim()) await handleMessage(buffer);
   }
 
   async function askQuestion(ev) {
@@ -350,7 +473,6 @@
     }
 
     const questionEl = byId('blog-qa-question');
-    const submitEl = byId('blog-qa-submit');
     const question = (questionEl && questionEl.value) || '';
     if (!question.trim()) {
       setQaState('질문을 입력해 주세요.', 'error');
@@ -361,23 +483,28 @@
     setQaState('', 'info');
 
     try {
-      const response = await fetch(API_BASE + '/ask', {
+      createStreamingQaResult();
+
+      const response = await fetch(API_BASE + '/ask/stream', {
         method: 'POST',
         credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream' },
         body: JSON.stringify({
           question,
           page_url: window.location.href,
           page_title: getPageTitle(),
         }),
       });
-      const data = await response.json();
       if (!response.ok) {
-        const detail = (data && (data.detail || data.message)) || '질문 처리에 실패했습니다.';
+        let detail = '질문 처리에 실패했습니다.';
+        try {
+          const data = await response.json();
+          detail = (data && (data.detail || data.message)) || detail;
+        } catch (_) {}
         throw new Error(detail);
       }
 
-      renderQaResult(data.answer, data.sources || [], data.mode || '');
+      await readAskStream(response, { answer: '', toolCalls: [], done: false });
       setQaState('', 'ok');
     } catch (e) {
       const msg = e && e.message ? e.message : String(e);

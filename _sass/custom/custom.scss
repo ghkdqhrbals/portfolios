@@ -439,7 +439,7 @@ figure.highlight {
 	align-items: end;
 	gap: $sp-2;
 	padding: 0.4rem 0.45rem 0.4rem 0.65rem;
-	border-radius: 18px;
+	border-radius: 8px;
 	background: #ffffff;
 	border: 1px solid #e5e7eb;
 	box-shadow: none;
@@ -520,9 +520,44 @@ figure.highlight {
 	line-height: 1.7;
 	color: #1f2937;
 	padding: 0.95rem 1.05rem;
-	border-radius: 16px 16px 16px 6px;
+	border-radius: 8px;
 	background: #ffffff;
 	border: 1px solid #e5e7eb;
+}
+
+.blog-qa-tools {
+	margin: 0 0 $sp-2 0.15rem;
+	color: #94a3b8;
+}
+
+.blog-qa-tools ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.blog-qa-tools li {
+	display: inline-flex;
+	align-items: center;
+	max-width: 100%;
+}
+
+.blog-qa-tool-name {
+	display: inline;
+	max-width: 100%;
+	padding: 0;
+	border-radius: 0;
+	background: transparent;
+	color: #94a3b8;
+	font-size: 0.62rem;
+	font-weight: 400;
+	line-height: 1.2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .blog-qa-answer h1,
