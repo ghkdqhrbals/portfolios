@@ -223,126 +223,12 @@ figure.highlight {
 	 .page-cv a:active, .page-cv a:hover {color:#ba0000 !important;}
 	/* Hide navigation & non-essential UI while keeping content like about page */
 	.side-bar, .site-header, nav[aria-label="Main"], .nav-list-expander, .search, .search-input-wrap {display:none !important;}
-	#guestbook-section {display:none !important;}
 	body {background:#fff !important;}
 	/* 코드 블럭 프린트용 스타일 */
 	div.highlighter-rouge, figure.highlight {
 		border: 1px solid #ccc !important;
 		background: #f5f5f5 !important;
 	}
-}
-
-/* === Guestbook (minimal, theme-aligned) === */
-
-#guestbook-status {display:none;}
-#guestbook-form {display:none;}
-
-#guestbook-section {
-	margin-top: $sp-7;
-	padding-top: $sp-5;
-	border-top: $border $border-color;
-	background: transparent;
-}
-
-.page-index #guestbook-section.recent-guestbook {
-	margin-top: $sp-4;
-	padding-top: 0;
-	border-top: 0;
-}
-
-.guestbook-list {margin:0; padding:0;}
-
-.guestbook-thread {margin:0; padding:0;}
-
-.guestbook-entry {
-	background: transparent;
-	border: 0;
-	border-bottom: $border $border-color;
-	border-radius: 0;
-	padding: 0.16rem 0;
-	margin: 0;
-	display: grid;
-	grid-template-columns: max-content minmax(0, 1fr) max-content max-content;
-	align-items: center;
-	gap: $sp-3;
-	line-height: 1.08;
-	font-size: $font-size-4;
-	font-weight: 400;
-}
-
-.guestbook-reply {
-	padding: 0.16rem 0;
-	margin-left: 1.25rem;
-	display: grid;
-	grid-template-columns: max-content minmax(0, 1fr) max-content max-content;
-	align-items: center;
-	gap: $sp-3;
-	border-bottom: $border $border-color;
-	line-height: 1.08;
-	font-size: $font-size-4;
-	font-weight: 400;
-}
-
-.guestbook-reply:last-child {border-bottom: 0;}
-
-.guestbook-entry:last-child {
-	border-bottom: 0;
-}
-
-.entry-name {font-weight:600; color:$body-heading-color;}
-
-.entry-date {font-size:$font-size-2; color:$search-result-preview-color; white-space:nowrap;}
-
-.entry-message {
-	color:$body-text-color;
-	line-height: 1.08;
-	white-space: pre-wrap;
-	overflow: visible;
-	text-overflow: clip;
-	overflow-wrap: anywhere;
-}
-
-.entry-actions {display:inline-flex; gap:$sp-2; justify-self:end;}
-
-.entry-actions {
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 120ms ease;
-}
-
-.guestbook-entry:hover .entry-actions,
-.guestbook-reply:hover .entry-actions,
-.guestbook-entry:focus-within .entry-actions,
-.guestbook-reply:focus-within .entry-actions {
-	opacity: 1;
-	visibility: visible;
-}
-
-@media (hover: none) {
-	.entry-actions {opacity: 1; visibility: visible;}
-}
-
-.action-btn {
-	display:inline-flex;
-	align-items:center;
-	justify-content:center;
-	padding:0.22rem 0.55rem;
-	border-radius:$border-radius;
-	border: 0;
-	background: transparent;
-	color:$search-result-preview-color;
-	font-size:$font-size-3;
-	line-height:1.2;
-	cursor:pointer;
-	box-shadow:none;
-
-	&:hover {
-		background: transparent;
-		color: $body-text-color;
-		text-decoration: underline;
-		text-underline-offset: 2px;
-	}
-	&:focus-visible {outline:2px solid $link-color; outline-offset:2px;}
 }
 
 .blog-qa-shell {
@@ -438,23 +324,33 @@ figure.highlight {
 	grid-template-columns: minmax(0, 1fr) 52px;
 	align-items: end;
 	gap: $sp-2;
-	padding: 0.4rem 0.45rem 0.4rem 0.65rem;
+	padding: 0.32rem 0.36rem 0.32rem 0.72rem;
 	border-radius: 8px;
-	background: #ffffff;
-	border: 1px solid #e5e7eb;
+	background: #f8fafc;
+	border: 1px solid #dbe1e8;
 	box-shadow: none;
+	transition: border-color 150ms ease, background 150ms ease;
+}
+
+.blog-qa-composer:focus-within {
+	background: #ffffff;
+	border-color: #aeb8c4;
 }
 
 #blog-qa-question {
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
 	min-height: 40px;
 	max-height: 180px;
 	resize: none;
 	border: 0;
 	background: transparent;
 	box-shadow: none;
-	padding: 0.65rem 0.55rem;
+	padding: 0.58rem 0.45rem;
 	line-height: 1.5;
-	font-size: 0.98rem;
+	font-size: 0.95rem;
+	color: #1f2937;
 
 	&:focus {
 		box-shadow: none;
@@ -462,18 +358,28 @@ figure.highlight {
 	}
 }
 
+#blog-qa-question::placeholder {
+	color: #94a3b8;
+}
+
 #blog-qa-submit {
 	height: 40px;
 	width: 40px;
 	padding: 0;
 	border: 0;
-	border-radius: 50%;
-	background: #fae100;
-	color: #3b2f00;
+	border-radius: 8px;
+	background: #e8edf3;
+	color: #475569;
 	font-size: 1rem;
 	font-weight: 600;
 	cursor: pointer;
 	box-shadow: none;
+	transition: background 150ms ease, color 150ms ease;
+}
+
+#blog-qa-submit:hover {
+	background: #dbe2ea;
+	color: #334155;
 }
 
 .blog-qa-submit-label {
@@ -485,7 +391,7 @@ figure.highlight {
 }
 
 #blog-qa-submit.is-loading {
-	background: #fde68a;
+	background: #e8edf3;
 	box-shadow: none;
 	position: relative;
 }
@@ -495,8 +401,8 @@ figure.highlight {
 	width: 18px;
 	height: 18px;
 	border-radius: 50%;
-	border: 2px solid rgba(59, 47, 0, 0.25);
-	border-top-color: #3b2f00;
+	border: 2px solid rgba(71, 85, 105, 0.2);
+	border-top-color: #475569;
 	position: absolute;
 	inset: 0;
 	margin: auto;
@@ -617,225 +523,11 @@ figure.highlight {
 }
 
 @media (max-width: 700px) {
-	.guestbook-entry {
-		grid-template-columns: max-content minmax(0, 1fr);
-		grid-template-areas:
-			"name message"
-			"date actions";
-		align-items: start;
-	}
-	.entry-name {grid-area: name;}
-	.entry-message {grid-area: message;}
-	.entry-date {grid-area: date;}
-	.entry-actions {grid-area: actions; justify-self: end;}
 	.blog-qa-hero {grid-template-columns: 1fr;}
 	.blog-qa-composer {grid-template-columns: minmax(0, 1fr) 48px;}
 }
 
-.edit-btn {
-	color:$search-result-preview-color;
-	&:hover {background: transparent;}
-}
-
-.delete-btn {
-	color:$search-result-preview-color;
-	&:hover {background: transparent;}
-}
-
-.guestbook-form {
-	margin-top:$sp-4;
-	padding: 0;
-	border: 0;
-	background: transparent;
-	display: grid;
-	grid-template-columns: minmax(120px, 160px) minmax(120px, 160px) minmax(0, 1fr) max-content;
-	grid-template-areas:
-		"name password message submit";
-	align-items: center;
-	gap: $sp-2;
-	width: 100%;
-}
-
-.form-group {margin-bottom:$sp-4;}
-
-.guestbook-form .form-group {
-	margin-bottom: 0;
-	flex: 0 0 auto;
-	min-width: 0;
-}
-
-.guestbook-form .gb-name {grid-area: name;}
-.guestbook-form .gb-password {grid-area: password;}
-.guestbook-form .gb-message {grid-area: message;}
-
-.guestbook-form .form-message {
-	width: 100%;
-	min-width: 0;
-}
-
-.form-input,
-.form-textarea {
-	width:100%;
-	min-width:0;
-	box-sizing:border-box;
-	padding:0.45rem 0.6rem;
-	border:$border $border-color;
-	border-radius:$border-radius;
-	background:$body-background-color;
-	color:$body-text-color;
-	font-size:$font-size-4;
-
-	&:focus {
-		outline:none;
-		border-color: rgba($link-color, 0.55);
-		box-shadow: 0 0 0 3px rgba($link-color, 0.18);
-	}
-}
-
-.form-input::placeholder,
-.gb-reply-form input::placeholder {
-	font-size: $font-size-2;
-	opacity: 0.8;
-}
-
-/* Reply form (inline) */
-.gb-reply-form {
-	margin: 0.35rem 0 0.6rem 1.25rem;
-	display: grid;
-	grid-template-columns: minmax(120px, 160px) minmax(120px, 160px) minmax(0, 1fr) max-content max-content;
-	gap: $sp-2;
-	align-items: center;
-}
-
-.gb-reply-form input,
-.gb-reply-form textarea {
-	min-width: 0;
-	border: 0;
-	border-bottom: $border $border-color;
-	border-radius: 0;
-	background: transparent;
-	padding: 0.35rem 0.2rem;
-	font-size: $font-size-4;
-	line-height: 1.35;
-	resize: none;
-	overflow: hidden;
-
-	&:focus {
-		outline: none;
-		border-bottom-color: rgba($link-color, 0.55);
-		box-shadow: 0 2px 0 0 rgba($link-color, 0.20);
-	}
-}
-
-.gb-reply-submit,
-.gb-reply-cancel {
-	border: 0;
-	background: transparent;
-	color: $search-result-preview-color;
-	font-size: $font-size-3;
-	padding: 0.2rem 0.4rem;
-	cursor: pointer;
-
-	&:hover {
-		color: $body-text-color;
-		text-decoration: underline;
-		text-underline-offset: 2px;
-	}
-}
-
-/* Make main inputs simpler too */
-.guestbook-form .form-input {
-	border: 0;
-	border-bottom: $border $border-color;
-	border-radius: 0;
-	background: transparent;
-	box-shadow: none;
-	padding: 0.35rem 0.2rem;
-}
-
-.guestbook-form textarea.form-input {
-	resize: none;
-	overflow: hidden;
-}
-
-.guestbook-form .form-input:focus {
-	box-shadow: 0 2px 0 0 rgba($link-color, 0.20);
-}
-
-.form-textarea {min-height:110px; resize:vertical;}
-
-.submit-btn {
-	@extend .btn;
-	padding:0.32rem 0.75rem;
-	font-size: $font-size-3;
-	line-height: 1.2;
-	background: transparent;
-	color: $search-result-preview-color;
-	box-shadow: none;
-	border: 0;
-	grid-area: submit;
-	align-self: center;
-
-	&:hover {
-		background: transparent;
-		color: $body-text-color;
-		text-decoration: underline;
-		text-underline-offset: 2px;
-	}
-}
-
-.guestbook-pagination {
-	display: none;
-	align-items: center;
-	justify-content: flex-end;
-	gap: $sp-2;
-	margin-top: $sp-2;
-	margin-bottom: $sp-3;
-}
-
-.gb-page-btn {
-	border: 0;
-	background: transparent;
-	color: $search-result-preview-color;
-	font-size: $font-size-3;
-	padding: 0.2rem 0.4rem;
-	cursor: pointer;
-
-	&:hover {
-		color: $body-text-color;
-		text-decoration: underline;
-		text-underline-offset: 2px;
-	}
-
-	&:disabled {
-		opacity: 0.45;
-		cursor: default;
-		text-decoration: none;
-	}
-}
-
-.gb-page-info {
-	color: $search-result-preview-color;
-	font-size: $font-size-2;
-}
-
-@media (max-width: 700px) {
-	.guestbook-form {
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			"name"
-			"password"
-			"message"
-			"submit";
-	}
-	.guestbook-form .form-message {
-		flex: 1 1 100%;
-		min-width: 0;
-	}
-	.submit-btn {justify-self: end;}
-}
-
-/* === Recent posts (home) - keep as clean as comments === */
+/* === Recent posts (home) === */
 
 #recent-root.recent-root {
 	margin-top: $sp-7;
@@ -901,17 +593,43 @@ figure.highlight {
 	text-underline-offset: 2px;
 }
 
-.recent-controls {
+.recent-pagination {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	gap: $sp-2;
-	margin-top: $sp-2;
+	gap: 0.15rem;
+	margin-top: $sp-3;
 }
 
-.recent-count {
+.recent-page-btn {
+	min-width: 1.8rem;
+	height: 1.8rem;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: $search-result-preview-color;
+	font-size: $font-size-3;
+	line-height: 1;
+	padding: 0;
+	cursor: pointer;
+
+	&:hover {
+		background: #f1f5f9;
+		color: $body-text-color;
+	}
+}
+
+.recent-page-btn.active {
+	background: #e8edf3;
+	color: #334155;
+	font-weight: 600;
+	cursor: default;
+}
+
+.recent-page-ellipsis {
 	color: $search-result-preview-color;
 	font-size: $font-size-2;
+	padding: 0 0.35rem;
 }
 
 .recent-empty {

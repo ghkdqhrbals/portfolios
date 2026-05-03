@@ -6,8 +6,7 @@ layout: table_wrappers
 
 <html lang="{{ site.lang | default: 'en-US' }}"
   data-site-baseurl="{{ site.baseurl | default: '' }}"
-  data-guestbook-api-base="{% if jekyll.environment == 'production' %}https://lowfidev.cloud{% else %}http://localhost:8000{% endif %}"
-  data-guestbook-page-override="{{ page.guestbook_page | default: '' }}">
+  data-qa-api-base="{% if jekyll.environment == 'production' %}https://lowfidev.cloud{% else %}http://localhost:8000{% endif %}">
 {% include head.html %}
 {% assign base_slash = site.baseurl | append: '/' %}
 {% assign classes = '' %}
@@ -22,10 +21,6 @@ layout: table_wrappers
 {% if page.permalink == '/cv/' or page.url == '/cv/' or page.url == cv_baseurl or page.url contains '/cv/' %}
   {% assign classes = classes | append: ' page-cv' %}
 {% endif %}
-{% assign gb_baseurl = site.baseurl | append: '/guestbook/' %}
-{% if page.permalink == '/guestbook/' or page.url == '/guestbook/' or page.url == gb_baseurl or page.url contains '/guestbook/' %}
-  {% assign classes = classes | append: ' page-guestbook' %}
-{% endif %}
 {% if page.hide_sidebar == true %}
   {% assign classes = classes | append: ' hide-sidebar' %}
 {% endif %}
@@ -33,18 +28,6 @@ layout: table_wrappers
   {% assign classes = classes | append: ' hide-header' %}
 {% endif %}
 
-{%- comment -%}
-  Liquid has limited boolean expression parsing inside unless/if. Compute a simple flag.
-{%- endcomment -%}
-{% assign show_guestbook = '1' %}
-{% if page.guestbook == false %}
-  {% assign show_guestbook = '' %}
-{% endif %}
-{% if classes contains 'page-index' %}
-  {% if page.guestbook_on_index != true and page.guestbook_embed != true %}
-    {% assign show_guestbook = '' %}
-  {% endif %}
-{% endif %}
 <body class="{{ classes | strip }}">
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   {% include icons/icons.html %}
@@ -64,49 +47,6 @@ layout: table_wrappers
           {{ content }}
         {% endif %}
 
-        {% if show_guestbook == '1' %}
-        <div id="guestbook-section">
-          <div id="guestbook-status"></div>
-
-          {% if classes contains 'page-guestbook' %}
-          <form id="guestbook-form" class="guestbook-form">
-            <div class="form-group gb-name">
-              <input type="text" id="name" placeholder="Name" autocomplete="name" required class="form-input">
-            </div>
-            <div class="form-group gb-password">
-              <input type="password" id="password" placeholder="Password" autocomplete="current-password" required class="form-input">
-            </div>
-            <div class="form-group gb-message">
-              <textarea id="message" placeholder="Write a comment…" required class="form-input form-message" maxlength="500" aria-label="Comment" rows="1"></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Post</button>
-          </form>
-          <div id="guestbook-list" class="guestbook-list"></div>
-          <div id="guestbook-pagination" class="guestbook-pagination" aria-label="Comments pagination"></div>
-          {% else %}
-          <div id="guestbook-list" class="guestbook-list"></div>
-          <div id="guestbook-pagination" class="guestbook-pagination" aria-label="Comments pagination"></div>
-          <form id="guestbook-form" class="guestbook-form">
-            <div class="form-group gb-name">
-              <input type="text" id="name" placeholder="Name" autocomplete="name" required class="form-input">
-            </div>
-            <div class="form-group gb-password">
-              <input type="password" id="password" placeholder="Password" autocomplete="current-password" required class="form-input">
-            </div>
-            <div class="form-group gb-message">
-              <textarea id="message" placeholder="Write a comment…" required class="form-input form-message" maxlength="500" aria-label="Comment" rows="1"></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Post</button>
-          </form>
-          {% endif %}
-        </div>
-        <noscript>
-          <div style="margin-top:12px;padding:10px 12px;border:1px solid #fecaca;background:#fff1f2;color:#991b1b;border-radius:8px;">
-            Comments require JavaScript. Please enable JavaScript to view and post comments.
-          </div>
-        </noscript>
-        {% endif %}
-
         {% if page.has_children == true and page.has_toc != false %}
           {% include components/children_nav.html toc_list=toc_list %}
         {% endif %}
@@ -124,8 +64,8 @@ layout: table_wrappers
     {% include components/mermaid.html %}
   {% endif %}
 
-{% if show_guestbook == '1' or page.qa_assistant == true %}
-  <script src="{{ '/assets/js/guestbook.js' | relative_url }}"></script>
+{% if page.qa_assistant == true %}
+  <script src="{{ '/assets/js/blog_qa.js' | relative_url }}"></script>
   {% endif %}
 </body>
 </html>

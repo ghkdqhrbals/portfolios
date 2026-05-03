@@ -81,8 +81,7 @@
 		};
 		const perPage=parseInt(root.getAttribute('data-per-page')||'20',10);
 		const list=document.getElementById('recent-list');
-		const btn=document.getElementById('recent-more');
-		const count=document.getElementById('recent-count');
+		const pagination=document.getElementById('recent-pagination');
 		let data=[];
 		const tpl=document.getElementById('recent-data');
 		if(tpl){
@@ -91,7 +90,7 @@
 		if(!data.length){ list.innerHTML='<div class="recent-empty">문서가 없습니다.</div>'; return; }
 		// sort again for safety
 		data.sort((a,b)=>{ if(a.date && b.date) return a.date < b.date ? 1 : -1; if(a.date && !b.date) return -1; if(!a.date && b.date) return 1; return (a.title||'').localeCompare(b.title||'', 'ko'); });
-		let loaded=0; const total=data.length;
+		let currentPage=1; const total=data.length; const totalPages=Math.max(1, Math.ceil(total/perPage));
 		// Update total count
 		const totalCountEl=document.getElementById('total-count');
 		if(totalCountEl){ totalCountEl.textContent=total; }
@@ -108,10 +107,14 @@
 			}
 			return CAT_MAP[slug] || slug;
 		}
-		function render(){
-			const next=loaded+perPage; const frag=document.createDocumentFragment();
-			for(let i=loaded;i<next && i<total;i++){
-				const it=data[i];
+		function pageItems(page){
+			const start=(page-1)*perPage;
+			return data.slice(start, start+perPage);
+		}
+		function renderPage(page){
+			currentPage=Math.min(Math.max(1, page), totalPages);
+			const frag=document.createDocumentFragment();
+			pageItems(currentPage).forEach(it=>{
 				const li=document.createElement('li');
 				const cat=deriveCat(it);
 				// ls -l format: permissions links user group size date filename
@@ -127,21 +130,42 @@
 					'<span class="tags">[' + groupTag + ']</span>' +
 					'<span class="r-title"><a href="'+it.url+'">' + filename + '</a></span>';
 				frag.appendChild(li);
-			}
+			});
+			list.innerHTML='';
 			list.appendChild(frag);
-			loaded=Math.min(next,total);
-			updateButton();
+			renderPagination();
 		}
-		function updateButton(){
-			if(total<=perPage && loaded>=total){ btn.style.display='none'; count.style.display='inline'; count.textContent=loaded+'/'+total; return; }
-			count.style.display='inline'; count.textContent=loaded+'/'+total;
-			if(loaded>=total){ btn.style.display='none'; }
-			else { btn.style.display='inline-block'; }
+		function paginationWindow(){
+			if(totalPages<=10) return Array.from({length:totalPages}, (_,i)=>i+1);
+			const pages=[1];
+			const start=Math.max(2, currentPage-2);
+			const end=Math.min(totalPages-1, currentPage+2);
+			if(start>2) pages.push('ellipsis-start');
+			for(let i=start;i<=end;i++) pages.push(i);
+			if(end<totalPages-1) pages.push('ellipsis-end');
+			pages.push(totalPages);
+			return pages;
 		}
-		btn.addEventListener('click', render);
-		// shift+click => load all
-		btn.addEventListener('click', e=>{ if(e.shiftKey){ while(loaded<total) render(); }});
-		render();
+		function renderPagination(){
+			if(!pagination) return;
+			if(totalPages<=1){ pagination.innerHTML=''; pagination.style.display='none'; return; }
+			pagination.style.display='flex';
+			pagination.innerHTML=paginationWindow().map(item=>{
+				if(typeof item==='string') return '<span class="recent-page-ellipsis" aria-hidden="true">...</span>';
+				const active=item===currentPage;
+				return '<button type="button" class="recent-page-btn' + (active ? ' active' : '') + '" data-page="' + item + '" aria-label="Page ' + item + '"' + (active ? ' aria-current="page"' : '') + '>' + item + '</button>';
+			}).join('');
+		}
+		if(pagination){
+			pagination.addEventListener('click', e=>{
+				const target=e.target;
+				if(!target || !target.getAttribute) return;
+				const page=Number.parseInt(target.getAttribute('data-page')||'',10);
+				if(!Number.isFinite(page)) return;
+				renderPage(page);
+			});
+		}
+		renderPage(1);
 	}
 
 	document.addEventListener('DOMContentLoaded', function(){addLangBadges();/* reading time 제거 */initRecent();ensurePrintableHyperlinks();});
