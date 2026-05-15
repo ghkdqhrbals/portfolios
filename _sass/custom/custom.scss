@@ -764,9 +764,9 @@ figure.highlight {
 
 .recent-list li {
 	display: grid;
-	grid-template-columns: max-content max-content minmax(0, 1fr);
+	grid-template-columns: 6.2rem minmax(0, 1fr);
 	gap: $sp-2;
-	align-items: baseline;
+	align-items: start;
 	padding: 0.16rem 0;
 	border-bottom: $border $border-color;
 	line-height: 1.08;
@@ -785,14 +785,11 @@ figure.highlight {
 	font-weight: inherit;
 }
 
-.recent-list .tags {
-	font-size: inherit;
-	color: $search-result-preview-color;
-	white-space: nowrap;
-	font-weight: inherit;
+.recent-list .r-title {
+	display: grid;
+	gap: 0.12rem;
+	min-width: 0;
 }
-
-.recent-list .r-title {min-width: 0;}
 
 .recent-list .r-title a {
 	color: $body-text-color;
@@ -806,6 +803,15 @@ figure.highlight {
 .recent-list .r-title a:hover {
 	text-decoration: underline;
 	text-underline-offset: 2px;
+}
+
+.recent-list .r-summary {
+	color: $search-result-preview-color;
+	font-size: $font-size-2;
+	line-height: 1.35;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .recent-pagination {
@@ -855,13 +861,17 @@ figure.highlight {
 
 @media (max-width: 700px) {
 	.recent-list li {
-		grid-template-columns: max-content minmax(0, 1fr);
+		grid-template-columns: 5.6rem minmax(0, 1fr);
 		grid-template-areas:
-			"date title"
-			"tag title";
+			"date title";
 		align-items: start;
 	}
 	.recent-list .r-date {grid-area: date;}
-	.recent-list .tags {grid-area: tag;}
 	.recent-list .r-title {grid-area: title;}
+	.recent-list .r-summary {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		white-space: normal;
+	}
 }

@@ -176,31 +176,6 @@
 	function initRecent(){
 		const root=document.getElementById('recent-root');
 		if(!root) return; // not index
-		// Folder(slug) -> Friendly category name mapping
-		const CAT_MAP = {
-			"Java":"Server",
-			"docker":"도커와 쿠버네티스",
-			"project":"실시간 채팅서버 프로젝트",
-			"toy":"토이 프로젝트",
-			"pf":"성능개선 기록",
-			"automation":"자동화 목록",
-			"foxee":"Explainable AI(XAI)로 취약점 분석",
-			"msa":"Micro Service Architecture",
-			"메세지큐":"Message Queue",
-			"암호학":"Cryptography",
-			"데이터베이스":"RDBMS",
-			"NOSQL":"NO-SQL",
-			"project2":"Bank API Server Project",
-			"benchmark":"BM performance tester",
-			"elasticSearch":"Elastic Search",
-			"Go언어":"Go",
-			"Blockchain":"Ethereum Eclipse Attack",
-			"CS":"Computer Science",
-			"alg":"알고리즘 문제",
-			"일상":"개발자 일기",
-			"etc":"기타",
-			"통신 프로토콜":"API 아키텍처"
-		};
 		const perPage=parseInt(root.getAttribute('data-per-page')||'20',10);
 		const list=document.getElementById('recent-list');
 		const pagination=document.getElementById('recent-pagination');
@@ -216,41 +191,36 @@
 		// Update total count
 		const totalCountEl=document.getElementById('total-count');
 		if(totalCountEl){ totalCountEl.textContent=total; }
-		function catColor(cat){
-			if(!cat) return null;
-			let hash=0; for(let i=0;i<cat.length;i++){ hash = cat.charCodeAt(i) + ((hash<<5)-hash); }
-			const hue=Math.abs(hash)%360;
-			return { fg:`hsl(${hue},55%,30%)`, bg:`hsl(${hue},85%,93%)`, br:`hsl(${hue},70%,75%)` };
-		}
-		function deriveCat(it){
-			let slug='';
-			if(it.cat) slug = it.cat; else {
-				try { const parts=it.url.split('/').filter(Boolean); const idx=parts.indexOf('docs'); if(idx>=0 && parts.length>idx+1) slug=decodeURIComponent(parts[idx+1]); } catch(e){}
-			}
-			return CAT_MAP[slug] || slug;
-		}
 		function pageItems(page){
 			const start=(page-1)*perPage;
 			return data.slice(start, start+perPage);
+		}
+		function escapeHtml(value){
+			return String(value || '')
+				.replace(/&/g, '&amp;')
+				.replace(/</g, '&lt;')
+				.replace(/>/g, '&gt;')
+				.replace(/"/g, '&quot;')
+				.replace(/'/g, '&#39;');
+		}
+		function renderTitle(value){
+			return escapeHtml(value).replace(/&lt;br\s*\/?&gt;/gi, '<br>');
 		}
 		function renderPage(page){
 			currentPage=Math.min(Math.max(1, page), totalPages);
 			const frag=document.createDocumentFragment();
 			pageItems(currentPage).forEach(it=>{
 				const li=document.createElement('li');
-				const cat=deriveCat(it);
-				// ls -l format: permissions links user group size date filename
 				const dateStr = (it.date || '').replace(/-/g, '.');
 				const title = it.title||'(제목없음)';
-				// Estimate content size (fetch from data or default)
-				const groupTag = cat || 'misc';
 				const filename = title;
+				const summary = (it.summary || '').trim();
 				
 				li.innerHTML = 
-					'<span class="r-date">' + dateStr + '</span>' +
-					// groupTag
-					'<span class="tags">[' + groupTag + ']</span>' +
-					'<span class="r-title"><a href="'+it.url+'">' + filename + '</a></span>';
+					'<span class="r-date">' + escapeHtml(dateStr) + '</span>' +
+					'<span class="r-title"><a href="'+ encodeURI(it.url) +'">' + renderTitle(filename) + '</a>' +
+						(summary ? '<span class="r-summary">' + escapeHtml(summary) + '</span>' : '') +
+					'</span>';
 				frag.appendChild(li);
 			});
 			list.innerHTML='';
