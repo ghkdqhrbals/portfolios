@@ -51,6 +51,128 @@
 		}
 	}
 
+	function initContentIndex(){
+		if(document.body.classList.contains('page-cv')) return;
+
+		const nav=document.getElementById('content-index');
+		const content=document.getElementById('main-content');
+		if(!nav || !content) return;
+
+		const ignoredSelectors=[
+			'.no_toc',
+			'.no-toc',
+			'.content-index-sidebar',
+			'.blog-qa-shell',
+			'.site-footer'
+		].join(',');
+		const headings=[...content.querySelectorAll('h1, h2, h3, h4')]
+			.filter(heading=>!heading.closest(ignoredSelectors))
+			.filter(heading=>heading.textContent.trim().length > 0);
+
+		if(headings.length < 2){
+			const sidebar=nav.closest('.content-index-sidebar');
+			if(sidebar) sidebar.hidden=true;
+			return;
+		}
+
+		const usedIds=new Set();
+		const slugify=text=>{
+			const slug=text.toLowerCase()
+				.trim()
+				.replace(/<[^>]*>/g,'')
+				.replace(/[^\p{Letter}\p{Number}\s_-]/gu,'')
+				.replace(/\s+/g,'-')
+				.replace(/-+/g,'-')
+				.replace(/^-|-$/g,'');
+			return slug || 'section';
+		};
+		const titleFor=heading=>{
+			const clone=heading.cloneNode(true);
+			clone.querySelectorAll('.anchor-heading').forEach(anchor=>anchor.remove());
+			return clone.textContent.trim().replace(/\s+/g,' ');
+		};
+
+		headings.forEach(heading=>{
+			const title=titleFor(heading);
+			let id=heading.id || slugify(title);
+			let uniqueId=id;
+			let index=2;
+			while(usedIds.has(uniqueId) || (document.getElementById(uniqueId) && document.getElementById(uniqueId)!==heading)){
+				uniqueId=id + '-' + index;
+				index += 1;
+			}
+			usedIds.add(uniqueId);
+			if(heading.id !== uniqueId) heading.id=uniqueId;
+		});
+
+		const list=document.createElement('ol');
+		list.className='content-index__list';
+
+		headings.forEach(heading=>{
+			const level=Number.parseInt(heading.tagName.slice(1), 10);
+			const item=document.createElement('li');
+			item.className='content-index__item content-index__item--h' + level;
+
+			const link=document.createElement('a');
+			link.className='content-index__link';
+			link.href='#' + encodeURIComponent(heading.id);
+			link.textContent=titleFor(heading);
+			link.addEventListener('click', function(){
+				setActive(heading.id);
+				window.setTimeout(updateActiveFromScroll, 120);
+			});
+
+			item.appendChild(link);
+			list.appendChild(item);
+		});
+
+		nav.innerHTML='';
+		nav.appendChild(list);
+		document.body.classList.add('has-content-index');
+
+		const links=[...nav.querySelectorAll('.content-index__link')];
+		function setActive(id){
+			links.forEach(link=>{
+				const active=decodeURIComponent(link.hash.slice(1))===id;
+				link.classList.toggle('active', active);
+				if(active) link.setAttribute('aria-current','true');
+				else link.removeAttribute('aria-current');
+			});
+		}
+
+		let ticking=false;
+		function currentHeading(){
+			const offset=window.innerHeight < 700 ? 90 : 130;
+			const scrollBottom=window.scrollY + window.innerHeight;
+			const pageBottom=document.documentElement.scrollHeight - 2;
+			if(scrollBottom >= pageBottom) return headings[headings.length - 1];
+
+			const position=window.scrollY + offset;
+			let active=headings[0];
+			headings.forEach(heading=>{
+				if(heading.offsetTop <= position) active=heading;
+			});
+			return active;
+		}
+		function updateActiveFromScroll(){
+			setActive(currentHeading().id);
+			ticking=false;
+		}
+		window.addEventListener('scroll', ()=>{
+			if(ticking) return;
+			ticking=true;
+			window.requestAnimationFrame(updateActiveFromScroll);
+		}, {passive:true});
+		window.addEventListener('hashchange', ()=>{
+			const targetId=decodeURIComponent(window.location.hash.slice(1));
+			if(targetId) setActive(targetId);
+			window.setTimeout(updateActiveFromScroll, 120);
+		});
+
+		setActive(headings[0].id);
+		updateActiveFromScroll();
+	}
+
 	function initRecent(){
 		const root=document.getElementById('recent-root');
 		if(!root) return; // not index
@@ -168,5 +290,5 @@
 		renderPage(1);
 	}
 
-	document.addEventListener('DOMContentLoaded', function(){addLangBadges();/* reading time 제거 */initRecent();ensurePrintableHyperlinks();});
+	document.addEventListener('DOMContentLoaded', function(){addLangBadges();/* reading time 제거 */initRecent();initContentIndex();ensurePrintableHyperlinks();});
 })();

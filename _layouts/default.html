@@ -54,6 +54,14 @@ layout: table_wrappers
         {% include components/footer.html %}
 
       </div>
+      {% unless page.toc_sidebar == false or page.url contains '/cv/' or page.title == 'About Me' %}
+        <aside class="content-index-sidebar" aria-label="Page index">
+          <div class="content-index-sidebar__inner">
+            <div class="content-index-sidebar__title">Index</div>
+            <nav id="content-index" class="content-index" aria-label="Page headings"></nav>
+          </div>
+        </aside>
+      {% endunless %}
     </div>
     {% if site.search_enabled != false %}
       {% include components/search_footer.html %}

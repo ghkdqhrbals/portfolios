@@ -207,6 +207,221 @@ figure.highlight {
   background: transparent !important;
 }
 
+/* Post index sidebar */
+.content-index-sidebar {
+	display: none;
+}
+
+@media (max-width: 1199px) {
+	body.has-content-index .main-content-wrap {
+		display: flex;
+		flex-direction: column;
+	}
+
+	body.has-content-index .breadcrumb-nav {
+		order: 1;
+	}
+
+	body.has-content-index .content-index-sidebar {
+		order: 2;
+		display: block;
+		margin: 0 0 $sp-5;
+	}
+
+	body.has-content-index .main-content {
+		order: 3;
+	}
+
+	.content-index-sidebar__inner {
+		padding: $sp-3 0;
+		border-top: 1px solid $border-color;
+		border-bottom: 1px solid $border-color;
+	}
+
+	.content-index-sidebar__title {
+		margin-bottom: $sp-2;
+		color: $grey-dk-100;
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: .12em;
+		text-transform: uppercase;
+	}
+
+	.content-index__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.content-index__item {
+		margin: 0;
+	}
+
+	.content-index__item--h1,
+	.content-index__item--h2 {
+		padding-left: 0;
+	}
+
+	.content-index__item--h3 {
+		padding-left: $sp-3;
+	}
+
+	.content-index__item--h4 {
+		padding-left: $sp-5;
+	}
+
+	.content-index__link {
+		position: relative;
+		display: block;
+		padding: 5px 0;
+		color: $grey-dk-000;
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 1.35;
+		text-decoration: none !important;
+		border-bottom: 0 !important;
+		background: transparent !important;
+		overflow-wrap: anywhere;
+		transition: color .16s ease;
+	}
+
+	.content-index__link:hover,
+	.content-index__link.active {
+		color: $link-color !important;
+		text-decoration: none !important;
+	}
+
+	.content-index__link.active::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 2px;
+		border-radius: 999px;
+		background: $link-color;
+	}
+}
+
+@media (min-width: 1200px) {
+	body.has-content-index .main {
+		max-width: calc(#{$content-width} + 18rem);
+	}
+
+	body.has-content-index .main-content-wrap {
+		display: grid;
+		grid-template-columns: minmax(0, #{$content-width}) 15rem;
+		column-gap: $sp-6;
+		align-items: start;
+	}
+
+	body.has-content-index .breadcrumb-nav {
+		grid-column: 1 / -1;
+	}
+
+	body.has-content-index .main-content {
+		grid-column: 1;
+	}
+
+	body.has-content-index .content-index-sidebar {
+		display: block;
+		grid-column: 2;
+		align-self: stretch;
+		min-width: 0;
+	}
+
+	.content-index-sidebar__inner {
+		position: sticky;
+		top: $sp-6;
+		max-height: calc(100vh - #{$sp-8});
+		overflow-y: auto;
+		padding-left: $sp-4;
+		border-left: 1px solid $border-color;
+		scrollbar-width: thin;
+		scrollbar-color: $grey-lt-300 transparent;
+	}
+
+	.content-index-sidebar__inner::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.content-index-sidebar__inner::-webkit-scrollbar-thumb {
+		background: $grey-lt-300;
+		border-radius: 999px;
+	}
+
+	.content-index-sidebar__title {
+		margin-bottom: $sp-2;
+		color: $grey-dk-100;
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: .12em;
+		text-transform: uppercase;
+	}
+
+	.content-index__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.content-index__item {
+		margin: 0;
+	}
+
+	.content-index__item--h1 {
+		padding-left: 0;
+	}
+
+	.content-index__item--h2 {
+		padding-left: 0;
+	}
+
+	.content-index__item--h3 {
+		padding-left: $sp-3;
+	}
+
+	.content-index__item--h4 {
+		padding-left: $sp-5;
+	}
+
+	.content-index__link {
+		position: relative;
+		display: block;
+		padding: 5px 0;
+		color: $grey-dk-000;
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 1.35;
+		text-decoration: none !important;
+		border-bottom: 0 !important;
+		background: transparent !important;
+		overflow-wrap: anywhere;
+		transition: color .16s ease;
+	}
+
+	.content-index__link:hover,
+	.content-index__link.active {
+		color: $link-color !important;
+		text-decoration: none !important;
+	}
+
+	.content-index__link.active {
+		font-weight: 500;
+	}
+
+	.content-index__link.active::before {
+		content: "";
+		position: absolute;
+		top: 7px;
+		bottom: 7px;
+		left: -#{$sp-4};
+		width: 2px;
+		border-radius: 999px;
+		background: $link-color;
+	}
+}
+
 /* Print: show link URLs inline */
 @media print {
 	 /* 강제 우선순위 부여, 일부 PDF 엔진이 색/밑줄 제거 시도 방지 */
