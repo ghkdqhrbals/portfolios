@@ -6,7 +6,7 @@ Parameters via page front matter:
 {% endcomment %}
 {% assign per_page = page.per_page | default: 20 %}
 {% assign page_number = page.page_number | default: 1 %}
-{% assign all_docs = site.pages | where_exp: "p","p.path contains 'docs/' and p.recent_sort_date" | sort: 'recent_sort_date' | reverse %}
+{% assign all_docs = site.pages | where_exp: "p","p.path contains 'docs/' and p.date" | sort: 'date' | reverse %}
 {% assign total_pages = all_docs.size | divided_by: per_page %}
 {% assign remainder = all_docs.size | modulo: per_page %}
 {% if remainder > 0 %}{% assign total_pages = total_pages | plus: 1 %}{% endif %}
@@ -19,7 +19,7 @@ Parameters via page front matter:
   {% for p in all_docs offset:offset limit:per_page %}
     {% unless p.url == '/' %}
     <li>
-      <span class="r-date">{{ p.recent_display_date }}</span>
+      <span class="r-date">{{ p.date | date: '%Y-%m-%d' }}</span>
       <span class="r-title">
         <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
         {% assign summary = p.summary | default: p.description | default: p.content | strip_html | normalize_whitespace | truncate: 150 %}

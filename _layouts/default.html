@@ -5,8 +5,7 @@ layout: table_wrappers
 <!DOCTYPE html>
 
 <html lang="{{ site.lang | default: 'en-US' }}"
-  data-site-baseurl="{{ site.baseurl | default: '' }}"
-  data-qa-api-base="{% if jekyll.environment == 'production' %}https://lowfidev.cloud{% else %}http://localhost:8000{% endif %}">
+  data-site-baseurl="{{ site.baseurl | default: '' }}">
 {% include head.html %}
 {% assign base_slash = site.baseurl | append: '/' %}
 {% assign classes = '' %}
@@ -72,8 +71,5 @@ layout: table_wrappers
     {% include components/mermaid.html %}
   {% endif %}
 
-{% if page.qa_assistant == true %}
-  <script src="{{ '/assets/js/blog_qa.js' | relative_url }}"></script>
-  {% endif %}
 </body>
 </html>

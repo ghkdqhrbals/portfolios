@@ -1,6 +1,7 @@
 ---
 layout: default
-title: 2024-07-03<br/>PCA infarction
+title: PCA infarction
+date: 2024-07-03
 parent: 개발자 일기
 nav_order: 3
 ---

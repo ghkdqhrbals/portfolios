@@ -1,6 +1,7 @@
 ---
 layout: default
-title: 2023-06-01<br/>개발자 취준생 일기
+title: 개발자 취준생 일기
+date: 2023-06-01
 parent: 개발자 일기
 nav_order: 2
 ---

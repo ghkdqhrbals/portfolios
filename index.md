@@ -4,7 +4,6 @@ title: Recent Posts
 nav_exclude: true
 description: "Latest technical notes"
 permalink: /
-qa_assistant: true
 ---
 
 안녕하세요. 백엔드 개발자 황보규민입니다.
@@ -18,43 +17,6 @@ qa_assistant: true
 글의 말투는 비교적 편안하고 자유로운 편입니다. 다만 내용만큼은 단순한 요약보다는 실제 문제 해결 과정과 사고 흐름이 드러나도록 작성하려고 합니다. 때로는 실패했던 접근이나 설계 과정에서의 고민도 그대로 남겨두는데, 그런 기록들이 오히려 이후에 더 큰 도움이 된다고 생각하기 때문입니다.
 
 기술은 빠르게 변하지만, 문제를 바라보는 방식과 시스템을 설계하는 사고 과정은 오래 남는다고 생각합니다. 이 공간 역시 단순한 기록 저장소를 넘어, 시간이 지나 다시 돌아봤을 때 현재의 고민과 선택들을 추적할 수 있는 개인적인 아카이브이자, 비슷한 문제를 고민하는 누군가에게 작은 힌트라도 줄 수 있는 공간이 되었으면 합니다.
-
-<section class="blog-qa-shell">
-  <div class="blog-qa-hero compact">
-    <div class="blog-qa-copy">
-      <h1>어떤 점이 궁금하신가요?</h1>
-    </div>
-  </div>
-
-  <div class="blog-qa-status-strip">
-    <div class="blog-qa-mini-status" id="blog-site-status-card">
-      <span class="blog-qa-dot info" id="blog-site-status-dot" aria-hidden="true"></span>
-      <span class="blog-qa-mini-text">Blog</span>
-      <span class="blog-qa-mini-text subtle" id="blog-site-status-value">checking...</span>
-    </div>
-    <div class="blog-qa-mini-status" id="backend-status-card">
-      <span class="blog-qa-dot info" id="backend-status-dot" aria-hidden="true"></span>
-      <span class="blog-qa-mini-text">MCP-backend</span>
-      <span class="blog-qa-mini-text subtle" id="backend-status-value">checking...</span>
-    </div>
-  </div>
-
-  <div class="blog-qa-main">
-    <form id="blog-qa-form">
-      <label class="sr-only" for="blog-qa-question"></label>
-      <div class="blog-qa-composer">
-        <textarea id="blog-qa-question" class="form-input" rows="1" maxlength="1500" placeholder="궁금한 점을 남겨주세요" required></textarea>
-        <button id="blog-qa-submit" type="submit" aria-label="질문 보내기">
-          <span class="blog-qa-submit-label">➜</span>
-        </button>
-      </div>
-    </form>
-    <p class="blog-qa-note">질문 내용과 응답은 저장되지 않습니다. 편하게 아무거나 물어보세요!</p>
-
-    <div id="blog-qa-status" style="display:none;"></div>
-    <div id="blog-qa-result" aria-live="polite"></div>
-  </div>
-</section>
 
 <div id="recent-root" class="recent-root" data-per-page="20">
 	<div class="recent-meta"><span id="total-count">0</span> posts</div>

@@ -9,15 +9,15 @@ module Jekyll
       per_page = (site.config['recent_docs_per_page'] || 20).to_i
       return if per_page <= 0
 
-      # Collect docs pages. Undated docs receive recent_sort_date from git_modified_dates.rb.
+      # Collect dated docs pages only.
       docs = site.pages.select do |p|
-        p.path.start_with?('docs/') && p.data['recent_sort_date']
+        p.path.start_with?('docs/') && p.data['date']
       end
       return if docs.empty?
 
-      # Normalize and sort by effective recent date desc.
+      # Normalize and sort by front matter date desc.
       docs.sort_by! do |p|
-        d = p.data['recent_sort_date']
+        d = p.data['date']
         d.is_a?(Time) ? d : Time.parse(d.to_s) rescue Time.at(0)
       end
       docs.reverse!

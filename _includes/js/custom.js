@@ -62,7 +62,6 @@
 			'.no_toc',
 			'.no-toc',
 			'.content-index-sidebar',
-			'.blog-qa-shell',
 			'.site-footer'
 		].join(',');
 		const headings=[...content.querySelectorAll('h1, h2, h3, h4')]
