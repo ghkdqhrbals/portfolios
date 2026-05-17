@@ -2,6 +2,8 @@
 layout: default
 title: 새로운 블록체인 합의 알고리즘 설계
 date: 2021-09-01
+summary: "해당 프로젝트는 석사 연구과정 중, 텀 프로젝트로 블록체인 합의알고리즘을 새롭게 설계한 프로젝트입니다."
+tags: ["toy-project", "algorithm"]
 parent: 토이 프로젝트
 nav_order: 4
 ---

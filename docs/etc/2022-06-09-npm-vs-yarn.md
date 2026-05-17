@@ -1,6 +1,8 @@
 ---
 layout: default
 title: (English) NPM vs YARN
+summary: "To make portfolio in Web service, I complete task as below. Set portfolio frontend(React) and create Dockerfile Set Nginx configuration Set docker-compose."
+tags: ["etc", "docker", "performance", "nginx", "aws"]
 parent: 기타
 nav_order: 2
 ---

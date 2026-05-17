@@ -16,6 +16,8 @@
   "scripts": {
     "test": "stylelint '**/*.scss'",
     "format": "prettier --write '**/*.{scss,js,json}'",
+    "format:md": "prettier --write '**/*.md'",
+    "lint:md": "prettier --check '**/*.md'",
     "stylelint-check": "stylelint-config-prettier-check",
     "ga4:fetch": "node scripts/fetch_ga4.mjs"
   }

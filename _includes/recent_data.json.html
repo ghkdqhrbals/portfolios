@@ -2,7 +2,7 @@
 {% assign docs_all = site.pages | where_exp: 'p','p.path contains "docs/" and p.date' | sort: 'date' | reverse %}
 <template id="recent-data">[
 {% for p in docs_all %}
-{% assign summary = p.summary | default: p.description | default: p.content | strip_html | normalize_whitespace | truncate: 150 %}
+{% assign summary = p.summary | default: p.description | default: p.content | strip_html | normalize_whitespace | truncate: 360 %}
 {"date":"{{ p.date | date: '%Y-%m-%d' }}","title":{{ p.title | jsonify }},"url":"{{ p.url | relative_url }}","summary":{{ summary | jsonify }}}{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]</template>

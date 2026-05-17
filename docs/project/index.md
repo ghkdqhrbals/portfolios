@@ -5,10 +5,6 @@ nav_order: 5
 has_children: true
 ---
 
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 
 1인 프로젝트로 진행된 자동화 및 성능개선에 초점을 둔 Spring-Java 기반 채팅 백엔드/프론트 서버 프로젝트입니다 😊

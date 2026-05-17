@@ -3,6 +3,8 @@ layout: default
 title: (EN) Golang vs Java(1)
 parent: Go
 date: 2022-08-23
+summary: "Recently, I had a job interview in Ebay. They generally use Java for their development. And my programming language is Golang."
+tags: ["go", "backend", "jvm", "gc", "java", "performance"]
 nav_order: 1
 ---
 

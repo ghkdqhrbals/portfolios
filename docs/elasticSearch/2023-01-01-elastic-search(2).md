@@ -3,6 +3,8 @@ layout: default
 title: Elastic Search 심화(1)
 parent: Elastic Search
 date: 2023-01-01
+summary: "Shard란? Node란? 주의사항 1. Shard란? 이전 포스팅에서 ES는 Index단위로 데이터를 저장한다고 하였다. 이 Index는 Shard 단위로 분산저장된다. 위의 그림은 하나의 Index를 총 5개의 샤드로 분산저장한 그림이다."
+tags: ["elasticsearch", "index"]
 nav_order: 2
 ---
 

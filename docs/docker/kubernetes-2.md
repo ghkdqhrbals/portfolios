@@ -3,6 +3,8 @@ layout: default
 title: 쿠버네티스를 이해하기 위해 필요한 사전 지식들
 parent: 도커와 쿠버네티스
 date: 2021-03-19
+summary: "프로비저닝(Provisioning) 프로비저닝(Provisioning) 사용자의 요구에 맞게 시스템 자원을 할당, 배치, 배포해 두었다가 필요할 때 시스템을 사용할 수 있는 상태로 만들어 주는 기술입니다 가상 머신 프로비저닝 가상 머신을 생성하는 기술."
+tags: ["docker", "infra", "kubernetes", "aws"]
 nav_order: 5
 ---
 

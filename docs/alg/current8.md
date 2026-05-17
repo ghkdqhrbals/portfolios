@@ -1,6 +1,8 @@
 ---
 layout: default
 title: 퍼즐 조각 채우기
+summary: "생각할 점 2D 좌표에서의 회전 알고리즘 생성(x' = xcos90 + ysin90,y' = -xsin90 + ycos90) 퍼즐이 맞을 때, break! Figure 들 영점 조준."
+tags: ["algorithm", "problem-solving"]
 parent: 알고리즘 문제
 nav_order: 8
 ---

@@ -3,4 +3,5 @@ gemspec
 
 gem "webrick", "~> 1.7"
 gem 'jekyll-feed'
+gem 'jekyll-sitemap'
 gem 'sass-embedded', '1.69.5'

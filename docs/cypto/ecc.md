@@ -2,11 +2,11 @@
 layout: default
 title: (English) ECC encryption
 parent: Cryptography
+date: 2022-05-12
+summary: "E : Y^2 = X^3 + aX + b (mod p) pubkey = Pa, Pb privkey = nA, nB Select random k value, k = Random value with range 1 to n − 1 paintext - grouping -..."
+tags: ["cryptography"]
 nav_order: 6
 ---
-
-created at 2022-05-12
-{: .label .label-yellow }
 
 E : Y^2 = X^3 + aX + b (mod p)
 

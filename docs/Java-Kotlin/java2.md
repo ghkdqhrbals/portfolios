@@ -3,6 +3,8 @@ layout: default
 title: Garbage Collection
 parent: Java-Kotlin
 date: 2023-03-02
+summary: "Java에서는 new로 객체 생성하면 힙에다가 저장되잖아요? 이 때 힙 내부를 여러 단계로 나뉘어 어디에 저장하고 관리할지 정해주는게 GC입니다. 얘네는 세대교체를 베이스로 동작합니다."
+tags: ["java", "kotlin", "backend", "gc"]
 nav_order: 2
 ---
 

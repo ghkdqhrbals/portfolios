@@ -2,6 +2,8 @@
 layout: default
 title: (English) JWT vs PASETO
 date: 2022-06-01
+summary: "This run on Application Layer(Unlike TLS tickets) JWT(JSON-Web-Token) PASETO(Platform-Agnostic SEcurity TOkens)."
+tags: ["cryptography", "tls", "jwt"]
 parent: Cryptography
 nav_order: 7
 ---

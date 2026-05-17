@@ -45,6 +45,7 @@ exclude:
    - package-lock.json
    - Rakefile
    - README.md
+   - sitemap.xml
 
 # Jekyll ignores dot-directories by default; Chrome/DevTools may request
 # `/.well-known/appspecific/com.chrome.devtools.json`. Include `.well-known`
@@ -172,6 +173,7 @@ ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (t
 plugins:
   - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-sitemap
 
 # Pagination (custom plugin) page size
 recent_docs_per_page: 20

@@ -2,6 +2,8 @@
 layout: default
 title: 개발자 취준생 일기
 date: 2023-06-01
+summary: "새로운 기술 갈망 그리고 한계 요즘 새로운 기술을 적용하고싶다는 생각을 합니다. 특히 No-sql 쪽으로요. 이유는 MSA 프로젝트를 진행하면서 RDBMS(Postgresql)가 가지는 명확한 문제점을 발견했거든요."
+tags: ["retrospective", "postgresql", "redis", "database", "msa", "aws"]
 parent: 개발자 일기
 nav_order: 2
 ---

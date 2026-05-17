@@ -3,6 +3,8 @@ layout: default
 title: CompletableFuture 기능 별 심화이해
 parent: Java-Kotlin
 date: 2023-03-15
+summary: "thenAccept/thenRun/thenApply thenAccept 는 이전에 전달받은 parameter 가 있을 때 사용되며, thenRun 은 없을 때 사용됩니다. 예시로 함께 보겠습니다."
+tags: ["java", "kotlin", "backend", "completablefuture"]
 nav_order: 3
 ---
 

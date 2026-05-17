@@ -3,6 +3,8 @@ layout: default
 title: 쿠버네티스 생명 주기
 parent: 도커와 쿠버네티스
 date: 2021-04-02
+summary: "도서 : 컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커 쿠버네티스 생명 주기 유저는 kubectl 명령어를 통해 API 서버 파드 생성을 요청합니다 API 서버는 파드의 생성 요청을 etcd 에 기록합니다 컨트롤러 매니저는 API 서버를 감시하다가 새로운 파드 생성요청이..."
+tags: ["docker", "infra", "kubernetes"]
 nav_order: 6
 ---
 

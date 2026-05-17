@@ -3,6 +3,8 @@ layout: default
 title: ChatGPT 에게 쿠버네티스를 물어보기 
 parent: 도커와 쿠버네티스
 date: 2021-04-05
+summary: "이 포스팅은 의식의 흐름대로 ChatGPT 에게 쿠버네티스를 물어보는 방식으로 작성되었어요. Kubernetes 의 전반적인 아키텍처 질문들 Kube-proxy 는 쿠버네티스 클러스터의 모든 노드에서 실행되는 프로세스입니다."
+tags: ["docker", "infra", "kubernetes", "http", "tls", "nginx"]
 nav_order: 7
 ---
 

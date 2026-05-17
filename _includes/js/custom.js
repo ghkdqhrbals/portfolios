@@ -1,11 +1,75 @@
 // Minimal enhancements: code language badge + reading time meta
 (function(){
+	function fallbackDetectLanguage(code){
+		const text=code.trim();
+		if(!text) return '';
+		if(/^\s*(SELECT|INSERT|UPDATE|DELETE|CREATE|ALTER|WITH|EXPLAIN)\b/im.test(text)) return 'sql';
+		if(/^\s*(package|import\s+[\w.*]+;|public\s+class|class\s+\w+|interface\s+\w+|enum\s+\w+|@Test|@DisplayName|@Transactional|@SpringBootApplication|void\s+\w+\s*\()\b/m.test(text)) return 'java';
+		if(/^\s*(fun|val|var|data\s+class|suspend\s+fun)\b/m.test(text)) return 'kotlin';
+		if(/^\s*(func|package\s+main|import\s+\(|type\s+\w+\s+struct)\b/m.test(text)) return 'go';
+		if(/^\s*(const|let|var|import .* from|export\s+|function\s+|class\s+\w+|async\s+function)\b/m.test(text)) return 'javascript';
+		if(/^\s*(def|class|from\s+\w+\s+import|import\s+\w+|if __name__ == ['"]__main__['"])\b/m.test(text)) return 'python';
+		if(/^\s*(apiVersion:|kind:|metadata:|services:|version: ['"]?3|name:\s+)/m.test(text)) return 'yaml';
+		if(/^\s*[{[]/.test(text) && /["'][\w-]+["']\s*:/.test(text)) return 'json';
+		if(/^\s*(curl|docker|kubectl|git|npm|yarn|bundle|cd|export)\b/m.test(text)) return 'bash';
+		if(/<\/?[a-z][\s\S]*>/i.test(text)) return 'html';
+		return '';
+	}
+
+	function normalizeLanguage(lang){
+		return (lang || '')
+			.replace(/^plaintext$/i, 'text')
+			.replace(/^sh$/i, 'bash')
+			.replace(/^js$/i, 'javascript')
+			.trim();
+	}
+
 	function addLangBadges(){
-		document.querySelectorAll('figure.highlight').forEach(fig=>{
-			const cls=[...fig.classList].find(c=>c.startsWith('language-'))||'';
-			const lang=cls.replace('language-','');
-			const pre=fig.querySelector('pre');
-			if(pre && lang){pre.setAttribute('data-lang', lang.toUpperCase());}
+		document.querySelectorAll('div.highlighter-rouge, figure.highlight').forEach(block=>{
+			const classLang=([...block.classList].find(c=>c.startsWith('language-'))||'').replace('language-','');
+			const codeLang=((block.querySelector('code[class*="language-"]')||{}).className||'')
+				.split(/\s+/)
+				.find(c=>c.startsWith('language-'));
+			const code=block.querySelector('pre code, code');
+			const explicitLang=normalizeLanguage(classLang || (codeLang||'').replace('language-',''));
+			let lang=explicitLang;
+			const pre=block.querySelector('pre');
+			const raw=code ? (code.textContent || '') : '';
+
+			if(code && window.hljs){
+				const detectedLang=lang && lang !== 'text' ? lang : normalizeLanguage(fallbackDetectLanguage(raw));
+				try {
+					const result=detectedLang && typeof window.hljs.highlight === 'function'
+						? window.hljs.highlight(raw, { language: detectedLang, ignoreIllegals: true })
+						: (typeof window.hljs.highlightAuto === 'function' ? window.hljs.highlightAuto(raw) : null);
+					if(result && result.value){
+						code.innerHTML=result.value;
+						code.classList.add('hljs');
+						lang=normalizeLanguage(detectedLang || result.language || lang);
+					}
+				} catch(e){
+					lang=normalizeLanguage(detectedLang || lang);
+				}
+			}
+
+			if(code && (!lang || lang === 'text')){
+				if(window.hljs && typeof window.hljs.highlightAuto === 'function'){
+					const result=window.hljs.highlightAuto(raw);
+					if(result && result.language){
+						code.innerHTML=result.value;
+						code.classList.add('hljs', 'language-' + result.language);
+						lang=normalizeLanguage(result.language);
+					}
+				}
+				if(!lang || lang === 'text') lang=normalizeLanguage(fallbackDetectLanguage(raw) || lang);
+				if(lang && lang !== 'text') block.classList.add('language-' + lang);
+			}
+
+			if(pre && lang){
+				const label=lang.toUpperCase();
+				block.setAttribute('data-lang', label);
+				pre.setAttribute('data-lang', label);
+			}
 		});
 	}
 	// (Removed) Reading time 기능 전역 비활성화

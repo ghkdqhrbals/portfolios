@@ -2,6 +2,8 @@
 layout: default
 title: Java에서의 비동기 NonBlocking, 그리고 ListenableFuture 객체
 date: 2023-02-21
+summary: "Async, Sync + Blocking, NonBlocking 비동기와 동기, 그리고 non-blocking과 blocking방식은 어떻게 조합하냐에 따라 진행방식이 달라집니다. 이 글은 각각의 조합방식에 따른 진행방식의 차이점에 대해 설명합니다."
+tags: ["java", "kotlin", "backend", "kafka"]
 parent: Java-Kotlin
 nav_order: 1
 ---

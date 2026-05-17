@@ -3,11 +3,10 @@ layout: default
 title: (EN) What is MSA?
 parent: Micro Service Architecture
 date: 2022-09-05
+summary: "What is MSA? Monolithic's Disadvantage Changes in some modules affect the entire application Lack of scalability Micro Service Architecture's Advantage..."
+tags: ["msa", "architecture", "go", "saga"]
 nav_order: 1
 ---
-
-created at 2022-09-05
-{: .label .label-yellow }
 
 # What is MSA?
 ![monoly_msa](../../../assets/p/6/Monolithic_MSA.PNG)

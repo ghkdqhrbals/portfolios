@@ -1,6 +1,8 @@
 ---
 layout: default
 title: 모음 사전
+summary: "문제 설명 사전에 알파벳 모음 'A', 'E', 'I', 'O', 'U'만을 사용하여 만들 수 있는, 길이 5 이하의 모든 단어가 수록되어 있습니다. 사전에서 첫 번째 단어는 \"A\"이고, 그다음은 \"AA\"이며, 마지막 단어는 \"UUUUU\"입니다."
+tags: ["algorithm", "problem-solving"]
 parent: 알고리즘 문제
 nav_order: 4
 ---

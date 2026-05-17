@@ -29,7 +29,7 @@ module Jekyll
           # existing index page
           site.pages.find { |pg| pg.url == '/' }
         else
-          DocsPage.new(site, site.source, page_num)
+          DocsPage.new(site, site.source, page_num).tap { |pg| site.pages << pg }
         end
         next unless page
 
@@ -51,11 +51,14 @@ module Jekyll
       @dir  = "page/#{page_num}"
       @name = 'index.html'
       process(@name)
-      read_yaml(File.join(base, '_layouts'), 'default.html')
+      read_yaml(base, 'index.md')
+      self.content = "{% include recent_list.html %}\n"
       self.data['title'] = "Recent Posts (Page #{page_num})"
       self.data['layout'] = 'default'
       self.data['permalink'] = "/page/#{page_num}/"
       self.data['description'] = 'Recent technical notes'
+      self.data['nav_exclude'] = true
+      self.data['page_number'] = page_num
     end
   end
 end

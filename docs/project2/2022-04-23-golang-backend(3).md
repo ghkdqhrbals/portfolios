@@ -3,11 +3,10 @@ layout: default
 title: (EN) implementation (2)
 parent: Bank API Server Project
 date: 2022-04-23
+summary: "Progress For my experience in golang-backend, I use below skills for develop my banking service. You can see the source code in my github."
+tags: ["project", "go", "postgresql", "database", "docker", "kubernetes", "http"]
 nav_order: 2
 ---
-
-created at 2022-04-23
-{: .label .label-yellow }
 
 # Progress
 

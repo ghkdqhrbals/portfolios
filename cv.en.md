@@ -17,7 +17,7 @@ With the mindset that "every repetitive task should eventually be automated," I 
 * Backend Engineer ([**FOODDASH**](https://fooddash.co.kr/)) 2024.04.15 ~ 2025.11.30
   * Developed and operated order/payment/membership services for multi-franchise brands (including Kyochon with 770k MAU) with zero-downtime deployments.
   * Successfully migrated [Jadam](https://www.jadam.kr/) data from [Wmpo](https://www.wmpo.co.kr/) and renewed a service.
-  * Optimized membership grade renewal batch for 1M+ users from 19m13s to 53s ([**95.4% improvement**]((https://ghkdqhrbals.github.io/portfolios/docs/Java/20/)))
+  * Optimized membership grade renewal batch for 1M+ users from 19m13s to 53s ([**95.4% improvement**](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/))
   * Built per-brand modularization and an [**integrated CI/CD pipeline**](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/)
   * Identified notification loss during retries when large batch sends overlapped with real-time notifications and server restarts occurred.
     * Introduced Redis Streams and PEL-based reprocessing to guarantee delivery after restarts, eliminating notification loss.

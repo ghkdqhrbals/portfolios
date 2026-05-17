@@ -3,6 +3,8 @@ layout: default
 title: (EN) What is Goroutine and its behavior
 parent: Go
 date: 2022-09-18
+summary: "Golang use goroutine which is similar with thread, but little bit different. Goroutine can make you easy to use thread with concurrency."
+tags: ["go", "backend", "java", "algorithm", "performance"]
 nav_order: 4
 ---
 Golang use goroutine which is similar with thread, but little bit different. Goroutine can make you easy to use thread with concurrency. Also goroutine makes your program faster and lighter than when using original OS thread.

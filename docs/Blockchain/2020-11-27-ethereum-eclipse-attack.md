@@ -3,6 +3,8 @@ layout: default
 title: (EN) Geth v1.6.6 Architecture and Eclipse Attack
 parent: Ethereum Eclipse Attack
 date: 2020-11-27
+summary: "Analysis of Geth 1.6.6v's P2P network create UDP/TCP listener schedule 2 types of task(discoverTask, dialTask) seeding Ethereum nodes into Kademlia DHT..."
+tags: ["blockchain", "ethereum", "go", "database", "eclipse-attack"]
 nav_order: 1
 ---
 # Analysis of Geth 1.6.6v's P2P network

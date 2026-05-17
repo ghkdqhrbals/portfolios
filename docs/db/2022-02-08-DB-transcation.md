@@ -3,11 +3,10 @@ layout: default
 title: (English) RDB Transaction
 parent: RDBMS
 date: 2022-02-08
+summary: "What is Database Transaction? It refers to the unit of work performed by changing the state of the database."
+tags: ["database", "go", "transaction", "isolation"]
 nav_order: 2
 ---
-
-created at 2022-02-08
-{: .label .label-yellow }
 
 # What is Database Transaction?
 * It refers to the unit of work performed by changing the state of the database.

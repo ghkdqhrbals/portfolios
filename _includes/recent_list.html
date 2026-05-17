@@ -22,7 +22,7 @@ Parameters via page front matter:
       <span class="r-date">{{ p.date | date: '%Y-%m-%d' }}</span>
       <span class="r-title">
         <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-        {% assign summary = p.summary | default: p.description | default: p.content | strip_html | normalize_whitespace | truncate: 150 %}
+        {% assign summary = p.summary | default: p.description | default: p.content | strip_html | normalize_whitespace | truncate: 360 %}
         {% if summary %}<span class="r-summary">{{ summary }}</span>{% endif %}
       </span>
     </li>
@@ -37,7 +37,7 @@ Parameters via page front matter:
       {% if prev_num == 1 %}
         <a class="pager prev" href="{{ '/' | relative_url }}">← Prev</a>
       {% else %}
-        <a class="pager prev" href="{{ ('/page' | append: prev_num | append: '/') | relative_url }}">← Prev</a>
+        <a class="pager prev" href="{{ '/page/' | append: prev_num | append: '/' | relative_url }}">← Prev</a>
       {% endif %}
     {% endif %}
     <span class="pages">
@@ -45,14 +45,14 @@ Parameters via page front matter:
         {% if i == 1 %}
           {% assign pg_url = '/' %}
         {% else %}
-          {% assign pg_url = '/page' | append: i | append: '/' %}
+          {% assign pg_url = '/page/' | append: i | append: '/' %}
         {% endif %}
         <a class="num{% if i == page_number %} active{% endif %}" href="{{ pg_url | relative_url }}">{{ i }}</a>
       {% endfor %}
     </span>
     {% if page_number < total_pages %}
       {% assign next_num = page_number | plus: 1 %}
-      <a class="pager next" href="{{ ('/page' | append: next_num | append: '/') | relative_url }}">Next →</a>
+      <a class="pager next" href="{{ '/page/' | append: next_num | append: '/' | relative_url }}">Next →</a>
     {% endif %}
   </nav>
   {% endif %}

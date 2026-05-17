@@ -2,6 +2,8 @@
 layout: default
 title: 악성코드 유형 별 대표 특성 추출 프로젝트
 date: 2021-12-01
+summary: "해당 프로젝트는 국가연구과제 수행 중, 2015 Window malware dataset을 대상으로한 N-gram 기반 악성코드 패턴추출 프로젝트입니다."
+tags: ["toy-project"]
 parent: 토이 프로젝트
 nav_order: 2
 ---
