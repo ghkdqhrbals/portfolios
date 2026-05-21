@@ -163,6 +163,7 @@ public class UserServiceImpl  {
 
 ### CompletableFuture 의 람다식 내 지역변수 재사용 방식 및 Thread-safe 한 변수
 
+{% raw %}
 ```java
 public class SimpleTest {
     static int staticVariable = 0;
@@ -228,6 +229,7 @@ public class SimpleTest {
     }
 }
 ```
+{% endraw %}
 
 시작 이후, 람다는 지역 변수(localVariable)를 **capturing** 해서 가지고 있도록 지원합니다. 즉, **스레드 stack 에 새롭게 복사해서 쌓아 올린 것**입니다. 그리고 우리는 여기서 새로운 스레드로 표현하였죠. 그렇다면, **새로운 스레드의 스택에 람다식이 capturing한 지역 변수가 복사**됩니다. 하지만 Java는 지역변수 수정(지역 변수을 다른 메소드에서 변경)을 미연에 방지하고자 **컴파일 단계에서 에러**를 띄웁니다. 
 

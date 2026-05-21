@@ -1,5 +1,43 @@
 // Minimal enhancements: code language badge + reading time meta
 (function(){
+	function initThemeToggle(){
+		const root=document.documentElement;
+		const button=document.querySelector('.theme-toggle');
+		const setTheme=theme=>{
+			const normalized=theme === 'dark' ? 'dark' : 'light';
+			root.setAttribute('data-theme', normalized);
+			try { sessionStorage.setItem('site-theme', normalized); } catch(e){}
+			if(button){
+				const isDark=normalized === 'dark';
+				button.setAttribute('aria-pressed', String(isDark));
+				button.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+			}
+		};
+		setTheme(root.getAttribute('data-theme') || 'light');
+		if(button){
+			button.addEventListener('click', ()=>{
+				root.classList.add('theme-changing');
+				button.classList.remove('theme-toggle--animating');
+				void button.offsetWidth;
+				button.classList.add('theme-toggle--animating');
+				setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+				window.setTimeout(()=>button.classList.remove('theme-toggle--animating'), 360);
+				window.setTimeout(()=>root.classList.remove('theme-changing'), 320);
+			});
+		}
+		if(window.matchMedia){
+			const media=window.matchMedia('(prefers-color-scheme: dark)');
+			const syncSystemTheme=event=>{
+				if(sessionStorage.getItem('site-theme')) return;
+				root.classList.add('theme-changing');
+				setTheme(event.matches ? 'dark' : 'light');
+				window.setTimeout(()=>root.classList.remove('theme-changing'), 320);
+			};
+			if(typeof media.addEventListener === 'function') media.addEventListener('change', syncSystemTheme);
+			else if(typeof media.addListener === 'function') media.addListener(syncSystemTheme);
+		}
+	}
+
 	function fallbackDetectLanguage(code){
 		const text=code.trim();
 		if(!text) return '';
@@ -323,5 +361,5 @@
 		renderPage(1);
 	}
 
-	document.addEventListener('DOMContentLoaded', function(){addLangBadges();/* reading time 제거 */initRecent();initContentIndex();ensurePrintableHyperlinks();});
+	document.addEventListener('DOMContentLoaded', function(){initThemeToggle();addLangBadges();/* reading time 제거 */initRecent();initContentIndex();ensurePrintableHyperlinks();});
 })();
