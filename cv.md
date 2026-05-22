@@ -14,23 +14,27 @@ permalink: /cv/
 
 ## EXPERIENCE
 * Backend Engineer([**FOODDASH**](https://fooddash.co.kr/)) 2024.04.15 ~ 2025.11.30
-  * 600만+ 회원, MAU 77만 교촌을 포함한 자담 등 멀티 프랜차이즈 브랜드의 주문/결제/멤버십 서비스 개발 및 무중단 배포 운영.
-  * 자담 위메프오 데이터 마이그레이션 성공
-  * 100만명 이상 회원 대상 멤버십 등급 갱신 배치 작업 최적화 19m13s 에서 53s로 [95.4% 개선](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/).
-  * 브랜드 별 모듈화 및 개별 & [통합 CI/CD 파이프라인](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/) 구성.
-  * 대규모 알림 전송 배치와 실제 주문 알림 전송이 겹치면 외부 push API 타임아웃 발생 및 retry 할 때 서버 재시작 시 몇 건의 전송 누락 문제 확인
-    * 기존 인프라인 Redis 에 Stream 기능을 도입하며 재시작 이후에도 PEL 기반 재처리 가능하도록 보완하여 알림 유실 제거
-    * 결과적으로 전송 누락률 0% 수준으로 [안정화](https://ghkdqhrbals.github.io/portfolios/docs/Java/30/)
-  * 초당 수천 건의 이벤트를 처리할 수 있는 데이터 동기화 파이프라인 설계 및 [개발운영](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/)(Redis Stream 백프레셔, memory 85% 제한 consume 안전한 동기화 처리).
-  * 개발스택 : Kotlin/Spring-Boot, Mysql, Redis Stream MQ, Kubernetes, AWS-based infra
+
+  * 600만+ 회원, MAU 77만 교촌을 포함한 멀티 프랜차이즈 브랜드의 주문/결제/멤버십 백엔드 개발 및 무중단 배포 운영.
+  * 자담 위메프오 서비스 이관 과정에서 회원/주문 데이터 마이그레이션을 수행하고, 전환 이후 서비스 운영 이슈를 안정화.
+  * 100만명 이상 회원 대상 멤버십 등급 갱신 배치의 병목을 분석하고, 처리 시간을 19m13s 에서 53s 로 단축하여 [95.4% 개선](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/).
+  * 브랜드별 기능 차이와 공통 모듈을 분리하고, 변경 감지 기반 staging 배포와 수동 승인 production 배포를 지원하는 [통합 CI/CD 파이프라인](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/) 구축.
+  * 대규모 알림 배치와 실시간 주문 알림이 겹칠 때 발생하던 외부 Push API timeout, retry, 서버 재시작 시 전송 누락 문제를 분석.
+    * Redis Stream, Consumer Group, PEL 기반 재처리 구조를 도입하여 재시작 이후에도 미처리 알림을 복구하도록 개선.
+    * 결과적으로 알림 전송 누락을 0% 수준으로 [안정화](https://ghkdqhrbals.github.io/portfolios/docs/Java/30/).
+  * Redis Stream 백프레셔와 memory 85% 제한 consume 정책을 적용해, 초당 수천 건 이벤트를 처리하는 데이터 동기화 파이프라인을 설계 및 [운영](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/).
+  * 주요 스택 : Kotlin, Spring Boot, MySQL, Redis Stream, Kubernetes, AWS
+
 * Senior Researcher(foxee) 2023.06 ~ 2024.01
-  * Java/Spring-Boot 기반 취약점 분석 웹 백엔드 개발
-  * 악성코드 이미지 CNN eXplainable AI 연구
-  * 윈도우 2015 악성코드 데이터 벡터 정제 및 시각화
-  * 개발스택 : Java/Spring-Boot, PostgreSQL, Docker
+
+  * Java/Spring Boot 기반 취약점 분석 웹 서비스의 백엔드 API 개발.
+  * 악성코드 이미지 기반 CNN/XAI 연구를 수행하고, Windows 2015 악성코드 데이터셋의 벡터 정제 및 시각화 파이프라인 구축.
+  * Docker/GitHub Actions 기반 배포 흐름을 정리해 연구/서비스 개발 환경의 반복 작업을 줄임.
+  * 주요 스택 : Java, Spring Boot, PostgreSQL, Docker, Python
+
 * Intern(주식회사 펄스) 2020.01 ~ 2020.02(1 month)
-  * 역할 : 사내 편의 서비스 개발
-  * 개발스택 : Python
+
+  * 사내 업무 편의 기능을 Python 기반으로 개발.
 
 ## EDUCATION
 

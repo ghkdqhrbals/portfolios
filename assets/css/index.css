@@ -36,6 +36,16 @@
 /* Use global pseudo-element underline only; remove extra border to avoid double line */
 .page-index .main-content h1 {padding-bottom:4px;}
 
+/* CV keeps companies at the top level and indents the experience details below them. */
+.page-cv .main-content ul ul,
+.page-cv .main-content ol ol,
+.page-cv .main-content ul ol,
+.page-cv .main-content ol ul {margin-top:.35rem;padding-left:1.5rem !important;}
+.page-cv .main-content ul ul > li,
+.page-cv .main-content ol ol > li,
+.page-cv .main-content ul ol > li,
+.page-cv .main-content ol ul > li {margin:.28rem 0;}
+
 /* Emphasize name: enlarge progressively on narrower viewports */
 .page-index .my-name {font-weight:700;letter-spacing:-.5px;display:inline-block;line-height:1.1;transition:font-size .25s,color .25s;}
 @media (max-width: 1400px){.page-index .my-name {font-size:1.05em;}}

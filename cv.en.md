@@ -15,23 +15,27 @@ With the mindset that "every repetitive task should eventually be automated," I 
 
 ## EXPERIENCE
 * Backend Engineer ([**FOODDASH**](https://fooddash.co.kr/)) 2024.04.15 ~ 2025.11.30
-  * Developed and operated order/payment/membership services for multi-franchise brands (including Kyochon with 770k MAU) with zero-downtime deployments.
-  * Successfully migrated [Jadam](https://www.jadam.kr/) data from [Wmpo](https://www.wmpo.co.kr/) and renewed a service.
-  * Optimized membership grade renewal batch for 1M+ users from 19m13s to 53s ([**95.4% improvement**](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/))
-  * Built per-brand modularization and an [**integrated CI/CD pipeline**](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/)
-  * Identified notification loss during retries when large batch sends overlapped with real-time notifications and server restarts occurred.
-    * Introduced Redis Streams and PEL-based reprocessing to guarantee delivery after restarts, eliminating notification loss.
-    * Stabilized loss rate to 0% [link](https://ghkdqhrbals.github.io/portfolios/docs/Java/30/)
-  * Designed and operated a [data sync pipeline](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/) handling thousands of events per second (Redis Stream backpressure, safe consumption with memory cap 85%) 
-  * Stack: Kotlin/Spring Boot, MySQL, Redis Stream MQ, Kubernetes, AWS-based infrastructure
+
+  * Developed and operated order, payment, and membership backend services for multi-franchise F&B brands, including Kyochon with 770k MAU, while supporting zero-downtime deployments.
+  * Migrated Jadam service data from Wmpo and stabilized operational issues after the service transition.
+  * Analyzed bottlenecks in the membership grade renewal batch for 1M+ users and reduced processing time from 19m13s to 53s ([**95.4% improvement**](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/)).
+  * Separated brand-specific features from shared modules and built an [**integrated CI/CD pipeline**](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/) with change-based staging deployments, manual production triggers, rollout tracking, and Slack notifications.
+  * Investigated notification loss caused by external Push API timeouts, retries, and server restarts when large notification batches overlapped with real-time order notifications.
+    * Introduced Redis Streams, Consumer Groups, and PEL-based reprocessing to recover unprocessed notifications after restarts.
+    * Stabilized notification loss to near 0% ([link](https://ghkdqhrbals.github.io/portfolios/docs/Java/30/)).
+  * Designed and operated a [data synchronization pipeline](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/) capable of handling thousands of events per second using Redis Stream backpressure and safe consumption with an 85% memory cap.
+  * Stack: Kotlin, Spring Boot, MySQL, Redis Streams, Kubernetes, AWS
+
 * Senior Researcher (foxee) 2023.06 ~ 2024.01
-  * Built a vulnerability analysis web backend with Java/Spring Boot.
-  * Conducted research on explainable AI (CNN) for malware images.
-  * Refined and visualized Windows 2015 malware dataset vectors.
-  * Stack: Java/Spring Boot, PostgreSQL, Docker
+
+  * Built backend APIs for a vulnerability analysis web service with Java and Spring Boot.
+  * Conducted CNN/XAI research for malware image analysis and built preprocessing/visualization pipelines for the Windows 2015 malware dataset.
+  * Improved the development and deployment workflow with Docker and GitHub Actions.
+  * Stack: Java, Spring Boot, PostgreSQL, Docker, Python
+
 * Intern (Pulse Co., Ltd.) 2020.01 ~ 2020.02 (1 month)
-  * Role: Internal convenience service development
-  * Stack: Python
+
+  * Developed internal workflow support tools with Python.
 
 ## EDUCATION
 * M.S. in Computer Engineering, Pusan National University (2020.09 ~ 2022.08)
