@@ -225,7 +225,7 @@ function searchLoaded(index, docs) {
 
       var resultDocTitle = document.createElement('div');
       resultDocTitle.classList.add('search-result-doc-title');
-      resultDocTitle.innerHTML = doc.doc;
+      resultDocTitle.textContent = doc.doc;
       resultDoc.appendChild(resultDocTitle);
       var resultDocOrSection = resultDocTitle;
 
@@ -233,7 +233,7 @@ function searchLoaded(index, docs) {
         resultDoc.classList.add('search-result-doc-parent');
         var resultSection = document.createElement('div');
         resultSection.classList.add('search-result-section');
-        resultSection.innerHTML = doc.title;
+        resultSection.textContent = doc.title;
         resultTitle.appendChild(resultSection);
         resultDocOrSection = resultSection;
       }
@@ -362,16 +362,16 @@ function searchLoaded(index, docs) {
       for (var i in positions) {
         var position = positions[i];
         var span = document.createElement('span');
-        span.innerHTML = text.substring(index, position[0]);
+        span.textContent = text.substring(index, position[0]);
         parent.appendChild(span);
         index = position[0] + position[1];
         var highlight = document.createElement('span');
         highlight.classList.add('search-result-highlight');
-        highlight.innerHTML = text.substring(position[0], index);
+        highlight.textContent = text.substring(position[0], index);
         parent.appendChild(highlight);
       }
       var span = document.createElement('span');
-      span.innerHTML = text.substring(index, end);
+      span.textContent = text.substring(index, end);
       parent.appendChild(span);
     }
   }

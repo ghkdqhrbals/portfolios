@@ -19,6 +19,7 @@
     "format:md": "prettier --write '**/*.md'",
     "lint:md": "prettier --check '**/*.md'",
     "stylelint-check": "stylelint-config-prettier-check",
-    "ga4:fetch": "node scripts/fetch_ga4.mjs"
+    "ga4:fetch": "node scripts/fetch_ga4.mjs",
+    "translate:en": "node scripts/auto_translate.mjs --write"
   }
 }

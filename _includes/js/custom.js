@@ -38,6 +38,42 @@
 		}
 	}
 
+	function initTranslation(){
+		const containers=[...document.querySelectorAll('[data-tl-content]')];
+		if(!containers.length) return;
+
+		const params=new URLSearchParams(window.location.search);
+		const requested=(params.get('tl') || 'ko').toLowerCase();
+		const active=requested === 'en' ? 'en' : 'ko';
+
+		containers.forEach(container=>{
+			const lang=container.getAttribute('data-tl-content');
+			const isActive=lang === active;
+			container.hidden = !isActive;
+			container.querySelectorAll('[id]').forEach(el=>{
+				if(!el.dataset.tlOriginalId) el.dataset.tlOriginalId=el.id;
+				el.id = isActive ? el.dataset.tlOriginalId : 'inactive-' + lang + '-' + el.dataset.tlOriginalId;
+			});
+			container.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+				const href=anchor.getAttribute('href');
+				if(!anchor.dataset.tlOriginalHref) anchor.dataset.tlOriginalHref=href;
+				const original=anchor.dataset.tlOriginalHref || href;
+				anchor.setAttribute('href', isActive ? original : '#inactive-' + lang + '-' + original.slice(1));
+			});
+		});
+		document.documentElement.setAttribute('lang', active === 'en' ? 'en-US' : 'ko-KR');
+
+		document.querySelectorAll('[data-tl-link]').forEach(link=>{
+			const target=link.getAttribute('data-tl-link');
+			const next=new URL(window.location.href);
+			next.searchParams.set('tl', target);
+			link.setAttribute('href', next.pathname + next.search + next.hash);
+			link.classList.toggle('active', target === active);
+			if(target === active) link.setAttribute('aria-current', 'true');
+			else link.removeAttribute('aria-current');
+		});
+	}
+
 	function fallbackDetectLanguage(code){
 		const text=code.trim();
 		if(!text) return '';
@@ -164,7 +200,8 @@
 			'.no_toc',
 			'.no-toc',
 			'.content-index-sidebar',
-			'.site-footer'
+			'.site-footer',
+			'[hidden]'
 		].join(',');
 		const headings=[...content.querySelectorAll('h1, h2, h3, h4')]
 			.filter(heading=>!heading.closest(ignoredSelectors))
@@ -361,5 +398,5 @@
 		renderPage(1);
 	}
 
-	document.addEventListener('DOMContentLoaded', function(){initThemeToggle();addLangBadges();/* reading time 제거 */initRecent();initContentIndex();ensurePrintableHyperlinks();});
+	document.addEventListener('DOMContentLoaded', function(){initThemeToggle();initTranslation();addLangBadges();/* reading time 제거 */initRecent();initContentIndex();ensurePrintableHyperlinks();});
 })();

@@ -40,10 +40,35 @@ layout: table_wrappers
     <div id="main-content-wrap" class="main-content-wrap">
       {% include components/breadcrumbs.html %}
       <div id="main-content" class="main-content" role="main">
-        {% if site.heading_anchors != false %}
-          {% include vendor/anchor_headings.html html=content beforeHeading="true" anchorBody="<svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><use xlink:href=\"#svg-link\"></use></svg>" anchorClass="anchor-heading" anchorAttrs="aria-labelledby=\"%html_id%\"" %}
+        {% if page.translation_en %}
+          <div class="translation-switcher" aria-label="Language">
+            <a class="translation-switcher__link" data-tl-link="ko" href="?tl=ko">KO</a>
+            <a class="translation-switcher__link" data-tl-link="en" href="?tl=en">EN</a>
+          </div>
+        {% endif %}
+
+        {% if page.translation_en %}
+          <div class="translation-content" data-tl-content="ko">
+            {% if site.heading_anchors != false %}
+              {% include vendor/anchor_headings.html html=content beforeHeading="true" anchorBody="<svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><use xlink:href=\"#svg-link\"></use></svg>" anchorClass="anchor-heading" anchorAttrs="aria-labelledby=\"%html_id%\"" %}
+            {% else %}
+              {{ content }}
+            {% endif %}
+          </div>
+          <div class="translation-content" data-tl-content="en" hidden>
+            {% assign translation_en_content = page.translation_en | markdownify %}
+            {% if site.heading_anchors != false %}
+              {% include vendor/anchor_headings.html html=translation_en_content beforeHeading="true" anchorBody="<svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><use xlink:href=\"#svg-link\"></use></svg>" anchorClass="anchor-heading" anchorAttrs="aria-labelledby=\"%html_id%\"" %}
+            {% else %}
+              {{ translation_en_content }}
+            {% endif %}
+          </div>
         {% else %}
-          {{ content }}
+          {% if site.heading_anchors != false %}
+            {% include vendor/anchor_headings.html html=content beforeHeading="true" anchorBody="<svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><use xlink:href=\"#svg-link\"></use></svg>" anchorClass="anchor-heading" anchorAttrs="aria-labelledby=\"%html_id%\"" %}
+          {% else %}
+            {{ content }}
+          {% endif %}
         {% endif %}
 
         {% if page.has_children == true and page.has_toc != false %}
