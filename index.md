@@ -16,7 +16,7 @@ permalink: /
 
 | Name | Description |
 | - | - |
-| [LidStay](https://ghkdqhrbals.github.io/LidStay/) | MacBook 덮개를 닫아도 원격 접속, 긴 빌드, 서버 작업이 계속 실행되도록 돕는 macOS 앱. 복잡한 Amphetamine 보다 단순하게 쓰고, 불필요한 화면/전력 사용을 줄이는 방향으로 만든 앱 |
+| [LidStay](https://ghkdqhrbals.github.io/LidStay/) | An easy-to-use macOS app that keeps your Mac awake with the lid closed, dims the display to reduce unnecessary power use, and supports auto-hotspot connect so remote sessions, long builds, and server tasks keep running without Amphetamine-style complexity. |
 
 <div id="recent-root" class="recent-root" data-per-page="20">
 	<div class="recent-toolbar">
