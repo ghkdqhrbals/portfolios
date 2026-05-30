@@ -20,9 +20,9 @@ permalink: /cv/
   * 100만명 이상 회원 대상 멤버십 등급 갱신 배치의 병목을 분석하고, 처리 시간을 19m13s 에서 53s 로 단축하여 [95.4% 개선](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/).
   * 브랜드별 기능 차이와 공통 모듈을 분리하고, 변경 감지 기반 staging 배포와 수동 승인 production 배포를 지원하는 [통합 CI/CD 파이프라인](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/) 구축.
   * 대규모 알림 배치와 실시간 주문 알림이 겹칠 때 발생하던 외부 Push API timeout, retry, 서버 재시작 시 전송 누락 문제를 분석.
-    * Redis Stream, Consumer Group, PEL 기반 재처리 구조를 도입하여 재시작 이후에도 미처리 알림을 복구하도록 개선.
+    * 알림 누락 문제 해결을 위해 Redis Stream 메시지 큐 도입을 테크 리드로 주도하고, Consumer Group/PEL(Pending Entries List)로 처리 중이던 메시지를 추적해 at-least-once 시맨틱 기반의 알림 처리와 서버 재시작 후 미처리 알림 복구를 지원하도록 개선.
     * 결과적으로 알림 전송 누락을 0% 수준으로 [안정화](https://ghkdqhrbals.github.io/portfolios/docs/Java/30/).
-  * Redis Stream 백프레셔와 memory 85% 제한 consume 정책을 적용해, 초당 수천 건 이벤트를 처리하는 데이터 동기화 파이프라인을 설계 및 [운영](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/).
+  * 대용량 주문/메뉴 데이터를 빠르게 실시간 조회해야 하는 요구사항에서, 여러 테이블에 걸친 멀티 쿼리 병목을 줄이기 위해 조회 모델 역정규화가 필요하다고 판단하고 [MySQL CDC -> MQ -> ETL -> MongoDB 동기화 파이프라인](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/)을 설계 및 운영.
   * 주요 스택 : Kotlin, Spring Boot, MySQL, Redis Stream, Kubernetes, AWS
 
 * Senior Researcher(foxee) 2023.06 ~ 2024.01

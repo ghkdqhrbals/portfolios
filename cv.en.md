@@ -21,9 +21,9 @@ With the mindset that "every repetitive task should eventually be automated," I 
   * Analyzed bottlenecks in the membership grade renewal batch for 1M+ users and reduced processing time from 19m13s to 53s ([**95.4% improvement**](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/)).
   * Separated brand-specific features from shared modules and built an [**integrated CI/CD pipeline**](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/) with change-based staging deployments, manual production triggers, rollout tracking, and Slack notifications.
   * Investigated notification loss caused by external Push API timeouts, retries, and server restarts when large notification batches overlapped with real-time order notifications.
-    * Introduced Redis Streams, Consumer Groups, and PEL-based reprocessing to recover unprocessed notifications after restarts.
+    * Served as the technical lead for introducing a Redis Streams message queue to solve notification loss, using Consumer Groups and PEL (Pending Entries List) to provide at-least-once delivery semantics, track in-flight messages, and recover unprocessed notifications after restarts.
     * Stabilized notification loss to near 0% ([link](https://ghkdqhrbals.github.io/portfolios/docs/Java/30/)).
-  * Designed and operated a [data synchronization pipeline](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/) capable of handling thousands of events per second using Redis Stream backpressure and safe consumption with an 85% memory cap.
+  * Designed and operated a [MySQL CDC -> MQ -> ETL -> MongoDB synchronization pipeline](https://ghkdqhrbals.github.io/portfolios/docs/Java/37/) to support fast, large-scale real-time reads by denormalizing read models and reducing multi-query bottlenecks across order and menu tables.
   * Stack: Kotlin, Spring Boot, MySQL, Redis Streams, Kubernetes, AWS
 
 * Senior Researcher (foxee) 2023.06 ~ 2024.01
