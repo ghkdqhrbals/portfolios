@@ -332,6 +332,30 @@ figure.highlight {
 		border-radius: 999px;
 		background: $link-color;
 	}
+
+	@media (max-width: 700px) {
+		body.has-content-index .content-index-sidebar {
+			margin-bottom: $sp-3;
+		}
+
+		.content-index-sidebar__inner {
+			padding: $sp-2 0;
+			background: transparent !important;
+		}
+
+		.content-index__link {
+			padding: 4px 0;
+			-webkit-tap-highlight-color: transparent;
+		}
+
+		.content-index__link:hover,
+		.content-index__link:focus,
+		.content-index__link:active,
+		.content-index__link.active {
+			background: transparent !important;
+			text-decoration: none !important;
+		}
+	}
 }
 
 @media (min-width: 1200px) {

@@ -43,6 +43,7 @@
 	.translation-switcher__link.active {background:#2563eb !important;color:#fff !important;}
 	/* Site header alignment tweak */
 	#main-header {align-items:center;}
+	.mobile-header-actions {display:none;}
 	.main-header-actions {
 		position:fixed;
 		top:0;
@@ -68,6 +69,40 @@
 		width:calc(100% - 132px) !important;
 	}
 	@media (max-width: 899px) {
+		.site-header {
+			min-height:52px;
+		}
+		.site-header .site-title {
+			min-width:0;
+			padding-right:8px;
+		}
+		.mobile-header-actions {
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			flex:0 0 auto;
+			height:52px;
+			margin-left:auto;
+		}
+		.mobile-header-actions .theme-toggle {
+			width:30px;
+			height:30px;
+			margin:0 4px 0 0;
+		}
+		.mobile-header-actions .theme-toggle__icon {
+			width:16px;
+			height:16px;
+		}
+		.site-header .site-button:hover,
+		.site-header .site-button:focus,
+		.site-header .site-button:active,
+		.site-header .site-button.nav-open {
+			background:#eef4ff !important;
+			background-image:none !important;
+		}
+		#main-header.nav-open {
+			display:none !important;
+		}
 		#main-header {position:relative;}
 		.main-header-actions {
 			position:absolute;
@@ -500,6 +535,14 @@
 		background-image:none !important;
 		color:#f4f7fb !important;
 	}
+	html[data-theme="dark"] .site-header .site-button:hover,
+	html[data-theme="dark"] .site-header .site-button:focus,
+	html[data-theme="dark"] .site-header .site-button:active,
+	html[data-theme="dark"] .site-header .site-button.nav-open {
+		background:#222936 !important;
+		background-image:none !important;
+		color:#d7e3f4 !important;
+	}
 	html[data-theme="dark"] .brand-inline .site-desc {color:#8d98a7 !important;}
 	html[data-theme="dark"] .side-bar .nav-category {
 		background:#171b22 !important;
@@ -602,6 +645,15 @@
 	html[data-theme="dark"] .content-index__link.active {
 		color:#f1f5f9 !important;
 		background:#171d26 !important;
+	}
+	@media (max-width: 700px) {
+		html[data-theme="dark"] .content-index__link:hover,
+		html[data-theme="dark"] .content-index__link:focus,
+		html[data-theme="dark"] .content-index__link:active,
+		html[data-theme="dark"] .content-index__link.active {
+			background:transparent !important;
+			-webkit-tap-highlight-color:transparent;
+		}
 	}
 	html[data-theme="dark"] .content-index__link.active::before,
 	html[data-theme="dark"] .content-index__link.active::after {
@@ -769,6 +821,26 @@
 		.main-content h2::before,
 		.main-content h3::before,
 		.main-content h4::before {font-size:.72em;}
+		.main-content ul:not(.recent-list):not(.search-results-list):not(.content-index__list),
+		.main-content ol:not(.recent-list):not(.search-results-list):not(.content-index__list) {
+			padding-left:1.25rem !important;
+			margin-left:0 !important;
+		}
+		.main-content ul:not(.recent-list):not(.search-results-list):not(.content-index__list) {
+			list-style:disc outside !important;
+		}
+		.main-content ol:not(.recent-list):not(.search-results-list):not(.content-index__list) {
+			list-style:decimal outside !important;
+		}
+		.main-content ul:not(.recent-list):not(.search-results-list):not(.content-index__list) > li::before {
+			content:none !important;
+			display:none !important;
+		}
+		.main-content li > ul:not(.recent-list):not(.search-results-list):not(.content-index__list),
+		.main-content li > ol:not(.recent-list):not(.search-results-list):not(.content-index__list) {
+			padding-left:1.1rem !important;
+			margin-top:.3rem;
+		}
 	}
 
 	/* PRINT: 완전히 PDF 출력에서 사이드바/헤더 제거 (특히 CV 페이지) */
