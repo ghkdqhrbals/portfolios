@@ -4,7 +4,6 @@ title: (EN) implementation (1)
 parent: Bank API Server Project
 date: 2022-02-02
 summary: "Database design First I'm going to write DB scheme using . We can make general sql code as below."
-tags: ["project", "go", "postgresql", "database"]
 nav_order: 1
 ---
 

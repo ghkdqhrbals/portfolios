@@ -43,8 +43,7 @@
 		if(!containers.length) return;
 
 		const params=new URLSearchParams(window.location.search);
-		const requested=(params.get('tl') || 'ko').toLowerCase();
-		const active=requested === 'en' ? 'en' : 'ko';
+		const active=(params.get('tl') || 'ko').toLowerCase() === 'en' ? 'en' : 'ko';
 
 		containers.forEach(container=>{
 			const lang=container.getAttribute('data-tl-content');
@@ -62,16 +61,6 @@
 			});
 		});
 		document.documentElement.setAttribute('lang', active === 'en' ? 'en-US' : 'ko-KR');
-
-		document.querySelectorAll('[data-tl-link]').forEach(link=>{
-			const target=link.getAttribute('data-tl-link');
-			const next=new URL(window.location.href);
-			next.searchParams.set('tl', target);
-			link.setAttribute('href', next.pathname + next.search + next.hash);
-			link.classList.toggle('active', target === active);
-			if(target === active) link.setAttribute('aria-current', 'true');
-			else link.removeAttribute('aria-current');
-		});
 	}
 
 	function fallbackDetectLanguage(code){

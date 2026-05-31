@@ -4,7 +4,6 @@ title: 📌 쿠버네티스의 아키텍처 설명
 parent: 도커와 쿠버네티스
 date: 2021-02-19
 summary: "Kubernetes 쿠버네티스는 docker-compose와 비슷한 역할을 수행합니다(서버의 자동재실행, 원격 핸들링, etc.). 차이점은 docker-compose는 single host 환경에서 수행되며, 쿠버네티스는 multi-host 환경에서 수행됩니다."
-tags: ["docker", "infra", "go", "kubernetes", "http", "tls", "nginx"]
 nav_order: 4
 ---
 

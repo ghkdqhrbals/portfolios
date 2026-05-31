@@ -41,13 +41,6 @@ layout: table_wrappers
       {% include components/breadcrumbs.html %}
       <div id="main-content" class="main-content" role="main">
         {% if page.translation_en %}
-          <div class="translation-switcher" aria-label="Language">
-            <a class="translation-switcher__link" data-tl-link="ko" href="?tl=ko">KO</a>
-            <a class="translation-switcher__link" data-tl-link="en" href="?tl=en">EN</a>
-          </div>
-        {% endif %}
-
-        {% if page.translation_en %}
           <div class="translation-content" data-tl-content="ko">
             {% if site.heading_anchors != false %}
               {% include vendor/anchor_headings.html html=content beforeHeading="true" anchorBody="<svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><use xlink:href=\"#svg-link\"></use></svg>" anchorClass="anchor-heading" anchorAttrs="aria-labelledby=\"%html_id%\"" %}

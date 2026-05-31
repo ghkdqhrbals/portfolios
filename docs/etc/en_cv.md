@@ -2,7 +2,6 @@
 layout: default
 title: cv
 summary: "About Me Hello, I'm Gyumin Hwangbo, a backend engineer working with an amazing team to create better services every day."
-tags: ["etc", "spring-boot", "kotlin", "java", "go", "redis-stream", "redis"]
 parent: 기타
 nav_order: 1
 ---

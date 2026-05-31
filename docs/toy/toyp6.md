@@ -3,7 +3,6 @@ layout: default
 title: 간단한 포트폴리오 웹 제작
 date: 2022-08-01
 summary: "해당 프로젝트는 취업준비 진행 중, 간단하게 react를 사용하여 제작한 웹 포트폴리오입니다."
-tags: ["toy-project", "docker", "nginx", "aws"]
 parent: 토이 프로젝트
 nav_order: 6
 ---

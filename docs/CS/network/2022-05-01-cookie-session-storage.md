@@ -5,7 +5,6 @@ parent: Network
 grand_parent: Computer Science
 date: 2022-05-01
 summary: "We generally use TOKEN for authentications. But we don't actually know the details about token."
-tags: ["computer-science", "network", "database", "http", "tls", "jwt", "cryptography"]
 nav_order: 4
 ---
 We generally use TOKEN for authentications. But we don't actually know the details about token. Today I will talk about token, espectially JWT(json web token).

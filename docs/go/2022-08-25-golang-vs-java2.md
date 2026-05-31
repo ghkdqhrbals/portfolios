@@ -4,7 +4,6 @@ title: (EN) Golang vs Java(2)
 parent: Go
 date: 2022-08-25
 summary: "In concurrency, Golang and Java has multiple different features."
-tags: ["go", "backend", "java"]
 nav_order: 2
 ---
 

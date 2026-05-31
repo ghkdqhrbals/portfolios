@@ -4,7 +4,6 @@ title: Elastic Search의 개념 및 RDB와의 차이점
 parent: Elastic Search
 date: 2022-12-31
 summary: "개념 RDB와의 차이점 Type을 독립적으로 가지지 않은 이유 부모자식관계를 설정하는 두 가지 방법 RDB와의 차이점(추가) 문법(Appendix) 개념 ES(ElasticSearch)는 Java 오픈소스 분산 검색 엔진이다."
-tags: ["elasticsearch", "java", "index", "database"]
 nav_order: 1
 ---
 

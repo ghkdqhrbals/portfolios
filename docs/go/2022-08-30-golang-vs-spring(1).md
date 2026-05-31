@@ -4,7 +4,6 @@ title: (EN) Golang vs Spring Native
 parent: Go
 date: 2022-08-30
 summary: "As I'm a golang developer, there is a article that compare between golang and spring. The article said \"Golang is 133% faster than Spring\"."
-tags: ["go", "backend", "performance"]
 nav_order: 3
 ---
 As I'm a golang developer, there is a article that compare between golang and spring.

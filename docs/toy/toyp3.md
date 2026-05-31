@@ -3,7 +3,6 @@ layout: default
 title: GOTYBENCH(HTTP Benchmark Tool) 설계
 date: 2022-02-01
 summary: "Introduction Fuzzing Test를 하고싶은가요? 아니면 서버의 부하를 테스트하고싶은가요? 결과를 저장해서 한눈에 보고싶은가요? 이를 위한 HTTP Benchmark Tool인 gotybench를 설계했습니다!"
-tags: ["toy-project", "go", "http", "benchmark"]
 parent: 토이 프로젝트
 nav_order: 1
 ---

@@ -2,7 +2,6 @@
 layout: default
 title: 프로세스
 summary: "생각할 점 큐에서 꺼냈을 때, 남아있는 프로세스 중 우선순위가 높은 것을 확인해야합니다. 이 때, 단순히 전부 확인한다면 확인작업의 시간복잡도는 1/2O(N^2) 입니다. 따라서 별도의 스택으로 남아있는 우선순위를 관리하는 것이 효율적입니다."
-tags: ["algorithm", "problem-solving"]
 parent: 알고리즘 문제
 nav_order: 1
 ---

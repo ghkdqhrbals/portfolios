@@ -2,7 +2,6 @@
 layout: default
 title: Cassandra와 RDBMS 비교
 summary: "Cassandra is a high performance and highly scalable distributed NoSQL database management system."
-tags: ["nosql", "database", "performance"]
 parent: NO-SQL
 ---
 

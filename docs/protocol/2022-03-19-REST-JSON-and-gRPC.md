@@ -2,7 +2,6 @@
 layout: default
 title: REST/JSON-RPC/gRPC
 summary: "From MA(Monolithic Architecture) to MSA(Micro Service Architecture) 옛날에는 모놀리식 아키텍처로 설계를 하였음으로 하나의 거대한 어플리케이션으로 제작되었었다."
-tags: ["api", "protocol", "go", "docker", "msa", "rest-api", "grpc"]
 parent: API 아키텍처
 nav_order: 1
 ---

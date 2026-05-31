@@ -2,7 +2,6 @@
 layout: default
 title: Git 명령어 정리
 summary: "브랜치 관리 브랜치 생성 git branch [신규브랜치] 독립 브랜치 생성 및 접속 git checkout --orphan [신규브랜치] 로컬/원격 브랜치 확인 git branch -a 로컬 브랜치 to 리모트 브랜치 업스트림 설정1 git branch -u..."
-tags: ["etc"]
 parent: 기타
 nav_order: 1
 ---

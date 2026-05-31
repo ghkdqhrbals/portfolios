@@ -4,7 +4,6 @@ title: (EN) Relationship between MSA and Docker
 parent: Micro Service Architecture
 date: 2022-05-30
 summary: "MSA rises as cloud services and is more and more used. That's because each service is independent and can be managed its cost efficiently."
-tags: ["msa", "architecture", "go", "isolation", "docker", "kubernetes", "http"]
 nav_order: 3
 ---
 

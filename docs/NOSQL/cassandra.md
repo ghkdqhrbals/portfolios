@@ -4,7 +4,6 @@ title: 📌 Cassandra의 구조 및 동작과정, RDB와의 차이점
 parent: NO-SQL
 date: 2022-08-02
 summary: "{: .highlight } 카산드라는 대표적인 AP 시스템을 사용하는 분산 DB 중 하나입니다 해당 관련글을 찾던 와중 정말 많은 문서가 존재했지만, 한글화된 문서는 찾아보기 어려웠습니다. 따라서 이 기회를 빌어 카산드라를 상세하게 정리해볼까 합니다."
-tags: ["nosql", "database", "index", "docker"]
 nav_order: 1
 ---
 

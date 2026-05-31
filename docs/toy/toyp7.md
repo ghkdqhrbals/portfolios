@@ -3,7 +3,6 @@ layout: default
 title: 택시 주행 시뮬레이터 개발 및 분석결과
 date: 2020-06-01
 summary: "해당 프로젝트는 학사 졸업과제입니다. 만약 택시에 동승이 가능하다면? 고객 수, 합승가능, 지도맵에 따라 가장 효율적인 택시의 수를 분석할 수 있습니다."
-tags: ["toy-project", "algorithm"]
 parent: 토이 프로젝트
 nav_order: 7
 ---

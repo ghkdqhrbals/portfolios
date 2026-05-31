@@ -4,7 +4,6 @@ title: Elastic Search 심화(2)<br/>ELK stack
 parent: Elastic Search
 date: 2023-01-02
 summary: "ELK stack ELK 스택은 Elastic Search + Logstash + Kibana를 지칭하는 단어다."
-tags: ["elasticsearch", "kafka", "index"]
 nav_order: 3
 ---
 

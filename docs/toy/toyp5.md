@@ -3,7 +3,6 @@ layout: default
 title: 근처 맛집 추천 프로젝트
 date: 2019-04-01
 summary: "해당 프로젝트는 학사 진행 중, 안드로이드 텀 프로젝트로 진행한 맛집 찾기 프로젝트입니다."
-tags: ["toy-project"]
 parent: 토이 프로젝트
 nav_order: 5
 ---

@@ -3,7 +3,6 @@ layout: default
 title: 개발자 취준생 일기
 date: 2023-02-27
 summary: "현재와 목표간의 거리 개발자 취업시장의 문을 두드린지 6개월이 지났습니다. 알아야 될 부분이 너무나도 많았고, 또 많을 예정입니다. 지금 생각해보니 옜날 개발자로 진로를 처음 정한 이유는 단순했습니다."
-tags: ["retrospective", "ci-cd"]
 parent: 개발자 일기
 nav_order: 1
 ---

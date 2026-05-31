@@ -2,7 +2,6 @@
 layout: default
 title: 네트워크
 summary: "문제 설명 네트워크란 컴퓨터 상호 간에 정보를 교환할 수 있도록 연결된 형태를 의미합니다."
-tags: ["algorithm", "problem-solving"]
 parent: 알고리즘 문제
 nav_order: 7
 ---

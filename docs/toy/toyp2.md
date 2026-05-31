@@ -3,7 +3,6 @@ layout: default
 title: 파워쉘 악성 스크립트 탐지 프로젝트
 date: 2021-09-01
 summary: "해당 프로젝트는 KISA에서 주최한 2021 사이버보안 AI빅테이터 경진대회의 본선에서 진행한 프로젝트입니다."
-tags: ["toy-project"]
 parent: 토이 프로젝트
 nav_order: 2
 ---

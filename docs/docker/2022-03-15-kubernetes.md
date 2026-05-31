@@ -4,7 +4,6 @@ title: (English) Kubernetes
 parent: 도커와 쿠버네티스
 date: 2022-03-15
 summary: "Kubernetes Kubernetes is a platform for managing containerized workloads and services, that facilitates both declarative configuration and automation if..."
-tags: ["docker", "infra", "go", "kubernetes", "http"]
 nav_order: 3
 ---
 

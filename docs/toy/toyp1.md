@@ -3,7 +3,6 @@ layout: default
 title: DB 관찰 툴 프로젝트
 date: 2020-01-01
 summary: "해당 프로젝트는 Pulse 계절인턴 중, DB 관찰 툴 제작 프로젝트입니다. 참여인원 : 1인 프로젝트 기간 : 2020년 01월 2020년 02월(1개월) 나의 역할 📃 요구사항 분석 ✍️ DB 크롤링 제작 Github : 비공개 📃 요구사항 분석 사용자 데이터의..."
-tags: ["toy-project", "excel"]
 parent: 토이 프로젝트
 nav_order: 3
 ---

@@ -2,7 +2,6 @@
 layout: default
 title: 다리를 지나는 트럭
 summary: "생각할 점 시간을 줄이기 위해 1. 다리 위 무게 총합을 미리 계산해야하며, 2. 다리 큐에 끝나는 시간을 함께 적어 시간이 되었을 때 다리에서 제거할 수 있도록 해야합니다. 나머지는 일반 구현입니다."
-tags: ["algorithm", "problem-solving"]
 parent: 알고리즘 문제
 nav_order: 1
 ---
