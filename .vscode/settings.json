@@ -1339,7 +1339,7 @@
 	"workbench.colorCustomizations": {},
 
 	// Specifies the color theme used in the workbench.
-	"workbench.colorTheme": "Default Dark Modern",
+	"workbench.colorTheme": "Dark Modern",
 
 	// Controls where the command palette should ask chat questions.
 	//  - chatView: Ask chat questions in the Chat view.
@@ -1697,7 +1697,7 @@
 	"workbench.panel.opensMaximized": "preserve",
 
 	// Specifies the preferred color theme for dark OS appearance when `window.autoDetectColorScheme` is enabled.
-	"workbench.preferredDarkColorTheme": "Default Dark Modern",
+	"workbench.preferredDarkColorTheme": "Dark Modern",
 
 	// Specifies the preferred color theme used in high contrast dark mode when `window.autoDetectHighContrast` is enabled.
 	"workbench.preferredHighContrastColorTheme": "Default High Contrast",
@@ -1706,7 +1706,7 @@
 	"workbench.preferredHighContrastLightColorTheme": "Default High Contrast Light",
 
 	// Specifies the preferred color theme for light OS appearance when `window.autoDetectColorScheme` is enabled.
-	"workbench.preferredLightColorTheme": "Default Light Modern",
+	"workbench.preferredLightColorTheme": "Light Modern",
 
 	// Specifies the product icon theme used.
 	//  - Default: Default
@@ -7801,7 +7801,7 @@
 	"markdown-image.DIY.path": "",
 
 	// The base path of image url.You can use variable ${currentFileDir} and ${projectRoot}. ${currentFileDir} will be replace by the path of directory that contain current editing file. ${projectRoot} will be replace by path of the project opened in vscode. If you set basePath to empty String, it will insert absolute path to file.
-	"pasteImage.basePath": "${currentFileDir}",
+	"pasteImage.basePath": "${projectRoot}",
 
 	// The default image file name. The value of this config will be pass to the 'format' function of moment library(a js time manipulation library), you can read document https://momentjs.com/docs/#/displaying/format/ for advanced usage.
 	"pasteImage.defaultName": "Y-MM-DD-HH-mm-ss",
@@ -7825,10 +7825,10 @@
 	"pasteImage.nameSuffix": "",
 
 	// The destination to save image file.You can use variable ${currentFileDir} and ${projectRoot}. ${currentFileDir} will be replace by the path of directory that contain current editing file. ${projectRoot} will be replace by path of the project opened in vscode.
-	"pasteImage.path": "${currentFileDir}",
+	"pasteImage.path": "${projectRoot}/assets/${currentFileNameWithoutExt}",
 
 	// The string prepend to the resolved image path before paste.
-	"pasteImage.prefix": "../",
+	"pasteImage.prefix": "/portfolios/",
 
 	// Set to true if you want to be able to change the file path or name prior to saving the file to disk
 	"pasteImage.showFilePathConfirmInputBox": false,

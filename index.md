@@ -12,8 +12,6 @@ permalink: /
 
 단순한 사용법보다는 왜 문제가 생겼고, 어떤 기준으로 해결책을 골랐는지를 남기려고 합니다.
 
-프로젝트 문제 정의와 해결 사례는 [Portfolio]({{ site.baseurl }}/portfolio/)에 따로 정리해두었습니다.
-
 ## Production
 
 | Name | Description |
