@@ -678,6 +678,49 @@
 		opacity:0;
 		transform:translate(20%,-90%) scale(.2);
 	}
+	.visit-stats {
+		display:flex;
+		flex-wrap:wrap;
+		align-items:center;
+		gap:.32rem .42rem;
+		margin-top:1rem;
+		padding-top:.8rem;
+		border-top:1px solid rgba(148,163,184,.18);
+		color:#64748b;
+		font-size:.72rem;
+		line-height:1;
+	}
+	.visit-stats__label {
+		color:#94a3b8;
+		font-size:.64rem;
+		font-weight:700;
+		letter-spacing:.08em;
+		text-transform:uppercase;
+	}
+	.visit-stats__item strong {
+		color:#334155;
+		font-weight:750;
+		font-variant-numeric:tabular-nums;
+	}
+	.visit-stats__divider {
+		width:3px;
+		height:3px;
+		border-radius:50%;
+		background:#cbd5e1;
+	}
+	html[data-theme="dark"] .visit-stats {
+		border-top-color:#252c38;
+		color:#8f9bad;
+	}
+	html[data-theme="dark"] .visit-stats__label {
+		color:#6f7b8d;
+	}
+	html[data-theme="dark"] .visit-stats__item strong {
+		color:#d8dee8;
+	}
+	html[data-theme="dark"] .visit-stats__divider {
+		background:#3a4352;
+	}
 </style>
 {% if page.permalink == '/' or page.url == '/' or page.permalink == '/cv/' or page.url == '/cv/' %}
 <link rel="stylesheet" href="{{ '/assets/css/index.css' | relative_url }}">

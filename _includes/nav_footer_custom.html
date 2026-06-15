@@ -1,6 +1,17 @@
 {%- assign s = site.data.ga4_summary -%}
+{%- assign visits_total = 29322 -%}
+{%- assign visits_30d = 1533 -%}
+{%- assign visits_1d = 71 -%}
 {%- if s and s.totalSince2022 and s.last30days and s.yesterday -%}
-<div style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-  Visits: All {{ s.totalSince2022.screenPageViews }} · 30d {{ s.last30days.screenPageViews }} · 1d {{ s.yesterday.screenPageViews }}
-</div>
+  {%- assign visits_total = s.totalSince2022.screenPageViews -%}
+  {%- assign visits_30d = s.last30days.screenPageViews -%}
+  {%- assign visits_1d = s.yesterday.screenPageViews -%}
 {%- endif -%}
+<div class="visit-stats" aria-label="Visit statistics">
+  <span class="visit-stats__label">Visited</span>
+  <span class="visit-stats__item"><strong>{{ visits_total }}</strong> all</span>
+  <span class="visit-stats__divider"></span>
+  <span class="visit-stats__item"><strong>{{ visits_30d }}</strong> 30d</span>
+  <span class="visit-stats__divider"></span>
+  <span class="visit-stats__item"><strong>{{ visits_1d }}</strong> 1d</span>
+</div>

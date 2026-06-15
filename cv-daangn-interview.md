@@ -4,7 +4,6 @@ title: Daangn Interview Notes
 nav_exclude: true
 search_exclude: true
 sitemap: false
-toc_sidebar: false
 description: "Private Daangn backend interview notes"
 permalink: /cv/daangn-interview/
 ---
