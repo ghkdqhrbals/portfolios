@@ -17,6 +17,7 @@ permalink: /
 | Name | Description |
 | - | - |
 | [LidStay](https://ghkdqhrbals.github.io/LidStay/) | An easy-to-use macOS app that keeps your Mac awake with the lid closed, dims the display to reduce unnecessary power use, and supports auto-hotspot connect so remote sessions, long builds, and server tasks keep running without Amphetamine-style complexity. |
+| [RedisStreamScope](https://ghkdqhrbals.github.io/redisstreamscope/) | A Redis Streams monitoring UI for inspecting streams, messages, consumer groups, lag, pending entries, idle time, delivery counts, live metrics, Redis connections, access control, and audit history from a browser. |
 
 <div id="recent-root" class="recent-root" data-per-page="20">
 	<div class="recent-toolbar">
