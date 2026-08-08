@@ -1,15 +1,15 @@
-$body-background-color: $grey-dk-300;
-$sidebar-color: $grey-dk-300;
-$border-color: $grey-dk-200;
-$body-text-color: $grey-lt-300;
-$body-heading-color: $grey-lt-000;
-$nav-child-link-color: $grey-dk-000;
-$search-result-preview-color: $grey-dk-000;
-$link-color: $blue-000;
-$btn-primary-color: $blue-200;
-$base-button-color: $grey-dk-250;
-$search-background-color: $grey-dk-250;
-$table-background-color: $grey-dk-250;
+$body-background-color: #191919;
+$sidebar-color: #202020;
+$border-color: #343434;
+$body-text-color: #dddddd;
+$body-heading-color: #f2f2f2;
+$nav-child-link-color: #b8b8b8;
+$search-result-preview-color: #a8a8a8;
+$link-color: #cbd5e1;
+$btn-primary-color: #d4d4d4;
+$base-button-color: #262626;
+$search-background-color: #262626;
+$table-background-color: #212121;
 $feedback-color: darken($sidebar-color, 3%);
 
 // The following highlight theme is more legible than that used for the light color scheme
@@ -19,7 +19,7 @@ $feedback-color: darken($sidebar-color, 3%);
 
 @import "./vendor/OneDarkJekyll/syntax-one-dark-vivid";
 
-$code-background-color: #31343f;
+$code-background-color: #222222;
 
 // @import "./vendor/OneDarkJekyll/syntax-firewatch";
 // $code-background-color: #282c34;
