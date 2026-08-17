@@ -23,31 +23,31 @@ I love automation to reduce repetitive tasks and improve efficiency like impleme
   [Benchmark Service](https://github.com/backend-tech-forge/benchmark) (90% contribution) – Spring Boot / Java 17
 
 * 2022.11 ~ 2024.02 (1 year 3 months)  
-  [Real-time Chat Server](https://ghkdqhrbals.github.io/portfolios/docs/project/) (100% contribution) – Spring / Java
+  [Real-time Chat Server](/docs/project/) (100% contribution) – Spring / Java
 
 * 2022.06 ~ 2022.09 (4 months)  
-  [Banking Server Deployment Automation](https://ghkdqhrbals.github.io/portfolios/docs/project2/) (100% contribution) – Gin / Golang
+  [Banking Server Deployment Automation](/docs/project2/) (100% contribution) – Gin / Golang
 
 * 2021.09 ~ 2021.12 (3 months)  
-  [Representative Feature Extraction by Windows Malware Type](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp8/) (40% contribution) – Python
+  [Representative Feature Extraction by Windows Malware Type](/docs/toy/toyp8/) (40% contribution) – Python
 
 * 2021.09 ~ 2021.12 (3 months)  
-  [PowerShell Malware Script Detection](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp2/) (80% contribution) – Python
+  [PowerShell Malware Script Detection](/docs/toy/toyp2/) (80% contribution) – Python
 
 * 2021.09 ~ 2021.10 (1 month)  
-  [Blockchain-based Eco-friendly Energy Trading Platform Prototype](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp4/) (50% contribution) – Python
+  [Blockchain-based Eco-friendly Energy Trading Platform Prototype](/docs/toy/toyp4/) (50% contribution) – Python
 
 * 2022.08 ~ 2022.09 (1 month)  
-  [Portfolio Website](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp6/) (100% contribution) – React / JS
+  [Portfolio Website](/docs/toy/toyp6/) (100% contribution) – React / JS
 
 * 2020.02 ~ 2020.06 (4 months)  
-  [Taxi Driving Simulator](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp7/) (60% contribution) – Python
+  [Taxi Driving Simulator](/docs/toy/toyp7/) (60% contribution) – Python
 
 * 2020.01 ~ 2020.02 (1 month)  
-  [DB Snapshot](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp1/) (100% contribution) – Python
+  [DB Snapshot](/docs/toy/toyp1/) (100% contribution) – Python
 
 * 2019.04 ~ 2019.05 (2 months)  
-  [Nearby Restaurant Recommendation App](https://ghkdqhrbals.github.io/portfolios/docs/기타/toyp5/) (10% contribution) – Android / Java
+  [Nearby Restaurant Recommendation App](/docs/toy/toyp5/) (10% contribution) – Android / Java
 
 ### **Basic Information**
 
@@ -84,7 +84,7 @@ I love automation to reduce repetitive tasks and improve efficiency like impleme
 ### **Publications**
 
 * [**Analysis of Eclipse Attacks on Ethereum Blockchain**](https://ghkdqhrbals.github.io/assets/img/EthereumEclipseAttackAnalysis.pdf) (100% contribution)
-* [**Research on Eclipse Attacks on Ethereum Blockchain**](https://ghkdqhrbals.github.io/portfolios/docs/Blockchain/) (100% contribution)
+* [**Research on Eclipse Attacks on Ethereum Blockchain**](/docs/Blockchain/) (100% contribution)
 
 ### **Activities**
 
@@ -96,4 +96,3 @@ I love automation to reduce repetitive tasks and improve efficiency like impleme
 * (Competition – 3rd Place) K-Cyber Security Challenge – Personal Data Protection Track by KISA (2020.09 ~ 2020.12)
 * (Global SW Training) San Jose State University, California, USA (2019.06 ~ 2019.09)
 * (Exchange Program) HELP University, Kuala Lumpur, Malaysia (2017.12 ~ 2018.03)
-

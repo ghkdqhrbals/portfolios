@@ -57,14 +57,14 @@ PCA가 해마에 혈류를 공급하기에 기억력에 손상이 있을수도 �
 * stroke recurrence 의 prevention 은 frist stroke prevention 방음과 조금 다름(Risk factors for early recurrence after ischemic stroke 논문).
   처음 뇌졸중 발생 원인을 찾아서 그 원인을 제거하는 것이 가장 중요함. 위험인자도 원인이 될 수 있음. 나의 경우에는 위험인자가 흡연이였기에 **흡연을 중단하는 것이 가장 중요**함.
 
-![img_3.png](/portfolios/assets/img_3.png)
+![img_3.png](/assets/img_3.png)
 > 그냥 이것들을 잘 관리하면 재발 위험성이 줄어든다는 것. 여기에 내가 속한 것은 Smoke 와 Physical Inactivity 도 있음. 그래서 운동 좀 해라라고 함. * moderate intensity exercise : 10 minutes, 4 times a per week. 중강도 운동 4번 10분씩 하면 됨. 아니면 2번 20분 씩 해도 됨.
 > * +reference : Lopes-Virella MF, et al. Relationship between risk factor control and vascular events in the SAMMPRIS trial. Neurology. 2014;83(9):810-817.
 
 ### [2019, Impact of Smoking Status on Stroke Recurrence](https://www.ahajournals.org/doi/pdf/10.1161/JAHA.118.011696)
 * 2013.01 ~ 2016.12 까지 first-ever ischemic stroke 3069명의 환자를 대상으로 연구. asian 환자대상(NSRP) 아쉽게도 5년이상의 코호트 연구는 아니였음.
 
-![img_2.png](/portfolios/assets/img_2.png)
+![img_2.png](/assets/img_2.png)
 > 물론 이 연구들은 고지혈증, 고혈압, 등등의 risk factors 이 없는 오직 smoke 만 관여된 결론은 아님. 그래서 내 경우와 다를듯.
 >
 > 하루 피는 담배 개수에 따른 결과도 해당 논문에 표로 정리되어 있지만 일단은 담배를 끊는게 가장 중요한 것 같음.
@@ -101,7 +101,7 @@ Aspirin is the most cost-effective therapy option.
 * 이거는 first stroke prevention 위주 연구
 * risk factor 인 smoke 끊으면 5년 뒤 non-smoker risk level 과 비슷해짐.
 
-![img_1.png](/portfolios/assets/img_1.png)
+![img_1.png](/assets/img_1.png)
 * hypertension 고혈압 : major risk of 허혈성 stroke! 특히 이제 작은 관통 동맥이 막힌 허혈성 뇌졸중을 겪은 사람이라면 가장 빡세게 관리해야함
   * 140/90 mmHg 이상
 * diabetes 당뇨
@@ -115,7 +115,7 @@ Aspirin is the most cost-effective therapy option.
 * 당연한 말을 하는 논문임. 옛날 논문이라서 그런 것 일수도 있음.
 *
 * 안그래도 부족한 PCA 경색 환자들인데 대부분의 연구는 웨스턴 환자 대상으로 이루어져 있기떄문에 asian 상대로 연구를 수행하기 위해 해당 논문에 기술함.
-  ![img.png](/portfolios/assets/img.png)
+  ![img.png](/assets/img.png)
 > 근데 대부분 age 가 60대 근처 라서 내 나이의 주요원인 서베이는 없었음 ㅠㅠ
 
 * PCA 영역 경색 : 126/205

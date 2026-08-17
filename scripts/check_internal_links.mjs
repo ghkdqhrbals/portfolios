@@ -2,7 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const siteDir = path.resolve(process.argv[2] || '_site');
-const baseUrl = normalizeBaseUrl(process.argv[3] || '');
+const baseUrls = Array.from(
+  new Set(
+    (process.argv.slice(3).length > 0 ? process.argv.slice(3) : ['']).map(normalizeBaseUrl)
+  )
+).filter(Boolean);
+baseUrls.push('');
 const htmlFiles = [];
 const failures = [];
 
@@ -75,16 +80,28 @@ function parseInternalUrl(value) {
 
 function resolveTarget(fromFile, pathname) {
   let cleanPath = decodeURIComponent(pathname || '');
-
-  if (cleanPath.startsWith(baseUrl + '/')) {
-    cleanPath = cleanPath.slice(baseUrl.length);
-  } else if (cleanPath === baseUrl) {
+  if (cleanPath === '/portfolios') {
     cleanPath = '/';
+  } else if (cleanPath.startsWith('/portfolios/')) {
+    cleanPath = cleanPath.slice('/portfolios'.length);
+  }
+  const normalized = baseUrls.filter(Boolean);
+
+  for (const baseUrl of normalized) {
+    if (baseUrl && cleanPath.startsWith(baseUrl + '/')) {
+      cleanPath = cleanPath.slice(baseUrl.length);
+      break;
+    }
+    if (baseUrl && cleanPath === baseUrl) {
+      cleanPath = '/';
+      break;
+    }
   }
 
+  const sanitizedPath = cleanPath.startsWith('/') ? cleanPath.slice(1) : cleanPath;
   const absolute = cleanPath.startsWith('/')
-    ? path.join(siteDir, cleanPath)
-    : path.resolve(path.dirname(fromFile), cleanPath);
+    ? path.join(siteDir, sanitizedPath)
+    : path.resolve(path.dirname(fromFile), sanitizedPath || '');
 
   const candidates = [
     absolute,

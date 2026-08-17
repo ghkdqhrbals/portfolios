@@ -1,0 +1,94 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler: '2.3.27'
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate required Cloudflare deployment config
+        env:
+          CF_PAGES_PROJECT_NAME: ${{ secrets.CF_PAGES_PROJECT_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          COMMENTS_D1_DB_ID: ${{ secrets.COMMENTS_D1_DB_ID }}
+          CF_SITE_ORIGIN: ${{ secrets.CF_SITE_ORIGIN }}
+        run: |
+          if [ -z "${CF_PAGES_PROJECT_NAME}" ] || [ -z "${CLOUDFLARE_API_TOKEN}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID}" ] || [ -z "${COMMENTS_D1_DB_ID}" ]; then
+            echo "::error::Cloudflare 배포에 필요한 GitHub Secret이 누락되어 있습니다. CF_PAGES_PROJECT_NAME, CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, COMMENTS_D1_DB_ID 모두 필요합니다."
+            exit 1
+          fi
+          if [ -z "${CF_SITE_ORIGIN}" ]; then
+            echo "::error::Cloudflare 배포 도메인 설정이 필요합니다. secrets.CF_SITE_ORIGIN 값에 https://도메인 형태로 입력하세요."
+            exit 1
+          fi
+          case "${CF_SITE_ORIGIN}" in
+            https://* ) ;;
+            http://* )
+              echo "::warning::CF_SITE_ORIGIN이 https가 아닌 http입니다. 운영 배포는 https 권장됩니다."
+              ;;
+            * )
+              echo "::error::CF_SITE_ORIGIN은 https:// 도메인 형태여야 합니다."
+              exit 1
+              ;;
+          esac
+
+      - name: Render runtime configs for deployment
+        env:
+          CF_SITE_ORIGIN: ${{ secrets.CF_SITE_ORIGIN }}
+        run: |
+          sed "s#https://your-cloudflare-domain.pages.dev#${CF_SITE_ORIGIN}#g" _config.yml > _config.runtime.yml
+          sed "s#https://your-cloudflare-domain.pages.dev#${CF_SITE_ORIGIN}#g" _config_cf.yml > _config_cf.runtime.yml
+
+      - name: Fetch GA4 stats (latest)
+        run: |
+          npm install --no-save @google-analytics/data
+          node scripts/fetch_ga4.mjs
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+
+      - name: Build for Cloudflare Pages
+        run: bundle exec jekyll build --config _config.runtime.yml,_config_cf.runtime.yml
+        env:
+          JEKYLL_ENV: production
+
+      - name: Apply comments schema migration
+        env:
+          COMMENTS_D1_DB_ID: ${{ secrets.COMMENTS_D1_DB_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx wrangler d1 migrations apply COMMENTS_DB --remote --config wrangler.toml
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CF_PAGES_PROJECT_NAME: ${{ secrets.CF_PAGES_PROJECT_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx wrangler pages deploy _site \
+            --project-name "${CF_PAGES_PROJECT_NAME}" \
+            --commit-dirty=true

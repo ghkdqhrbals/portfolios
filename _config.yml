@@ -17,6 +17,7 @@ title: 엔지니어링 로그
 description: Backend Engineering Blog
 baseurl: "/portfolios" # the subpath of your site, e.g. /blog
 url: "https://ghkdqhrbals.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+cloudflare_site_url: "https://your-cloudflare-domain.pages.dev"
 
 permalink: pretty
 

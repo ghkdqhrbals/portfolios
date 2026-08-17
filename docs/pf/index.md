@@ -39,27 +39,27 @@ description: "성능개선을 위해 떠난 여정들을 기록합니다"
 
 
 ## 최적화 목록
-* 2023-01-16 [도커 리소스 추가와 수동 수평확장](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-16-chatting(13)/)
+* 2023-01-16 [도커 리소스 추가와 수동 수평확장](/docs/project/2023-01-16-chatting(13)/)
   * 10K request test 시, 총 소요시간 110초 -> 49초
 
-* 2023-01-17 [JPA Batch 적용](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-17-chatting(15)/)
+* 2023-01-17 [JPA Batch 적용](/docs/project/2023-01-17-chatting(15)/)
   * 10K request test 시, 총 소요시간 49초 -> 23초
 
-* 2023-01-24 [Multiple Insert JDBC Batch 적용](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-24-chatting(17)/)
+* 2023-01-24 [Multiple Insert JDBC Batch 적용](/docs/project/2023-01-24-chatting(17)/)
 
-* 2023-01-27 [JDBC Batch 최적화 및 Postgresql 병렬 프로세서 확장](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-01-27-chatting(18)/)
+* 2023-01-27 [JDBC Batch 최적화 및 Postgresql 병렬 프로세서 확장](/docs/project/2023-01-27-chatting(18)/)
   * 10K request test 시, 총 소요시간 80초 -> 29초
 
-* 2023-03-05 [AWS-RDS 그래프 지표 관찰 및 db connection 증가](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-03-05-chatting(21)/)
+* 2023-03-05 [AWS-RDS 그래프 지표 관찰 및 db connection 증가](/docs/project/2023-03-05-chatting(21)/)
   * 10K request test 시, 총 소요시간 51초 -> 26초
 
-* 2023-03-11 [부하 테스트를 위한 툴 제작 및 실제 테스트 결과](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-03-11-chatting(23)/)
-* 2023-03-16 [RDB 인덱싱 활성화](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-03-16-chatting(25)/)
+* 2023-03-11 [부하 테스트를 위한 툴 제작 및 실제 테스트 결과](/docs/project/2023-03-11-chatting(23)/)
+* 2023-03-16 [RDB 인덱싱 활성화](/docs/project/2023-03-16-chatting(25)/)
 
-* 2023-05-01 [이벤트 전송 스레드 증가](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-05-01-chatting(35)/)
+* 2023-05-01 [이벤트 전송 스레드 증가](/docs/project/2023-05-01-chatting(35)/)
   * 1000개 동시요청 시, 평균 딜레이타임 8680ms -> 4194 ms 
 
-* 2023-12-21 [HPA(max 3), ReadinessProbe, CPU limit, EKS NodeGroup AutoScaling O(CPU usage 50%), Caching, 톰켓 최적화](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-21-chatting(40)/)
+* 2023-12-21 [HPA(max 3), ReadinessProbe, CPU limit, EKS NodeGroup AutoScaling O(CPU usage 50%), Caching, 톰켓 최적화](/docs/project/2023-12-21-chatting(40)/)
 
     <details open><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
     
@@ -86,7 +86,7 @@ description: "성능개선을 위해 떠난 여정들을 기록합니다"
     
     </div></details>
 
-* 2023-12-29 [Nginx Ingress replicaSet=2~3](https://ghkdqhrbals.github.io/portfolios/docs/project/2023-12-29-chatting(41)/)
+* 2023-12-29 [Nginx Ingress replicaSet=2~3](/docs/project/2023-12-29-chatting(41)/)
 
   <details open><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
 
@@ -113,7 +113,7 @@ description: "성능개선을 위해 떠난 여정들을 기록합니다"
 
   </div></details>
 
-* 2024-01-03 [RDB b-tree Long type PK indexing](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-01-03-chatting(42)/)
+* 2024-01-03 [RDB b-tree Long type PK indexing](/docs/project/2024-01-03-chatting(42)/)
 
   <details open><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
 
@@ -136,7 +136,7 @@ description: "성능개선을 위해 떠난 여정들을 기록합니다"
 
   </div></details>
 
-* 2024-02-04 [RDB Look-Aside + Write-Around caching](https://ghkdqhrbals.github.io/portfolios/docs/project/2024-02-04-chatting(47)/)
+* 2024-02-04 [RDB Look-Aside + Write-Around caching](/docs/project/2024-02-04-chatting(46)/)
 
   <details open><summary> 성능지표 개선수치 확인 </summary><div markdown="1">
 
@@ -162,7 +162,6 @@ description: "성능개선을 위해 떠난 여정들을 기록합니다"
   | MTTFB 평균적인 변동률 (Average Variability) | 13.73% | 7.67% | -44.11% 🟢 |
 
   </div></details>
-
 
 
 

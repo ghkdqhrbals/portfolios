@@ -2,6 +2,11 @@
 layout: table_wrappers
 ---
 
+{% assign should_show_comments = false %}
+{% if page.path contains 'docs/' %}
+  {% assign should_show_comments = true %}
+{% endif %}
+
 <!DOCTYPE html>
 
 <html lang="{{ site.lang | default: 'en-US' }}"
@@ -69,6 +74,9 @@ layout: table_wrappers
         {% endif %}
 
         {% include components/footer.html %}
+        {% if should_show_comments and site.baseurl == '' %}
+          {% include comments_widget.html %}
+        {% endif %}
 
       </div>
       {% unless page.toc_sidebar == false or page.url contains '/cv/' or page.title == 'About Me' %}

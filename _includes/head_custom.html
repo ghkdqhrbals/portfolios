@@ -372,6 +372,52 @@
 		left:-14px;
 	}
 </style>
+<script>
+  (function () {
+    var host = window.location.hostname;
+    var targetHost = "{{ site.cloudflare_site_url }}";
+    var legacyPrefix = "{{ site.baseurl }}";
+    if (!targetHost) {
+      targetHost = "{{ site.url }}";
+    }
+    if (legacyPrefix) {
+      if (legacyPrefix !== '/') {
+        while (legacyPrefix.length > 1 && legacyPrefix.endsWith('/')) {
+          legacyPrefix = legacyPrefix.slice(0, -1);
+        }
+      } else {
+        legacyPrefix = '';
+      }
+    }
+    if (!legacyPrefix || legacyPrefix === '/') {
+      legacyPrefix = '/portfolios';
+    }
+    if (!targetHost) return;
+    if (targetHost.indexOf('your-cloudflare-domain') !== -1 || targetHost.indexOf('<') !== -1) return;
+
+    try {
+      var parsed = new URL(targetHost);
+      var pathname = window.location.pathname || '/';
+      var isLegacyHost = host === 'ghkdqhrbals.github.io';
+      var isLegacyPath = pathname === legacyPrefix || pathname.indexOf(legacyPrefix + '/') === 0;
+      var isSameOrigin = parsed.origin === window.location.origin;
+
+      if (isLegacyHost && isLegacyPath && parsed.hostname && !isSameOrigin) {
+        var normalizedPath = pathname;
+        if (normalizedPath === legacyPrefix || normalizedPath.indexOf(legacyPrefix + '/') === 0) {
+          normalizedPath = normalizedPath.slice(legacyPrefix.length) || '/';
+        }
+        if (normalizedPath[0] !== '/') {
+          normalizedPath = '/' + normalizedPath;
+        }
+        var destination = parsed.origin + normalizedPath + window.location.search + window.location.hash;
+        if (destination !== window.location.href) {
+          window.location.replace(destination);
+        }
+      }
+    } catch (_error) {}
+  })();
+</script>
 <style>
 	.theme-toggle {
 		display:inline-flex;

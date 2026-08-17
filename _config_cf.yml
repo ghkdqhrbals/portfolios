@@ -1,0 +1,14 @@
+title: 엔지니어링 로그
+description: Backend Engineering Blog
+baseurl: ""
+url: "https://your-cloudflare-domain.pages.dev"
+cloudflare_site_url: "https://your-cloudflare-domain.pages.dev"
+permalink: pretty
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+
+ga_tracking: G-4TC5YMHY2R
+ga_tracking_anonymize_ip: true

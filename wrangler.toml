@@ -1,0 +1,9 @@
+name = "portfolios"
+compatibility_date = "2026-08-17"
+pages_build_output_dir = "_site"
+
+[[d1_databases]]
+binding = "COMMENTS_DB"
+database_name = "COMMENTS_DB"
+database_id = "${COMMENTS_D1_DB_ID}"
+migrations_dir = "migrations"
