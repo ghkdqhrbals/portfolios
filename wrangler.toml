@@ -5,5 +5,5 @@ pages_build_output_dir = "_site"
 [[d1_databases]]
 binding = "COMMENTS_DB"
 database_name = "COMMENTS_DB"
-database_id = "${COMMENTS_D1_DB_ID}"
+database_id = "f087d3ff-2845-45fd-9f80-113617f95074"
 migrations_dir = "migrations"
