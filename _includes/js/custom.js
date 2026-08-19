@@ -304,7 +304,7 @@
 		if(!source) return '';
 		try {
 			const page = new URL(pageUrl || window.location.pathname, window.location.origin);
-			const directory = page.pathname.endsWith('/') ? page.pathname : page.pathname.slice(0, page.pathname.lastIndexOf('/') + 1);
+			const directory = page.pathname.endsWith('/') ? page.pathname : page.pathname + '/';
 			return new URL(source, window.location.origin + directory).href;
 		} catch(e) { return source; }
 	}
