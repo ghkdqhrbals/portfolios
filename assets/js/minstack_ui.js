@@ -30,7 +30,7 @@
     if (!source) return '';
     try {
       var page = new URL(pageUrl || window.location.pathname, window.location.origin);
-      var directory = page.pathname.endsWith('/') ? page.pathname : page.pathname.slice(0, page.pathname.lastIndexOf('/') + 1);
+      var directory = page.pathname.endsWith('/') ? page.pathname : page.pathname + '/';
       return new URL(source, window.location.origin + directory).href;
     } catch (_) { return source; }
   }
