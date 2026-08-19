@@ -300,6 +300,23 @@
 		updateActiveFromScroll();
 	}
 
+	function resolvePageAsset(source, pageUrl){
+		if(!source) return '';
+		try {
+			const page = new URL(pageUrl || window.location.pathname, window.location.origin);
+			const directory = page.pathname.endsWith('/') ? page.pathname : page.pathname.slice(0, page.pathname.lastIndexOf('/') + 1);
+			return new URL(source, window.location.origin + directory).href;
+		} catch(e) { return source; }
+	}
+
+	function normalizeContentImages(){
+		const pageUrl = window.location.pathname;
+		document.querySelectorAll('.main-content img[src]').forEach(image=>{
+			const source = image.getAttribute('src') || '';
+			if(source.startsWith('../') || source.startsWith('./')) image.src = resolvePageAsset(source, pageUrl);
+		});
+	}
+
 	function initRecent(){
 		const root=document.getElementById('recent-root');
 		if(!root) return; // not index
@@ -344,10 +361,7 @@
 				const summary = (it.summary || '').trim();
 				const image = (it.image || '').trim();
 				let imageUrl = '';
-				if(image){
-					try { imageUrl = new URL(image, new URL(it.url, window.location.origin).href).href; } catch(e) { imageUrl = ''; }
-				}
-				const image = (it.image || '').trim();
+				if(image) imageUrl = resolvePageAsset(image, it.url);
 				
 				li.innerHTML = 
 					'<span class="r-date">' + escapeHtml(dateStr) + '</span>' +
@@ -394,5 +408,5 @@
 		renderPage(1);
 	}
 
-	document.addEventListener('DOMContentLoaded', function(){initThemeToggle();initTranslation();addLangBadges();/* reading time 제거 */initRecent();initContentIndex();ensurePrintableHyperlinks();});
+	document.addEventListener('DOMContentLoaded', function(){initThemeToggle();initTranslation();addLangBadges();/* reading time 제거 */initRecent();normalizeContentImages();initContentIndex();ensurePrintableHyperlinks();});
 })();
