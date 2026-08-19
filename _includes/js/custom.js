@@ -342,12 +342,19 @@
 				const title = it.title||'(제목없음)';
 				const filename = title;
 				const summary = (it.summary || '').trim();
+				const image = (it.image || '').trim();
+				let imageUrl = '';
+				if(image){
+					try { imageUrl = new URL(image, new URL(it.url, window.location.origin).href).href; } catch(e) { imageUrl = ''; }
+				}
+				const image = (it.image || '').trim();
 				
 				li.innerHTML = 
 					'<span class="r-date">' + escapeHtml(dateStr) + '</span>' +
 					'<span class="r-title"><a href="'+ encodeURI(it.url) +'">' + renderTitle(filename) + '</a>' +
 						(summary ? '<span class="r-summary">' + escapeHtml(summary) + '</span>' : '') +
-					'</span>';
+					'</span>' +
+					(imageUrl ? '<img class="r-image" src="' + escapeHtml(imageUrl) + '" alt="" loading="lazy">' : '');
 				frag.appendChild(li);
 			});
 			list.innerHTML='';
