@@ -7,7 +7,9 @@
   #main-header { position:relative; }
   .sidebar-collapse-toggle, .sidebar-open-toggle { position:relative; width:38px; min-width:38px; height:38px; padding:0; border:0; border-radius:11px; background:transparent; color:var(--ms-muted); cursor:pointer; }
   .sidebar-collapse-toggle { flex:0 0 38px; margin:0 0 0 10px !important; }
-  .sidebar-collapse-toggle:hover, .sidebar-open-toggle:hover { background:var(--ms-accent-soft); color:var(--ms-accent); }
+.sidebar-collapse-toggle:hover, .sidebar-open-toggle:hover { background:transparent; color:var(--ms-ink); opacity:1; }
+.sidebar-collapse-toggle:active, .sidebar-open-toggle:active { transform:scale(.94); }
+.sidebar-collapse-toggle:focus-visible, .sidebar-open-toggle:focus-visible { outline:1px solid var(--ms-muted); outline-offset:3px; }
   .sidebar-control-icon { display:block; width:22px; height:22px; margin:auto; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
   body.minstack-nav-collapsed .side-bar { display:none !important; }
   body.minstack-nav-collapsed .main { width:100% !important; max-width:none !important; margin-left:0 !important; }
