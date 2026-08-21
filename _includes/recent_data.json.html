@@ -3,6 +3,11 @@
 <template id="recent-data">[
 {% for p in docs_all %}
 {% assign summary = p.summary | default: p.description | default: p.content | strip_html | normalize_whitespace | truncate: 360 %}
-{"date":"{{ p.date | date: '%Y-%m-%d' }}","title":{{ p.title | jsonify }},"url":"{{ p.url | relative_url }}","summary":{{ summary | jsonify }}}{% unless forloop.last %},{% endunless %}
+{% assign image_parts = p.content | split: 'src="' %}
+{% assign html_image = image_parts[1] | split: '"' | first %}
+{% assign markdown_image_parts = p.content | split: '](' %}
+{% assign markdown_image = markdown_image_parts[1] | split: ')' | first | split: ' ' | first %}
+{% assign first_image = p.image | default: p.thumbnail | default: html_image | default: markdown_image %}
+{"date":"{{ p.date | date: '%Y-%m-%d' }}","title":{{ p.title | jsonify }},"url":"{{ p.url | relative_url }}","summary":{{ summary | jsonify }},"image":{{ first_image | default: '' | jsonify }}}{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]</template>

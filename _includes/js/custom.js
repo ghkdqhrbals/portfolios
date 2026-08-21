@@ -317,6 +317,14 @@
 		});
 	}
 
+	function normalizeMetricPath(value){
+		let path=value || '/';
+		try { path=new URL(path, window.location.origin).pathname; } catch(e) {}
+		if(path==='/portfolios') return '/';
+		if(path.startsWith('/portfolios/')) return path.slice('/portfolios'.length);
+		return path.startsWith('/') ? path : '/' + path;
+	}
+
 	function initRecent(){
 		const root=document.getElementById('recent-root');
 		if(!root) return; // not index
@@ -350,6 +358,27 @@
 		function renderTitle(value){
 			return escapeHtml(value).replace(/&lt;br\s*\/?&gt;/gi, '<br>');
 		}
+		function loadRecentMetrics(){
+			const links=Array.from(list.querySelectorAll('.r-title a'));
+			const paths=links.map(link=>normalizeMetricPath(link.href));
+			if(!paths.length) return;
+			fetch('/api/metrics?post_paths=' + encodeURIComponent(paths.join(',')), {headers:{Accept:'application/json'}})
+				.then(response=>{
+					if(!response.ok) throw new Error('recent metrics request failed: ' + response.status);
+					return response.json();
+				})
+				.then(payload=>{
+					const metrics=new Map((payload.items || []).map(item=>[normalizeMetricPath(item.post_path), item]));
+					links.forEach((link,index)=>{
+						const item=metrics.get(paths[index]);
+						const stats=link.parentElement.querySelector('.recent-stats');
+						if(!item || !stats) return;
+						stats.querySelector('.recent-stat--like').textContent=String(item.like_count || 0);
+						stats.querySelector('.recent-stat--comment').textContent=String(item.comment_count || 0);
+					});
+				})
+				.catch(error=>console.warn(error.message));
+		}
 		function renderPage(page){
 			currentPage=Math.min(Math.max(1, page), totalPages);
 			const frag=document.createDocumentFragment();
@@ -363,10 +392,12 @@
 				let imageUrl = '';
 				if(image) imageUrl = resolvePageAsset(image, it.url);
 				
+				if(imageUrl) li.classList.add('recent-list-item--with-image');
 				li.innerHTML = 
 					'<span class="r-date">' + escapeHtml(dateStr) + '</span>' +
 					'<span class="r-title"><a href="'+ encodeURI(it.url) +'">' + renderTitle(filename) + '</a>' +
 						(summary ? '<span class="r-summary">' + escapeHtml(summary) + '</span>' : '') +
+						'<span class="recent-stats" aria-label="게시물 반응"><span class="recent-stat recent-stat--like" aria-label="좋아요">…</span><span class="recent-stat recent-stat--comment" aria-label="댓글">…</span></span>' +
 					'</span>' +
 					(imageUrl ? '<img class="r-image" src="' + escapeHtml(imageUrl) + '" alt="" loading="lazy">' : '');
 				frag.appendChild(li);
@@ -374,6 +405,7 @@
 			list.innerHTML='';
 			list.appendChild(frag);
 			renderPagination();
+			loadRecentMetrics();
 		}
 		function paginationWindow(){
 			if(totalPages<=10) return Array.from({length:totalPages}, (_,i)=>i+1);
