@@ -44,12 +44,13 @@
   .sidebar-open-toggle[hidden] { display:none !important; }
   @media (max-width:899px) {
     body { overflow-x:hidden; }
-    #site-nav, .side-bar { display:block !important; position:fixed !important; inset:0 !important; z-index:1000 !important; width:100vw !important; max-width:none !important; height:100dvh !important; max-height:100dvh !important; overflow-x:hidden !important; overflow-y:auto !important; box-sizing:border-box !important; box-shadow:none; }
+    .side-bar { display:flex !important; flex-flow:column nowrap !important; align-items:stretch !important; position:fixed !important; inset:0 !important; z-index:1000 !important; width:100vw !important; max-width:none !important; height:100dvh !important; max-height:100dvh !important; overflow:hidden !important; box-sizing:border-box !important; box-shadow:none; }
+    #site-nav { display:block !important; position:static !important; inset:auto !important; width:100% !important; height:auto !important; max-height:none !important; min-height:0 !important; overflow-x:hidden !important; overflow-y:auto !important; flex:1 1 auto !important; }
     #site-nav .site-header, .side-bar .site-header { min-height:60px !important; padding:11px 14px !important; }
     #site-nav .site-title, .side-bar .site-title { font-size:18px !important; }
     .sidebar-collapse-toggle { width:36px; min-width:36px; height:36px; margin-left:6px !important; }
     .sidebar-open-toggle { display:none !important; }
-    body.minstack-nav-collapsed #site-nav, body.minstack-nav-collapsed .side-bar { display:none !important; }
+    body.minstack-nav-collapsed .side-bar { display:none !important; }
     body.minstack-nav-collapsed .sidebar-open-toggle, body.minstack-nav-collapsed .sidebar-open-toggle[hidden] { display:flex !important; align-items:center; justify-content:center; position:fixed !important; left:12px !important; top:10px !important; z-index:1100 !important; }
     body.minstack-nav-collapsed .main, body.minstack-nav-collapsed .main-header { width:100% !important; max-width:none !important; margin-left:0 !important; }
     body.minstack-nav-collapsed .main-header > .search { padding-left:62px !important; }
