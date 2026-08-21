@@ -1,42 +1,6 @@
 (function () {
   'use strict';
 
-  function initNavigation() {
-    var toggle = document.getElementById('sidebar-collapse-toggle');
-    var openToggle = document.getElementById('sidebar-open-toggle');
-    if (!toggle || !openToggle) return;
-    document.addEventListener('click', function (event) {
-      var target = event.target;
-      while (target && !(target.classList && target.classList.contains('nav-list-expander'))) {
-        target = target.parentNode;
-      }
-      if (!target) return;
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      var item = target.parentNode;
-      var expanded = item.classList.toggle('active');
-      target.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    }, true);
-    var key = 'minstack-nav-collapsed';
-    var collapsed = window.localStorage.getItem(key) === 'true';
-    function update(value) {
-      collapsed = value;
-      document.body.classList.toggle('minstack-nav-collapsed', collapsed);
-      toggle.setAttribute('aria-pressed', collapsed ? 'true' : 'false');
-      toggle.setAttribute('aria-label', '네비게이션 닫기');
-      toggle.setAttribute('aria-pressed', collapsed ? 'true' : 'false');
-      openToggle.setAttribute('aria-pressed', collapsed ? 'false' : 'true');
-      openToggle.hidden = !collapsed;
-    }
-    update(collapsed);
-    function toggleNavigation() {
-      window.localStorage.setItem(key, String(!collapsed));
-      update(!collapsed);
-    }
-    toggle.addEventListener('click', toggleNavigation);
-    openToggle.addEventListener('click', toggleNavigation);
-  }
-
   function apiPath(path) { return path === '/portfolios' ? '/' : (path.indexOf('/portfolios/') === 0 ? path.slice(11) : path); }
   function resolvePageAsset(source, pageUrl) {
     if (!source) return '';
@@ -76,7 +40,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    initNavigation();
     normalizeContentImages();
     var list = document.getElementById('recent-list');
     if (list) {
