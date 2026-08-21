@@ -5,6 +5,18 @@
     var toggle = document.getElementById('sidebar-collapse-toggle');
     var openToggle = document.getElementById('sidebar-open-toggle');
     if (!toggle || !openToggle) return;
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      while (target && !(target.classList && target.classList.contains('nav-list-expander'))) {
+        target = target.parentNode;
+      }
+      if (!target) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      var item = target.parentNode;
+      var expanded = item.classList.toggle('active');
+      target.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }, true);
     var key = 'minstack-nav-collapsed';
     var collapsed = window.localStorage.getItem(key) === 'true';
     function update(value) {
