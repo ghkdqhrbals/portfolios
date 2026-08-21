@@ -2,7 +2,7 @@ name: Temporary legacy GitHub Pages deploy
 on:
   workflow_dispatch:
 permissions:
-  contents: read
+  actions: read
   pages: write
   id-token: write
 concurrency:
@@ -12,17 +12,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Download known-good legacy artifact
+        uses: actions/download-artifact@v4
         with:
-          ref: legacy-pages
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-      - run: bundle exec jekyll build --baseurl '/portfolios' --url 'https://ghkdqhrbals.github.io'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 32514332474
+          name: github-pages
+          path: /tmp/legacy-artifact
+      - name: Extract legacy site
+        run: |
+          mkdir -p /tmp/legacy-site
+          tar -xf /tmp/legacy-artifact/artifact.tar -C /tmp/legacy-site
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: /tmp/legacy-site
   deploy:
     needs: build
     runs-on: ubuntu-latest
