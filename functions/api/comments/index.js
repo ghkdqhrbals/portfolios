@@ -1,4 +1,5 @@
 const UTF8 = new TextEncoder();
+import { notifySlack } from '../../_shared/slack.js';
 
 export async function onRequestGet(context) {
   const { request, env } = context;
@@ -13,18 +14,32 @@ export async function onRequestGet(context) {
   }
 
   try {
+    const visitorId = readVisitorId(request);
     const query = await env.COMMENTS_DB.prepare(
       `
-        SELECT id, nickname, body, created_at, updated_at
-        FROM comments
-        WHERE post_path = ?1 AND deleted_at IS NULL
-        ORDER BY created_at ASC
+        SELECT
+          c.id,
+          c.nickname,
+          c.body,
+          c.created_at,
+          c.updated_at,
+          COUNT(cl.visitor_id) AS like_count,
+          MAX(CASE WHEN cl.visitor_id = ?2 THEN 1 ELSE 0 END) AS liked
+        FROM comments c
+        LEFT JOIN comment_likes cl ON cl.comment_id = c.id
+        WHERE c.post_path = ?1 AND c.deleted_at IS NULL
+        GROUP BY c.id, c.nickname, c.body, c.created_at, c.updated_at
+        ORDER BY c.created_at ASC
       `
     )
-      .bind(postPath)
+      .bind(postPath, visitorId)
       .all();
 
-    const items = query.results || [];
+    const items = (query.results || []).map((item) => ({
+      ...item,
+      liked: Number(item.liked || 0) === 1,
+      like_count: Number(item.like_count || 0)
+    }));
     return jsonResponse({ items });
   } catch (error) {
     return jsonResponse({ error: error.message || 'Failed to load comments' }, 500);
@@ -77,6 +92,13 @@ export async function onRequestPost(context) {
       .bind(postPath, nickname, passwordHash, body, now)
       .run();
 
+    await notifySlack(env, [
+      '[새 댓글]',
+      `- 닉네임: ${nickname}`,
+      `- 경로: ${new URL(request.url).origin}${postPath}`,
+      `- 내용: ${body.slice(0, 300)}`
+    ].join('\n'));
+
     return jsonResponse({ ok: true }, 201);
   } catch (error) {
     return jsonResponse({ error: error.message || 'Failed to create comment' }, 500);
@@ -97,6 +119,11 @@ function normalizePostPath(postPath) {
     return `/${normalized.slice('/portfolios'.length).replace(/^\/+/, '')}`;
   }
   return normalized.startsWith('/') ? normalized : `/${normalized}`;
+}
+
+function readVisitorId(request) {
+  const match = request.headers.get('Cookie')?.match(/(?:^|;\s*)blog_visitor_id=([^;]+)/);
+  return match && /^[a-f0-9-]{16,80}$/i.test(match[1]) ? match[1] : '';
 }
 
 function toHex(buffer) {
