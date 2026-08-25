@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">BuddyStudy AdServer 광고 선택 흐름</title>
+  <desc id="desc">사용자 요청에서 후보 광고 필터링, 점수 계산, 광고 응답, 성과 기록으로 이어지는 흐름</desc>
+  <rect width="1200" height="420" fill="#f7f8fa"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" fill="#20252b">
+    <text x="56" y="55" font-size="22" font-weight="700">누구에게 어떤 광고를 보여줄까?</text>
+    <text x="56" y="84" font-size="15" fill="#68717c">AdServer는 후보를 줄이고, 가장 맞는 정보를 골라 전달한다.</text>
+    <g stroke="#c7cdd4" stroke-width="2" fill="#fff">
+      <rect x="56" y="145" width="190" height="100"/><rect x="300" y="145" width="190" height="100"/><rect x="544" y="145" width="190" height="100"/><rect x="788" y="145" width="190" height="100"/><rect x="1022" y="145" width="122" height="100"/>
+    </g>
+    <g font-size="18" font-weight="700" text-anchor="middle">
+      <text x="151" y="185">사용자 요청</text><text x="151" y="214" font-size="14" font-weight="400">화면 · 지역 · 상황</text>
+      <text x="395" y="185">후보 필터</text><text x="395" y="214" font-size="14" font-weight="400">기간 · 예산 · 빈도</text>
+      <text x="639" y="185">점수 계산</text><text x="639" y="214" font-size="14" font-weight="400">적합성 · 최근 반응</text>
+      <text x="883" y="185">목록 응답</text><text x="883" y="214" font-size="14" font-weight="400">질문 + 광고</text>
+      <text x="1083" y="185">기록</text><text x="1083" y="214" font-size="14" font-weight="400">노출 · 클릭</text>
+    </g>
+    <g stroke="#4b5563" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M246 195h48m-8-8 8 8-8 8M490 195h48m-8-8 8 8-8 8M734 195h48m-8-8 8 8-8 8M978 195h36m-8-8 8 8-8 8"/></g>
+    <text x="600" y="330" text-anchor="middle" font-size="16" fill="#4b5563">결과를 다시 다음 선택에 사용한다</text>
+    <path d="M1083 245v55H151v-55" stroke="#9aa3ad" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+    <path d="M151 300l-8-8m8 8 8-8" stroke="#9aa3ad" stroke-width="2" fill="none"/>
+  </g>
+</svg>
