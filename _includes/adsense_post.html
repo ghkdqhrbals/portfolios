@@ -1,0 +1,24 @@
+{%- if site.adsense.client and site.adsense.client != '' and site.adsense.post_slot and site.adsense.post_slot != '' -%}
+<style>
+  .post-ad {
+    width: 100%;
+    min-height: 90px;
+    margin: 2.5rem 0 1.5rem;
+    overflow: hidden;
+  }
+  @media (max-width: 600px) {
+    .post-ad { margin: 2rem 0 1rem; }
+  }
+</style>
+<aside class="post-ad" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="{{ site.adsense.client }}"
+       data-ad-slot="{{ site.adsense.post_slot }}"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</aside>
+{%- endif -%}

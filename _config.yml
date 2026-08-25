@@ -19,6 +19,13 @@ baseurl: "/portfolios" # the subpath of your site, e.g. /blog
 url: "https://ghkdqhrbals.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 cloudflare_site_url: "https://your-cloudflare-domain.pages.dev"
 
+# Google AdSense ownership code is included site-wide. Set post_slot to the
+# numeric ID of an in-article/display ad unit; the slot itself is rendered only
+# on individual posts. When post_slot is empty, no manual slot is shown.
+adsense:
+  client: "ca-pub-6088017773958522"
+  post_slot: ""
+
 permalink: pretty
 
 exclude:

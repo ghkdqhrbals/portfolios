@@ -69,6 +69,10 @@ layout: table_wrappers
           {% endif %}
         {% endif %}
 
+        {% if jekyll.environment == 'production' and site.baseurl == '' and page.path contains 'docs/' and page.ads != false and page.has_children != true %}
+          {% include adsense_post.html %}
+        {% endif %}
+
         {% if page.has_children == true and page.has_toc != false %}
           {% include components/children_nav.html toc_list=toc_list %}
         {% endif %}
