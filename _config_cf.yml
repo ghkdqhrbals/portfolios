@@ -14,3 +14,7 @@ plugins:
 
 ga_tracking: G-97D062Z6YJ
 ga_tracking_anonymize_ip: true
+
+adsense:
+  client: "ca-pub-6088017773958522"
+  post_slot: "7035619504"

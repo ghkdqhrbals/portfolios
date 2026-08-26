@@ -18,9 +18,11 @@
 
   {% if jekyll.environment == 'production' and site.baseurl == '' and site.adsense.client and site.adsense.client != '' %}
     <meta name="google-adsense-account" content="{{ site.adsense.client }}">
-    <script async
-            crossorigin="anonymous"
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense.client }}"></script>
+    {% if page.path contains 'docs/' and page.ads != false and page.has_children != true %}
+      <script async
+              crossorigin="anonymous"
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense.client }}"></script>
+    {% endif %}
   {% endif %}
 
   <meta charset="UTF-8">
