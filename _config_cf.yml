@@ -1,14 +1,16 @@
-title: 엔지니어링 로그
-description: Backend Engineering Blog
+title: MinStack
+description: Backend engineering notes by Gyumin Hwangbo
 baseurl: ""
-url: "https://your-cloudflare-domain.pages.dev"
-cloudflare_site_url: "https://your-cloudflare-domain.pages.dev"
+url: "https://minstack.pages.dev"
+cloudflare_site_url: "https://minstack.pages.dev"
+cloudflare_build: true
 permalink: pretty
+favicon_ico: "/assets/img/favicons/minstack.svg"
 
 plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
 
-ga_tracking: G-4TC5YMHY2R
+ga_tracking: G-97D062Z6YJ
 ga_tracking_anonymize_ip: true

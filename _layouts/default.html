@@ -32,7 +32,7 @@ layout: table_wrappers
   {% assign classes = classes | append: ' hide-header' %}
 {% endif %}
 
-<body class="{{ classes | strip }}">
+<body class="{{ classes | strip }}" data-page-path="{{ page.url }}">
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   {% include icons/icons.html %}
   {% unless page.hide_sidebar == true %}

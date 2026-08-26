@@ -58,9 +58,13 @@
   {% if favicon %}
     <link rel="icon" href="{{ site.favicon_ico | default: '/favicon.ico' | relative_url }}" type="image/x-icon">
   {% endif %}
+  {% if site.cloudflare_build %}
+    <link rel="icon" href="{{ '/assets/img/favicons/minstack.svg' | relative_url }}" type="image/svg+xml">
+  {% endif %}
 
   {% seo %}
 
   {% include head_custom.html %}
+  {% include minstack_theme.html %}
 
 </head>

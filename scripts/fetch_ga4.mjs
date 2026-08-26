@@ -56,10 +56,12 @@ async function main() {
 	// Hardcoded GA4 Property ID (numeric)
 	// NOTE: GA4 Measurement ID (G-XXXX) is different and cannot be used here.
 	let propertyId = process.env.GA4_PROPERTY_ID || '351902495';
+	const hostname = (process.env.GA4_HOSTNAME || '').trim();
 	let saRaw = process.env.GA4_SERVICE_ACCOUNT_JSON;
 	const saFile = (process.env.GA4_SERVICE_ACCOUNT_FILE || '').trim();
 	const outDir = (process.env.GA4_OUTPUT_DIR || '_data').trim();
 	const generatedAt = new Date().toISOString();
+	const reportDate = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 	let localConfigPathUsed = null;
 
 	// Local hardcode option (recommended to keep secrets out of git)
@@ -98,9 +100,11 @@ async function main() {
 		console.log(`[ga4] ${reason}; writing placeholder data.`);
 		await writeJson(path.join(outDir, 'ga4_summary.json'), {
 			generatedAt,
+			reportDate,
 			enabled: false,
 			reason,
 			propertyId,
+			hostname,
 			totalSince2022: {
 				activeUsers: 0,
 				totalUsers: 0,
@@ -125,9 +129,11 @@ async function main() {
 		});
 		await writeJson(path.join(outDir, 'ga4_active_users_30d.json'), {
 			generatedAt,
+			reportDate,
 			enabled: false,
 			reason,
 			propertyId,
+			hostname,
 			window: 'last30days',
 			series: [],
 		});
@@ -154,9 +160,11 @@ async function main() {
 		console.error(`[ga4] ${reason}; writing placeholder data.`);
 		await writeJson(path.join(outDir, 'ga4_summary.json'), {
 			generatedAt,
+			reportDate,
 			enabled: false,
 			reason,
 			propertyId,
+			hostname,
 			window: 'last30days',
 			metrics: {
 				activeUsers: 0,
@@ -168,9 +176,11 @@ async function main() {
 		});
 		await writeJson(path.join(outDir, 'ga4_active_users_30d.json'), {
 			generatedAt,
+			reportDate,
 			enabled: false,
 			reason,
 			propertyId,
+			hostname,
 			window: 'last30days',
 			series: [],
 		});
@@ -181,9 +191,23 @@ async function main() {
 	let summary30d;
 	let summaryYesterday;
 	let series;
+	const hostnameFilter = hostname
+		? {
+			filter: {
+				fieldName: 'hostName',
+				stringFilter: {
+					matchType: 'EXACT',
+					value: hostname,
+					caseSensitive: false,
+				},
+			},
+		}
+		: null;
+	const filteredReport = hostnameFilter ? { dimensionFilter: hostnameFilter } : {};
 	try {
 		[summarySince2022] = await client.runReport({
 			property,
+			...filteredReport,
 			dateRanges: [{ startDate: '2022-01-01', endDate: 'yesterday' }],
 			metrics: [
 				{ name: 'activeUsers' },
@@ -196,6 +220,7 @@ async function main() {
 
 		[summary30d] = await client.runReport({
 			property,
+			...filteredReport,
 			dateRanges: [{ startDate: '30daysAgo', endDate: 'yesterday' }],
 			metrics: [
 				{ name: 'activeUsers' },
@@ -208,6 +233,7 @@ async function main() {
 
 		[summaryYesterday] = await client.runReport({
 			property,
+			...filteredReport,
 			dateRanges: [{ startDate: 'yesterday', endDate: 'yesterday' }],
 			metrics: [
 				{ name: 'activeUsers' },
@@ -220,6 +246,7 @@ async function main() {
 
 		[series] = await client.runReport({
 			property,
+			...filteredReport,
 			dateRanges: [{ startDate: '30daysAgo', endDate: 'yesterday' }],
 			dimensions: [{ name: 'date' }],
 			metrics: [{ name: 'activeUsers' }],
@@ -230,9 +257,11 @@ async function main() {
 		console.error(`[ga4] ${reason}; writing placeholder data.`);
 		await writeJson(path.join(outDir, 'ga4_summary.json'), {
 			generatedAt,
+			reportDate,
 			enabled: false,
 			reason,
 			propertyId,
+			hostname,
 			totalSince2022: {
 				activeUsers: 0,
 				totalUsers: 0,
@@ -257,9 +286,11 @@ async function main() {
 		});
 		await writeJson(path.join(outDir, 'ga4_active_users_30d.json'), {
 			generatedAt,
+			reportDate,
 			enabled: false,
 			reason,
 			propertyId,
+			hostname,
 			window: 'last30days',
 			series: [],
 		});
@@ -280,7 +311,10 @@ async function main() {
 
 	const summaryJson = {
 		generatedAt,
+		reportDate,
+		enabled: true,
 		propertyId,
+		hostname,
 		totalSince2022: {
 			activeUsers: activeUsersSince2022,
 			totalUsers: totalUsersSince2022,
@@ -312,7 +346,10 @@ async function main() {
 	await writeJson(path.join(outDir, 'ga4_summary.json'), summaryJson);
 	await writeJson(path.join(outDir, 'ga4_active_users_30d.json'), {
 		generatedAt,
+		reportDate,
+		enabled: true,
 		propertyId,
+		hostname,
 		window: 'last30days',
 		series: timeseries,
 	});
