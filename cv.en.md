@@ -7,16 +7,16 @@ permalink: /cv/en/
 nav_visible: false
 ---
 
-Hello, I'm Gyumin Hwangbo, a backend engineer who designs and automates highly available systems with Spring Boot and Kotlin.
+Hello, I'm Gyumin Hwangbo, a backend engineer who has handled up to 4,000 RPS across Kyochon's order, payment, and membership services and has designed, operated, and automated highly available systems with Spring Boot and Kotlin.
 
-I have worked on projects such as building CDC pipelines that handle thousands of events per second, improving large-scale batch jobs by 95.4%, building per-brand CI/CD pipelines, and designing messaging systems with Redis Streams. My focus is operational automation and maximizing system efficiency.
+More recently, I have been using Codex for code analysis, system design, implementation, refactoring, testing, and documentation, expanding an AI agent-based workflow. I have also built CDC pipelines, improved large-scale batch performance by 95.4%, created per-brand CI/CD pipelines, and designed Redis Streams-based messaging systems to improve operational automation and system efficiency.
 
 With the mindset that "every repetitive task should eventually be automated," I design systems that reduce human intervention in deployment, monitoring, and data synchronization, and that can detect or recover from failures on their own.
 
 ## EXPERIENCE
 * Backend Engineer ([**FOODDASH**](https://fooddash.co.kr/)) 2024.04.15 ~ 2025.11.30
 
-  * Developed and operated order, payment, and membership backend services for multi-franchise F&B brands, including Kyochon with 770k MAU, while supporting zero-downtime deployments.
+  * Developed and operated order, payment, and membership backends serving 6M+ members across multiple franchise brands, including Kyochon with 770k MAU, while handling peak Kyochon traffic of up to 4,000 RPS and supporting zero-downtime deployments.
   * Migrated Jadam service data from Wmpo and stabilized operational issues after the service transition.
   * Analyzed bottlenecks in the membership grade renewal batch for 1M+ users and reduced processing time from 19m13s to 53s ([**95.4% improvement**](https://ghkdqhrbals.github.io/portfolios/docs/Java/20/)).
   * Separated brand-specific features from shared modules and built an [**integrated CI/CD pipeline**](https://ghkdqhrbals.github.io/portfolios/docs/Java/25/) with change-based staging deployments, manual production triggers, rollout tracking, and Slack notifications.
