@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    # 매일 14:30 UTC (KST 23:30)
-    - cron: '30 14 * * *'
   workflow_dispatch:
     inputs:
       apply_comments_migrations:
@@ -20,7 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      issues: write
 
     steps:
       - name: Checkout
@@ -71,55 +67,6 @@ jobs:
         run: |
           sed "s#https://your-cloudflare-domain.pages.dev#${CF_SITE_ORIGIN}#g" _config.yml > _config.runtime.yml
           sed "s#https://your-cloudflare-domain.pages.dev#${CF_SITE_ORIGIN}#g" _config_cf.yml > _config_cf.runtime.yml
-
-      - name: Fetch GA4 stats (latest)
-        run: |
-          npm install --no-save @google-analytics/data
-          node scripts/fetch_ga4.mjs
-        env:
-          GA4_PROPERTY_ID: '550723670'
-          GA4_HOSTNAME: minstack.pages.dev
-          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
-
-      - name: Check daily visitor threshold
-        id: ga4_alert
-        run: node scripts/ga4_daily_alert.mjs
-        env:
-          GA4_ALERT_THRESHOLD: '2'
-
-      - name: Notify daily visitor threshold
-        if: github.event_name == 'schedule' && steps.ga4_alert.outputs.notify == 'true'
-        uses: actions/github-script@v7
-        env:
-          REPORT_DATE: ${{ steps.ga4_alert.outputs.date }}
-          ACTIVE_USERS: ${{ steps.ga4_alert.outputs.active_users }}
-          SESSIONS: ${{ steps.ga4_alert.outputs.sessions }}
-          PAGE_VIEWS: ${{ steps.ga4_alert.outputs.page_views }}
-        with:
-          script: |
-            const title = `[MinStack] ${process.env.REPORT_DATE} 활성 사용자 ${process.env.ACTIVE_USERS}명`;
-            const { data: issues } = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'all',
-              per_page: 100,
-            });
-            if (!issues.some((issue) => !issue.pull_request && issue.title === title)) {
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title,
-                assignees: [context.repo.owner],
-                body: [
-                  `전날 활성 사용자가 설정한 기준 2명을 초과했습니다.`,
-                  ``,
-                  `- 활성 사용자: ${process.env.ACTIVE_USERS}명`,
-                  `- 세션: ${process.env.SESSIONS}회`,
-                  `- 페이지뷰: ${process.env.PAGE_VIEWS}회`,
-                  `- GA4 Property: 550723670`,
-                ].join('\n'),
-              });
-            }
 
       - name: Build for Cloudflare Pages
         run: bundle exec jekyll build --config _config.runtime.yml,_config_cf.runtime.yml

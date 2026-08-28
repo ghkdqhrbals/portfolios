@@ -14,7 +14,6 @@ as **Java/Kotlin Backend Developer**
 - `CLOUDFLARE_ACCOUNT_ID`
 - `COMMENTS_D1_DB_ID` (필수; D1 마이그레이션/바인딩용)
 - `CF_SITE_ORIGIN` (필수; Cloudflare 배포 및 GitHub → Cloudflare 리디렉트 대상 URL)
-- `GA4_PROPERTY_ID`, `GA4_SERVICE_ACCOUNT_JSON` (선택)
 - `SLACK_WEBHOOK_URL` (선택, 신고 알림용)
 - `COMMENT_ADMIN_PASSWORD` (선택, 관리자 삭제 전용)
 
