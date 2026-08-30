@@ -11,7 +11,7 @@ Hello, I'm Gyumin Hwangbo, a backend engineer who has handled up to 4,000 RPS ac
 
 More recently, I have been using Codex for code analysis, system design, implementation, refactoring, testing, and documentation, expanding an AI agent-based workflow. I have also built CDC pipelines, improved large-scale batch performance by 95.4%, created per-brand CI/CD pipelines, and designed Redis Streams-based messaging systems to improve operational automation and system efficiency.
 
-With the mindset that "every repetitive task should eventually be automated," I design systems that reduce human intervention in deployment, monitoring, and data synchronization, and that can detect or recover from failures on their own.
+I have investigated the causes of performance bottlenecks and missed notifications in production and improved systems to prevent those problems from recurring.
 
 ## EXPERIENCE
 * Backend Engineer ([**FOODDASH**](https://fooddash.co.kr/)) 2024.04.15 ~ 2025.11.30
