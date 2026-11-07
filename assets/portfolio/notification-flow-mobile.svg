@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="580" viewBox="0 0 380 580" role="img" aria-labelledby="title desc">
+  <title id="title">주문 응답과 외부 알림을 분리한 흐름</title>
+  <desc id="desc">기존에는 주문 처리, 외부 전송 대기, 주문 응답 순서였습니다. 개선 후에는 주문 처리, Redis Streams 이벤트 적재, 주문 응답 순서로 진행합니다. Consumer Group이 외부 알림을 비동기로 전송합니다. 미처리 메시지는 PEL에서 회수해 재전송하고 재시도 한도 초과 시 DLQ에 격리합니다.</desc>
+  <defs>
+    <marker id="gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="m1 1 6 3-6 3" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-linejoin="round"/></marker>
+    <marker id="blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="m1 1 6 3-6 3" fill="none" stroke="#2563eb" stroke-width="1.6" stroke-linejoin="round"/></marker>
+  </defs>
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:18px;fill:#334155;text-anchor:middle}.label{font-size:20px;font-weight:700}.blue{fill:#2563eb}.muted{fill:#64748b}.small{font-size:17px}.node{fill:#f8fafc;stroke:#cbd5e1;stroke-width:1.5}.active{fill:#eff6ff;stroke:#93c5fd;stroke-width:1.5}.gray-line{fill:none;stroke:#94a3b8;stroke-width:2;marker-end:url(#gray)}.blue-line{fill:none;stroke:#2563eb;stroke-width:2;marker-end:url(#blue)}
+  </style>
+  <rect width="380" height="580" fill="#fff"/>
+  <text x="87" y="31" class="label muted">기존</text>
+  <text x="292" y="31" class="label blue">개선</text>
+  <rect class="node" x="12" y="50" width="150" height="50" rx="4"/>
+  <text x="87" y="82">주문 처리</text>
+  <path class="gray-line" d="M87 100V125"/>
+  <rect class="node" x="12" y="136" width="150" height="60" rx="4"/>
+  <text x="87" y="172">외부 전송 대기</text>
+  <path class="gray-line" d="M87 196V224"/>
+  <rect class="node" x="12" y="235" width="150" height="50" rx="4"/>
+  <text x="87" y="267">주문 응답</text>
+  <rect class="active" x="216" y="50" width="152" height="50" rx="4"/>
+  <text x="292" y="82">주문 처리</text>
+  <path class="blue-line" d="M292 100V125"/>
+  <rect class="active" x="216" y="136" width="152" height="60" rx="4"/>
+  <text x="292" y="161" class="blue">이벤트 적재</text>
+  <text x="292" y="184" class="small muted">Redis Streams</text>
+  <path class="blue-line" d="M292 196V224"/>
+  <rect class="active" x="216" y="235" width="152" height="50" rx="4"/>
+  <text x="292" y="267" class="blue">주문 응답</text>
+  <path class="blue-line" d="M216 166H190V327"/>
+  <text x="275" y="320" class="muted">비동기 전송</text>
+  <rect class="active" x="80" y="338" width="220" height="48" rx="4"/>
+  <text x="190" y="368">Consumer Group</text>
+  <path class="blue-line" d="M190 386V404"/>
+  <rect class="node" x="80" y="415" width="220" height="48" rx="4"/>
+  <text x="190" y="445">PUSH / SMS / 알림톡</text>
+  <path class="gray-line" d="M80 362H32V498H179"/>
+  <text x="114" y="491" class="small muted">미처리 메시지</text>
+  <rect class="active" x="190" y="475" width="178" height="46" rx="4"/>
+  <text x="279" y="503" class="small">PEL 회수 후 재전송</text>
+  <path class="gray-line" d="M279 521V537"/>
+  <text x="118" y="563" class="small muted">재시도 한도 초과</text>
+  <rect class="node" x="190" y="548" width="178" height="30" rx="4"/>
+  <text x="279" y="569" class="small">DLQ 격리</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="270" viewBox="0 0 900 270" role="img" aria-labelledby="title desc">
+  <title id="title">100만 회원 등급 갱신 배치 처리 시간 비교</title>
+  <desc id="desc">기존 19분 13초, 개선 후 53초로 처리 시간을 95.4% 단축했습니다. 막대 길이는 1,153초와 53초의 비율을 나타냅니다.</desc>
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;fill:#334155;font-size:24px}
+    .strong{font-weight:700}.muted{fill:#64748b}.blue{fill:#2563eb}
+  </style>
+  <rect width="900" height="270" fill="#fff"/>
+  <text x="28" y="39" class="strong">100만 회원 등급 갱신</text>
+  <text x="872" y="39" text-anchor="end" class="strong blue">처리 시간 95.4% 단축</text>
+  <text x="28" y="106" class="muted">기존</text>
+  <rect x="130" y="74" width="570" height="46" rx="3" fill="#cbd5e1"/>
+  <text x="720" y="106" class="strong">19분 13초</text>
+  <text x="28" y="186" class="blue">개선</text>
+  <rect x="130" y="154" width="26.2012142238" height="46" rx="3" fill="#2563eb"/>
+  <text x="176" y="186" class="strong blue">53초</text>
+  <line x1="130" y1="217" x2="700" y2="217" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="130" y="250" class="muted" style="font-size:22px">1,153초 → 53초</text>
+  <text x="872" y="250" text-anchor="end" class="muted" style="font-size:22px">동일한 100만 회원 대상 전체 실행 시간</text>
+</svg>
